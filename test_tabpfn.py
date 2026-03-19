@@ -1,6 +1,7 @@
 import sys
 import os
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 from sklearn.model_selection import train_test_split
@@ -12,37 +13,78 @@ from src.tabpfn import (
 	get_tabpfn_embeddings,
 	setup_figure, create_savefig_partial
 )
+from src.embedding_cox import EmbeddingCoxPH
 
 def main():
     # 1. Load and clean the data
     data = load_and_merge_data("Dataset Sirbu")
     df_main = clean_and_impute(data)
-    
-    # 2. Extract specific features and targets (e.g. Mortality data)
-    df_mortality = prepare_cox_data(df_main)
-    
-    X = df_mortality.drop(columns=["Follow Up Data", "Total mortality"])
-    y = df_mortality["Total mortality"]
-    
+
     # 3. Split into Train & Test sets
-    X_train, X_test, y_train, y_test = train_test_split(
-        X.values, y.values, test_size=0.2, random_state=42
-    )
+    #X_train, X_test, y_train, y_test = train_test_split(
+    #    X.values, y.values, test_size=0.2, random_state=42
+    #)
+
+    # 2. Extract specific features and targets (e.g. Mortality data)
+    # And split into Train, Eval and Test sets
+    df_mortality_train, df_mortality_eval, df_mortality_test = prepare_cox_data(df_main)
     
+    X_train = df_mortality_train.drop(columns=["Follow Up Data", "Total mortality"])
+    y_train = df_mortality_train["Total mortality"]
+    t_train = df_mortality_train["Follow Up Data"].values.astype(np.float32)
+    
+    X_test = df_mortality_test.drop(columns=["Follow Up Data", "Total mortality"])
+    y_test = df_mortality_test["Total mortality"]
+    t_test = df_mortality_test["Follow Up Data"].values.astype(np.float32)
+
     print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
     
     # 4. Generate the embeddings!
     print("Generating TabPFN Embeddings...")
-    embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test)
-    print(f"Successfully generated embeddings with shape: {embeddings.shape}")
+    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train[0:200], y_train[0:200], X_test[0:200], y_test[0:200])
+    print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
 
+    cox = EmbeddingCoxPH(
+        embedding_dim=train_embeddings.shape[1],
+        num_nodes=[128, 64],
+        dropout=0.1,
+        learning_rate=1e-3,
+    )
+
+    cox.fit(
+        train_embeddings,
+        durations=t_train[0:200],
+        events=y_train.values[0:200],
+        epochs=200,
+        batch_size=128,
+    )
+
+    cox.compute_baseline()#train_embeddings, t_train[0:30], y_train.values[0:30])
+
+    # ── Predizione ──────────────────────────────────────────────────────────────
+    survival_df = cox.predict_survival(test_embeddings)
+    
+    print("Predicted survival probabilities for test set:")
+    print(survival_df)
+
+    # Controlla che la loss scenda durante il training
+    print(cox.log.plot())
+
+    # Controlla che la baseline hazard non sia tutta zero
+    print(cox.model.baseline_hazards_)
+
+    # Controlla la distribuzione delle predizioni grezze (logit)
+    logits = cox.model.predict(test_embeddings)
+    print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
+    # Se std ≈ 0 → il modello non ha imparato nulla (lr troppo alta/bassa)
+    
     # 5. Visualize embeddings via t-SNE
-    if embeddings.ndim == 3:
-        embeddings = embeddings[0]
+    if train_embeddings.ndim == 3:
+        train_embeddings = train_embeddings[0]
 
-    print(f"Running t-SNE on {embeddings.shape} points...")
+    print(f"Running t-SNE on {train_embeddings.shape} points...")
     tsne = TSNE(n_components=2, random_state=42, init='pca', learning_rate='auto')
-    X_2d = tsne.fit_transform(embeddings)
+    X_2d = tsne.fit_transform(train_embeddings)
 
     plt.rcParams['font.family'] = 'serif'
     plt.rcParams['font.size'] = 12
@@ -55,7 +97,7 @@ def main():
     
     unique_classes = np.unique(y_test)
     for i, cls in enumerate(unique_classes):
-        mask = (y.values == cls)
+        mask = (y_train[0:200].values == cls)
         ax.scatter(
             X_2d[mask, 0], 
             X_2d[mask, 1], 

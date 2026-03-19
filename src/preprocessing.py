@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 def clean_and_impute(df_main):
     # Fix outlier as done in notebook
@@ -47,30 +48,73 @@ def clean_and_impute(df_main):
 
 def prepare_cox_data(df_main):
     """Prepares data for Cox mortality model."""
+
+    df_main['time'] = pd.qcut(df_main['Follow Up Data'], q=4, labels=False, duplicates='drop')
+
+    # 2. Crea la variabile di stratificazione combinata
+    #    Es: evento=1, bin=2 → stratum "1_2"
+    df_main['stratum'] = df_main['Total mortality'].astype(str) + '_' + df_main['time'].astype(str)
+
+    df_mortality_train, df_tmp = train_test_split(
+        df_main, test_size=0.2, random_state=42,
+        stratify=df_main["stratum"]
+    )
+
+    df_mortality_eval, df_mortality_test = train_test_split(
+        df_tmp, test_size=0.5, random_state=42,
+        stratify=df_tmp["stratum"]
+    )
+
+    for split in [df_mortality_train, df_mortality_eval, df_mortality_test]:
+        split.drop(columns=['time', 'stratum'], inplace=True)
+
+
     binary_cols = [
-        col for col in df_main.columns
+        col for col in df_mortality_train.columns
         if set(df_main[col].dropna().unique()).issubset({0,1})
     ]
 
-    df_mortality = df_main.copy()
+    #df_mortality = df_main.copy()
     cols_to_keep = binary_cols + ["Follow Up Data", "Data of death", "Data prelievo"]
     
-    tmp = df_mortality[cols_to_keep].copy()
-    df_mortality = df_mortality.drop(columns=cols_to_keep)
+    tmp_train = df_mortality_train[cols_to_keep].copy()
+    tmp_test = df_mortality_test[cols_to_keep].copy()
+    tmp_eval = df_mortality_eval[cols_to_keep].copy()
+    
+    df_mortality_train = df_mortality_train.drop(columns=cols_to_keep)
+    df_mortality_test = df_mortality_test.drop(columns=cols_to_keep)
+    df_mortality_eval = df_mortality_eval.drop(columns=cols_to_keep)
 
     from sklearn.preprocessing import StandardScaler
     scaler = StandardScaler()
-    scaled_array = scaler.fit_transform(df_mortality)
-    
-    df_mortality = pd.DataFrame(scaled_array, columns=df_mortality.columns, index=df_mortality.index)
-    df_mortality = pd.concat([df_mortality, tmp], axis=1)
+    scaled_array_train = scaler.fit_transform(df_mortality_train)
 
-    df_mortality = df_mortality.drop(columns=[
-        "Data of death", "Fatal MI or Sudden death", "UnKnown", 
-        "Accident", "Suicide", "Number", "CVD Death", "Data prelievo"
-    ])
+    scaled_array_test = scaler.transform(df_mortality_test)
+    scaled_array_eval = scaler.transform(df_mortality_eval)
     
-    return df_mortality
+    df_mortality_train = pd.DataFrame(scaled_array_train, columns=df_mortality_train.columns, index=df_mortality_train.index)
+    df_mortality_test = pd.DataFrame(scaled_array_test, columns=df_mortality_test.columns, index=df_mortality_test.index)
+    df_mortality_eval = pd.DataFrame(scaled_array_eval, columns=df_mortality_eval.columns, index=df_mortality_eval.index)
+
+    df_mortality_train = pd.concat([df_mortality_train, tmp_train], axis=1)
+    df_mortality_test = pd.concat([df_mortality_test, tmp_test], axis=1)
+    df_mortality_eval = pd.concat([df_mortality_eval, tmp_eval], axis=1)
+
+    columns_to_drop = [
+        "Data of death",
+        "Fatal MI or Sudden death",  
+        "UnKnown", 
+        "Accident",
+        "Suicide",
+        "Number",
+        "CVD Death",
+        "Data prelievo"]
+
+    df_mortality_train = df_mortality_train.drop(columns=columns_to_drop)
+    df_mortality_test = df_mortality_test.drop(columns=columns_to_drop)
+    df_mortality_eval = df_mortality_eval.drop(columns=columns_to_drop)
+    
+    return df_mortality_train, df_mortality_eval, df_mortality_test
 
 def prepare_cardiovascular_data(df_main):
     """Prepares data for cardiovascular competing risks."""
