@@ -39,7 +39,7 @@ def main():
     
     # 4. Generate the embeddings!
     print("Generating TabPFN Embeddings...")
-    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train[0:20], y_train[0:20], X_test[0:20], y_test[0:20])
+    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test)
     print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
 
     cox = EmbeddingCoxPH(
@@ -51,20 +51,19 @@ def main():
 
     cox.fit(
         train_embeddings,
-        durations=t_train[0:20],
-        events=y_train.values[0:20],
+        durations=t_train,
+        events=y_train.values,
         epochs=200,
         batch_size=128,
     )
 
     cox.compute_baseline()
 
-    c_train = cox.concordance_index(train_embeddings, t_train[0:20], y_train.values[0:20])
-    c_test  = cox.concordance_index(test_embeddings, t_test[0:20], y_test.values[0:20])
+    c_train = cox.concordance_index(train_embeddings, t_train, y_train.values)
+    c_test  = cox.concordance_index(test_embeddings, t_test, y_test.values)
 
     print(f"C-index train: {c_train:.4f}")
     print(f"C-index test:  {c_test:.4f}")
-
 
     # ── Predict ──────────────────────────────────────────────────────────────
     survival_df = cox.predict_survival(test_embeddings)
@@ -98,7 +97,7 @@ def main():
     
     unique_classes = np.unique(y_test)
     for i, cls in enumerate(unique_classes):
-        mask = (y_train[0:200].values == cls)
+        mask = (y_train.values == cls)
         ax.scatter(
             X_2d[mask, 0], 
             X_2d[mask, 1], 
@@ -145,4 +144,4 @@ def main2():
 
 
 if __name__ == "__main__":
-    main2()
+    main()
