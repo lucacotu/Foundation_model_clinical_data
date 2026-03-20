@@ -44,3 +44,11 @@ def load_and_merge_data(data_dir="Dataset Sirbu"):
     )
 
     return df_main
+
+def load_dataset(data_dir="Dataset Sirbu"):
+    data_dir = Path(data_dir)
+    
+    # Read Excel files
+    df_main = pd.read_excel(data_dir / "URRAH_TG_conLegenda.xlsx", sheet_name="Urrah_virdis")
+    print(f"Loaded main dataset with shape: {df_main.shape}")
+    return df_main

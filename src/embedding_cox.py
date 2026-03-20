@@ -79,7 +79,7 @@ class EmbeddingCoxPH:
             out_features=out_features,
             batch_norm=batch_norm,
             dropout=dropout,
-            output_activation=None,  # CoxPH vuole logit grezzi
+            output_activation=None,  
         )
 
         self.model = CoxPH(net, tt.optim.Adam(lr=learning_rate))
@@ -151,7 +151,7 @@ class EmbeddingCoxPH:
         embeddings: np.ndarray,
         durations: np.ndarray,
         events: np.ndarray,
-        method: str = "antolini",  # oppure "adj_antolini"
+        method: str = "antolini",
     ) -> float:
         """
         Calcola il concordance index sul set fornito.

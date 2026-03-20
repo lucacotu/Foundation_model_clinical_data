@@ -233,3 +233,9 @@ def prepare_stroke_data(df_main):
     ])
 
     return df_stroke
+
+
+def preprocess_data(df):
+    # Example preprocessing steps
+    df.drop(columns=["LVH","VES"], inplace=True)
+    return df

@@ -7,8 +7,8 @@ from sklearn.manifold import TSNE
 from sklearn.model_selection import train_test_split
 
 
-from src.data_loader import load_and_merge_data
-from src.preprocessing import clean_and_impute, prepare_cox_data
+from src.data_loader import load_and_merge_data,load_dataset
+from src.preprocessing import clean_and_impute, prepare_cox_data, preprocess_data
 from src.tabpfn import (
 	get_tabpfn_embeddings,
 	setup_figure, create_savefig_partial
@@ -66,22 +66,18 @@ def main():
     print(f"C-index test:  {c_test:.4f}")
 
 
-    # ── Predizione ──────────────────────────────────────────────────────────────
+    # ── Predict ──────────────────────────────────────────────────────────────
     survival_df = cox.predict_survival(test_embeddings)
     
     print("Predicted survival probabilities for test set:")
     print(survival_df)
 
-    # Controlla che la loss scenda durante il training
-    print(cox.log.plot())
-
-    # Controlla che la baseline hazard non sia tutta zero
     print("Baseline Hazard: ",cox.model.baseline_hazards_)
 
-    # Controlla la distribuzione delle predizioni grezze (logit)
+    # Check the distribution of the predicted logits (risk scores)
     logits = cox.model.predict(test_embeddings)
     print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
-    # Se std ≈ 0 → il modello non ha imparato nulla (lr troppo alta/bassa)
+    # If std ≈ 0 → the model has not learned anything (lr too high/low, not enough epochs, etc.)
     
     # 5. Visualize embeddings via t-SNE
     if train_embeddings.ndim == 3:
@@ -142,5 +138,11 @@ def main():
     plt.close(fig)
     print(f"Visualization saved to {os.path.join(out_dir, save_name_base)}.pdf")
 
+def main2():
+    df = load_dataset("Dataset Sirbu")
+    print(df.head())
+    df = preprocess_data(df)
+
+
 if __name__ == "__main__":
-    main()
+    main2()
