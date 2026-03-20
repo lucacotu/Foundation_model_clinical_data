@@ -5,10 +5,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 from sklearn.model_selection import train_test_split
+import torch
 
 
 from src.data_loader import load_and_merge_data,load_dataset
-from src.preprocessing import clean_and_impute, prepare_cox_data, preprocess_data
+from src.preprocessing import clean_and_impute, prepare_cox_data, prepare_data, preprocess_data
 from src.tabpfn import (
 	get_tabpfn_embeddings,
 	setup_figure, create_savefig_partial
@@ -16,17 +17,38 @@ from src.tabpfn import (
 from src.embedding_cox import EmbeddingCoxPH
 
 def main():
+    #SEED = 41
+    #np.random.seed(SEED)
+    #torch.manual_seed(SEED)
+    #if torch.cuda.is_available():
+    #    torch.cuda.manual_seed_all(SEED)
+
     # 1. Load and clean the data
     data = load_and_merge_data("Dataset Sirbu")
     df_main = clean_and_impute(data)
+    
+    df = load_dataset("Dataset Sirbu")
+    df["FU"] = np.floor(df["FU"]).astype(float)
+    cols_to_drop = ["FU_NF_IMA", "FU_F_IMA", "FU_NF_CBV", "FU_F_CBV", "FU_NF_HF", "FU_F_HF"]
+    df = df.drop(columns=cols_to_drop)
+    df = df.dropna(subset=["FU", "STATO_AL_FU"])
 
     #print("Df_main shape:", df_main.shape)
     #print("Df_main after dropping NaNs:", df_main.dropna().shape)
 
     # 2. Extract specific features and targets (e.g. Mortality data)
     # And split into Train, Eval and Test sets
+    #df_mortality_train, df_mortality_eval, df_mortality_test = prepare_data(df)
     df_mortality_train, df_mortality_eval, df_mortality_test = prepare_cox_data(df_main)
     
+    #X_train = df_mortality_train.drop(columns=["FU", "STATO_AL_FU"])
+    #y_train = df_mortality_train["STATO_AL_FU"]
+    #t_train = df_mortality_train["FU"].values.astype(np.float32)
+    
+    #X_test = df_mortality_test.drop(columns=["FU", "STATO_AL_FU"])
+    #y_test = df_mortality_test["STATO_AL_FU"]
+    #t_test = df_mortality_test["FU"].values.astype(np.float32)
+
     X_train = df_mortality_train.drop(columns=["Follow Up Data", "Total mortality"])
     y_train = df_mortality_train["Total mortality"]
     t_train = df_mortality_train["Follow Up Data"].values.astype(np.float32)
@@ -66,16 +88,16 @@ def main():
     print(f"C-index test:  {c_test:.4f}")
 
     # ── Predict ──────────────────────────────────────────────────────────────
-    survival_df = cox.predict_survival(test_embeddings)
+    #survival_df = cox.predict_survival(test_embeddings)
     
-    print("Predicted survival probabilities for test set:")
-    print(survival_df)
+    #print("Predicted survival probabilities for test set:")
+    #print(survival_df)
 
-    print("Baseline Hazard: ",cox.model.baseline_hazards_)
+    #print("Baseline Hazard: ",cox.model.baseline_hazards_)
 
     # Check the distribution of the predicted logits (risk scores)
-    logits = cox.model.predict(test_embeddings)
-    print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
+    #logits = cox.model.predict(test_embeddings)
+    #print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
     # If std ≈ 0 → the model has not learned anything (lr too high/low, not enough epochs, etc.)
     
     # 5. Visualize embeddings via t-SNE
