@@ -20,10 +20,8 @@ def main():
     data = load_and_merge_data("Dataset Sirbu")
     df_main = clean_and_impute(data)
 
-    # 3. Split into Train & Test sets
-    #X_train, X_test, y_train, y_test = train_test_split(
-    #    X.values, y.values, test_size=0.2, random_state=42
-    #)
+    #print("Df_main shape:", df_main.shape)
+    #print("Df_main after dropping NaNs:", df_main.dropna().shape)
 
     # 2. Extract specific features and targets (e.g. Mortality data)
     # And split into Train, Eval and Test sets
@@ -41,7 +39,7 @@ def main():
     
     # 4. Generate the embeddings!
     print("Generating TabPFN Embeddings...")
-    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train[0:200], y_train[0:200], X_test[0:200], y_test[0:200])
+    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train[0:20], y_train[0:20], X_test[0:20], y_test[0:20])
     print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
 
     cox = EmbeddingCoxPH(
@@ -53,13 +51,20 @@ def main():
 
     cox.fit(
         train_embeddings,
-        durations=t_train[0:200],
-        events=y_train.values[0:200],
+        durations=t_train[0:20],
+        events=y_train.values[0:20],
         epochs=200,
         batch_size=128,
     )
 
-    cox.compute_baseline()#train_embeddings, t_train[0:30], y_train.values[0:30])
+    cox.compute_baseline()
+
+    c_train = cox.concordance_index(train_embeddings, t_train[0:20], y_train.values[0:20])
+    c_test  = cox.concordance_index(test_embeddings, t_test[0:20], y_test.values[0:20])
+
+    print(f"C-index train: {c_train:.4f}")
+    print(f"C-index test:  {c_test:.4f}")
+
 
     # ── Predizione ──────────────────────────────────────────────────────────────
     survival_df = cox.predict_survival(test_embeddings)
@@ -71,7 +76,7 @@ def main():
     print(cox.log.plot())
 
     # Controlla che la baseline hazard non sia tutta zero
-    print(cox.model.baseline_hazards_)
+    print("Baseline Hazard: ",cox.model.baseline_hazards_)
 
     # Controlla la distribuzione delle predizioni grezze (logit)
     logits = cox.model.predict(test_embeddings)

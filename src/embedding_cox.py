@@ -4,6 +4,8 @@ import numpy as np
 from torchtuples import practical
 import torchtuples as tt
 from pycox.models import CoxPH
+import pandas as pd
+from pycox.evaluation import EvalSurv
 
 class MLPVanilla(nn.Module):
     def __init__(
@@ -45,10 +47,17 @@ class MLPVanilla(nn.Module):
         self._init_weights()
 
     def _init_weights(self):
-        for m in self.net:
-            if isinstance(m, nn.Linear):
+        layers = list(self.net.children())
+        output_layer = layers[-1] if not isinstance(layers[-1], nn.Module.__class__) else None
+
+        for i, m in enumerate(self.net):
+            if isinstance(m, nn.Linear) and m is not list(self.net.children())[-1]:
                 nn.init.kaiming_normal_(m.weight, nonlinearity='relu')
                 nn.init.zeros_(m.bias)
+        #for m in self.net:
+        #    if isinstance(m, nn.Linear):
+        #        nn.init.kaiming_normal_(m.weight, nonlinearity='relu')
+        #        nn.init.zeros_(m.bias)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         return self.net(x)
@@ -91,7 +100,7 @@ class EmbeddingCoxPH:
         verbose: bool = True,
     ):
         x = embeddings.astype(np.float32)
-        y = (durations.astype(np.float32), events.astype(np.float32))
+        y = (durations.astype(np.float32), events.astype(np.int32))
 
         self._x_train = x
         self._y_train = y
@@ -135,3 +144,42 @@ class EmbeddingCoxPH:
 
         x = embeddings.astype(np.float32)
         return self.model.predict_surv_df(x)
+    
+
+    def concordance_index(
+        self,
+        embeddings: np.ndarray,
+        durations: np.ndarray,
+        events: np.ndarray,
+        method: str = "antolini",  # oppure "adj_antolini"
+    ) -> float:
+        """
+        Calcola il concordance index sul set fornito.
+
+        Parameters
+        ----------
+        embeddings : np.ndarray
+            Feature matrix (n_samples, embedding_dim)
+        durations : np.ndarray
+            Tempi di osservazione
+        events : np.ndarray
+            Event indicator (1 = evento, 0 = censurato)
+        method : str
+            'antolini' per il C-index time-dependent (default),
+            oppure altri metodi supportati da EvalSurv.
+
+        Returns
+        -------
+        float
+            Concordance index in [0, 1]. 0.5 = random, 1.0 = perfetto.
+        """
+        surv_df = self.predict_survival(embeddings)
+
+        ev = EvalSurv(
+            surv=surv_df,
+            durations=durations,
+            events=events,
+            censor_surv="km",
+        )
+
+        return ev.concordance_td(method=method)

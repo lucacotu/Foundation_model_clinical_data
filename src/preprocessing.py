@@ -38,10 +38,13 @@ def clean_and_impute(df_main):
         df_main[t] = df_main[t].fillna(0)
     
     # Drop irrelevant
-    df_main = df_main.drop(columns=["Collected by", "Cause of death","CardiopatiaCongenita"])
+    df_main = df_main.drop(columns=["CardiopatiaCongenita"])#,"Collected by", "Cause of death",])
     
     # Drop all NaNs
-    df_main = df_main.dropna()
+    # We can avoid dropping all NaNs by using TabPFN's ability to handle them, 
+    # but for simplicity we drop them here. 
+    # We can always re-run the pipeline without dropping NaNs if we want to test TabPFN's robustness.
+    # df_main = df_main.dropna()
 
     return df_main
 
@@ -75,7 +78,7 @@ def prepare_cox_data(df_main):
     ]
 
     #df_mortality = df_main.copy()
-    cols_to_keep = binary_cols + ["Follow Up Data", "Data of death", "Data prelievo"]
+    cols_to_keep = binary_cols + ["Follow Up Data", "Data of death", "Data prelievo","Collected by", "Cause of death",]
     
     tmp_train = df_mortality_train[cols_to_keep].copy()
     tmp_test = df_mortality_test[cols_to_keep].copy()
