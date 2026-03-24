@@ -20,9 +20,6 @@ def main():
     data = load_and_merge_data("Dataset Sirbu")
     df_main = clean_and_impute(data)
 
-    #print("Df_main shape:", df_main.shape)
-    #print("Df_main after dropping NaNs:", df_main.dropna().shape)
-
     # 2. Extract specific features and targets (e.g. Mortality data)
     # And split into Train, Eval and Test sets
     df_mortality_train, df_mortality_eval, df_mortality_test = prepare_cox_data(df_main)
@@ -39,7 +36,7 @@ def main():
     
     # 4. Generate the embeddings!
     print("Generating TabPFN Embeddings...")
-    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train[0:20], y_train[0:20], X_test[0:20], y_test[0:20])
+    train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train[0:20], X_test[0:20], y_test[0:20])
     print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
 
     cox = EmbeddingCoxPH(
