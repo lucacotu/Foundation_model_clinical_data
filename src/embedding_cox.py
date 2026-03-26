@@ -6,6 +6,7 @@ import torchtuples as tt
 from pycox.models import CoxPH
 import pandas as pd
 from pycox.evaluation import EvalSurv
+from torchtuples import callbacks as cb
 
 class MLPVanilla(nn.Module):
     def __init__(
@@ -72,6 +73,9 @@ class EmbeddingCoxPH:
         batch_norm: bool = True,
         dropout: float = 0.1,
         learning_rate: float = 1e-3,
+        early_stopping: bool = True,
+        patience: int = 10,
+        min_delta: float = 0.0
     ):
         net = MLPVanilla(
             in_features=embedding_dim,
@@ -83,8 +87,10 @@ class EmbeddingCoxPH:
         )
 
         self.model = CoxPH(net, tt.optim.Adam(lr=learning_rate))
+        self.early_stopping = early_stopping
+        self.patience = patience
+        self.min_delta = min_delta
 
-        # Salviamo i dati di training per compute_baseline_hazards
         self._x_train = None
         self._y_train = None
 
@@ -112,20 +118,38 @@ class EmbeddingCoxPH:
                 x_val.astype(np.float32),
                 (dur_val.astype(np.float32), ev_val.astype(np.float32)),
             )
+        
+        callback_list = callbacks or []
+
+        if self.early_stopping:
+            if val is None:
+                raise ValueError(
+                    "val_data it's missing"
+                )
+            callback_list = callback_list + [
+                cb.EarlyStopping(
+                    patience=self.patience,          
+                    min_delta=self.min_delta,        
+                    checkpoint_model=True, 
+                    file_path="models/best_models.pt", 
+                    load_best=True
+                ),
+            ]
 
         self.log = self.model.fit(
             x, y,
             batch_size=batch_size,
             epochs=epochs,
-            callbacks=callbacks,
+            callbacks=callback_list,
             verbose=verbose,
             val_data=val,
         )
+
         return self
 
     def compute_baseline(self):
         if self._x_train is None:
-            raise RuntimeError("Chiama fit() prima di compute_baseline().")
+            raise RuntimeError("Call fit() before compute_baseline().")
 
 
         self.model.compute_baseline_hazards(

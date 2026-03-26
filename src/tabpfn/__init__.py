@@ -19,7 +19,7 @@ from typing import *
 from .utils import TabPFNClassifier
 from .styles import setup_figure, create_savefig_partial
 
-def get_tabpfn_embeddings(X_train, y_train, X_test, y_test):
+def get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed=42):
     """
     Extract TabPFN embeddings for test samples
     using K-fold embedding extraction.
@@ -28,7 +28,7 @@ def get_tabpfn_embeddings(X_train, y_train, X_test, y_test):
     clf = TabPFNClassifier(
         n_estimators=1,
         device="cuda" if torch.cuda.is_available() else "cpu",
-        #random_state=41,
+        random_state=seed,
         #ignore_pretraining_limits=True
     )
 

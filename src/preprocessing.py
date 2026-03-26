@@ -48,6 +48,64 @@ def clean_and_impute(df_main):
 
     return df_main
 
+def prepare_cox_data_cv(df_main):
+    """Prepares data for Cox mortality model with cross validation."""
+
+    df_main['time'] = pd.qcut(df_main['Follow Up Data'], q=4, labels=False, duplicates='drop')
+
+    # 2. Crea la variabile di stratificazione combinata
+    #    Es: evento=1, bin=2 → stratum "1_2"
+    df_main['stratum'] = df_main['Total mortality'].astype(str) + '_' + df_main['time'].astype(str)
+
+    df_mortality_train, df_mortality_eval = train_test_split(
+        df_main, test_size=0.2, random_state=42,
+        stratify=df_main["stratum"]
+    )
+
+    for split in [df_mortality_train, df_mortality_eval]:
+        split.drop(columns=['time', 'stratum'], inplace=True)
+
+
+    binary_cols = [
+        col for col in df_mortality_train.columns
+        if set(df_main[col].dropna().unique()).issubset({0,1})
+    ]
+
+    #df_mortality = df_main.copy()
+    cols_to_keep = binary_cols + ["Follow Up Data", "Data of death", "Data prelievo","Collected by", "Cause of death",]
+    
+    tmp_train = df_mortality_train[cols_to_keep].copy()
+    tmp_eval = df_mortality_eval[cols_to_keep].copy()
+    
+    df_mortality_train = df_mortality_train.drop(columns=cols_to_keep)
+    df_mortality_eval = df_mortality_eval.drop(columns=cols_to_keep)
+
+    from sklearn.preprocessing import StandardScaler
+    scaler = StandardScaler()
+    scaled_array_train = scaler.fit_transform(df_mortality_train)
+    scaled_array_eval = scaler.transform(df_mortality_eval)
+    
+    df_mortality_train = pd.DataFrame(scaled_array_train, columns=df_mortality_train.columns, index=df_mortality_train.index)
+    df_mortality_eval = pd.DataFrame(scaled_array_eval, columns=df_mortality_eval.columns, index=df_mortality_eval.index)
+
+    df_mortality_train = pd.concat([df_mortality_train, tmp_train], axis=1)
+    df_mortality_eval = pd.concat([df_mortality_eval, tmp_eval], axis=1)
+
+    columns_to_drop = [
+        "Data of death",
+        "Fatal MI or Sudden death",  
+        "UnKnown", 
+        "Accident",
+        "Suicide",
+        "Number",
+        "CVD Death",
+        "Data prelievo"]
+
+    df_mortality_train = df_mortality_train.drop(columns=columns_to_drop)
+    df_mortality_eval = df_mortality_eval.drop(columns=columns_to_drop)
+    
+    return df_mortality_train, df_mortality_eval
+
 
 def prepare_cox_data(df_main):
     """Prepares data for Cox mortality model."""
@@ -65,7 +123,7 @@ def prepare_cox_data(df_main):
 
     df_mortality_eval, df_mortality_test = train_test_split(
         df_tmp, test_size=0.5, random_state=42,
-        stratify=df_tmp["stratum"]
+       stratify=df_tmp["stratum"]
     )
 
     for split in [df_mortality_train, df_mortality_eval, df_mortality_test]:
@@ -428,3 +486,66 @@ def prepare_cox_data_hurrah(df):
     df_mortality_eval = df_mortality_eval.drop(columns=columns_to_drop)
     
     return df_mortality_train, df_mortality_eval, df_mortality_test
+
+def prepare_cox_data_hurrah_cv(df):
+    """Prepares data for Cox mortality model."""
+
+    df['time'] = pd.qcut(df['FU'], q=4, labels=False, duplicates='drop')
+
+    # 2. Crea la variabile di stratificazione combinata
+    #    Es: evento=1, bin=2 → stratum "1_2"
+    df['stratum'] = df['STATO_AL_FU'].astype(str) + '_' + df['time'].astype(str)
+
+    df_mortality_train, df_mortality_eval = train_test_split(
+        df, test_size=0.2, random_state=42,
+        stratify=df["stratum"]
+    )
+
+    for split in [df_mortality_train, df_mortality_eval]:
+        split.drop(columns=['time', 'stratum'], inplace=True)
+
+
+    binary_cols = [
+        col for col in df_mortality_train.columns
+        if set(df[col].dropna().unique()).issubset({0,1})
+    ]
+
+    cols_to_keep = binary_cols + ["FU","FU_NF_FA",]
+    
+    tmp_train = df_mortality_train[cols_to_keep].copy()
+    tmp_eval = df_mortality_eval[cols_to_keep].copy()
+    
+    df_mortality_train = df_mortality_train.drop(columns=cols_to_keep)
+    df_mortality_eval = df_mortality_eval.drop(columns=cols_to_keep)
+
+    from sklearn.preprocessing import StandardScaler
+    scaler = StandardScaler()
+    scaled_array_train = scaler.fit_transform(df_mortality_train)
+    scaled_array_eval = scaler.transform(df_mortality_eval)
+    
+    df_mortality_train = pd.DataFrame(scaled_array_train, columns=df_mortality_train.columns, index=df_mortality_train.index)
+    df_mortality_eval = pd.DataFrame(scaled_array_eval, columns=df_mortality_eval.columns, index=df_mortality_eval.index)
+
+    df_mortality_train = pd.concat([df_mortality_train, tmp_train], axis=1)
+    df_mortality_eval = pd.concat([df_mortality_eval, tmp_eval], axis=1)
+
+    columns_to_drop = [
+        "NF_IMA",
+        "F_IMA",
+        "NF_CBV",
+        "F_CBV",
+        "NF_HF",
+        "F_HF",
+        "RIV_COR",
+        "MORTE_CV",
+        "FU_NF_IMA",
+        "FU_F_IMA",
+        "FU_NF_CBV",
+        "FU_F_CBV",
+        "FU_NF_HF",
+        "FU_F_HF"]
+
+    df_mortality_train = df_mortality_train.drop(columns=columns_to_drop)
+    df_mortality_eval = df_mortality_eval.drop(columns=columns_to_drop)
+    
+    return df_mortality_train, df_mortality_eval
