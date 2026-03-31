@@ -29,13 +29,11 @@ def get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed=42):
         n_estimators=1,
         device="cuda" if torch.cuda.is_available() else "cpu",
         random_state=seed,
-        #ignore_pretraining_limits=True
     )
 
     clf.fit(X_train, y_train)
 
     train_embeddings = clf.get_embeddings(X_train, data_source='train')[0]
     test_embeddings = clf.get_embeddings(X_test, data_source='test')[0]
-    #embeddings = np.concatenate([train_embeddings, test_embeddings], axis=0)
     
     return train_embeddings, test_embeddings

@@ -73,7 +73,7 @@ class EmbeddingCoxPH:
         batch_norm: bool = True,
         dropout: float = 0.1,
         learning_rate: float = 1e-3,
-        early_stopping: bool = True,
+        early_stopping: bool = False,
         patience: int = 10,
         min_delta: float = 0.0
     ):
@@ -81,7 +81,7 @@ class EmbeddingCoxPH:
             in_features=embedding_dim,
             num_nodes=num_nodes,
             out_features=out_features,
-            batch_norm=batch_norm,
+            batch_norm=False,#batch_norm,
             dropout=dropout,
             output_activation=None,  
         )

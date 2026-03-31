@@ -1,5 +1,6 @@
 import sys
 import os
+from unittest import case
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -7,10 +8,18 @@ from sklearn.manifold import TSNE
 from sklearn.model_selection import train_test_split, KFold
 import torch
 import random
+import torchtuples as tt
+from pycox.models import CoxPH
+from pycox.evaluation import EvalSurv
+import optuna
+from optuna.storages import JournalStorage
+from optuna.storages.journal import JournalFileBackend
+import torch.nn as nn
+from sksurv.ensemble import RandomSurvivalForest
 
 
-from src.data_loader import load_and_merge_data,load_dataset
-from src.preprocessing import clean_and_impute, prepare_cox_data, prepare_cox_data_hurrah, preprocess_data,prepare_cox_data_cv, prepare_cox_data_hurrah_cv
+from src.data_loader import load_data
+from src.preprocessing import clean_and_impute, prepare_cox_data_cv, prepare_cox_data_hurrah_cv
 from src.tabpfn import (
 	get_tabpfn_embeddings,
 	setup_figure, create_savefig_partial
@@ -28,281 +37,368 @@ def set_seed(seed: int):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-def main(seed):
-    # 1. Load and clean the data
-    data = load_and_merge_data("Dataset Sirbu")
-    df_main = clean_and_impute(data)
+def main(dataset_name, feature_event, feature_time, seed):    
+    match dataset_name:
+        case "OrmoniTirodei":
+            # 1. Load and clean the data
+            data = load_data(dataset_name, "Dataset Sirbu")
+            df = clean_and_impute(dataset_name, data)
 
-    # 2. Extract specific features and targets (e.g. Mortality data)
-    # And split into Train, Eval and Test sets
-    #df_mortality_train, df_mortality_eval, df_mortality_test = prepare_data(df)
-    df_mortality_train, df_mortality_eval = prepare_cox_data_cv(df_main)
-
-    X_eval = df_mortality_eval.drop(columns=["Follow Up Data", "Total mortality"])
-    y_eval = df_mortality_eval["Total mortality"]
-    t_eval = df_mortality_eval["Follow Up Data"].values.astype(np.float32)
-
-    kf = KFold(n_splits=5, shuffle=True, random_state=seed)
-    c_index_train_scores = []
-    c_index_test_scores = []
-
-    X = df_mortality_train.drop(columns=["Follow Up Data", "Total mortality"])
-    y = df_mortality_train["Total mortality"]
-    t = df_mortality_train["Follow Up Data"].values.astype(np.float32)
-
-    for fold, (train_idx, test_idx) in enumerate(kf.split(X)):
-
-        X_train, X_test   = X.iloc[train_idx], X.iloc[test_idx]
-        y_train, y_test   = y.iloc[train_idx], y.iloc[test_idx]
-        t_train, t_test   = t[train_idx], t[test_idx]
-
-        print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
+            # 2. Extract specific features and targets (e.g. Mortality data)
+            # And split into Train, Eval and Test sets
+            df_mortality_train, df_mortality_eval = prepare_cox_data_cv(df)
+        case "HURRAH":
+            data = load_data(dataset_name, "Dataset Sirbu")
+            df = clean_and_impute(dataset_name, data)
     
-        # 4. Generate the embeddings!
-        print("Generating TabPFN Embeddings...")
-        train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test,seed)
-        _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval,seed)
-        print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
+            # 2. Extract specific features and targets (e.g. Mortality data)
+            # And split into Train, Eval and Test sets
+            df_mortality_train, df_mortality_eval = prepare_cox_data_hurrah_cv(df)
+        case _:
+            print("Name_dataset not defined")
+            return
 
-        cox = EmbeddingCoxPH(
-            embedding_dim=train_embeddings.shape[1],
-            num_nodes=[128, 64],
-            dropout=0.1,
-            learning_rate=1e-3,
-            early_stopping=True,
-            patience=20,
-            min_delta=1e-4,
-        )
+    X_eval = df_mortality_eval.drop(columns=[feature_time,feature_event])
+    y_eval = df_mortality_eval[feature_event]
+    t_eval = df_mortality_eval[feature_time].values.astype(np.float32)
 
-        cox.fit(
-            train_embeddings,
-            durations=t_train,
-            events=y_train.values,
-            val_data=(eval_embeddings, t_eval, y_eval.values),
-            epochs=200,
-            batch_size=128,
-        )
+    X = df_mortality_train.drop(columns=[feature_time,feature_event])
+    y = df_mortality_train[feature_event]
+    t = df_mortality_train[feature_time].values.astype(np.float32)
+    
+    df_tmp = X.copy()
+    df_tmp['__event__']    = y.values
+    df_tmp['__duration__'] = t
 
-        cox.compute_baseline()
+    df_tmp_eval = X_eval.copy()
+    df_tmp_eval['__event__']    = y_eval.values
+    df_tmp_eval['__duration__'] = t_eval
 
-        c_train = cox.concordance_index(train_embeddings, t_train, y_train.values)
-        c_test  = cox.concordance_index(test_embeddings, t_test, y_test.values)
+    df_tmp_original = df_tmp.copy()
+    df_tmp_eval_original = df_tmp_eval.copy()
 
-        print(f"C-index train: {c_train:.4f}")
-        print(f"C-index test:  {c_test:.4f}")
-        c_index_train_scores.append(c_train)
-        c_index_test_scores.append(c_test)
+    results = []
 
-        # ── Predict ──────────────────────────────────────────────────────────────
-        #survival_df = cox.predict_survival(test_embeddings)
+    preprocess = [ "-1", "NaN"]
+    for preprocess_type in preprocess:
+        df_tmp = df_tmp_original.copy()
+        df_tmp_eval = df_tmp_eval_original.copy()
+        match preprocess_type:
+            case "drop":
+                print("\n\nPreprocess: Drop NaN")
+                df_tmp = df_tmp.dropna()
+                df_tmp_eval = df_tmp_eval.dropna()
+            case "-1": 
+                print("\n\nPreprocess: Replace NaN with -1")
+                df_tmp = df_tmp.fillna(-1)
+                df_tmp_eval = df_tmp_eval.fillna(-1)
+            case "NaN":
+                print("\n\nPreprocess: Replace NaN with np.nan")
+                df_tmp = df_tmp.fillna(np.nan)
+                df_tmp_eval = df_tmp_eval.fillna(np.nan)
+            case _:
+                print("Preprocess type not defined")
+
+        df_tmp = df_tmp.reset_index(drop=True)
+        df_tmp_eval = df_tmp_eval.reset_index(drop=True)
+
+        c_index_train_scores_tabpfn = []
+        c_index_test_scores_tabpfn = []
+        c_index_train_scores_cox = []
+        c_index_test_scores_cox = []
+        c_index_test_scores_rsf = []
+        c_index_train_scores_rsf = []
+
+        X = df_tmp.drop(columns=['__event__', '__duration__'])
+        y = df_tmp['__event__']
+        t = df_tmp['__duration__'].values.astype(np.float32)
+
+        X_eval = df_tmp_eval.drop(columns=['__event__', '__duration__'])
+        y_eval = df_tmp_eval['__event__']
+        t_eval = df_tmp_eval['__duration__'].values.astype(np.float32)
+
+        kf = KFold(n_splits=5, shuffle=True, random_state=seed)
+        splits = kf.split(X)
+
         
-        #print("Predicted survival probabilities for test set:")
-        #print(survival_df)
+        for fold, (train_idx, test_idx) in enumerate(splits): 
 
-        #print("Baseline Hazard: ",cox.model.baseline_hazards_)
+            X_train, X_test   = X.iloc[train_idx], X.iloc[test_idx]
+            y_train, y_test   = y.iloc[train_idx], y.iloc[test_idx]
+            t_train, t_test   = t[train_idx], t[test_idx]
 
-        # Check the distribution of the predicted logits (risk scores)
-        #logits = cox.model.predict(test_embeddings)
-        #print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
-        # If std ≈ 0 → the model has not learned anything (lr too high/low, not enough epochs, etc.)
+            print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
         
-        # 5. Visualize embeddings via t-SNE
-        if train_embeddings.ndim == 3:
-            train_embeddings = train_embeddings[0]
-
-        print(f"Running t-SNE on {train_embeddings.shape} points...")
-        tsne = TSNE(n_components=2, random_state=42, init='pca', learning_rate='auto')
-        X_2d = tsne.fit_transform(train_embeddings)
-
-        plt.rcParams['font.family'] = 'serif'
-        plt.rcParams['font.size'] = 12
-        plt.rcParams['font.sans-serif'] = ['Arial']
-        
-        fig, ax = setup_figure(figsize=(8, 8), style='seaborn-v0_8-paper')
-        
-        palette = ['#1f77b4', '#d62728'] # Blue for negatives, Red for positives
-        labels = {0: 'Negative (Alive)', 1: 'Positive (Deceased)'}
-        
-        unique_classes = np.unique(y_test)
-        for i, cls in enumerate(unique_classes):
-            mask = (y_train.values == cls)
-            ax.scatter(
-                X_2d[mask, 0], 
-                X_2d[mask, 1], 
-                label=labels.get(cls, str(cls)),
-                s=120, 
-                color=palette[i % len(palette)], 
-                alpha=0.6, 
-                edgecolors='black', 
-                linewidths=0.1
-            )
+            # 4. Generate the embeddings!
+            print("Generating TabPFN Embeddings...")
+            train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed)
+            _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval, seed)
+            print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
             
-        ax.set_xlabel("t-SNE Component 1", fontsize=24, fontweight='bold')
-        ax.set_ylabel("t-SNE Component 2", fontsize=24, fontweight='bold')
-        
-        ax.legend(
-            bbox_to_anchor=(1.0, 1.0), 
-            loc='upper right', 
-            title="Mortality Status", 
-            frameon=True, 
-            shadow=True,
-            fontsize=10
-        )
-        ax.grid(True, alpha=0.3, linestyle='--')
-        
-        out_dir = os.path.join(os.getcwd(), "results")
-        os.makedirs(out_dir, exist_ok=True)
-        
-        save_name_base = "tabpfn_mortality_tsne_seed"+ str(seed) + "_fold" + str(fold + 1)
-        savefig = create_savefig_partial(
-            fig_dir=out_dir,
-            fig_fmt='pdf',
-            fig_size=(12, 12),
-            save=True,
-            dpi=300
-        )
-        savefig(fig, save_name_base)
-        plt.close(fig)
-        print(f"Visualization saved to {os.path.join(out_dir, save_name_base)}.pdf")
-    return (c_index_train_scores, c_index_test_scores)
+            os.makedirs("results/optuna/", exist_ok=True)
+            log_name = f"optuna_cox.log"
+            log_file = os.path.join("results/optuna/", log_name)
+            storage = JournalStorage(JournalFileBackend(log_file))
 
-def main2(seed):
-
-    df = load_dataset("Dataset Sirbu")
-    df = preprocess_data(df)
-    
-    # 2. Extract specific features and targets (e.g. Mortality data)
-    # And split into Train, Eval and Test sets
-    df_mortality_train, df_mortality_eval = prepare_cox_data_hurrah_cv(df)
-
-    X_eval = df_mortality_eval.drop(columns=["FU", "STATO_AL_FU"])
-    y_eval = df_mortality_eval["STATO_AL_FU"]
-    t_eval = df_mortality_eval["FU"].values.astype(np.float32)
-
-    kf = KFold(n_splits=5, shuffle=True, random_state=seed)
-    c_index_train_scores = []
-    c_index_test_scores = []
-
-    X = df_mortality_train.drop(columns=["FU", "STATO_AL_FU"])
-    y = df_mortality_train["STATO_AL_FU"]
-    t = df_mortality_train["FU"].values.astype(np.float32)
-    
-    for fold, (train_idx, test_idx) in enumerate(kf.split(X)):
-        X_train, X_test   = X.iloc[train_idx], X.iloc[test_idx]
-        y_train, y_test   = y.iloc[train_idx], y.iloc[test_idx]
-        t_train, t_test   = t[train_idx], t[test_idx]
-
-
-        print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
-    
-        # 4. Generate the embeddings!
-        print("Generating TabPFN Embeddings...")
-        train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test,seed)
-        _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval,seed)
-        print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
-
-        cox = EmbeddingCoxPH(
-            embedding_dim=train_embeddings.shape[1],
-            num_nodes=[128, 64],
-            dropout=0.1,
-            learning_rate=1e-3,
-            early_stopping=True,
-            patience = 20,
-            min_delta=1e-4,
-        )
-
-        cox.fit(
-            train_embeddings,
-            durations=t_train,
-            events=y_train.values,
-            val_data=(eval_embeddings, t_eval, y_eval.values),
-            epochs=200,
-            batch_size=128,
-        )
-
-        cox.compute_baseline()
-
-        c_train = cox.concordance_index(train_embeddings, t_train, y_train.values)
-        c_test  = cox.concordance_index(test_embeddings, t_test, y_test.values)
-
-        print(f"C-index train: {c_train:.4f}")
-        print(f"C-index test:  {c_test:.4f}")
-        c_index_train_scores.append(c_train)
-        c_index_test_scores.append(c_test)
-
-        # ── Predict ──────────────────────────────────────────────────────────────
-        #survival_df = cox.predict_survival(test_embeddings)
-        
-        #print("Predicted survival probabilities for test set:")
-        #print(survival_df)
-
-        #print("Baseline Hazard: ",cox.model.baseline_hazards_)
-
-        # Check the distribution of the predicted logits (risk scores)
-        #logits = cox.model.predict(test_embeddings)
-        #print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
-        # If std ≈ 0 → the model has not learned anything (lr too high/low, not enough epochs, etc.)
-    
-        # 5. Visualize embeddings via t-SNE
-        if train_embeddings.ndim == 3:
-            train_embeddings = train_embeddings[0]
-
-        print(f"Running t-SNE on {train_embeddings.shape} points...")
-        tsne = TSNE(n_components=2, random_state=42, init='pca', learning_rate='auto')
-        X_2d = tsne.fit_transform(train_embeddings)
-
-        plt.rcParams['font.family'] = 'serif'
-        plt.rcParams['font.size'] = 12
-        plt.rcParams['font.sans-serif'] = ['Arial']
-        
-        fig, ax = setup_figure(figsize=(8, 8), style='seaborn-v0_8-paper')
-        
-        palette = ['#1f77b4', '#d62728'] # Blue for negatives, Red for positives
-        labels = {0: 'Negative (Alive)', 1: 'Positive (Deceased)'}
-        
-        unique_classes = np.unique(y_test)
-        for i, cls in enumerate(unique_classes):
-            mask = (y_train.values == cls)
-            ax.scatter(
-                X_2d[mask, 0], 
-                X_2d[mask, 1], 
-                label=labels.get(cls, str(cls)),
-                s=120, 
-                color=palette[i % len(palette)], 
-                alpha=0.6, 
-                edgecolors='black', 
-                linewidths=0.1
+            study_name = "cox_tuning_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
+            study = optuna.create_study(
+                study_name=study_name,
+                direction="maximize",
+                storage=storage,
+                load_if_exists=True
             )
+
+            params ={ 'embedding_dim':train_embeddings.shape[1],
+                        'num_nodes': [128, 64],
+                        'dropout': 0.1,
+                        'learning_rate': 1e-3,
+                        'batch_norm': True
+                        }
             
-        ax.set_xlabel("t-SNE Component 1", fontsize=24, fontweight='bold')
-        ax.set_ylabel("t-SNE Component 2", fontsize=24, fontweight='bold')
-        
-        ax.legend(
-            bbox_to_anchor=(1.0, 1.0), 
-            loc='upper right', 
-            title="Mortality Status", 
-            frameon=True, 
-            shadow=True,
-            fontsize=10
-        )
-        ax.grid(True, alpha=0.3, linestyle='--')
-        
-        out_dir = os.path.join(os.getcwd(), "results")
-        os.makedirs(out_dir, exist_ok=True)
-        
-        save_name_base = "tabpfn_mortality_tsne_HURRAH_seed" + str(seed) + "_fold" + str(fold + 1)
-        savefig = create_savefig_partial(
-            fig_dir=out_dir,
-            fig_fmt='pdf',
-            fig_size=(12, 12),
-            save=True,
-            dpi=300
-        )
-        savefig(fig, save_name_base)
-        plt.close(fig)
-        print(f"Visualization saved to {os.path.join(out_dir, save_name_base)}.pdf")
-        
-    return (c_index_train_scores, c_index_test_scores)
+            def objective(trial):
+                num_nodes = trial.suggest_categorical('num_nodes', [[32], [64], [128], [64, 32], [128, 64]])
+                dropout = trial.suggest_float('dropout', 0.0, 0.3)
+                learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-2, log=True)
+                batch_norm = trial.suggest_categorical('batch_norm', [True, False])
+
+                model = EmbeddingCoxPH(
+                    embedding_dim=train_embeddings.shape[1],
+                    num_nodes=num_nodes,
+                    dropout=dropout,
+                    learning_rate=learning_rate,
+                    batch_norm=batch_norm
+                )
+
+                model.fit(train_embeddings, t_train, y_train.values,
+                          epochs=100,
+                          batch_size=128)
+                model.compute_baseline()
+                return model.concordance_index(eval_embeddings, t_eval, y_eval.values)
+
+            study.optimize(objective, n_trials=10)
+            params.update(study.best_params)
+            print(f"Best parameters: {study.best_params}")
+            
+            cox = EmbeddingCoxPH(**params)
+            
+            '''
+            in_features  = train_embeddings.shape[1]
+            num_nodes    = [32, 32]
+            out_features = 1
+            batch_norm   = True
+            dropout      = 0.1
+
+            net = nn.Linear(in_features, 1)
+
+            model = CoxPH(net, tt.optim.Adam)
+            model.optimizer.set_lr(0.01)
+
+            batch_size = 256
+            epochs     = 100
+            callbacks  = [tt.callbacks.EarlyStopping( 
+                                    patience=20,          
+                                    min_delta=1e-4,        
+                                    checkpoint_model=True, 
+                                    file_path="models/best_models.pt", 
+                                    load_best=True
+                                    )]
+
+            log = model.fit(
+                    train_embeddings, (t_train , y_train.values),
+                    batch_size, epochs,
+                    callbacks,
+                    val_data=(eval_embeddings, (t_eval, y_eval.values)),
+                    verbose=True
+                )
+
+            _ = model.compute_baseline_hazards()
+
+            surv_test = model.predict_surv_df(test_embeddings)
+            surv_train = model.predict_surv_df(train_embeddings)
+
+            ev_train = EvalSurv(surv_train, t_train, y_train.values, censor_surv='km')
+
+            ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
+
+            c_index_test_scores_tabpfn.append(ev_test.concordance_td())
+            c_index_train_scores_tabpfn.append(ev_train.concordance_td())
+
+            print("C-index TRAIN:", ev_train.concordance_td())
+            print("C-index TEST :", ev_test.concordance_td())
+            
+            '''
+            callbacks = [tt.callbacks.EarlyStopping(patience=10)]
+            cox.fit(
+                        train_embeddings,
+                        durations=t_train,
+                        events=y_train.values,
+                        val_data=(eval_embeddings, t_eval, y_eval.values),
+                        epochs=200,
+                        callbacks=callbacks,
+                        batch_size=128,
+                    )
+
+            cox.compute_baseline()
+
+            c_train = cox.concordance_index(train_embeddings, t_train, y_train.values)
+            c_test  = cox.concordance_index(test_embeddings, t_test, y_test.values)
+
+            print(f"C-index train: {c_train:.4f}")
+            print(f"C-index test:  {c_test:.4f}")
+            c_index_train_scores_tabpfn.append(c_train)
+            c_index_test_scores_tabpfn.append(c_test)
+            
+
+            if type != "NaN":
+                in_features  = X_train.shape[1]
+                num_nodes    = [32, 32]
+                out_features = 1
+                batch_norm   = True
+                dropout      = 0.1
+
+                net = tt.practical.MLPVanilla(
+                    in_features, num_nodes, out_features,
+                    batch_norm=batch_norm, dropout=dropout
+                )
+
+                model = CoxPH(net, tt.optim.Adam)
+                model.optimizer.set_lr(0.01)
+
+                batch_size = 256
+                epochs     = 100
+                callbacks  = [tt.callbacks.EarlyStopping( 
+                                    patience=20,          
+                                    min_delta=1e-4,        
+                                    checkpoint_model=True, 
+                                    file_path="models/best_models_tmp.pt", 
+                                    load_best=True
+                                    )]
+
+                log = model.fit(
+                    X_train.values.astype(np.float32), (t_train , y_train.values),
+                    batch_size, epochs,
+                    callbacks,
+                    val_data=(X_eval.values.astype(np.float32), (t_eval, y_eval.values)),
+                    verbose=True
+                )
+
+                _ = model.compute_baseline_hazards()
+
+                surv_test = model.predict_surv_df(X_test.values.astype(np.float32))
+                surv_train = model.predict_surv_df(X_train.values.astype(np.float32))
+
+                ev_train = EvalSurv(surv_train, t_train, y_train.values, censor_surv='km')
+
+                ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
+
+                c_index_test_scores_cox.append(ev_test.concordance_td())
+                c_index_train_scores_cox.append(ev_train.concordance_td())
+
+                print("C-index TRAIN:", ev_train.concordance_td())
+                print("C-index TEST :", ev_test.concordance_td())
+
+                #RANDOM SURVIVAL FOREST
+                rsf = RandomSurvivalForest(
+                    n_estimators=100, min_samples_split=10, min_samples_leaf=15, n_jobs=-1, random_state=seed
+                )
+
+                y_train_structured = np.array(
+                    [(bool(e), t) for e, t in zip(y_train, t_train)],
+                    dtype=[('event', bool), ('time', float)]
+                )
+
+                y_test_structured = np.array(
+                    [(bool(e), t) for e, t in zip(y_test, t_test)],
+                    dtype=[('event', bool), ('time', float)]
+                )
+
+                rsf.fit(X_train.values.astype(np.float32), y_train_structured)
+                
+                c_index_test = rsf.score(X_test.values.astype(np.float32), y_test_structured)
+                c_index_train = rsf.score(X_train.values.astype(np.float32), y_train_structured)
+                c_index_test_scores_rsf.append(c_index_test)
+                c_index_train_scores_rsf.append(c_index_train)
+                print(f"C-index TEST (RSF): {c_index_test:.5f}")
+                print(f"C-index TRAIN (RSF): {c_index_train:.5f}")
+
+
+
+            # ── Predict ──────────────────────────────────────────────────────────────
+            #survival_df = cox.predict_survival(test_embeddings)
+            
+            #print("Predicted survival probabilities for test set:")
+            #print(survival_df)
+
+            #print("Baseline Hazard: ",cox.model.baseline_hazards_)
+
+            # Check the distribution of the predicted logits (risk scores)
+            #logits = cox.model.predict(test_embeddings)
+            #print(f"min: {logits.min():.3f}, max: {logits.max():.3f}, std: {logits.std():.3f}")
+            # If std ≈ 0 → the model has not learned anything (lr too high/low, not enough epochs, etc.)
+            
+            '''
+            # 5. Visualize embeddings via t-SNE
+            if train_embeddings.ndim == 3:
+                train_embeddings = train_embeddings[0]
+
+            print(f"Running t-SNE on {train_embeddings.shape} points...")
+            tsne = TSNE(n_components=2, random_state=42, init='pca', learning_rate='auto')
+            X_2d = tsne.fit_transform(train_embeddings)
+
+            plt.rcParams['font.family'] = 'serif'
+            plt.rcParams['font.size'] = 12
+            plt.rcParams['font.sans-serif'] = ['Arial']
+            
+            fig, ax = setup_figure(figsize=(8, 8), style='seaborn-v0_8-paper')
+            
+            palette = ['#1f77b4', '#d62728'] # Blue for negatives, Red for positives
+            labels = {0: 'Negative (Alive)', 1: 'Positive (Deceased)'}
+            
+            unique_classes = np.unique(y_test)
+            for i, cls in enumerate(unique_classes):
+                mask = (y_train.values == cls)
+                ax.scatter(
+                    X_2d[mask, 0], 
+                    X_2d[mask, 1], 
+                    label=labels.get(cls, str(cls)),
+                    s=120, 
+                    color=palette[i % len(palette)], 
+                    alpha=0.6, 
+                    edgecolors='black', 
+                    linewidths=0.1
+                )
+                
+            ax.set_xlabel("t-SNE Component 1", fontsize=24, fontweight='bold')
+            ax.set_ylabel("t-SNE Component 2", fontsize=24, fontweight='bold')
+            
+            ax.legend(
+                bbox_to_anchor=(1.0, 1.0), 
+                loc='upper right', 
+                title="Mortality Status", 
+                frameon=True, 
+                shadow=True,
+                fontsize=10
+            )
+            ax.grid(True, alpha=0.3, linestyle='--')
+            
+            out_dir = os.path.join(os.getcwd(), "results")
+            os.makedirs(out_dir, exist_ok=True)
+            
+            save_name_base = "tabpfn_mortality_tsne_dataset" + str(dataset_name)+ "_preprocess" + str(preprocess_type) + "_seed"+ str(seed) + "_fold" + str(fold + 1)
+            savefig = create_savefig_partial(
+                fig_dir=out_dir,
+                fig_fmt='pdf',
+                fig_size=(12, 12),
+                save=True,
+                dpi=300
+            )
+            savefig(fig, save_name_base)
+            plt.close(fig)
+            print(f"Visualization saved to {os.path.join(out_dir, save_name_base)}.pdf")
+            '''
+        results.append((type, (c_index_train_scores_tabpfn, c_index_test_scores_tabpfn), (c_index_train_scores_cox, c_index_test_scores_cox), (c_index_train_scores_rsf, c_index_test_scores_rsf)))
+    return results
+
 
 def print_stats(label, values):
         arr = np.array(values)
@@ -333,10 +429,10 @@ if __name__ == "__main__":
     for index, seed in enumerate(seeds): 
         set_seed(seed)
 
-        res[0].append((seed,main(seed)))
-        res[1].append((seed,main2(seed)))
+        res[0].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed)))
+        res[1].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed)))
 
-    tee = Tee("results_cv.txt")
+    tee = Tee("results_cv_rsf.txt")
     sys.stdout = tee
 
     for exp_idx, experiment in enumerate(res):
@@ -344,64 +440,40 @@ if __name__ == "__main__":
         print(f"Dataset {exp_idx + 1}")
         print(f"{'='*60}")
 
-        all_train = []
-        all_test  = []
+        all_train_tabpfn = []
+        all_test_tabpfn  = []
+        all_train_cox    = []
+        all_test_cox     = []
+        all_train_rsf    = []
+        all_test_rsf     = []
 
-        for seed, (c_train_list, c_test_list) in experiment:
-            print(f"\n  Seed {seed}:")
-            print_stats("Train", c_train_list)
-            print_stats("Test",  c_test_list)
+        for seed, result_list in experiment:
+            for preprocess_type, (c_train_tabpfn, c_test_tabpfn), (c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
+                print(f"\n  Preprocess: {preprocess_type} | Seed: {seed}")
+                print_stats("TabPFN Train", c_train_tabpfn)
+                print_stats("TabPFN Test",  c_test_tabpfn)
+                if c_train_cox:
+                    print_stats("Cox Train", c_train_cox)
+                    print_stats("Cox Test",  c_test_cox)
+                if c_train_rsf:
+                    print_stats("RSF Train", c_train_rsf)
+                    print_stats("RSF Test",  c_test_rsf)
 
-            all_train.extend(c_train_list)
-            all_test.extend(c_test_list)
+                all_train_tabpfn.extend(c_train_tabpfn)
+                all_test_tabpfn.extend(c_test_tabpfn)
+                all_train_cox.extend(c_train_cox)
+                all_test_cox.extend(c_test_cox)
+                all_train_rsf.extend(c_train_rsf)
+                all_test_rsf.extend(c_test_rsf)
 
         print(f"\n  {'─'*50}")
-        print(f" Total: ")
-        print_stats("Train", all_train)
-        print_stats("Test",  all_test)
+        print(f"  TOTAL:")
+        print_stats("TabPFN Train", all_train_tabpfn)
+        print_stats("TabPFN Test",  all_test_tabpfn)
+        print_stats("Cox Train",    all_train_cox)
+        print_stats("Cox Test",     all_test_cox)
+        print_stats("RSF Train",    all_train_rsf)
+        print_stats("RSF Test",     all_test_rsf)
     sys.stdout = tee.console
     tee.close()
-    print("✅ Result saved in 'results_cv.txt'")
-    
-    
-    '''for experiment in res:
-    all_means = []
-    
-    for fold_idx, c_train_list, c_eval_list in experiment:
-        means = [np.mean([t, e]) for t, e in zip(c_train_list, c_eval_list)]
-        all_means.append(means)
-    
-    all_means = np.array(all_means)  # shape: (n_folds, n_valori)
-    
-    print("\nMedia globale per colonna:")
-    for i, col_mean in enumerate(all_means.mean(axis=0)):
-        print(f"  Colonna {i}: {col_mean:.4f}")
-    '''
-    #print(res)
-    #for idx, data in enumerate(res):
-    #    for r in data:
-    #        print(r[0][0] ": ")
-    #        for train, test in r:
-    #            print("TRAIN: ", train)
-    #            prinnt("TEST: ", test)
-
-
-    '''print(f"\n{'='*40}")
-    print(f"Mean C-index train  : {np.mean(res[0][0]):.4f}")
-    print(f"Std train           : {np.std(res[0][0]):.4f}")
-    print(f"Min / Max train     : {np.min(res[0][0]):.4f} / {np.max(res[0][0]):.4f}")
-
-    print(f"\n{'='*40}")
-    print(f"Mean C-index  test : {np.mean(res[0][1]):.4f}")
-    print(f"Std test           : {np.std(res[0][1]):.4f}")
-    print(f"Min / Max test     : {np.min(res[0][1]):.4f} / {np.max(res[0][1]):.4f}")
-
-    print(f"\n{'='*40}")
-    print(f"Mean C-index train HURRAH  : {np.mean(res[1][0]):.4f}")
-    print(f"Std train HURRAH           : {np.std(res[1][0]):.4f}")
-    print(f"Min / Max train HURRAH     : {np.min(res[1][0]):.4f} / {np.max(res[1][0]):.4f}")
-
-    print(f"\n{'='*40}")
-    print(f"Mean C-index test HURRAH  : {np.mean(res[1][1]):.4f}")
-    print(f"Std test HURRAH           : {np.std(res[1][1]):.4f}")
-    print(f"Min / Max test HURRAH     : {np.min(res[1][1]):.4f} / {np.max(res[1][1]):.4f}")'''
+    print("✅ Result saved in 'results_cv_rsf.txt'")

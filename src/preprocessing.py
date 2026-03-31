@@ -2,51 +2,105 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 
-def clean_and_impute(df_main):
-    # Fix outlier as done in notebook
-    df_main.loc[8143, "Documented resting \nor exertional ischemia"] = 1
-    
-    # Drop where Number is NaN
-    df_main = df_main.dropna(subset=['Number'])
+def clean_and_impute(dataset_name, df):
+    match dataset_name:
+        case "OrmoniTirodei":
+            # Fix outlier as done in notebook
+            df.loc[8143, "Documented resting \nor exertional ischemia"] = 1
+            
+            # Drop where Number is NaN
+            df = df.dropna(subset=['Number'])
 
-    # Date parsing
-    df_main['Data prelievo'] = pd.to_datetime(df_main['Data prelievo'])
-    df_main['Follow Up Data'] = pd.to_datetime(df_main['Follow Up Data'])
-    
-    # Fix mortality where death is known
-    # violations = df_main[((df_main["Total mortality"] == 0) & (df_main["Data of death"].notna())) | ((df_main["Total mortality"] != 0) & (df_main["Data of death"].isna()))]
-    df_main.loc[7285, "Total mortality"] = 1
-    df_main.loc[7285, "UnKnown"] = 1
+            # Date parsing
+            df['Data prelievo'] = pd.to_datetime(df['Data prelievo'])
+            df['Follow Up Data'] = pd.to_datetime(df['Follow Up Data'])
+            
+            # Fix mortality where death is known
+            # violations = df_main[((df_main["Total mortality"] == 0) & (df_main["Data of death"].notna())) | ((df_main["Total mortality"] != 0) & (df_main["Data of death"].isna()))]
+            df.loc[7285, "Total mortality"] = 1
+            df.loc[7285, "UnKnown"] = 1
 
-    # Calculate days
-    df_main["Follow Up Data"] = (
-        df_main["Follow Up Data"] - df_main["Data prelievo"]
-    ).dt.days
+            # Calculate days
+            df["Follow Up Data"] = (
+                df["Follow Up Data"] - df["Data prelievo"]
+            ).dt.days
 
-    df_main["Data of death"] = (
-        pd.to_datetime(df_main["Data of death"]) - df_main["Data prelievo"]
-    ).dt.days
-    df_main["Data of death"] = df_main["Data of death"].fillna(0)
+            df["Data of death"] = (
+                pd.to_datetime(df["Data of death"]) - df["Data prelievo"]
+            ).dt.days
+            df["Data of death"] = df["Data of death"].fillna(0)
 
-    # Calculate target events
-    target = ["CABG " ,"Non Fatal AMI (Follow-Up)","Ictus","PCI"]
-    for t in target:
-        df_main[t+"_event"] = df_main[t].notna().astype(int)
-        df_main[t] = (
-            pd.to_datetime(df_main[t]) - df_main["Data prelievo"]
-        ).dt.days
-        df_main[t] = df_main[t].fillna(0)
-    
-    # Drop irrelevant
-    df_main = df_main.drop(columns=["CardiopatiaCongenita"])#,"Collected by", "Cause of death",])
-    
-    # Drop all NaNs
-    # We can avoid dropping all NaNs by using TabPFN's ability to handle them, 
-    # but for simplicity we drop them here. 
-    # We can always re-run the pipeline without dropping NaNs if we want to test TabPFN's robustness.
-    #df_main = df_main.dropna()
+            # Calculate target events
+            target = ["CABG " ,"Non Fatal AMI (Follow-Up)","Ictus","PCI"]
+            for t in target:
+                df[t+"_event"] = df[t].notna().astype(int)
+                df[t] = (
+                    pd.to_datetime(df[t]) - df["Data prelievo"]
+                ).dt.days
+                df[t] = df[t].fillna(0)
+            
+            # Drop irrelevant
+            df = df.drop(columns=["CardiopatiaCongenita"])
+            
+            # Drop all NaNs
+            # We can avoid dropping all NaNs by using TabPFN's ability to handle them, 
+            # but for simplicity we drop them here. 
+            # We can always re-run the pipeline without dropping NaNs if we want to test TabPFN's robustness.
+            #df_main = df_main.dropna()
 
-    return df_main
+            return df
+        case "HURRAH":
+            # Example preprocessing steps
+            df.loc[:, "FU"] = np.floor(df["FU"]).astype(float)
+            df = df.dropna(subset=["FU","STATO_AL_FU"])
+
+            cols_max = ["FU_F_IMA", "FU_F_CBV", "FU_F_HF","FU"]
+
+            df.loc[:, "FU"] = np.where(
+                df["STATO_AL_FU"] == 1,
+                df[cols_max].min(axis=1),
+                df["FU"]
+            )
+            mask_sesso = df["SESSO"] == 1
+
+            df.loc[mask_sesso, ["MENOPAUSA", "ANNI_MENOP"]] = -1
+
+            mask = (df["SESSO"] == 0) & (df["MENOPAUSA"] == 0)
+
+            df.loc[mask, "ANNI_MENOP"] = 0
+
+            mask_meno = df["MENOPAUSA"] == 1
+
+            mask_meno = df["MENOPAUSA"] == 1
+            invalid_mask = mask_meno & (df["ANNI_MENOP"] <= 0)
+
+            mean_anni = df[
+                (df["MENOPAUSA"] == 1) & 
+                (df["SESSO"] == 0) & 
+                (df["ANNI_MENOP"] > 0)
+            ]["ANNI_MENOP"].mean()
+
+            df.loc[invalid_mask, "ANNI_MENOP"] = mean_anni
+
+            df.drop(columns=["LVH","VES","SAPEVA","SESSO0"], inplace=True)
+
+            has_any_measurement = (
+                df['ALB_CREAT_MG_MMOL_3_4_34_MICRO'].notna() | 
+                df['ALB_CREAT_MG_G_30_300_MICRO'].notna()
+            )
+
+            df['ALB_CAT'] = (
+                (df['ALB_CREAT_MG_MMOL_3_4_34_MICRO'] > 3.4) | 
+                (df['ALB_CREAT_MG_G_30_300_MICRO'] > 30)
+            ).astype(float)
+
+            df.loc[~has_any_measurement, 'ALB_CAT'] = float('nan')
+
+            df = df.drop(columns=["ALB_CREAT_MG_MMOL_3_4_34_MICRO","ALB_CREAT_MG_G_30_300_MICRO","ALBURIA_MG_24H_30_300","ALBURIA_MG_DL"])
+            
+            return df
+
+
 
 def prepare_cox_data_cv(df_main):
     """Prepares data for Cox mortality model with cross validation."""
@@ -72,7 +126,7 @@ def prepare_cox_data_cv(df_main):
     ]
 
     #df_mortality = df_main.copy()
-    cols_to_keep = binary_cols + ["Follow Up Data", "Data of death", "Data prelievo","Collected by", "Cause of death",]
+    cols_to_keep = binary_cols + ["Follow Up Data", "Data of death", "Data prelievo","Cause of death", "Collected by"]
     
     tmp_train = df_mortality_train[cols_to_keep].copy()
     tmp_eval = df_mortality_eval[cols_to_keep].copy()
@@ -99,7 +153,9 @@ def prepare_cox_data_cv(df_main):
         "Suicide",
         "Number",
         "CVD Death",
-        "Data prelievo"]
+        "Data prelievo",
+        "Cause of death", 
+        "Collected by"]
 
     df_mortality_train = df_mortality_train.drop(columns=columns_to_drop)
     df_mortality_eval = df_mortality_eval.drop(columns=columns_to_drop)
@@ -169,7 +225,9 @@ def prepare_cox_data(df_main):
         "Suicide",
         "Number",
         "CVD Death",
-        "Data prelievo"]
+        "Data prelievo",
+        "Collected by",
+        "Cause of death",]
 
     df_mortality_train = df_mortality_train.drop(columns=columns_to_drop)
     df_mortality_test = df_mortality_test.drop(columns=columns_to_drop)
