@@ -1,5 +1,6 @@
 import sys
 import os
+import argparse
 from unittest import case
 import numpy as np
 import pandas as pd
@@ -37,7 +38,7 @@ def set_seed(seed: int):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-def main(dataset_name, feature_event, feature_time, seed):    
+def main(dataset_name, feature_event, feature_time, seed, tuning=False):    
     match dataset_name:
         case "OrmoniTirodei":
             # 1. Load and clean the data
@@ -102,8 +103,12 @@ def main(dataset_name, feature_event, feature_time, seed):
         df_tmp = df_tmp.reset_index(drop=True)
         df_tmp_eval = df_tmp_eval.reset_index(drop=True)
 
-        c_index_train_scores_tabpfn = []
-        c_index_test_scores_tabpfn = []
+        c_index_train_scores_tabpfn_vanilla = []
+        c_index_test_scores_tabpfn_vanilla = []
+        c_index_train_scores_tabpfn_tuned = []
+        c_index_test_scores_tabpfn_tuned = []
+        c_index_train_scores_tabpfn_simple = []
+        c_index_test_scores_tabpfn_simple = []
         c_index_train_scores_cox = []
         c_index_test_scores_cox = []
         c_index_test_scores_rsf = []
@@ -135,59 +140,81 @@ def main(dataset_name, feature_event, feature_time, seed):
             _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval, seed)
             print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
             
-            os.makedirs("results/optuna/", exist_ok=True)
-            log_name = f"optuna_cox.log"
-            log_file = os.path.join("results/optuna/", log_name)
-            storage = JournalStorage(JournalFileBackend(log_file))
+            if tuning:
+                os.makedirs("results/optuna/", exist_ok=True)
+                log_name = f"optuna_cox.log"
+                log_file = os.path.join("results/optuna/", log_name)
+                storage = JournalStorage(JournalFileBackend(log_file))
 
-            study_name = "cox_tuning_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
-            study = optuna.create_study(
-                study_name=study_name,
-                direction="maximize",
-                storage=storage,
-                load_if_exists=True
-            )
-
-            params ={ 'embedding_dim':train_embeddings.shape[1],
-                        'num_nodes': [128, 64],
-                        'dropout': 0.1,
-                        'learning_rate': 1e-3,
-                        'batch_norm': True
-                        }
-            
-            def objective(trial):
-                num_nodes = trial.suggest_categorical('num_nodes', [[32], [64], [128], [64, 32], [128, 64]])
-                dropout = trial.suggest_float('dropout', 0.0, 0.3)
-                learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-2, log=True)
-                batch_norm = trial.suggest_categorical('batch_norm', [True, False])
-
-                model = EmbeddingCoxPH(
-                    embedding_dim=train_embeddings.shape[1],
-                    num_nodes=num_nodes,
-                    dropout=dropout,
-                    learning_rate=learning_rate,
-                    batch_norm=batch_norm
+                study_name = "cox_tuning_tabpfn_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
+                study = optuna.create_study(
+                    study_name=study_name,
+                    direction="maximize",
+                    storage=storage,
+                    load_if_exists=True
                 )
 
-                model.fit(train_embeddings, t_train, y_train.values,
-                          epochs=100,
-                          batch_size=128)
-                model.compute_baseline()
-                return model.concordance_index(eval_embeddings, t_eval, y_eval.values)
+                params ={ 'embedding_dim':train_embeddings.shape[1],
+                            'num_nodes': [128, 64],
+                            'dropout': 0.1,
+                            'learning_rate': 1e-3,
+                            'batch_norm': True
+                            }
+                
+                def objective(trial):
+                    num_nodes = trial.suggest_categorical('num_nodes', [[32], [64], [128], [64, 32], [128, 64]])
+                    dropout = trial.suggest_float('dropout', 0.0, 0.3)
+                    learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-2, log=True)
+                    batch_norm = trial.suggest_categorical('batch_norm', [True, False])
 
-            study.optimize(objective, n_trials=10)
-            params.update(study.best_params)
-            print(f"Best parameters: {study.best_params}")
-            
-            cox = EmbeddingCoxPH(**params)
-            
-            '''
+                    model = EmbeddingCoxPH(
+                        embedding_dim=train_embeddings.shape[1],
+                        num_nodes=num_nodes,
+                        dropout=dropout,
+                        learning_rate=learning_rate,
+                        batch_norm=batch_norm
+                    )
+
+                    model.fit(train_embeddings, t_train, y_train.values,
+                            epochs=100,
+                            batch_size=128)
+                    model.compute_baseline()
+                    return model.concordance_index(eval_embeddings, t_eval, y_eval.values)
+
+                study.optimize(objective, n_trials=100)
+                params.update(study.best_params)
+                print(f"Best parameters: {study.best_params}")
+                
+                cox = EmbeddingCoxPH(**params)
+
+                callbacks = [tt.callbacks.EarlyStopping(patience=20,          
+                                                        min_delta=1e-4,        
+                                                        checkpoint_model=True, 
+                                                        file_path="models/best_models_tabpfn_tuned.pt", 
+                                                        load_best=True
+                                                        )]
+                cox.fit(
+                        train_embeddings,
+                        durations=t_train,
+                        events=y_train.values,
+                        val_data=(eval_embeddings, t_eval, y_eval.values),
+                        epochs=200,
+                        callbacks=callbacks,
+                        batch_size=128,
+                    )
+
+                cox.compute_baseline()
+
+                c_train = cox.concordance_index(train_embeddings, t_train, y_train.values)
+                c_test  = cox.concordance_index(test_embeddings, t_test, y_test.values)
+
+                print(f"C-index train: {c_train:.4f}")
+                print(f"C-index test:  {c_test:.4f}")
+                c_index_train_scores_tabpfn_tuned.append(c_train)
+                c_index_test_scores_tabpfn_tuned.append(c_test)
+                
+            # Simple CoxPH on the embeddings (without tuning)
             in_features  = train_embeddings.shape[1]
-            num_nodes    = [32, 32]
-            out_features = 1
-            batch_norm   = True
-            dropout      = 0.1
-
             net = nn.Linear(in_features, 1)
 
             model = CoxPH(net, tt.optim.Adam)
@@ -199,7 +226,7 @@ def main(dataset_name, feature_event, feature_time, seed):
                                     patience=20,          
                                     min_delta=1e-4,        
                                     checkpoint_model=True, 
-                                    file_path="models/best_models.pt", 
+                                    file_path="models/best_models_tabpfn_cox_simple.pt", 
                                     load_best=True
                                     )]
 
@@ -220,36 +247,60 @@ def main(dataset_name, feature_event, feature_time, seed):
 
             ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
 
-            c_index_test_scores_tabpfn.append(ev_test.concordance_td())
-            c_index_train_scores_tabpfn.append(ev_train.concordance_td())
+            c_index_test_scores_tabpfn_simple.append(ev_test.concordance_td())
+            c_index_train_scores_tabpfn_simple.append(ev_train.concordance_td())
 
             print("C-index TRAIN:", ev_train.concordance_td())
             print("C-index TEST :", ev_test.concordance_td())
-            
-            '''
-            callbacks = [tt.callbacks.EarlyStopping(patience=10)]
-            cox.fit(
-                        train_embeddings,
-                        durations=t_train,
-                        events=y_train.values,
-                        val_data=(eval_embeddings, t_eval, y_eval.values),
-                        epochs=200,
-                        callbacks=callbacks,
-                        batch_size=128,
-                    )
 
-            cox.compute_baseline()
+            #MLP VANILLA on the embeddings (without tuning)
+            in_features  = train_embeddings.shape[1]
+            num_nodes    = [32, 32]
+            out_features = 1
+            batch_norm   = True
+            dropout      = 0.1
+            net = tt.practical.MLPVanilla(
+                in_features, num_nodes, out_features,
+                batch_norm=batch_norm, dropout=dropout
+            )
 
-            c_train = cox.concordance_index(train_embeddings, t_train, y_train.values)
-            c_test  = cox.concordance_index(test_embeddings, t_test, y_test.values)
+            model = CoxPH(net, tt.optim.Adam)
+            model.optimizer.set_lr(0.01)
 
-            print(f"C-index train: {c_train:.4f}")
-            print(f"C-index test:  {c_test:.4f}")
-            c_index_train_scores_tabpfn.append(c_train)
-            c_index_test_scores_tabpfn.append(c_test)
-            
+            batch_size = 256
+            epochs     = 100
+            callbacks  = [tt.callbacks.EarlyStopping( 
+                                    patience=20,          
+                                    min_delta=1e-4,        
+                                    checkpoint_model=True, 
+                                    file_path="models/best_models_tabpfn_cox_vanilla.pt", 
+                                    load_best=True
+                                    )]
 
-            if type != "NaN":
+            log = model.fit(
+                    train_embeddings, (t_train , y_train.values),
+                    batch_size, epochs,
+                    callbacks,
+                    val_data=(eval_embeddings, (t_eval, y_eval.values)),
+                    verbose=True
+                )
+
+            _ = model.compute_baseline_hazards()
+
+            surv_test = model.predict_surv_df(test_embeddings)
+            surv_train = model.predict_surv_df(train_embeddings)
+
+            ev_train = EvalSurv(surv_train, t_train, y_train.values, censor_surv='km')
+
+            ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
+
+            c_index_test_scores_tabpfn_vanilla.append(ev_test.concordance_td())
+            c_index_train_scores_tabpfn_vanilla.append(ev_train.concordance_td())
+
+            print("C-index TRAIN:", ev_train.concordance_td())
+            print("C-index TEST :", ev_test.concordance_td())
+
+            if preprocess_type != "NaN":
                 in_features  = X_train.shape[1]
                 num_nodes    = [32, 32]
                 out_features = 1
@@ -270,7 +321,7 @@ def main(dataset_name, feature_event, feature_time, seed):
                                     patience=20,          
                                     min_delta=1e-4,        
                                     checkpoint_model=True, 
-                                    file_path="models/best_models_tmp.pt", 
+                                    file_path="models/best_models_tabpfn_cox_vanilla_nan.pt", 
                                     load_best=True
                                     )]
 
@@ -396,7 +447,13 @@ def main(dataset_name, feature_event, feature_time, seed):
             plt.close(fig)
             print(f"Visualization saved to {os.path.join(out_dir, save_name_base)}.pdf")
             '''
-        results.append((type, (c_index_train_scores_tabpfn, c_index_test_scores_tabpfn), (c_index_train_scores_cox, c_index_test_scores_cox), (c_index_train_scores_rsf, c_index_test_scores_rsf)))
+        results.append( (preprocess_type, 
+                        (c_index_train_scores_tabpfn_vanilla, c_index_test_scores_tabpfn_vanilla),
+                        (c_index_train_scores_tabpfn_simple, c_index_test_scores_tabpfn_simple),
+                        (c_index_train_scores_tabpfn_tuned, c_index_test_scores_tabpfn_tuned),
+                        (c_index_train_scores_cox, c_index_test_scores_cox),
+                        (c_index_train_scores_rsf, c_index_test_scores_rsf),
+                        ))
     return results
 
 
@@ -423,16 +480,22 @@ class Tee:
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--tuning", action="store_true")
+    args = parser.parse_args()
+    
+    tuning = args.tuning
+
     print("STARTED")
     seeds = [42, 123, 456, 789, 2024]
     res = [[],[]]
     for index, seed in enumerate(seeds): 
         set_seed(seed)
 
-        res[0].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed)))
-        res[1].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed)))
+        res[0].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
+        res[1].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
 
-    tee = Tee("results_cv_rsf.txt")
+    tee = Tee("results_cv_tabpfn.txt")
     sys.stdout = tee
 
     for exp_idx, experiment in enumerate(res):
@@ -440,18 +503,27 @@ if __name__ == "__main__":
         print(f"Dataset {exp_idx + 1}")
         print(f"{'='*60}")
 
-        all_train_tabpfn = []
-        all_test_tabpfn  = []
+        all_train_tabpfn_vanilla = []
+        all_test_tabpfn_vanilla  = []
+        all_train_tabpfn_simple = []
+        all_test_tabpfn_simple  = []
+        all_train_tabpfn_tuned = []
+        all_test_tabpfn_tuned  = []
         all_train_cox    = []
         all_test_cox     = []
         all_train_rsf    = []
         all_test_rsf     = []
 
         for seed, result_list in experiment:
-            for preprocess_type, (c_train_tabpfn, c_test_tabpfn), (c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
+            for preprocess_type, (c_train_tabpfn_vanilla, c_test_tabpfn_vanilla),(c_train_tabpfn_simple, c_test_tabpfn_simple),(c_train_tabpfn_tuned, c_test_tabpfn_tuned),(c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
                 print(f"\n  Preprocess: {preprocess_type} | Seed: {seed}")
-                print_stats("TabPFN Train", c_train_tabpfn)
-                print_stats("TabPFN Test",  c_test_tabpfn)
+                print_stats("TabPFN Train Vanilla", c_train_tabpfn_vanilla)
+                print_stats("TabPFN Test Vanilla",  c_test_tabpfn_vanilla)
+                print_stats("TabPFN Train Simple", c_train_tabpfn_simple)
+                print_stats("TabPFN Test Simple",  c_test_tabpfn_simple)
+                if c_train_tabpfn_tuned:
+                    print_stats("TabPFN Train Tuned", c_train_tabpfn_tuned)
+                    print_stats("TabPFN Test Tuned",  c_test_tabpfn_tuned)
                 if c_train_cox:
                     print_stats("Cox Train", c_train_cox)
                     print_stats("Cox Test",  c_test_cox)
@@ -459,8 +531,12 @@ if __name__ == "__main__":
                     print_stats("RSF Train", c_train_rsf)
                     print_stats("RSF Test",  c_test_rsf)
 
-                all_train_tabpfn.extend(c_train_tabpfn)
-                all_test_tabpfn.extend(c_test_tabpfn)
+                all_train_tabpfn_vanilla.extend(c_train_tabpfn_vanilla)
+                all_test_tabpfn_vanilla.extend(c_test_tabpfn_vanilla)
+                all_train_tabpfn_simple.extend(c_train_tabpfn_simple)
+                all_test_tabpfn_simple.extend(c_test_tabpfn_simple)
+                all_train_tabpfn_tuned.extend(c_train_tabpfn_tuned)
+                all_test_tabpfn_tuned.extend(c_test_tabpfn_tuned)
                 all_train_cox.extend(c_train_cox)
                 all_test_cox.extend(c_test_cox)
                 all_train_rsf.extend(c_train_rsf)
@@ -468,12 +544,17 @@ if __name__ == "__main__":
 
         print(f"\n  {'─'*50}")
         print(f"  TOTAL:")
-        print_stats("TabPFN Train", all_train_tabpfn)
-        print_stats("TabPFN Test",  all_test_tabpfn)
+        print_stats("TabPFN Train Vanilla", all_train_tabpfn_vanilla)
+        print_stats("TabPFN Test Vanilla",  all_test_tabpfn_vanilla)
+        print_stats("TabPFN Train Simple", all_train_tabpfn_simple)
+        print_stats("TabPFN Test Simple",  all_test_tabpfn_simple)
+        if len(all_train_tabpfn_tuned) > 0:
+            print_stats("TabPFN Train Tuned", all_train_tabpfn_tuned)
+            print_stats("TabPFN Test Tuned",  all_test_tabpfn_tuned)
         print_stats("Cox Train",    all_train_cox)
         print_stats("Cox Test",     all_test_cox)
         print_stats("RSF Train",    all_train_rsf)
         print_stats("RSF Test",     all_test_rsf)
     sys.stdout = tee.console
     tee.close()
-    print("✅ Result saved in 'results_cv_rsf.txt'")
+    print("✅ Result saved in 'results_cv_tabpfn.txt'")

@@ -106,7 +106,7 @@ class EmbeddingCoxPH:
         verbose: bool = True,
     ):
         x = embeddings.astype(np.float32)
-        y = (durations.astype(np.float32), events.astype(np.int32))
+        y = (durations.astype(np.float32), events.astype(np.float32))
 
         self._x_train = x
         self._y_train = y
