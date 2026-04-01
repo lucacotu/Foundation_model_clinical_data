@@ -17,14 +17,12 @@ from optuna.storages import JournalStorage
 from optuna.storages.journal import JournalFileBackend
 import torch.nn as nn
 from sksurv.ensemble import RandomSurvivalForest
+from sklearn.impute import SimpleImputer
 
 
 from src.data_loader import load_data
 from src.preprocessing import clean_and_impute, prepare_cox_data_cv, prepare_cox_data_hurrah_cv
-from src.tabpfn import (
-	get_tabpfn_embeddings,
-	setup_figure, create_savefig_partial
-)
+from src.tabicl import get_tabicl_embeddings
 from src.embedding_cox import EmbeddingCoxPH
 
 def set_seed(seed: int):
@@ -80,7 +78,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
     results = []
 
-    preprocess = [ "-1", "NaN"]
+    preprocess = ["-1","NaN"]
     for preprocess_type in preprocess:
         df_tmp = df_tmp_original.copy()
         df_tmp_eval = df_tmp_eval_original.copy()
@@ -95,6 +93,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                 df_tmp_eval = df_tmp_eval.fillna(-1)
             case "NaN":
                 print("\n\nPreprocess: Replace NaN with np.nan")
+
                 df_tmp = df_tmp.fillna(np.nan)
                 df_tmp_eval = df_tmp_eval.fillna(np.nan)
             case _:
@@ -103,12 +102,12 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
         df_tmp = df_tmp.reset_index(drop=True)
         df_tmp_eval = df_tmp_eval.reset_index(drop=True)
 
-        c_index_train_scores_tabpfn_vanilla = []
-        c_index_test_scores_tabpfn_vanilla = []
-        c_index_train_scores_tabpfn_tuned = []
-        c_index_test_scores_tabpfn_tuned = []
-        c_index_train_scores_tabpfn_simple = []
-        c_index_test_scores_tabpfn_simple = []
+        c_index_train_scores_tabicl_vanilla = []
+        c_index_test_scores_tabicl_vanilla = []
+        c_index_train_scores_tabicl_tuned = []
+        c_index_test_scores_tabicl_tuned = []
+        c_index_train_scores_tabicl_simple = []
+        c_index_test_scores_tabicl_simple = []
         c_index_train_scores_cox = []
         c_index_test_scores_cox = []
         c_index_test_scores_rsf = []
@@ -124,7 +123,6 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
         kf = KFold(n_splits=5, shuffle=True, random_state=seed)
         splits = kf.split(X)
-
         
         for fold, (train_idx, test_idx) in enumerate(splits): 
 
@@ -134,19 +132,20 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
             print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
         
+            device = "cuda" if torch.cuda.is_available() else "cpu"
             # 4. Generate the embeddings!
-            print("Generating TabPFN Embeddings...")
-            train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed)
-            _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval, seed)
+            print("Generating Tabicl Embeddings...")
+            train_embeddings, test_embeddings = get_tabicl_embeddings(X_train, y_train.values, X_test, device=device, random_state=seed)
+            _, eval_embeddings = get_tabicl_embeddings(X_train, y_train.values, X_eval, device=device, random_state=seed)
             print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
-            
+
             if tuning:
                 os.makedirs("results/optuna/", exist_ok=True)
-                log_name = f"optuna_cox.log"
+                log_name = f"optuna_cox_tabicl.log"
                 log_file = os.path.join("results/optuna/", log_name)
                 storage = JournalStorage(JournalFileBackend(log_file))
 
-                study_name = "cox_tuning_tabpfn_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
+                study_name = "cox_tuning_tabicl_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
                 study = optuna.create_study(
                     study_name=study_name,
                     direction="maximize",
@@ -155,12 +154,12 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                 )
 
                 params ={ 'embedding_dim':train_embeddings.shape[1],
-                            'num_nodes': [128, 64],
-                            'dropout': 0.1,
-                            'learning_rate': 1e-3,
-                            'batch_norm': True
-                            }
-                
+                        'num_nodes': [128, 64],
+                        'dropout': 0.1,
+                        'learning_rate': 1e-3,
+                        'batch_norm': True
+                        }
+            
                 def objective(trial):
                     num_nodes = trial.suggest_categorical('num_nodes', [[32], [64], [128], [64, 32], [128, 64]])
                     dropout = trial.suggest_float('dropout', 0.0, 0.3)
@@ -190,7 +189,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                 callbacks = [tt.callbacks.EarlyStopping(patience=20,          
                                                         min_delta=1e-4,        
                                                         checkpoint_model=True, 
-                                                        file_path="models/best_models_tabpfn_tuned.pt", 
+                                                        file_path="models/best_models_tabicl_tuned.pt", 
                                                         load_best=True
                                                         )]
                 cox.fit(
@@ -210,9 +209,15 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
-                c_index_train_scores_tabpfn_tuned.append(c_train)
-                c_index_test_scores_tabpfn_tuned.append(c_test)
-                
+                c_index_train_scores_tabicl_tuned.append(c_train)
+                c_index_test_scores_tabicl_tuned.append(c_test)
+            
+            
+            #num_nodes    = [32, 32]
+            #out_features = 1
+            #batch_norm   = True
+            #dropout      = 0.1
+            
             # Simple CoxPH on the embeddings (without tuning)
             in_features  = train_embeddings.shape[1]
             net = nn.Linear(in_features, 1)
@@ -226,7 +231,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                                     patience=20,          
                                     min_delta=1e-4,        
                                     checkpoint_model=True, 
-                                    file_path="models/best_models_tabpfn_cox_simple.pt", 
+                                    file_path="models/best_models_tabicl_cox_simple.pt", 
                                     load_best=True
                                     )]
 
@@ -247,11 +252,12 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
             ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
 
-            c_index_test_scores_tabpfn_simple.append(ev_test.concordance_td())
-            c_index_train_scores_tabpfn_simple.append(ev_train.concordance_td())
+            c_index_test_scores_tabicl_simple.append(ev_test.concordance_td())
+            c_index_train_scores_tabicl_simple.append(ev_train.concordance_td())
 
             print("C-index TRAIN:", ev_train.concordance_td())
             print("C-index TEST :", ev_test.concordance_td())
+            
 
             #MLP VANILLA on the embeddings (without tuning)
             in_features  = train_embeddings.shape[1]
@@ -273,7 +279,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                                     patience=20,          
                                     min_delta=1e-4,        
                                     checkpoint_model=True, 
-                                    file_path="models/best_models_tabpfn_cox_vanilla.pt", 
+                                    file_path="models/best_models_tabicl_cox_vanilla.pt", 
                                     load_best=True
                                     )]
 
@@ -294,11 +300,12 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
             ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
 
-            c_index_test_scores_tabpfn_vanilla.append(ev_test.concordance_td())
-            c_index_train_scores_tabpfn_vanilla.append(ev_train.concordance_td())
+            c_index_test_scores_tabicl_vanilla.append(ev_test.concordance_td())
+            c_index_train_scores_tabicl_vanilla.append(ev_train.concordance_td())
 
             print("C-index TRAIN:", ev_train.concordance_td())
             print("C-index TEST :", ev_test.concordance_td())
+            
 
             if preprocess_type != "NaN":
                 in_features  = X_train.shape[1]
@@ -321,7 +328,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                                     patience=20,          
                                     min_delta=1e-4,        
                                     checkpoint_model=True, 
-                                    file_path="models/best_models_tabpfn_cox_vanilla_nan.pt", 
+                                    file_path="models/best_models_tabicl_cox_vanilla_nan.pt", 
                                     load_best=True
                                     )]
 
@@ -448,12 +455,11 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
             print(f"Visualization saved to {os.path.join(out_dir, save_name_base)}.pdf")
             '''
         results.append( (preprocess_type, 
-                        (c_index_train_scores_tabpfn_vanilla, c_index_test_scores_tabpfn_vanilla),
-                        (c_index_train_scores_tabpfn_simple, c_index_test_scores_tabpfn_simple),
-                        (c_index_train_scores_tabpfn_tuned, c_index_test_scores_tabpfn_tuned),
-                        (c_index_train_scores_cox, c_index_test_scores_cox),
-                        (c_index_train_scores_rsf, c_index_test_scores_rsf),
-                        ))
+                        (c_index_train_scores_tabicl_vanilla, c_index_test_scores_tabicl_vanilla),
+                        (c_index_train_scores_tabicl_simple, c_index_test_scores_tabicl_simple),
+                        (c_index_train_scores_tabicl_tuned, c_index_test_scores_tabicl_tuned), 
+                        (c_index_train_scores_cox, c_index_test_scores_cox), 
+                        (c_index_train_scores_rsf, c_index_test_scores_rsf)))
     return results
 
 
@@ -495,7 +501,7 @@ if __name__ == "__main__":
         res[0].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
         res[1].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
 
-    tee = Tee("results_cv_tabpfn.txt")
+    tee = Tee("results_cv_tabicl.txt")
     sys.stdout = tee
 
     for exp_idx, experiment in enumerate(res):
@@ -503,27 +509,27 @@ if __name__ == "__main__":
         print(f"Dataset {exp_idx + 1}")
         print(f"{'='*60}")
 
-        all_train_tabpfn_vanilla = []
-        all_test_tabpfn_vanilla  = []
-        all_train_tabpfn_simple = []
-        all_test_tabpfn_simple  = []
-        all_train_tabpfn_tuned = []
-        all_test_tabpfn_tuned  = []
+        all_train_tabicl_vanilla = []
+        all_test_tabicl_vanilla = []
+        all_train_tabicl_simple = []
+        all_test_tabicl_simple = []
+        all_train_tabicl_tuned = []
+        all_test_tabicl_tuned = []
         all_train_cox    = []
         all_test_cox     = []
         all_train_rsf    = []
         all_test_rsf     = []
 
         for seed, result_list in experiment:
-            for preprocess_type, (c_train_tabpfn_vanilla, c_test_tabpfn_vanilla),(c_train_tabpfn_simple, c_test_tabpfn_simple),(c_train_tabpfn_tuned, c_test_tabpfn_tuned),(c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
+            for preprocess_type, (c_train_tabicl_vanilla, c_test_tabicl_vanilla), (c_train_tabicl_simple, c_test_tabicl_simple), (c_train_tabicl_tuned, c_test_tabicl_tuned), (c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
                 print(f"\n  Preprocess: {preprocess_type} | Seed: {seed}")
-                print_stats("TabPFN Train Vanilla", c_train_tabpfn_vanilla)
-                print_stats("TabPFN Test Vanilla",  c_test_tabpfn_vanilla)
-                print_stats("TabPFN Train Simple", c_train_tabpfn_simple)
-                print_stats("TabPFN Test Simple",  c_test_tabpfn_simple)
-                if c_train_tabpfn_tuned:
-                    print_stats("TabPFN Train Tuned", c_train_tabpfn_tuned)
-                    print_stats("TabPFN Test Tuned",  c_test_tabpfn_tuned)
+                print_stats("TabICL Train Vanilla", c_train_tabicl_vanilla)
+                print_stats("TabICL Test Vanilla",  c_test_tabicl_vanilla)
+                print_stats("TabICL Train Simple", c_train_tabicl_simple)
+                print_stats("TabICL Test Simple",  c_test_tabicl_simple)
+                if c_train_tabicl_tuned:
+                    print_stats("TabICL Train Tuned", c_train_tabicl_tuned)
+                    print_stats("TabICL Test Tuned",  c_test_tabicl_tuned)
                 if c_train_cox:
                     print_stats("Cox Train", c_train_cox)
                     print_stats("Cox Test",  c_test_cox)
@@ -531,12 +537,12 @@ if __name__ == "__main__":
                     print_stats("RSF Train", c_train_rsf)
                     print_stats("RSF Test",  c_test_rsf)
 
-                all_train_tabpfn_vanilla.extend(c_train_tabpfn_vanilla)
-                all_test_tabpfn_vanilla.extend(c_test_tabpfn_vanilla)
-                all_train_tabpfn_simple.extend(c_train_tabpfn_simple)
-                all_test_tabpfn_simple.extend(c_test_tabpfn_simple)
-                all_train_tabpfn_tuned.extend(c_train_tabpfn_tuned)
-                all_test_tabpfn_tuned.extend(c_test_tabpfn_tuned)
+                all_train_tabicl_vanilla.extend(c_train_tabicl_vanilla)
+                all_test_tabicl_vanilla.extend(c_test_tabicl_vanilla)
+                all_train_tabicl_simple.extend(c_train_tabicl_simple)
+                all_test_tabicl_simple.extend(c_test_tabicl_simple)
+                all_train_tabicl_tuned.extend(c_train_tabicl_tuned)
+                all_test_tabicl_tuned.extend(c_test_tabicl_tuned)
                 all_train_cox.extend(c_train_cox)
                 all_test_cox.extend(c_test_cox)
                 all_train_rsf.extend(c_train_rsf)
@@ -544,17 +550,17 @@ if __name__ == "__main__":
 
         print(f"\n  {'─'*50}")
         print(f"  TOTAL:")
-        print_stats("TabPFN Train Vanilla", all_train_tabpfn_vanilla)
-        print_stats("TabPFN Test Vanilla",  all_test_tabpfn_vanilla)
-        print_stats("TabPFN Train Simple", all_train_tabpfn_simple)
-        print_stats("TabPFN Test Simple",  all_test_tabpfn_simple)
-        if len(all_train_tabpfn_tuned) > 0:
-            print_stats("TabPFN Train Tuned", all_train_tabpfn_tuned)
-            print_stats("TabPFN Test Tuned",  all_test_tabpfn_tuned)
+        print_stats("TabICL Train Vanilla", all_train_tabicl_vanilla)
+        print_stats("TabICL Test Vanilla",  all_test_tabicl_vanilla)
+        print_stats("TabICL Train Simple", all_train_tabicl_simple)
+        print_stats("TabICL Test Simple",  all_test_tabicl_simple)
+        if len(all_train_tabicl_tuned) > 0:
+            print_stats("TabICL Train Tuned", all_train_tabicl_tuned)
+            print_stats("TabICL Test Tuned",  all_test_tabicl_tuned)
         print_stats("Cox Train",    all_train_cox)
         print_stats("Cox Test",     all_test_cox)
         print_stats("RSF Train",    all_train_rsf)
         print_stats("RSF Test",     all_test_rsf)
     sys.stdout = tee.console
     tee.close()
-    print("✅ Result saved in 'results_cv_tabpfn.txt'")
+    print("✅ Result saved in 'results_cv_tabicl.txt'")
