@@ -2,6 +2,7 @@
 import os
 import numpy as np
 from typing import Optional
+import sys
 
 import torch
 from src.tabdpt.embedding import TabDPTEmbeddingExtractor
@@ -30,21 +31,18 @@ def get_tabdpt_embeddings(
     train_emb : (n_train, ninp)
     test_emb  : (n_test,  ninp)
     """
-    print("CHECKPOINT PATH:", checkpoint_path)
     if checkpoint_path is None:
         checkpoint_path = os.environ.get("TABDPT_CHECKPOINT", "")
+        print("ENV CHECKPOINT PATH:", checkpoint_path, file=sys.stderr)
     if not checkpoint_path:
-        default_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "models/models_diff/tabdpt1_1.pth")
-        print("DEFAULT PATH:", default_path)
+        default_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "src/models_diff/tabdpt1_1.pth")
+        print("DEFAULT PATH:", default_path, file=sys.stderr)
         if os.path.exists(default_path):
-            print("Found checkpoint at default path.")
             checkpoint_path = default_path
         else:
-            print("No checkpoint found at default path. Checking absolute fallback path...")
             # Absolute path fallback from user
             fallback_abs = "/home/lcotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth"
             if os.path.exists(fallback_abs):
-                print("Found checkpoint at absolute fallback path.")
                 checkpoint_path = fallback_abs
 
     if not checkpoint_path:

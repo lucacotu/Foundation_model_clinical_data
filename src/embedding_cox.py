@@ -81,7 +81,7 @@ class EmbeddingCoxPH:
             in_features=embedding_dim,
             num_nodes=num_nodes,
             out_features=out_features,
-            batch_norm=False,#batch_norm,
+            batch_norm=batch_norm,
             dropout=dropout,
             output_activation=None,  
         )

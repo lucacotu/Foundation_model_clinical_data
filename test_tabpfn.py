@@ -3,6 +3,7 @@ import os
 import argparse
 from unittest import case
 import numpy as np
+from optuna import trial
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
@@ -105,8 +106,10 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
         c_index_train_scores_tabpfn_vanilla = []
         c_index_test_scores_tabpfn_vanilla = []
-        c_index_train_scores_tabpfn_tuned = []
-        c_index_test_scores_tabpfn_tuned = []
+        c_index_train_scores_tabpfn_tuned_cox = []
+        c_index_test_scores_tabpfn_tuned_cox = []
+        c_index_train_scores_tabpfn_tuned_rsf = []
+        c_index_test_scores_tabpfn_tuned_rsf = []
         c_index_train_scores_tabpfn_simple = []
         c_index_test_scores_tabpfn_simple = []
         c_index_train_scores_cox = []
@@ -121,6 +124,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
         X_eval = df_tmp_eval.drop(columns=['__event__', '__duration__'])
         y_eval = df_tmp_eval['__event__']
         t_eval = df_tmp_eval['__duration__'].values.astype(np.float32)
+
 
         kf = KFold(n_splits=5, shuffle=True, random_state=seed)
         splits = kf.split(X)
@@ -139,19 +143,31 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
             train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed)
             _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval, seed)
             print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
+
+            print("DOPO GET TABPFN EMBEDDINGS")
+
+
+            y_train_structured = np.array(
+                        [(bool(e), t) for e, t in zip(y_train, t_train)],
+                        dtype=[('event', bool), ('time', float)]
+                    )
+
+            y_eval_structured = np.array(
+                        [(bool(e), t) for e, t in zip(y_eval, t_eval)],
+                        dtype=[('event', bool), ('time', float)]
+            )
+
+            y_test_structured = np.array(
+                    [(bool(e), t) for e, t in zip(y_test, t_test)],
+                    dtype=[('event', bool), ('time', float)]
+            )
             
             if tuning:
-                os.makedirs("results/optuna/", exist_ok=True)
-                log_name = f"optuna_cox.log"
-                log_file = os.path.join("results/optuna/", log_name)
-                storage = JournalStorage(JournalFileBackend(log_file))
 
                 study_name = "cox_tuning_tabpfn_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
                 study = optuna.create_study(
                     study_name=study_name,
                     direction="maximize",
-                    storage=storage,
-                    load_if_exists=True
                 )
 
                 params ={ 'embedding_dim':train_embeddings.shape[1],
@@ -161,7 +177,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                             'batch_norm': True
                             }
                 
-                def objective(trial):
+                def objective_cox(trial):
                     num_nodes = trial.suggest_categorical('num_nodes', [[32], [64], [128], [64, 32], [128, 64]])
                     dropout = trial.suggest_float('dropout', 0.0, 0.3)
                     learning_rate = trial.suggest_float('learning_rate', 1e-4, 1e-2, log=True)
@@ -181,7 +197,7 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                     model.compute_baseline()
                     return model.concordance_index(eval_embeddings, t_eval, y_eval.values)
 
-                study.optimize(objective, n_trials=100)
+                study.optimize(objective_cox, n_trials=50,n_jobs=-1)
                 params.update(study.best_params)
                 print(f"Best parameters: {study.best_params}")
                 
@@ -210,8 +226,65 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
 
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
-                c_index_train_scores_tabpfn_tuned.append(c_train)
-                c_index_test_scores_tabpfn_tuned.append(c_test)
+                c_index_train_scores_tabpfn_tuned_cox.append(c_train)
+                c_index_test_scores_tabpfn_tuned_cox.append(c_test)
+
+
+                study_name = "rsf_tuning_tabpfn_{fold}_{type}_seed{seed}".format(fold=fold+1, type=preprocess_type, seed=seed)
+                study_rsf = optuna.create_study(
+                    study_name=study_name,
+                    direction="maximize",
+                )
+
+                params = {  "n_estimators": 100,
+                            "max_depth": 3,
+                            "min_samples_split": 2,
+                            "min_samples_leaf": 1,
+                            "max_features": "sqrt",
+                            "n_jobs": 1,
+                            "random_state": seed
+                            }
+                
+                def objective_rsf(trial):
+                    print(f"[Trial {trial.number}] START")
+                    
+                    n_estimators = trial.suggest_int("n_estimators", 50, 300, step=50)
+                    max_depth = trial.suggest_int("max_depth", 3, 10)                  
+                    min_samples_split = trial.suggest_int("min_samples_split", 5, 20)
+                    min_samples_leaf = trial.suggest_int("min_samples_leaf", 3, 15)
+                    max_features = trial.suggest_categorical("max_features", ["sqrt", "log2"])
+
+                    rsf = RandomSurvivalForest(
+                        n_estimators=n_estimators,
+                        max_depth=max_depth,
+                        min_samples_split=min_samples_split,
+                        min_samples_leaf=min_samples_leaf,
+                        max_features=max_features,
+                        n_jobs=-1,
+                        random_state=seed
+                    )
+                    
+                    print(f"[Trial {trial.number}] fitting...") 
+
+                    rsf.fit(train_embeddings, y_train_structured)
+                    print(f"[Trial {trial.number}] done")
+
+                    return rsf.score(eval_embeddings, y_eval_structured)
+
+                study_rsf.optimize(objective_rsf, n_trials=50,n_jobs=-1)
+                params.update(study_rsf.best_params)
+                print(f"Best parameters: {study_rsf.best_params}")
+                
+                rsf_tuned = RandomSurvivalForest(**params)
+
+                rsf_tuned.fit(train_embeddings, y_train_structured)
+                c_train = rsf_tuned.score(train_embeddings, y_train_structured)
+                c_test  = rsf_tuned.score(test_embeddings, y_test_structured)
+
+                print(f"C-index train: {c_train:.4f}")
+                print(f"C-index test:  {c_test:.4f}")
+                c_index_train_scores_tabpfn_tuned_rsf.append(c_train)
+                c_index_test_scores_tabpfn_tuned_rsf.append(c_test)
                 
             # Simple CoxPH on the embeddings (without tuning)
             in_features  = train_embeddings.shape[1]
@@ -353,15 +426,15 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                     n_estimators=100, min_samples_split=10, min_samples_leaf=15, n_jobs=-1, random_state=seed
                 )
 
-                y_train_structured = np.array(
-                    [(bool(e), t) for e, t in zip(y_train, t_train)],
-                    dtype=[('event', bool), ('time', float)]
-                )
+                #y_train_structured = np.array(
+                #    [(bool(e), t) for e, t in zip(y_train, t_train)],
+                #    dtype=[('event', bool), ('time', float)]
+                #)
 
-                y_test_structured = np.array(
-                    [(bool(e), t) for e, t in zip(y_test, t_test)],
-                    dtype=[('event', bool), ('time', float)]
-                )
+                #y_test_structured = np.array(
+                #    [(bool(e), t) for e, t in zip(y_test, t_test)],
+                #    dtype=[('event', bool), ('time', float)]
+                #)
 
                 rsf.fit(X_train.values.astype(np.float32), y_train_structured)
                 
@@ -371,8 +444,6 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
                 c_index_train_scores_rsf.append(c_index_train)
                 print(f"C-index TEST (RSF): {c_index_test:.5f}")
                 print(f"C-index TRAIN (RSF): {c_index_train:.5f}")
-
-
 
             # ── Predict ──────────────────────────────────────────────────────────────
             #survival_df = cox.predict_survival(test_embeddings)
@@ -450,7 +521,8 @@ def main(dataset_name, feature_event, feature_time, seed, tuning=False):
         results.append( (preprocess_type, 
                         (c_index_train_scores_tabpfn_vanilla, c_index_test_scores_tabpfn_vanilla),
                         (c_index_train_scores_tabpfn_simple, c_index_test_scores_tabpfn_simple),
-                        (c_index_train_scores_tabpfn_tuned, c_index_test_scores_tabpfn_tuned),
+                        (c_index_train_scores_tabpfn_tuned_cox, c_index_test_scores_tabpfn_tuned_cox),
+                        (c_index_train_scores_tabpfn_tuned_rsf, c_index_test_scores_tabpfn_tuned_rsf),
                         (c_index_train_scores_cox, c_index_test_scores_cox),
                         (c_index_train_scores_rsf, c_index_test_scores_rsf),
                         ))
@@ -493,7 +565,7 @@ if __name__ == "__main__":
         set_seed(seed)
 
         res[0].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
-        res[1].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
+        res[1].append((seed, main("HURRAH", "STATO_AL_FU", "FU", seed, tuning)))
 
     tee = Tee("results_cv_tabpfn.txt")
     sys.stdout = tee
@@ -507,23 +579,28 @@ if __name__ == "__main__":
         all_test_tabpfn_vanilla  = []
         all_train_tabpfn_simple = []
         all_test_tabpfn_simple  = []
-        all_train_tabpfn_tuned = []
-        all_test_tabpfn_tuned  = []
+        all_train_tabpfn_tuned_cox = []
+        all_test_tabpfn_tuned_cox  = []
+        all_train_tabpfn_tuned_rsf = []
+        all_test_tabpfn_tuned_rsf  = []
         all_train_cox    = []
         all_test_cox     = []
         all_train_rsf    = []
         all_test_rsf     = []
 
         for seed, result_list in experiment:
-            for preprocess_type, (c_train_tabpfn_vanilla, c_test_tabpfn_vanilla),(c_train_tabpfn_simple, c_test_tabpfn_simple),(c_train_tabpfn_tuned, c_test_tabpfn_tuned),(c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
+            for preprocess_type, (c_train_tabpfn_vanilla, c_test_tabpfn_vanilla),(c_train_tabpfn_simple, c_test_tabpfn_simple),(c_train_tabpfn_tuned_cox, c_test_tabpfn_tuned_cox),(c_train_tabpfn_tuned_rsf, c_test_tabpfn_tuned_rsf),(c_train_cox, c_test_cox), (c_train_rsf, c_test_rsf) in result_list:
                 print(f"\n  Preprocess: {preprocess_type} | Seed: {seed}")
                 print_stats("TabPFN Train Vanilla", c_train_tabpfn_vanilla)
                 print_stats("TabPFN Test Vanilla",  c_test_tabpfn_vanilla)
                 print_stats("TabPFN Train Simple", c_train_tabpfn_simple)
                 print_stats("TabPFN Test Simple",  c_test_tabpfn_simple)
-                if c_train_tabpfn_tuned:
-                    print_stats("TabPFN Train Tuned", c_train_tabpfn_tuned)
-                    print_stats("TabPFN Test Tuned",  c_test_tabpfn_tuned)
+                if c_train_tabpfn_tuned_cox:
+                    print_stats("TabPFN Train Tuned Cox", c_train_tabpfn_tuned_cox)
+                    print_stats("TabPFN Test Tuned Cox",  c_test_tabpfn_tuned_cox)
+                if c_train_tabpfn_tuned_rsf:
+                    print_stats("TabPFN Train Tuned RSF", c_train_tabpfn_tuned_rsf)
+                    print_stats("TabPFN Test Tuned RSF",  c_test_tabpfn_tuned_rsf)
                 if c_train_cox:
                     print_stats("Cox Train", c_train_cox)
                     print_stats("Cox Test",  c_test_cox)
@@ -535,8 +612,10 @@ if __name__ == "__main__":
                 all_test_tabpfn_vanilla.extend(c_test_tabpfn_vanilla)
                 all_train_tabpfn_simple.extend(c_train_tabpfn_simple)
                 all_test_tabpfn_simple.extend(c_test_tabpfn_simple)
-                all_train_tabpfn_tuned.extend(c_train_tabpfn_tuned)
-                all_test_tabpfn_tuned.extend(c_test_tabpfn_tuned)
+                all_train_tabpfn_tuned_cox.extend(c_train_tabpfn_tuned_cox)
+                all_test_tabpfn_tuned_cox.extend(c_test_tabpfn_tuned_cox)
+                all_train_tabpfn_tuned_rsf.extend(c_train_tabpfn_tuned_rsf)
+                all_test_tabpfn_tuned_rsf.extend(c_test_tabpfn_tuned_rsf)
                 all_train_cox.extend(c_train_cox)
                 all_test_cox.extend(c_test_cox)
                 all_train_rsf.extend(c_train_rsf)
@@ -548,9 +627,12 @@ if __name__ == "__main__":
         print_stats("TabPFN Test Vanilla",  all_test_tabpfn_vanilla)
         print_stats("TabPFN Train Simple", all_train_tabpfn_simple)
         print_stats("TabPFN Test Simple",  all_test_tabpfn_simple)
-        if len(all_train_tabpfn_tuned) > 0:
-            print_stats("TabPFN Train Tuned", all_train_tabpfn_tuned)
-            print_stats("TabPFN Test Tuned",  all_test_tabpfn_tuned)
+        if len(all_train_tabpfn_tuned_cox) > 0:
+            print_stats("TabPFN Train Tuned Cox", all_train_tabpfn_tuned_cox)
+            print_stats("TabPFN Test Tuned Cox",  all_test_tabpfn_tuned_cox)
+        if len(all_train_tabpfn_tuned_rsf) > 0:
+            print_stats("TabPFN Train Tuned RSF", all_train_tabpfn_tuned_rsf)
+            print_stats("TabPFN Test Tuned RSF",  all_test_tabpfn_tuned_rsf)
         print_stats("Cox Train",    all_train_cox)
         print_stats("Cox Test",     all_test_cox)
         print_stats("RSF Train",    all_train_rsf)

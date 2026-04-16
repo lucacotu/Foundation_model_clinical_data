@@ -216,10 +216,12 @@ def get_tabdpt_embeddings(
     train_emb : (n_train, ninp)
     test_emb  : (n_test,  ninp)
     """
+
+    print("CHECKPOINT PATH ARG:", checkpoint_path, file=sys.stderr)
     if checkpoint_path is None:
         checkpoint_path = os.environ.get("TABDPT_CHECKPOINT", "")
     if not checkpoint_path:
-        default_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "models/models_diff/tabdpt1_1.pth")
+        default_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "/models_diff/tabdpt1_1.pth")
         if os.path.exists(default_path):
             checkpoint_path = default_path
         else:
