@@ -646,8 +646,8 @@ def get_or_create_folds(
     # 🔁 Se esiste → carica
     if os.path.exists(file_path):
         print(f"Loading existing folds from {file_path}")
-        folds = load(file_path)
-        return folds
+        data = load(file_path)
+        return data
 
     # 🆕 Altrimenti crea
     print(f"Creating new folds and saving to {file_path}")
@@ -669,7 +669,7 @@ def get_or_create_folds(
 
     dump(data, file_path)
 
-    return folds
+    return data
 
 def get_ckpt_dir(dataset_name: str, preprocess_type: str, seed: int, fold: int) -> Path:
     """Restituisce (e crea) la directory di checkpoint per questa combinazione."""

@@ -26,7 +26,6 @@ from sksurv.ensemble import RandomSurvivalForest
 from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import KNNImputer, IterativeImputer, SimpleImputer
 from sklearn.linear_model import BayesianRidge
-from sklearn.preprocessing import StandardScaler
 
 from src.data_loader import load_data
 from src.preprocessing import clean_and_impute, prepare_cox_data_cv, prepare_cox_data_hurrah_cv
@@ -124,7 +123,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentage_nan):
         X_train = add_nan_to_target(X_train, target_percentage=percentage_nan)
         X_test = add_nan_to_target(X_test, target_percentage=percentage_nan)
         X_eval = add_nan_to_target(X_eval, target_percentage=percentage_nan)
-
+    
         nan_percentage = X_train.isna().sum().sum() / X_train.size * 100
     
         print("% DOPO DOPO: ",nan_percentage)
@@ -638,6 +637,7 @@ def add_nan_to_target(df, target_percentage):
 
 if __name__ == "__main__":
     print("STARTED")
+    '''
     seeds = [42, 123, 456, 789, 2024]
     percentage = [0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95]
     res = [[]]#,[]]
@@ -655,7 +655,6 @@ if __name__ == "__main__":
     pd.set_option('display.max_colwidth', None)
     
     df = process_results(res[0])
-    #print(df.to_markdown())  # Stampa la tabella completa in formato Markdown (più leggibile)
     
     # Aggrega prima sui seed (media delle medie per ogni combinazione nan_ratio/model/method)
     df_agg = df.groupby(["nan_ratio", "model", "method"]).agg(
@@ -707,4 +706,16 @@ if __name__ == "__main__":
                     f"Test: {row['test_mean']:.3f} ± {row['test_std']:.3f}")    
     sys.stdout = tee.console
     tee.close()
-    print("✅ Result saved in 'results_cv_tabpfn_nan.txt'")
+    print("✅ Result saved in 'results_cv_tabpfn_nan.txt'")'''
+
+    # 1. Load and clean the data
+    data = load_data("OrmoniTirodei", "Dataset Sirbu")
+
+    print(data.describe())
+    df = clean_and_impute("OrmoniTirodei", data)
+    print(df.describe())
+    # 2. Extract specific features and targets (e.g. Mortality data)
+    # And split into Train, Eval and Test sets
+    df_mortality_train, df_mortality_eval = prepare_cox_data_cv(df)
+
+    print(df_mortality_train.info())

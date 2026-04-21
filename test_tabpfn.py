@@ -651,8 +651,8 @@ def get_or_create_folds(
     # 🔁 Se esiste → carica
     if os.path.exists(file_path):
         print(f"Loading existing folds from {file_path}")
-        folds = load(file_path)
-        return folds
+        data = load(file_path)
+        return data
 
     # 🆕 Altrimenti crea
     print(f"Creating new folds and saving to {file_path}")
@@ -674,7 +674,7 @@ def get_or_create_folds(
 
     dump(data, file_path)
 
-    return folds
+    return data
 
 
 def get_ckpt_dir(dataset_name: str, preprocess_type: str, seed: int, fold: int) -> Path:
@@ -761,12 +761,12 @@ if __name__ == "__main__":
 
     print("STARTED")
     seeds = [42, 123, 456, 789, 2024]
-    res = [[],[]]
+    res = [[]]#,[]]
     for index, seed in enumerate(seeds): 
         set_seed(seed)
 
         res[0].append((seed, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, tuning)))
-        res[1].append((seed, main("HURRAH", "STATO_AL_FU", "FU", seed, tuning)))
+        #res[1].append((seed, main("HURRAH", "STATO_AL_FU", "FU", seed, tuning)))
 
     tee = Tee("results_cv_tabpfn.txt")
     sys.stdout = tee

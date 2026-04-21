@@ -118,7 +118,7 @@ def prepare_cox_data_cv(df_main):
 
     for split in [df_mortality_train, df_mortality_eval]:
         split.drop(columns=['time', 'stratum'], inplace=True)
-
+    '''
 
     binary_cols = [
         col for col in df_mortality_train.columns
@@ -134,6 +134,7 @@ def prepare_cox_data_cv(df_main):
     df_mortality_train = df_mortality_train.drop(columns=cols_to_keep)
     df_mortality_eval = df_mortality_eval.drop(columns=cols_to_keep)
 
+   
     from sklearn.preprocessing import StandardScaler
     scaler = StandardScaler()
     scaled_array_train = scaler.fit_transform(df_mortality_train)
@@ -144,7 +145,7 @@ def prepare_cox_data_cv(df_main):
 
     df_mortality_train = pd.concat([df_mortality_train, tmp_train], axis=1)
     df_mortality_eval = pd.concat([df_mortality_eval, tmp_eval], axis=1)
-
+    '''
     columns_to_drop = [
         "Data of death",
         "Fatal MI or Sudden death",  
