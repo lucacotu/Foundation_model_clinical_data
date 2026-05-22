@@ -295,7 +295,7 @@ def prepare_cox_data_hurrah_cv(df):
     for split in [df_mortality_train, df_mortality_eval]:
         split.drop(columns=['time', 'stratum'], inplace=True)
 
-
+    '''
     binary_cols = [
         col for col in df_mortality_train.columns
         if set(df[col].dropna().unique()).issubset({0,1})
@@ -319,7 +319,7 @@ def prepare_cox_data_hurrah_cv(df):
 
     df_mortality_train = pd.concat([df_mortality_train, tmp_train], axis=1)
     df_mortality_eval = pd.concat([df_mortality_eval, tmp_eval], axis=1)
-
+    '''
     columns_to_drop = [
         "NF_IMA",
         "F_IMA",

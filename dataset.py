@@ -635,87 +635,42 @@ def add_nan_to_target(df, target_percentage):
     return df_copy
 
 
+def print_age_stats(label, series):
+    print(f"  {label}:")
+    print(f"    n      = {series.notna().sum()}")
+    print(f"    mean   = {series.mean():.2f}")
+    print(f"    std    = {series.std():.2f}")
+    print(f"    min    = {series.min():.2f}")
+    print(f"    25%    = {series.quantile(0.25):.2f}")
+    print(f"    median = {series.median():.2f}")
+    print(f"    75%    = {series.quantile(0.75):.2f}")
+    print(f"    max    = {series.max():.2f}")
+    print(f"    NaN    = {series.isna().sum()}")
+
+
 if __name__ == "__main__":
-    print("STARTED")
-    '''
-    seeds = [42, 123, 456, 789, 2024]
-    percentage = [0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95]
-    res = [[]]#,[]]
-    for index, seed in enumerate(seeds): 
-        set_seed(seed)
-        for percentage_nan in percentage:
-            res[0].append((seed, percentage_nan, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, percentage_nan)))
+    DATASETS = [
+        ("OrmoniTirodei", "Total mortality", "Follow Up Data", "Age"),
+        ("HURRAH",        "STATO_AL_FU",     "FU",            "ETA"),
+    ]
 
-    tee = Tee("results_cv_tabpfn_nan.txt")
-    sys.stdout = tee
-    np.set_printoptions(threshold=sys.maxsize)
-    pd.set_option('display.max_rows', None)
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.width', None)
-    pd.set_option('display.max_colwidth', None)
-    
-    df = process_results(res[0])
-    
-    # Aggrega prima sui seed (media delle medie per ogni combinazione nan_ratio/model/method)
-    df_agg = df.groupby(["nan_ratio", "model", "method"]).agg(
-        test_mean=("test_mean", "mean"),
-        test_std=("test_std", "mean"),
-        train_mean=("train_mean", "mean"),
-        train_std=("train_std", "mean"),
-    ).reset_index()
+    for dataset_name, feature_event, feature_time, age_col in DATASETS:
+        print(f"\n{'='*60}")
+        print(f"Dataset: {dataset_name}")
+        print(f"{'='*60}")
 
-    # Ora crea le summary string sull'aggregato
-    df_agg["test_summary"] = df_agg.apply(
-        lambda x: f"{x['test_mean']:.3f} ± {x['test_std']:.3f}", axis=1
-    )
-    df_agg["train_summary"] = df_agg.apply(
-        lambda x: f"{x['train_mean']:.3f} ± {x['train_std']:.3f}", axis=1
-    )
+        data = load_data(dataset_name, "Dataset Sirbu")
+        df = clean_and_impute(dataset_name, data)
 
-    # Pivot sul dataframe aggregato — aggfunc="first" è ora corretto
-    #  perché c'è già una sola riga per combinazione
-    pivot_test = df_agg.pivot_table(
-        index=["nan_ratio", "model"],
-        columns="method",
-        values="test_summary",
-        aggfunc="first"
-    )
-    print(pivot_test.to_markdown())
+        if dataset_name == "OrmoniTirodei":
+            df_train, df_eval = prepare_cox_data_cv(df)
+        else:
+            df_train, df_eval = prepare_cox_data_hurrah_cv(df)
 
-    pivot_train = df_agg.pivot_table(
-        index=["nan_ratio", "model"],
-        columns="method",
-        values="train_summary",
-        aggfunc="first"
-    )
-    print(pivot_train.to_markdown())
+        print(f"Train shape: {df_train.shape} | Eval shape: {df_eval.shape}")
 
-    for nan_ratio in df_agg["nan_ratio"].unique():
-        print(f"\n=== NaN Ratio: {nan_ratio} ===")
-
-        subset = df_agg[df_agg["nan_ratio"] == nan_ratio]
-
-        for model in subset["model"].unique():
-            print(f"\n-- {model} --")
-
-            model_df = subset[subset["model"] == model]
-
-            for _, row in model_df.iterrows():
-                print(f"{row['method']:>20} | "
-                    f"Train: {row['train_mean']:.3f} ± {row['train_std']:.3f} | "
-                    f"Test: {row['test_mean']:.3f} ± {row['test_std']:.3f}")    
-    sys.stdout = tee.console
-    tee.close()
-    print("✅ Result saved in 'results_cv_tabpfn_nan.txt'")'''
-
-    # 1. Load and clean the data
-    data = load_data("OrmoniTirodei", "Dataset Sirbu")
-
-    print(data.describe())
-    df = clean_and_impute("OrmoniTirodei", data)
-    print(df.describe())
-    # 2. Extract specific features and targets (e.g. Mortality data)
-    # And split into Train, Eval and Test sets
-    df_mortality_train, df_mortality_eval = prepare_cox_data_cv(df)
-
-    print(df_mortality_train.info())
+        for split_name, split_df in [("Train", df_train), ("Eval", df_eval)]:
+            if age_col in split_df.columns:
+                print_age_stats(f"{split_name} — {age_col}", split_df[age_col])
+            else:
+                print(f"  {split_name}: colonna '{age_col}' non trovata")

@@ -27,6 +27,7 @@ from sklearn.experimental import enable_iterative_imputer
 from sklearn.impute import KNNImputer, IterativeImputer, SimpleImputer
 from sklearn.linear_model import BayesianRidge
 from sklearn.preprocessing import StandardScaler
+from lifelines import CoxPHFitter
 
 from src.data_loader import load_data
 from src.preprocessing import clean_and_impute, prepare_cox_data_cv, prepare_cox_data_hurrah_cv
@@ -34,7 +35,8 @@ from src.tabpfn import (
 	get_tabpfn_embeddings,
 	setup_figure, create_savefig_partial
 )
-from src.embedding_cox import EmbeddingCoxPH
+from src.tabdpt import get_tabdpt_embeddings
+from src.tabicl import get_tabicl_embeddings
 
 def set_seed(seed: int):
     random.seed(seed)                        
@@ -47,7 +49,7 @@ def set_seed(seed: int):
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
 
-def main(dataset_name, feature_event, feature_time, seed, percentage_nan):    
+def main(dataset_name, feature_event, feature_time, seed, percentage_nan, f_model):    
     match dataset_name:
         case "OrmoniTirodei":
             # 1. Load and clean the data
@@ -103,39 +105,69 @@ def main(dataset_name, feature_event, feature_time, seed, percentage_nan):
     y_eval = df_tmp_eval['__event__']
     t_eval = df_tmp_eval['__duration__'].values.astype(np.float32)
 
-    folds = get_or_create_folds(X, dataset_name=dataset_name, seed=seed, n_splits=5, base_path="nan/tabpfn")
+    if f_model == "tabdpt":
+        X = X.to_numpy()
+        y = y.to_numpy()
 
-    imputation_methods = ["embeddings","mean","median","constant","knn","imputer_bayesian", "imputer_rsf"]
+        X_eval = X_eval.to_numpy()
+        y_eval = y_eval.to_numpy()
+
+    folds = get_or_create_folds(X, dataset_name=dataset_name, seed=seed, n_splits=5, base_path="tmp/splits/")
+
+    imputation_methods = ["embeddings","mean","median","constant","knn","imputer_bayesian"]
 
     train_scores_rsf = {method: [] for method in imputation_methods}
     test_scores_rsf  = {method: [] for method in imputation_methods}
-    train_scores_cox_vanilla = {method: [] for method in imputation_methods}
-    test_scores_cox_vanilla  = {method: [] for method in imputation_methods}
-    train_scores_cox_simple = {method: [] for method in imputation_methods}
-    test_scores_cox_simple = {method: [] for method in imputation_methods}
+    train_scores_deepsurv_vanilla = {method: [] for method in imputation_methods}
+    test_scores_deepsurv_vanilla  = {method: [] for method in imputation_methods}
+    train_scores_deepsurv_simple    = {method: [] for method in imputation_methods}
+    test_scores_deepsurv_simple     = {method: [] for method in imputation_methods}
+    train_scores_cox    = {method: [] for method in imputation_methods}
+    test_scores_cox     = {method: [] for method in imputation_methods}
 
-    for fold, (train_idx, test_idx) in enumerate(folds["folds"]): 
-        path_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold+1)
+    X_eval_orig = X_eval.copy()
 
-        X_train, X_test   = X.iloc[train_idx], X.iloc[test_idx]
-        y_train, y_test   = y.iloc[train_idx], y.iloc[test_idx]
+    for fold, (train_idx, test_idx) in enumerate(folds["folds"]):
+        path_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold+1, f_model)
+
+        if f_model == "tabdpt":
+            X_train, X_test   = X[train_idx], X[test_idx]
+            y_train, y_test   = y[train_idx], y[test_idx]
+        else:
+            X_train, X_test   = X.iloc[train_idx], X.iloc[test_idx]
+            y_train, y_test   = y.iloc[train_idx], y.iloc[test_idx]
         t_train, t_test   = t[train_idx], t[test_idx]
 
         X_train = add_nan_to_target(X_train, target_percentage=percentage_nan)
         X_test = add_nan_to_target(X_test, target_percentage=percentage_nan)
-        X_eval = add_nan_to_target(X_eval, target_percentage=percentage_nan)
+        X_eval = add_nan_to_target(X_eval_orig, target_percentage=percentage_nan)
 
-        nan_percentage = X_train.isna().sum().sum() / X_train.size * 100
+        nan_mask_train = np.isnan(X_train) if isinstance(X_train, np.ndarray) else X_train.isna().values
+        nan_percentage = nan_mask_train.sum() / X_train.size * 100
     
         print("% DOPO DOPO: ",nan_percentage)
 
         print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
     
+        device = "cuda" if torch.cuda.is_available() else "cpu"
         # 4. Generate the embeddings!
-        print("Generating TabPFN Embeddings...")
-        train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed)
-        _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval, seed)
-        print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
+        if f_model == "tabpfn":
+            print("Generating TabPFN Embeddings...")
+            train_embeddings, test_embeddings = get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed)
+            _, eval_embeddings = get_tabpfn_embeddings(X_train, y_train, X_eval, y_eval, seed)
+            print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
+        elif f_model == "tabicl":
+            print("Generating Tabicl Embeddings...")
+            train_embeddings, test_embeddings = get_tabicl_embeddings(X_train, y_train.values, X_test, device=device, random_state=seed)
+            _, eval_embeddings = get_tabicl_embeddings(X_train, y_train.values, X_eval, device=device, random_state=seed)
+            print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
+        elif f_model == "tabdpt":
+            print("Generating TabDPT Embeddings...")
+            train_embeddings, test_embeddings = get_tabdpt_embeddings(X_train, y_train, X_test, device=device)
+            _, eval_embeddings = get_tabdpt_embeddings(X_train, y_train, X_eval, device=device)
+            print(f"Successfully generated embeddings with shape: {train_embeddings.shape}")
+        else: 
+            raise ValueError("Model not defined")
 
         print("DOPO GET TABPFN EMBEDDINGS")
 
@@ -266,83 +298,52 @@ def main(dataset_name, feature_event, feature_time, seed, percentage_nan):
         
         sets.append((X_train_bayesian, X_test_bayesian, X_eval_bayesian))
 
-        # ─────────────────────────────────────────────────────────────
-        # 6. ITERATIVE IMPUTER + RandomForest (MissForest-like)
-        # ─────────────────────────────────────────────────────────────
-        # Versione più potente: usa RF invece di un modello lineare.
-        # Cattura relazioni non lineari tra le variabili.
-        # Più lento ma spesso più accurato su dati clinici.
-        name = "imputer_rf.pkl"
-        if ckpt_exists(path_dir, name):
-            print("Loading IterativeImputer with RandomForestRegressor (MissForest-like)...")
-            imputer = joblib.load(os.path.join(path_dir, name))
-            X_train_rf = imputer.transform(X_train).astype(np.float32)
-            X_test_rf  = imputer.transform(X_test).astype(np.float32)
-            X_eval_rf  = imputer.transform(X_eval).astype(np.float32)
-        else:
-            print("Fitting IterativeImputer with RandomForestRegressor (MissForest-like)...")
-            imputer = IterativeImputer(
-                estimator=RandomForestRegressor(
-                    n_estimators=50,
-                    random_state=seed,
-                    n_jobs=-1
-                ),
-                max_iter=10,
-                random_state=seed
-            )
-            X_train_rf = imputer.fit_transform(X_train).astype(np.float32)
-            X_test_rf  = imputer.transform(X_test).astype(np.float32)
-            X_eval_rf  = imputer.transform(X_eval).astype(np.float32)
-            joblib.dump(imputer, os.path.join(path_dir, name))
-
-        sets.append((X_train_rf, X_test_rf, X_eval_rf))
-
-        name_epochs_simple  = "fixed_epochs_cox_simple.json"
-        name_epochs_vanilla = "fixed_epochs_cox_vanilla.json"
+        name_epochs_simple  = "fixed_epochs_deepsurv_simple.json"
+        name_epochs_vanilla = "fixed_epochs_deepsurv_vanilla.json"
 
         if ckpt_exists(path_dir, name_epochs_simple):
             print("Loading epochs value...")
-            fixed_epochs_simple = load_fixed_epochs(path_dir, "cox_simple")
+            fixed_epochs_simple = load_fixed_epochs(path_dir, "deepsurv_simple")
         else:
-            print("Fitting Cox Simple pilot model...")
-            cox_simple_pilot = create_cox_simple(X_train_mean.shape[1])
+            print("Fitting DeepSurv Simple pilot model...")
+            deepsurv_simple_pilot = create_deepsurv_simple(X_train_mean.shape[1])
             callback = create_callbacks("pilot_simple")
-            cox_simple_pilot.fit(
-                X_train_mean, (t_train , y_train.values),
+            deepsurv_simple_pilot.fit(
+                X_train_mean, (t_train , np.asarray(y_train)),
                 256, 100,
                 callback,
-                val_data=(X_eval_mean, (t_eval, y_eval.values)),
+                val_data=(X_eval_mean, (t_eval, np.asarray(y_eval))),
                 verbose=True
                 )
-            log = cox_simple_pilot.log.to_pandas()
+            log = deepsurv_simple_pilot.log.to_pandas()
             total_epochs = len(log)
             fixed_epochs_simple = total_epochs - callback[0]._iter_since_best
 
-            save_fixed_epochs(path_dir, "cox_simple", fixed_epochs_simple)
+            save_fixed_epochs(path_dir, "deepsurv_simple", fixed_epochs_simple)
 
 
         if ckpt_exists(path_dir, name_epochs_vanilla):
             print("Loading epochs value...")
-            fixed_epochs_vanilla = load_fixed_epochs(path_dir, "cox_vanilla")
+            fixed_epochs_vanilla = load_fixed_epochs(path_dir, "deepsurv_vanilla")
         else:
-            print("Fitting Cox Vanilla pilot model...")
-            cox_vanilla_pilot = create_cox_vanilla(X_train_mean.shape[1])
+            print("Fitting DeepSurv Vanilla pilot model...")
+            deepsurv_vanilla_pilot = create_deepsurv_vanilla(X_train_mean.shape[1])
             callback = create_callbacks("pilot_vanilla")
-            cox_vanilla_pilot.fit(
-                X_train_mean, (t_train , y_train.values),
+            deepsurv_vanilla_pilot.fit(
+                X_train_mean, (t_train , np.asarray(y_train)),
                 256, 100,
                 callback,
-                val_data=(X_eval_mean, (t_eval, y_eval.values)),
+                val_data=(X_eval_mean, (t_eval, np.asarray(y_eval))),
                 verbose=True
                 )
-            log = cox_vanilla_pilot.log.to_pandas()
+            log = deepsurv_vanilla_pilot.log.to_pandas()
             total_epochs = len(log)
             fixed_epochs_vanilla = total_epochs - callback[0]._iter_since_best
-            save_fixed_epochs(path_dir, "cox_vanilla", fixed_epochs_vanilla)
+            save_fixed_epochs(path_dir, "deepsurv_vanilla", fixed_epochs_vanilla)
 
         for method, (X_train_m, X_test_m, X_eval_m ) in zip(imputation_methods, sets):
 
-            path_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold+1, method)
+            path_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold+1, f_model, method)
 
             print(f"Evaluating method: {method}")
             model = "rsf.pt"
@@ -355,89 +356,138 @@ def main(dataset_name, feature_event, feature_time, seed, percentage_nan):
                 rsf.fit(X_train_m, y_train_structured)
                 dump(rsf, os.path.join(path_dir, model))
     
-            c_train = rsf.score(X_train_m, y_train_structured)
-            c_test  = rsf.score(X_test_m, y_test_structured)
+            #c_train = rsf.score(X_train_m, y_train_structured)
+            #c_test  = rsf.score(X_test_m, y_test_structured)
     
+            surv_test = rsf.predict_survival_function(X_test_m)
+            surv_train = rsf.predict_survival_function(X_train_m)
+
+            time_points_test = surv_test[0].x
+            surv_matrix_test = np.vstack([fn(time_points_test) for fn in surv_test]).T
+            surv_test = pd.DataFrame(surv_matrix_test, index=time_points_test)
+            time_points_train = surv_train[0].x
+            surv_matrix_train = np.vstack([fn(time_points_train) for fn in surv_train]).T
+            surv_train = pd.DataFrame(surv_matrix_train, index=time_points_train)
+
+            # Calcola C-index di Antolini
+            ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
+            ev_test = EvalSurv(surv_test, t_test, np.asarray(y_test), censor_surv='km')
+            c_train = ev_train.concordance_td()
+            c_test = ev_test.concordance_td()
+
             train_scores_rsf[method].append(c_train)
             test_scores_rsf[method].append(c_test)
 
-            model = "cox_simple.pt"
-            cox_simple = create_cox_simple(X_train_m.shape[1])
+            print("C-index TRAIN:", c_train)
+            print("C-index TEST :", c_test)
+
+            model = "deepsurv_simple.pt"
+            deepsurv_simple = create_deepsurv_simple(X_train_m.shape[1])
             if ckpt_exists(path_dir, model):
-                print("Loading Cox Simple model...")
-                load_net_state(cox_simple.net, os.path.join(path_dir, model), device=cox_simple.device, model=cox_simple)
+                print("Loading Deepsurv Simple model...")
+                load_net_state(deepsurv_simple.net, os.path.join(path_dir, model), device=deepsurv_simple.device, model=deepsurv_simple)
             else:
-                print("Fitting Cox Simple model...")
-                cox_simple.fit(
-                    X_train_m, (t_train , y_train.values),
+                print("Fitting Deepsurv Simple model...")
+                deepsurv_simple.fit(
+                    X_train_m, (t_train , np.asarray(y_train)),
                     256, fixed_epochs_simple,
                     verbose=True
                     )
-                cox_simple.compute_baseline_hazards()
+                deepsurv_simple.compute_baseline_hazards()
                 save_net_state(
-                        cox_simple.net,
+                        deepsurv_simple.net,
                         os.path.join(path_dir, model),
-                        baseline_hazards=cox_simple.baseline_hazards_,
-                        baseline_cumulative_hazards=cox_simple.baseline_cumulative_hazards_
+                        baseline_hazards=deepsurv_simple.baseline_hazards_,
+                        baseline_cumulative_hazards=deepsurv_simple.baseline_cumulative_hazards_
                     )
 
 
-            surv_test = cox_simple.predict_surv_df(X_test_m)
-            surv_train = cox_simple.predict_surv_df(X_train_m)
+            surv_test = deepsurv_simple.predict_surv_df(X_test_m)
+            surv_train = deepsurv_simple.predict_surv_df(X_train_m)
 
-            ev_train = EvalSurv(surv_train, t_train, y_train.values, censor_surv='km')
+            ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
+            ev_test = EvalSurv(surv_test, t_test, np.asarray(y_test), censor_surv='km')
 
-            ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
+            train_scores_deepsurv_simple[method].append(ev_train.concordance_td())
+            test_scores_deepsurv_simple[method].append(ev_test.concordance_td())
 
-            train_scores_cox_simple[method].append(ev_train.concordance_td())
-            test_scores_cox_simple[method].append(ev_test.concordance_td())
+            print("C-index TRAIN:", ev_train.concordance_td())
+            print("C-index TEST :", ev_test.concordance_td())
+            
+            model = "deepsurv_vanilla.pt"
+            deepsurv_vanilla = create_deepsurv_vanilla(X_train_m.shape[1])
+            if ckpt_exists(path_dir, model):
+                print("Loading deepsurv Vanilla model...")
+                load_net_state(deepsurv_vanilla.net, os.path.join(path_dir, model), device=deepsurv_vanilla.device, model=deepsurv_vanilla)
+            else:
+                print("Fitting Deepsurv Vanilla model...")
+                deepsurv_vanilla.fit(
+                    X_train_m, (t_train , np.asarray(y_train)),
+                    256, fixed_epochs_vanilla,
+                    verbose=True
+                    )
+                deepsurv_vanilla.compute_baseline_hazards()
+                save_net_state(
+                        deepsurv_vanilla.net,
+                        os.path.join(path_dir, model),
+                        baseline_hazards=deepsurv_vanilla.baseline_hazards_,
+                        baseline_cumulative_hazards=deepsurv_vanilla.baseline_cumulative_hazards_
+                    )
+
+            surv_test = deepsurv_vanilla.predict_surv_df(X_test_m)
+            surv_train = deepsurv_vanilla.predict_surv_df(X_train_m)
+
+            ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
+
+            ev_test = EvalSurv(surv_test, t_test, np.asarray(y_test), censor_surv='km')
+
+            train_scores_deepsurv_vanilla[method].append(ev_train.concordance_td())
+            test_scores_deepsurv_vanilla[method].append(ev_test.concordance_td())
 
             print("C-index TRAIN:", ev_train.concordance_td())
             print("C-index TEST :", ev_test.concordance_td())
 
+            model = "cox.pt"
             
-            model = "cox_vanilla.pt"
-            cox_vanilla = create_cox_vanilla(X_train_m.shape[1])
             if ckpt_exists(path_dir, model):
-                print("Loading Cox Vanilla model...")
-                load_net_state(cox_vanilla.net, os.path.join(path_dir, model), device=cox_vanilla.device, model=cox_vanilla)
+                print("Loading Cox model...")
+                cph = load(os.path.join(path_dir, model))
             else:
-                print("Loading Cox Vanilla model...")
-                cox_vanilla.fit(
-                    X_train_m, (t_train , y_train.values),
-                    256, fixed_epochs_vanilla,
-                    verbose=True
-                    )
-                cox_vanilla.compute_baseline_hazards()
-                save_net_state(
-                        cox_vanilla.net,
-                        os.path.join(path_dir, model),
-                        baseline_hazards=cox_vanilla.baseline_hazards_,
-                        baseline_cumulative_hazards=cox_vanilla.baseline_cumulative_hazards_
-                    )
+                print("Fitting Cox model...")
+                cph = create_cox()
+                
+                df_fit = pd.DataFrame(X_train_m)
+                df_fit['__t__'] = t_train
+                df_fit['__e__'] = np.asarray(y_train)
+                
+                cph.fit(df_fit, duration_col='__t__', event_col='__e__')
+                dump(cph, os.path.join(path_dir, model))
 
-            surv_test = cox_vanilla.predict_surv_df(X_test_m)
-            surv_train = cox_vanilla.predict_surv_df(X_train_m)
+            if model == "tabdpt":
+                surv_test = cph.predict_survival_function(pd.DataFrame(np.asarray(X_test)))
+                surv_train = cph.predict_survival_function(pd.DataFrame(np.asarray(X_train)))
+            else:
+                surv_test = cph.predict_survival_function(X_test_m)
+                surv_train = cph.predict_survival_function(X_train_m) 
 
-            ev_train = EvalSurv(surv_train, t_train, y_train.values, censor_surv='km')
+            ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
+            ev_test = EvalSurv(surv_test, t_test, np.asarray(y_test), censor_surv='km')
 
-            ev_test = EvalSurv(surv_test, t_test, y_test.values, censor_surv='km')
-
-            train_scores_cox_vanilla[method].append(ev_train.concordance_td())
-            test_scores_cox_vanilla[method].append(ev_test.concordance_td())
+            train_scores_cox[method].append(ev_train.concordance_td())
+            test_scores_cox[method].append(ev_test.concordance_td())
 
             print("C-index TRAIN:", ev_train.concordance_td())
             print("C-index TEST :", ev_test.concordance_td()) 
             
-    return ((train_scores_rsf, test_scores_rsf),(train_scores_cox_simple,test_scores_cox_simple), (train_scores_cox_vanilla, test_scores_cox_vanilla) )
+    return ((train_scores_rsf, test_scores_rsf),(train_scores_deepsurv_simple,test_scores_deepsurv_simple), (train_scores_deepsurv_vanilla, test_scores_deepsurv_vanilla),(train_scores_cox, test_scores_cox))
 
 
-def get_ckpt_dir(dataset_name: str, seed: int, nan_percentage: float, fold: int, method="") -> Path:
+def get_ckpt_dir(dataset_name: str, seed: int, nan_percentage: float, fold: int, model: str, method="") -> Path:
     """Restituisce (e crea) la directory di imputer per questa combinazione."""
     if not method:
-        p = Path("nan/tabpfn") / dataset_name /f"nan_percentage{nan_percentage}" / f"seed{seed}" / f"fold{fold}"
+        p = Path("nan")/ model / dataset_name /f"nan_percentage{nan_percentage}" / f"seed{seed}" / f"fold{fold}"
     else:
-        p = Path("nan/tabpfn") / dataset_name /f"nan_percentage{nan_percentage}" / f"seed{seed}" / f"fold{fold}" / f"{method}"
+        p = Path("nan") /model / dataset_name /f"nan_percentage{nan_percentage}" / f"seed{seed}" / f"fold{fold}" / f"{method}"
 
     p.mkdir(parents=True, exist_ok=True)
     return p
@@ -469,15 +519,15 @@ def load_net_state(net: nn.Module, path: Path, device=None, model=None):
         net.to(device)
     return checkpoint.get("params", {})
 
-def save_fixed_epochs(path_dir, cox_type, best_epoch):
+def save_fixed_epochs(path_dir,deepsurv_type, best_epoch):
     config = {"fixed_epochs": best_epoch}
-    filepath = os.path.join(path_dir, f"fixed_epochs_{cox_type}.json")
+    filepath = os.path.join(path_dir, f"fixed_epochs_{deepsurv_type}.json")
     with open(filepath, "w") as f:
         json.dump(config, f)
     print(f"Saved fixed_epochs={best_epoch} → {filepath}")
 
-def load_fixed_epochs(path_dir, cox_type):
-    filepath = os.path.join(path_dir, f"fixed_epochs_{cox_type}.json")
+def load_fixed_epochs(path_dir, deepsurv_type):
+    filepath = os.path.join(path_dir, f"fixed_epochs_{deepsurv_type}.json")
     with open(filepath, "r") as f:
         config = json.load(f)
     return config["fixed_epochs"]
@@ -494,7 +544,7 @@ def create_rsf_model(seed):
         )
     return rsf
 
-def create_cox_vanilla(in_features):
+def create_deepsurv_vanilla(in_features):
     net = tt.practical.MLPVanilla(
         in_features, [64, 64], 1,
         batch_norm=True, dropout=0.1
@@ -503,11 +553,15 @@ def create_cox_vanilla(in_features):
     model.optimizer.set_lr(0.01)
     return model
 
-def create_cox_simple(in_features):
+def create_deepsurv_simple(in_features):
     net = nn.Linear(in_features, 1)
     model = CoxPH(net, tt.optim.Adam)
     model.optimizer.set_lr(0.01)
     return model
+
+def create_cox():
+    cph = CoxPHFitter(penalizer=0.1)
+    return cph
 
 def create_callbacks(name):
     return [tt.callbacks.EarlyStopping(
@@ -524,13 +578,12 @@ def get_or_create_folds(
     dataset_name="dataset",
     seed=42,
     n_splits=5,
-    base_path="nan/tabpfn/"
+    base_path="tmp/splits/"
 ):
 
-    base_path = os.path.join(base_path,dataset_name)
     os.makedirs(base_path, exist_ok=True)
     # Nome file
-    file_path = os.path.join(base_path, f"split_{dataset_name}_seed{seed}.pkl")
+    file_path = os.path.join(base_path, f"{dataset_name}_seed{seed}.pkl")
 
     # 🔁 Se esiste → carica
     if os.path.exists(file_path):
@@ -561,14 +614,16 @@ def process_results(results):
 
     for (seed, nan_ratio, model_results) in results:
         (   rsf,
-            cox_simple,
-            cox_vanilla
+            deepsurv_simple,
+            deepsurv_vanilla,
+            cox
         ) = model_results
 
         models = {
             "RSF": (rsf[0], rsf[1]),
-            "Cox Simple": (cox_simple[0], cox_simple[1]),
-            "Cox Vanilla": (cox_vanilla[0], cox_vanilla[1])
+            "Cox Simple": (deepsurv_simple[0], deepsurv_simple[1]),
+            "Cox Vanilla": (deepsurv_vanilla[0], deepsurv_vanilla[1]),
+            "Cox": (cox[0], cox[1])
         }
 
         for model_name, (train_dict, test_dict) in models.items():
@@ -614,48 +669,60 @@ class Tee:
         self.file.close()
 
 def add_nan_to_target(df, target_percentage):
+    is_df = isinstance(df, pd.DataFrame)
     df_copy = df.copy()
-    
+
     total_values = df_copy.size
-    current_nan = df_copy.isna().sum().sum()
-    
+    nan_mask = df_copy.isna().values if is_df else np.isnan(df_copy)
+    current_nan = nan_mask.sum()
+
     target_nan = int(total_values * target_percentage)
     to_add = target_nan - current_nan
 
     if to_add <= 0:
         return df_copy
-    
-    not_nan_indices = np.argwhere(~df_copy.isna().values)    
+
+    not_nan_indices = np.argwhere(~nan_mask)
     to_add = min(to_add, len(not_nan_indices))
     selected_indices = not_nan_indices[
         np.random.choice(len(not_nan_indices), size=to_add, replace=False)
     ]
     for i, j in selected_indices:
-        df_copy.iat[i, j] = np.nan
-    
+        if is_df:
+            df_copy.iat[i, j] = np.nan
+        else:
+            df_copy[i, j] = np.nan
+
     return df_copy
 
 
 if __name__ == "__main__":
-    print("STARTED")
-    seeds = [42, 123, 456, 789, 2024]
-    percentage = [0.10, 0.20, 0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 0.95]
-    res = [[]]#,[]]
-    for index, seed in enumerate(seeds): 
-        set_seed(seed)
-        for percentage_nan in percentage:
-            res[0].append((seed, percentage_nan, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, percentage_nan)))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--model", type=str, default="tabpfn", choices=["tabpfn", "tabicl", "tabdpt"])
+    parser.add_argument("--seed", type=int, default=42)
 
-    tee = Tee("results_cv_tabpfn_nan.txt")
-    sys.stdout = tee
-    np.set_printoptions(threshold=sys.maxsize)
-    pd.set_option('display.max_rows', None)
-    pd.set_option('display.max_columns', None)
-    pd.set_option('display.width', None)
-    pd.set_option('display.max_colwidth', None)
+    args = parser.parse_args()
     
+    seed = args.seed
+    model = args.model
+
+
+    print("STARTED")
+    percentage = [0.10, 0.40]#, 0.70, 0.95]
+    res = [[]]
+    
+    set_seed(seed)
+    for percentage_nan in percentage:
+        res[0].append((seed, percentage_nan, main("OrmoniTirodei", "Total mortality", "Follow Up Data", seed, percentage_nan, model)))
+
+    res_path = "results_nan"
+    os.makedirs(res_path, exist_ok=True)
+    output_file = f"{res_path}/results_cv_{model}_nan_seed{seed}.txt"
+    
+    tee = Tee(output_file)
+    sys.stdout = tee
+
     df = process_results(res[0])
-    #print(df.to_markdown())  # Stampa la tabella completa in formato Markdown (più leggibile)
     
     # Aggrega prima sui seed (media delle medie per ogni combinazione nan_ratio/model/method)
     df_agg = df.groupby(["nan_ratio", "model", "method"]).agg(
@@ -707,4 +774,4 @@ if __name__ == "__main__":
                     f"Test: {row['test_mean']:.3f} ± {row['test_std']:.3f}")    
     sys.stdout = tee.console
     tee.close()
-    print("✅ Result saved in 'results_cv_tabpfn_nan.txt'")
+    print(f"✅ Result saved in '{output_file}'")

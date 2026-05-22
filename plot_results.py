@@ -1,0 +1,208 @@
+import re
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+from pathlib import Path
+
+RESULTS_DIR = Path("results")
+
+# matches: results_aggregated_{dataset}_{model}.txt
+# dataset may contain underscores; model is the last token before .txt
+FILE_RE = re.compile(r"^results_aggregated_(.+)_([^_]+)\.txt$")
+
+
+def parse_results_file(filepath):
+    """Parse aggregated results file, returning dict keyed by section name (-1, NaN)."""
+    sections = {}
+    current_section = None
+
+    section_re = re.compile(r"TOTAL \[(.+?)\]:")
+    entry_re = re.compile(
+        r"^\s+(.+?)\s+→\s+mean:\s+([\d.]+)\s+\|\s+std:\s+([\d.]+)"
+    )
+
+    with open(filepath) as f:
+        for line in f:
+            m = section_re.search(line)
+            if m:
+                current_section = m.group(1)
+                sections[current_section] = []
+                continue
+
+            if current_section is None:
+                continue
+
+            m = entry_re.match(line)
+            if m:
+                name, mean, std = m.group(1).strip(), float(m.group(2)), float(m.group(3))
+                sections[current_section].append({"name": name, "mean": mean, "std": std})
+
+    return sections
+
+
+def is_test_entry(name):
+    name_lower = name.lower()
+    # Exclude train entries
+    return "train" not in name_lower
+
+
+def model_color(name, model):
+    """Assign a consistent color based on whether the entry belongs to the file's model."""
+    name_lower = name.lower()
+    if name_lower.startswith(model.lower()):
+        # Shades of blue for TABPFN variants
+        if "tuned deepsurv" in name_lower:
+            return "#1f77b4"
+        if "tuned rsf" in name_lower:
+            return "#aec7e8"
+        if "vanilla" in name_lower:
+            return "#6baed6"
+        if "simple" in name_lower:
+            return "#3182bd"
+        if "rsf" in name_lower:
+            return "#08519c"
+        if "cox" in name_lower:
+            return "#9ecae1"
+        return "#1f77b4"
+    else:
+        # Shades of orange/green for baseline models
+        if "deepsurv vanilla" in name_lower:
+            return "#ff7f0e"
+        if "deepsurv simple" in name_lower:
+            return "#ffbb78"
+        if "rsf" in name_lower:
+            return "#2ca02c"
+        if "cox" in name_lower:
+            return "#98df8a"
+        return "#d62728"
+
+
+def legend_label(name, model):
+    """Return the same label used in the legend for a given raw entry name."""
+    m_up = model.upper()
+    name_lower = name.lower()
+    if name_lower.startswith(model.lower()):
+        if "tuned deepsurv" in name_lower:
+            return f"{m_up} - Tuned DeepSurv"
+        if "tuned rsf" in name_lower:
+            return f"{m_up} - Tuned RSF"
+        if "vanilla" in name_lower:
+            return f"{m_up} - Deepsurv Vanilla"
+        if "simple" in name_lower:
+            return f"{m_up} - Deepsurv Simple"
+        if "rsf" in name_lower:
+            return f"{m_up} - RSF"
+        if "cox" in name_lower:
+            return f"{m_up} - Cox"
+    else:
+        if "deepsurv vanilla" in name_lower or "vanilla" in name_lower:
+            return "DeepSurv Vanilla"
+        if "deepsurv simple" in name_lower or "simple" in name_lower:
+            return "DeepSurv Simple"
+        if "rsf" in name_lower:
+            return "RSF"
+        if "cox" in name_lower:
+            return "Cox"
+    return name
+
+
+def plot_section(entries, section_label, ax, model):
+    test_entries = [e for e in entries if is_test_entry(e["name"])]
+    if not test_entries:
+        return
+
+    names = [e["name"] for e in test_entries]
+    means = np.array([e["mean"] for e in test_entries])
+    stds = np.array([e["std"] for e in test_entries])
+    colors = [model_color(n, model) for n in names]
+    labels = [legend_label(n, model) for n in names]
+
+    x = np.arange(len(names))
+    bars = ax.bar(x, means, yerr=stds, color=colors, capsize=5, edgecolor="black",
+                  linewidth=0.6, error_kw={"elinewidth": 1.5, "ecolor": "black"})
+
+    # Annotate values on bars
+    for bar, mean, std in zip(bars, means, stds):
+        ax.text(
+            bar.get_x() + bar.get_width() / 2,
+            mean + std + 0.005,
+            f"{mean:.3f}",
+            ha="center", va="bottom", fontsize=7, rotation=0,
+        )
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=8)
+    ax.set_ylabel("C-index (Test)", fontsize=10)
+    ax.set_title(f"Preprocessing: {section_label}", fontsize=11, fontweight="bold")
+    ax.set_ylim(max(0, means.min() - stds.max() - 0.05), min(1.0, means.max() + stds.max() + 0.07))
+    ax.grid(axis="y", linestyle="--", alpha=0.5)
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+
+    # Build legend from the actual entries present in the chart
+    seen = {}
+    for n, lbl, clr in zip(names, labels, colors):
+        if lbl not in seen:
+            seen[lbl] = clr
+    patches = [mpatches.Patch(color=clr, label=lbl) for lbl, clr in seen.items()]
+    ax.legend(handles=patches, fontsize=8, loc="lower right", framealpha=0.8)
+
+
+def plot_file(filepath: Path, dataset: str, model: str):
+    sections = parse_results_file(filepath)
+
+    if not sections:
+        print(f"  No sections found, skipped: {filepath.name}")
+        return
+
+    n_sections = len(sections)
+    fig, axes = plt.subplots(1, n_sections, figsize=(10 * n_sections, 6), squeeze=False)
+
+    for ax, (section_key, entries) in zip(axes[0], sections.items()):
+        plot_section(entries, section_key, ax, model)
+
+    fig.suptitle(
+        f"C-index Test Results — {dataset} / {model}",
+        fontsize=13, fontweight="bold", y=1.01,
+    )
+    plt.tight_layout()
+
+    out_dir = RESULTS_DIR / dataset / model / "aggregated"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stem = filepath.stem  # e.g. results_aggregated_{dataset}_{model}
+
+    out_pdf = out_dir / f"{stem}.pdf"
+    plt.savefig(out_pdf, bbox_inches="tight")
+    print(f"  Saved: {out_pdf}")
+
+    out_png = out_dir / f"{stem}.png"
+    plt.savefig(out_png, bbox_inches="tight", dpi=150)
+    print(f"  Saved: {out_png}")
+
+    plt.close(fig)
+
+
+def main():
+    if not RESULTS_DIR.exists():
+        print(f"Directory '{RESULTS_DIR}' non trovata.")
+        return
+
+    found = False
+    for txt_file in sorted(RESULTS_DIR.rglob("results_aggregated_*.txt")):
+        m = FILE_RE.match(txt_file.name)
+        if not m:
+            continue
+        found = True
+        dataset, model = m.group(1), m.group(2)
+        print(f"Processing: {txt_file.name}  (dataset={dataset}, model={model})")
+        try:
+            plot_file(txt_file, dataset, model)
+        except Exception as e:
+            print(f"  Error: {e}")
+
+    if not found:
+        print("Nessun file results_aggregated_{dataset}_{model}.txt trovato.")
+
+
+if __name__ == "__main__":
+    main()
