@@ -3,7 +3,10 @@ import requests
 import os
 import sys
 import tempfile
+import threading
+import time
 from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ============================================================
 #  MODIFICA QUESTE VARIABILI CON I TUOI DATI
@@ -16,6 +19,9 @@ CARTELLA_REMOTA = "Tesi/checkpoints/"
 # Cartella LOCALE dove salvare i file scaricati (verrà creata se non esiste)
 CARTELLA_LOCALE = "../checkpoints/"
 
+# Worker paralleli per il download (aumenta con cautela: troppi possono causare rate limiting)
+MAX_WORKERS = 4
+
 # ============================================================
 #  NON MODIFICARE DA QUI IN POI
 # ============================================================
@@ -24,9 +30,32 @@ CLIENT_ID = "d3590ed6-52b3-4102-aeff-aad2292ab01c"
 SCOPES = ["https://graph.microsoft.com/Files.ReadWrite.All"]
 AUTHORITY = "https://login.microsoftonline.com/common"
 
+_token_lock = threading.Lock()
+_print_lock = threading.Lock()
+
+
+def log(msg):
+    with _print_lock:
+        print(msg)
+
+
+def graph_request(method, url, max_retry=5, **kwargs):
+    """Esegue una richiesta HTTP verso Microsoft Graph con retry automatico su 429."""
+    for tentativo in range(max_retry):
+        response = requests.request(method, url, **kwargs)
+        if response.status_code != 429:
+            return response
+        try:
+            retry_after = int(response.json().get("error", {}).get("retryAfterSeconds", 60))
+        except Exception:
+            retry_after = 60
+        log(f"  ⏳ Rate limit (429), attendo {retry_after}s prima di riprovare...")
+        time.sleep(retry_after)
+    raise Exception(f"Rate limit persistente dopo {max_retry} tentativi su {url}")
+
 
 def autenticati():
-    """Esegue il login tramite Device Code Flow."""
+    """Esegue il login tramite Device Code Flow. Restituisce (app, accounts)."""
     app = msal.PublicClientApplication(CLIENT_ID, authority=AUTHORITY)
 
     accounts = app.get_accounts()
@@ -34,7 +63,7 @@ def autenticati():
         result = app.acquire_token_silent(SCOPES, account=accounts[0])
         if result and "access_token" in result:
             print("✅ Login effettuato dalla cache.")
-            return result["access_token"]
+            return app, accounts
 
     flow = app.initiate_device_flow(scopes=SCOPES)
     if "user_code" not in flow:
@@ -52,7 +81,17 @@ def autenticati():
         raise Exception("Login fallito: " + result.get("error_description", "Errore sconosciuto"))
 
     print("✅ Login effettuato con successo!\n")
-    return result["access_token"]
+    accounts = app.get_accounts()
+    return app, accounts
+
+
+def get_token(app, accounts):
+    """Ottiene un token valido, rinnovandolo automaticamente via refresh token se scaduto."""
+    with _token_lock:
+        result = app.acquire_token_silent(SCOPES, account=accounts[0])
+    if result and "access_token" in result:
+        return result["access_token"]
+    raise Exception("Impossibile rinnovare il token di accesso.")
 
 
 def data_modifica_locale(percorso_locale):
@@ -61,14 +100,14 @@ def data_modifica_locale(percorso_locale):
     return datetime.fromtimestamp(timestamp, tz=timezone.utc)
 
 
-def lista_contenuto(token, percorso_remoto):
+def lista_contenuto(app, accounts, percorso_remoto):
     """Restituisce il contenuto (file e cartelle) di una cartella su OneDrive."""
-    headers = {"Authorization": f"Bearer {token}"}
+    tutti_gli_elementi = []
     url = f"https://graph.microsoft.com/v1.0/me/drive/root:/{percorso_remoto}:/children"
 
-    tutti_gli_elementi = []
     while url:
-        response = requests.get(url, headers=headers)
+        token = get_token(app, accounts)
+        response = graph_request("GET", url, headers={"Authorization": f"Bearer {token}"})
         if response.status_code == 404:
             print(f"❌ La cartella remota '{percorso_remoto}' non esiste su OneDrive.")
             sys.exit(1)
@@ -82,37 +121,34 @@ def lista_contenuto(token, percorso_remoto):
     return tutti_gli_elementi
 
 
-def scarica_file(token, elemento, percorso_locale):
+def scarica_file(app, accounts, elemento, percorso_locale):
     """
     Scarica un file da OneDrive solo se è più recente di quello locale.
+    Usa il downloadUrl pre-autenticato, quindi il token non serve per i byte del file.
     """
     nome_file = elemento["name"]
     download_url = elemento["@microsoft.graph.downloadUrl"]
 
-    # Data di modifica remota (dal metadato già disponibile nell'elemento)
     data_str = elemento["lastModifiedDateTime"]
     data_remota = datetime.fromisoformat(data_str.replace("Z", "+00:00"))
 
-    # Confronto date se il file esiste già in locale
     if os.path.exists(percorso_locale):
         data_locale = data_modifica_locale(percorso_locale)
         if data_remota <= data_locale:
-            print(f"  ⏭️  {nome_file} — saltato (locale più recente o uguale)")
+            log(f"  ⏭️  {nome_file} — saltato (locale più recente o uguale)")
             return "saltato"
         else:
-            print(f"  🔄 {nome_file} — aggiornamento (remoto più recente)")
+            log(f"  🔄 {nome_file} — aggiornamento (remoto più recente)")
     else:
-        print(f"  🆕 {nome_file} — nuovo file")
+        log(f"  🆕 {nome_file} — nuovo file")
 
-    # --- Download ---
     cartella_dest = os.path.dirname(percorso_locale)
     os.makedirs(cartella_dest, exist_ok=True)
-    headers = {"Authorization": f"Bearer {token}"}
 
     # Scarica su file temporaneo; lo sposta sulla destinazione solo se completo.
     fd, percorso_tmp = tempfile.mkstemp(dir=cartella_dest)
     try:
-        with requests.get(download_url, headers=headers, stream=True) as r:
+        with requests.get(download_url, stream=True) as r:
             r.raise_for_status()
             dimensione_totale = int(r.headers.get("Content-Length", 0))
             scaricati = 0
@@ -124,56 +160,78 @@ def scarica_file(token, elemento, percorso_locale):
                     scaricati += len(chunk)
                     if dimensione_totale:
                         percentuale = int((scaricati / dimensione_totale) * 100)
-                        print(f"  ⬇️  {nome_file}: {percentuale}%", end="\r")
+                        log(f"  ⬇️  {nome_file}: {percentuale}%")
 
         os.replace(percorso_tmp, percorso_locale)
         percorso_tmp = None  # segnala che il file è già stato spostato
     finally:
         if percorso_tmp and os.path.exists(percorso_tmp):
-            os.remove(percorso_tmp)  # pulizia in caso di errore
+            os.remove(percorso_tmp)
         elif fd is not None:
             os.close(fd)
 
-    print(f"  ✅ {nome_file}          ")
+    log(f"  ✅ {nome_file}")
     return "scaricato"
 
 
-def scarica_cartella(token, cartella_remota, cartella_locale):
-    """Scarica ricorsivamente tutti i file di una cartella da OneDrive."""
+def _raccogli_file(app, accounts, percorso_remoto, percorso_locale):
+    """
+    Traversa ricorsivamente la struttura remota e restituisce una lista di
+    (elemento, dest_locale) per tutti i file trovati.
+    Crea le directory locali necessarie durante la traversata.
+    """
+    tasks = []
+    elementi = lista_contenuto(app, accounts, percorso_remoto)
+
+    for elemento in elementi:
+        nome = elemento["name"]
+        dest_locale = os.path.join(percorso_locale, nome)
+
+        if "folder" in elemento:
+            os.makedirs(dest_locale, exist_ok=True)
+            tasks.extend(_raccogli_file(app, accounts, f"{percorso_remoto}/{nome}", dest_locale))
+        elif "file" in elemento:
+            tasks.append((elemento, dest_locale))
+
+    return tasks
+
+
+def scarica_cartella(app, accounts, cartella_remota, cartella_locale):
+    """Scarica ricorsivamente tutti i file di una cartella da OneDrive con download paralleli."""
     os.makedirs(cartella_locale, exist_ok=True)
 
     print(f"\n📂 Download da OneDrive: {cartella_remota}")
-    print(f"   → Destinazione locale: {cartella_locale}\n")
+    print(f"   → Destinazione locale: {cartella_locale}")
+    print(f"   → Worker paralleli: {MAX_WORKERS}")
+    print("\n⏳ Scansione struttura remota...")
+
+    tasks = _raccogli_file(app, accounts, cartella_remota, cartella_locale)
+    print(f"   → {len(tasks)} file trovati\n")
 
     scaricati = saltati = errori = 0
+    contatori_lock = threading.Lock()
 
-    def _scarica_ricorsivo(percorso_remoto, percorso_locale):
-        nonlocal scaricati, saltati, errori
-        elementi = lista_contenuto(token, percorso_remoto)
+    def download_task(elemento, dest_locale):
+        try:
+            return scarica_file(app, accounts, elemento, dest_locale)
+        except Exception as e:
+            log(f"  ❌ Errore su {elemento['name']}: {e}")
+            return "errore"
 
-        for elemento in elementi:
-            nome = elemento["name"]
-            dest_locale = os.path.join(percorso_locale, nome)
-
-            if "folder" in elemento:
-                print(f"\n📁 Sottocartella: {percorso_remoto}/{nome}/")
-                os.makedirs(dest_locale, exist_ok=True)
-                _scarica_ricorsivo(f"{percorso_remoto}/{nome}", dest_locale)
-
-            elif "file" in elemento:
-                try:
-                    esito = scarica_file(token, elemento, dest_locale)
-                    if esito == "scaricato":
-                        scaricati += 1
-                    elif esito == "saltato":
-                        saltati += 1
-                    else:
-                        errori += 1
-                except Exception as e:
-                    print(f"  ❌ Errore su {nome}: {e}")
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {
+            executor.submit(download_task, elemento, dest_locale): (elemento, dest_locale)
+            for elemento, dest_locale in tasks
+        }
+        for future in as_completed(futures):
+            esito = future.result()
+            with contatori_lock:
+                if esito == "scaricato":
+                    scaricati += 1
+                elif esito == "saltato":
+                    saltati += 1
+                else:
                     errori += 1
-
-    _scarica_ricorsivo(cartella_remota, cartella_locale)
 
     print(f"\n{'='*50}")
     print(f"🆕 Nuovi/aggiornati: {scaricati}")
@@ -183,5 +241,5 @@ def scarica_cartella(token, cartella_remota, cartella_locale):
 
 
 if __name__ == "__main__":
-    token = autenticati()
-    scarica_cartella(token, CARTELLA_REMOTA, CARTELLA_LOCALE)
+    app, accounts = autenticati()
+    scarica_cartella(app, accounts, CARTELLA_REMOTA, CARTELLA_LOCALE)

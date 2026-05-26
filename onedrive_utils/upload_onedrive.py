@@ -3,18 +3,23 @@ import requests
 import os
 import sys
 import time
+import threading
 from datetime import datetime, timezone
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # ============================================================
 #  MODIFICA QUESTE VARIABILI CON I TUOI DATI
 # ============================================================
 
 # Cartella LOCALE che vuoi caricare (percorso assoluto o relativo)
-CARTELLA_LOCALE = "../../Foundation_model_clinical_data/"
+CARTELLA_LOCALE = "../../Foundation_model_clinical_data"
 
 # Cartella REMOTA su OneDrive dove caricare i file
 # Esempio: "Tesi" oppure "Documenti/Tesi/Capitoli"
 CARTELLA_REMOTA = "Tesi/Foundation_model_clinical_data"
+
+# Worker paralleli per l'upload (aumenta con cautela: troppi possono causare rate limiting)
+MAX_WORKERS = 4
 
 # ============================================================
 #  NON MODIFICARE DA QUI IN POI
@@ -24,9 +29,32 @@ CLIENT_ID = "d3590ed6-52b3-4102-aeff-aad2292ab01c"
 SCOPES = ["https://graph.microsoft.com/Files.ReadWrite.All"]
 AUTHORITY = "https://login.microsoftonline.com/common"
 
+_token_lock = threading.Lock()
+_print_lock = threading.Lock()
+
+
+def log(msg):
+    with _print_lock:
+        print(msg)
+
+
+def graph_request(method, url, max_retry=5, **kwargs):
+    """Esegue una richiesta HTTP verso Microsoft Graph con retry automatico su 429."""
+    for tentativo in range(max_retry):
+        response = requests.request(method, url, **kwargs)
+        if response.status_code != 429:
+            return response
+        try:
+            retry_after = int(response.json().get("error", {}).get("retryAfterSeconds", 60))
+        except Exception:
+            retry_after = 60
+        log(f"  ⏳ Rate limit (429), attendo {retry_after}s prima di riprovare...")
+        time.sleep(retry_after)
+    raise Exception(f"Rate limit persistente dopo {max_retry} tentativi su {url}")
+
 
 def autenticati():
-    """Esegue il login tramite Device Code Flow."""
+    """Esegue il login tramite Device Code Flow. Restituisce (app, accounts)."""
     app = msal.PublicClientApplication(CLIENT_ID, authority=AUTHORITY)
 
     accounts = app.get_accounts()
@@ -34,7 +62,7 @@ def autenticati():
         result = app.acquire_token_silent(SCOPES, account=accounts[0])
         if result and "access_token" in result:
             print("✅ Login effettuato dalla cache.")
-            return result["access_token"]
+            return app, accounts
 
     flow = app.initiate_device_flow(scopes=SCOPES)
     if "user_code" not in flow:
@@ -52,20 +80,28 @@ def autenticati():
         raise Exception("Login fallito: " + result.get("error_description", "Errore sconosciuto"))
 
     print("✅ Login effettuato con successo!\n")
-    return result["access_token"]
+    accounts = app.get_accounts()
+    return app, accounts
 
 
-def data_modifica_remota(token, percorso_remoto):
-    """
-    Restituisce la data di ultima modifica del file su OneDrive.
-    Ritorna None se il file non esiste.
-    """
+def get_token(app, accounts):
+    """Ottiene un token valido, rinnovandolo automaticamente via refresh token se scaduto."""
+    with _token_lock:
+        result = app.acquire_token_silent(SCOPES, account=accounts[0])
+    if result and "access_token" in result:
+        return result["access_token"]
+    raise Exception("Impossibile rinnovare il token di accesso.")
+
+
+def data_modifica_remota(app, accounts, percorso_remoto):
+    """Restituisce la data di ultima modifica del file su OneDrive, o None se non esiste."""
+    token = get_token(app, accounts)
     headers = {"Authorization": f"Bearer {token}"}
     url = f"https://graph.microsoft.com/v1.0/me/drive/root:/{percorso_remoto}"
-    response = requests.get(url, headers=headers)
+    response = graph_request("GET", url, headers=headers)
 
     if response.status_code == 404:
-        return None  # File non esiste in remoto
+        return None
     if response.status_code != 200:
         raise Exception(f"Errore nel controllo remoto: {response.status_code} — {response.text}")
 
@@ -79,53 +115,56 @@ def data_modifica_locale(percorso_locale):
     return datetime.fromtimestamp(timestamp, tz=timezone.utc)
 
 
-def carica_file(token, percorso_locale, percorso_remoto):
+def carica_file(app, accounts, percorso_locale, percorso_remoto):
     """
     Carica un file su OneDrive solo se è più recente di quello remoto.
-    Gestisce automaticamente file grandi (> 4MB).
+    Gestisce automaticamente file grandi (> 4MB) e rinnova il token se necessario.
     """
-    headers = {"Authorization": f"Bearer {token}"}
     nome_file = os.path.basename(percorso_locale)
     dimensione = os.path.getsize(percorso_locale)
 
-    # --- Confronto date ---
     data_locale = data_modifica_locale(percorso_locale)
-    data_remota = data_modifica_remota(token, percorso_remoto)
+    data_remota = data_modifica_remota(app, accounts, percorso_remoto)
 
     if data_remota is not None:
         if data_locale <= data_remota:
-            print(f"  ⏭️  {nome_file} — saltato (remoto più recente o uguale)")
+            log(f"  ⏭️  {nome_file} — saltato (remoto più recente o uguale)")
             return "saltato"
         else:
-            print(f"  🔄 {nome_file} — aggiornamento (locale più recente)")
+            log(f"  🔄 {nome_file} — aggiornamento (locale più recente)")
     else:
-        print(f"  🆕 {nome_file} — nuovo file")
+        log(f"  🆕 {nome_file} — nuovo file")
 
-    # --- Upload ---
     if dimensione <= 4 * 1024 * 1024:
+        token = get_token(app, accounts)
         url = f"https://graph.microsoft.com/v1.0/me/drive/root:/{percorso_remoto}:/content"
         with open(percorso_locale, "rb") as f:
-            response = requests.put(
-                url,
-                headers={**headers, "Content-Type": "application/octet-stream"},
+            response = graph_request(
+                "PUT", url,
+                headers={"Authorization": f"Bearer {token}", "Content-Type": "application/octet-stream"},
                 data=f
             )
         if response.status_code in (200, 201):
-            print(f"  ✅ {nome_file}")
+            log(f"  ✅ {nome_file}")
             return "caricato"
         else:
-            print(f"  ❌ {nome_file} — Errore {response.status_code}: {response.text}")
+            log(f"  ❌ {nome_file} — Errore {response.status_code}: {response.text}")
             return "errore"
 
     else:
-        print(f"  📦 {nome_file} ({dimensione // (1024*1024)} MB) — upload in sessione...")
+        # Per file grandi, il token serve solo per creare la sessione;
+        # i chunk usano l'uploadUrl che non richiede Authorization.
+        token = get_token(app, accounts)
+        log(f"  📦 {nome_file} ({dimensione // (1024*1024)} MB) — upload in sessione...")
         url_sessione = f"https://graph.microsoft.com/v1.0/me/drive/root:/{percorso_remoto}:/createUploadSession"
-        sessione = requests.post(url_sessione, headers=headers, json={
-            "item": {"@microsoft.graph.conflictBehavior": "replace"}
-        })
+        sessione = graph_request(
+            "POST", url_sessione,
+            headers={"Authorization": f"Bearer {token}"},
+            json={"item": {"@microsoft.graph.conflictBehavior": "replace"}}
+        )
 
         if sessione.status_code != 200:
-            print(f"  ❌ Impossibile creare la sessione per {nome_file}: {sessione.text}")
+            log(f"  ❌ Impossibile creare la sessione per {nome_file}: {sessione.text}")
             return "errore"
 
         upload_url = sessione.json()["uploadUrl"]
@@ -148,42 +187,41 @@ def carica_file(token, percorso_locale, percorso_remoto):
 
                     for tentativo in range(1, MAX_RETRY + 1):
                         r = requests.put(upload_url, headers=chunk_headers, data=chunk)
-                        # 202 = chunk intermedio accettato, 200/201 = ultimo chunk completato
                         if r.status_code in (200, 201, 202):
                             break
                         if tentativo < MAX_RETRY:
-                            print(f"\n  ⚠️  Chunk {inviati}-{fine} fallito ({r.status_code}), retry {tentativo}/{MAX_RETRY-1}...")
-                            time.sleep(2 ** tentativo)  # backoff esponenziale: 2s, 4s
+                            log(f"\n  ⚠️  Chunk {inviati}-{fine} fallito ({r.status_code}), retry {tentativo}/{MAX_RETRY-1}...")
+                            time.sleep(2 ** tentativo)
                     else:
-                        print(f"\n  ❌ {nome_file} — chunk {inviati}-{fine} fallito dopo {MAX_RETRY} tentativi.")
+                        log(f"\n  ❌ {nome_file} — chunk {inviati}-{fine} fallito dopo {MAX_RETRY} tentativi.")
                         return "errore"
 
                     inviati += len(chunk)
                     percentuale = int((inviati / dimensione) * 100)
-                    print(f"  ⬆️  {nome_file}: {percentuale}%", end="\r")
+                    log(f"  ⬆️  {nome_file}: {percentuale}%")
 
             completato = True
         finally:
-            # Garantisce la cancellazione della sessione in caso di eccezione imprevista
             if not completato:
                 requests.delete(upload_url)
-                print(f"\n  ❌ {nome_file} — sessione annullata per errore imprevisto.")
+                log(f"\n  ❌ {nome_file} — sessione annullata per errore imprevisto.")
 
-        print(f"\n  ✅ {nome_file}")
+        log(f"  ✅ {nome_file}")
         return "caricato"
 
 
-def carica_cartella(token, cartella_locale, cartella_remota):
-    """Carica ricorsivamente una cartella locale su OneDrive."""
+def carica_cartella(app, accounts, cartella_locale, cartella_remota):
+    """Carica ricorsivamente una cartella locale su OneDrive con upload paralleli."""
     if not os.path.isdir(cartella_locale):
         print(f"❌ La cartella locale '{cartella_locale}' non esiste.")
         sys.exit(1)
 
     print(f"\n📂 Avvio upload da: {cartella_locale}")
-    print(f"   → Destinazione OneDrive: {cartella_remota}\n")
+    print(f"   → Destinazione OneDrive: {cartella_remota}")
+    print(f"   → Worker paralleli: {MAX_WORKERS}\n")
 
-    caricati = saltati = errori = 0
-
+    # Raccoglie tutti i file prima di avviare i worker
+    tasks = []
     for root, dirs, files in os.walk(cartella_locale):
         relativo = os.path.relpath(root, cartella_locale)
         if relativo == ".":
@@ -191,23 +229,32 @@ def carica_cartella(token, cartella_locale, cartella_remota):
         else:
             relativo = relativo.replace(os.sep, "/")
             remoto_corrente = f"{cartella_remota}/{relativo}"
-
-        if files:
-            print(f"\n📁 {remoto_corrente}/")
-
         for file in files:
             percorso_locale = os.path.join(root, file)
             percorso_remoto = f"{remoto_corrente}/{file}"
-            try:
-                esito = carica_file(token, percorso_locale, percorso_remoto)
-                if esito == "caricato":
-                    caricati += 1
-                elif esito == "saltato":
-                    saltati += 1
-                else:
-                    errori += 1
-            except Exception as e:
-                print(f"  ❌ Errore su {file}: {e}")
+            tasks.append((percorso_locale, percorso_remoto))
+
+    caricati = saltati = errori = 0
+
+    def upload_task(percorso_locale, percorso_remoto):
+        try:
+            return carica_file(app, accounts, percorso_locale, percorso_remoto)
+        except Exception as e:
+            log(f"  ❌ Errore su {os.path.basename(percorso_locale)}: {e}")
+            return "errore"
+
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        futures = {
+            executor.submit(upload_task, p_loc, p_rem): (p_loc, p_rem)
+            for p_loc, p_rem in tasks
+        }
+        for future in as_completed(futures):
+            esito = future.result()
+            if esito == "caricato":
+                caricati += 1
+            elif esito == "saltato":
+                saltati += 1
+            else:
                 errori += 1
 
     print(f"\n{'='*50}")
@@ -218,5 +265,6 @@ def carica_cartella(token, cartella_locale, cartella_remota):
 
 
 if __name__ == "__main__":
-    token = autenticati()
-    carica_cartella(token, CARTELLA_LOCALE, CARTELLA_REMOTA)
+    app, accounts = autenticati()
+    carica_cartella(app, accounts, CARTELLA_LOCALE, CARTELLA_REMOTA)
+

@@ -308,7 +308,9 @@ def plot_km_curves(fold_data, dataset_name, model_name, preprocess_type, seed,
 
     plt.tight_layout()
     if pdf_pages is not None:
+        print(f"[PDF] Saving page: {dataset_name} | {model_name} | preprocess: {preprocess_type} | seed: {seed}")
         pdf_pages.savefig(fig)
+        print(f"[PDF] Page saved successfully")
     plt.close(fig)
 
 
@@ -493,13 +495,6 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
 
-                km_fold_data.append({
-                    "t_test":   t_test.copy(),
-                    "y_test":   np.asarray(y_test).copy(),
-                    "age_test": _km_ages[test_idx] if _km_ages is not None else None,
-                    "surv_df":  _surv_df_tuned_test,
-                })
-
                 # Tuned RSF
                 rsf_tuned_path   = ckpt_dir / f"{model}_rsf_tuned.pkl"
                 rsf_tuned_params = load_params(ckpt_dir, f"{model}_rsf_tuned")
@@ -537,8 +532,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         label=f"{model.upper()} RSF Tuned",
                     )
 
+                _surv_df_rsf_tuned_test = rsf_surv_to_df(rsf_tuned.predict_survival_function(test_emb))
                 c_train = concordance_td(rsf_surv_to_df(rsf_tuned.predict_survival_function(train_emb)), t_train, y_train)
-                c_test  = concordance_td(rsf_surv_to_df(rsf_tuned.predict_survival_function(test_emb)),  t_test,  y_test)
+                c_test  = concordance_td(_surv_df_rsf_tuned_test,  t_test,  y_test)
                 scores["train_tab_tuned_rsf"].append(c_train)
                 scores["test_tab_tuned_rsf"].append(c_test)
                 print(f"C-index train: {c_train:.4f}")
@@ -550,8 +546,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             deepsurv_simple.optimizer.set_lr(0.01)
             load_or_fit_deepsurv(deepsurv_simple, simple_path, train_emb, t_train, y_train, eval_emb, t_eval, y_eval, label="DeepSurv Simple")
 
+            _surv_df_simple_test = deepsurv_simple.predict_surv_df(test_emb)
             c_train = concordance_td(deepsurv_simple.predict_surv_df(train_emb), t_train, y_train)
-            c_test  = concordance_td(deepsurv_simple.predict_surv_df(test_emb),  t_test,  y_test)
+            c_test  = concordance_td(_surv_df_simple_test,  t_test,  y_test)
             scores["train_tab_deepsurv_simple"].append(c_train)
             scores["test_tab_deepsurv_simple"].append(c_test)
             print(f"C-index TRAIN: {c_train:.4f}")
@@ -566,8 +563,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             deepsurv_vanilla_emb.optimizer.set_lr(0.01)
             load_or_fit_deepsurv(deepsurv_vanilla_emb, vanilla_path, train_emb, t_train, y_train, eval_emb, t_eval, y_eval, label="DeepSurv Vanilla")
 
+            _surv_df_vanilla_test = deepsurv_vanilla_emb.predict_surv_df(test_emb)
             c_train = concordance_td(deepsurv_vanilla_emb.predict_surv_df(train_emb), t_train, y_train)
-            c_test  = concordance_td(deepsurv_vanilla_emb.predict_surv_df(test_emb),  t_test,  y_test)
+            c_test  = concordance_td(_surv_df_vanilla_test,  t_test,  y_test)
             scores["train_tab_deepsurv_vanilla"].append(c_train)
             scores["test_tab_deepsurv_vanilla"].append(c_test)
             print(f"C-index TRAIN: {c_train:.4f}")
@@ -582,8 +580,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 label=f"{model.upper()} RSF",
             )
 
+            _surv_df_rsf_test = rsf_surv_to_df(rsf_emb.predict_survival_function(test_emb))
             c_train = concordance_td(rsf_surv_to_df(rsf_emb.predict_survival_function(train_emb)), t_train, y_train)
-            c_test  = concordance_td(rsf_surv_to_df(rsf_emb.predict_survival_function(test_emb)),  t_test,  y_test)
+            c_test  = concordance_td(_surv_df_rsf_test,  t_test,  y_test)
             scores["train_tab_rsf"].append(c_train)
             scores["test_tab_rsf"].append(c_test)
             print(f"C-index train: {c_train:.4f}")
@@ -596,8 +595,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             df_fit["__e__"] = np.asarray(y_train)
             cph_emb = load_or_fit_cox(cox_emb_path, df_fit, label=f"{model.upper()} Cox (embedding)")
 
+            _surv_df_cox_test = cph_emb.predict_survival_function(pd.DataFrame(test_emb))
             c_train = concordance_td(cph_emb.predict_survival_function(pd.DataFrame(train_emb)), t_train, y_train)
-            c_test  = concordance_td(cph_emb.predict_survival_function(pd.DataFrame(test_emb)),  t_test,  y_test)
+            c_test  = concordance_td(_surv_df_cox_test,  t_test,  y_test)
             scores["train_tab_cox"].append(c_train)
             scores["test_tab_cox"].append(c_test)
             print(f"C-index train: {c_train:.4f}")
@@ -627,8 +627,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 deepsurv_vanilla_base.optimizer.set_lr(0.01)
                 load_or_fit_deepsurv(deepsurv_vanilla_base, vanilla_base_path, X_train_f32, t_train, y_train, X_eval_f32, t_eval, y_eval, label="DeepSurv Vanilla baseline")
 
+                _surv_df_vanilla_base_test = deepsurv_vanilla_base.predict_surv_df(X_test_f32)
                 c_train = concordance_td(deepsurv_vanilla_base.predict_surv_df(X_train_f32), t_train, y_train)
-                c_test  = concordance_td(deepsurv_vanilla_base.predict_surv_df(X_test_f32),  t_test,  y_test)
+                c_test  = concordance_td(_surv_df_vanilla_base_test,  t_test,  y_test)
                 scores["train_deepsurv_vanilla"].append(c_train)
                 scores["test_deepsurv_vanilla"].append(c_test)
                 print(f"C-index TRAIN: {c_train:.4f}")
@@ -640,8 +641,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 deepsurv_simple_base.optimizer.set_lr(0.01)
                 load_or_fit_deepsurv(deepsurv_simple_base, simple_base_path, X_train_f32, t_train, y_train, X_eval_f32, t_eval, y_eval, label="DeepSurv Simple baseline")
 
+                _surv_df_simple_base_test = deepsurv_simple_base.predict_surv_df(X_test_f32)
                 c_train = concordance_td(deepsurv_simple_base.predict_surv_df(X_train_f32), t_train, y_train)
-                c_test  = concordance_td(deepsurv_simple_base.predict_surv_df(X_test_f32),  t_test,  y_test)
+                c_test  = concordance_td(_surv_df_simple_base_test,  t_test,  y_test)
                 scores["train_deepsurv_simple"].append(c_train)
                 scores["test_deepsurv_simple"].append(c_test)
                 print(f"C-index TRAIN: {c_train:.4f}")
@@ -656,8 +658,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     label="RSF baseline",
                 )
 
+                _surv_df_rsf_base_test = rsf_surv_to_df(rsf_base.predict_survival_function(X_test))
                 c_train = concordance_td(rsf_surv_to_df(rsf_base.predict_survival_function(X_train)), t_train, y_train)
-                c_test  = concordance_td(rsf_surv_to_df(rsf_base.predict_survival_function(X_test)),  t_test,  y_test)
+                c_test  = concordance_td(_surv_df_rsf_base_test,  t_test,  y_test)
                 scores["train_rsf"].append(c_train)
                 scores["test_rsf"].append(c_test)
                 print(f"C-index train: {c_train:.4f}")
@@ -796,6 +799,30 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     dump(fold_shap, shap_cache_path)
                     print(f"  [SHAP] Fold {fold_n}: values cached → {shap_cache_path}")
 
+            # ── Collect survival curves for KM plotting ───────────────────────
+            _fold_models = {
+                "deepsurv_simple":  _surv_df_simple_test,
+                "deepsurv_vanilla": _surv_df_vanilla_test,
+                "rsf":              _surv_df_rsf_test,
+                "cox":              _surv_df_cox_test,
+            }
+            if tuning:
+                _fold_models["deepsurv_tuned"] = _surv_df_tuned_test
+                _fold_models["rsf_tuned"]      = _surv_df_rsf_tuned_test
+            if preprocess_type != "NaN":
+                _fold_models.update({
+                    "deepsurv_simple_baseline":  _surv_df_simple_base_test,
+                    "deepsurv_vanilla_baseline": _surv_df_vanilla_base_test,
+                    "rsf_baseline":              _surv_df_rsf_base_test,
+                    "cox_baseline":              surv_test_base,
+                })
+            km_fold_data.append({
+                "t_test":   t_test.copy(),
+                "y_test":   np.asarray(y_test).copy(),
+                "age_test": _km_ages[test_idx] if _km_ages is not None else None,
+                "models":   _fold_models,
+            })
+
             '''
             # 5. Visualize embeddings via t-SNE
             # Requires: from sklearn.manifold import TSNE; import matplotlib.pyplot as plt
@@ -872,16 +899,24 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         sf.write(f"{feature_names_shap[i]:<35} {mean_s[i]:>14.6f} {std_s[i]:>14.6f}\n")
             print(f"[SHAP] Results saved → {shap_path}")
 
-        if tuning and km_fold_data and pdf_pages is not None:
-            plot_km_curves(
-                km_fold_data,
-                dataset_name=dataset_name,
-                model_name=model,
-                preprocess_type=preprocess_type,
-                seed=seed,
-                age_threshold=60,
-                pdf_pages=pdf_pages,
-            )
+        if km_fold_data and pdf_pages is not None:
+            model_names = list(km_fold_data[0]["models"].keys())
+            print(f"[PDF] Plotting KM curves for {len(model_names)} models: {model_names}")
+            for m_name in model_names:
+                per_model_data = [
+                    {"t_test": d["t_test"], "y_test": d["y_test"], "age_test": d["age_test"],
+                     "surv_df": d["models"][m_name]}
+                    for d in km_fold_data
+                ]
+                plot_km_curves(
+                    per_model_data,
+                    dataset_name=dataset_name,
+                    model_name=f"{model}/{m_name}",
+                    preprocess_type=preprocess_type,
+                    seed=seed,
+                    age_threshold=60,
+                    pdf_pages=pdf_pages,
+                )
 
         results.append({"preprocess_type": preprocess_type, "scores": dict(scores)})
 
@@ -901,50 +936,55 @@ if __name__ == "__main__":
     set_seed(args.seed)
     print(f"STARTED  model={args.model}  seed={args.seed}  tuning={args.tuning}  shap={args.shap}")
 
-    km_pdf = PdfPages("plot_curve.pdf") if args.tuning else None
+    output_pdf_path = Path("results") / f"plot_curves_{args.model}_{args.seed}.pdf"
+    output_pdf_path.parent.mkdir(parents=True, exist_ok=True)
+    print(f"[PDF] Opening PdfPages → {output_pdf_path}")
+    km_pdf = PdfPages(output_pdf_path)
 
-    for dataset_name, feature_event, feature_time in DATASETS:
-        results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap, pdf_pages=km_pdf)
+    try:
+        for dataset_name, feature_event, feature_time in DATASETS:
+            results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap, pdf_pages=km_pdf)
 
-        output_dir = Path("results") / dataset_name / args.model
-        output_dir.mkdir(parents=True, exist_ok=True)
-        filepath = output_dir / f"results_cv_{dataset_name}_{args.model}_seed{args.seed}.txt"
+            output_dir = Path("results") / dataset_name / args.model
+            output_dir.mkdir(parents=True, exist_ok=True)
+            filepath = output_dir / f"results_cv_{dataset_name}_{args.model}_seed{args.seed}.txt"
 
-        with Tee(filepath):
-            for result in results:
-                pt = result["preprocess_type"]
-                sc = result["scores"]
-                m  = args.model.upper()
-                print(f"\n  Preprocess: {pt} | Seed: {args.seed}")
-                if sc.get("train_tab_tuned_deepsurv"):
-                    print_stats(f"{m} Train Tuned DeepSurv", sc["train_tab_tuned_deepsurv"])
-                    print_stats(f"{m} Test Tuned DeepSurv",  sc["test_tab_tuned_deepsurv"])
-                if sc.get("train_tab_tuned_rsf"):
-                    print_stats(f"{m} Train Tuned RSF",      sc["train_tab_tuned_rsf"])
-                    print_stats(f"{m} Test Tuned RSF",       sc["test_tab_tuned_rsf"])
-                print_stats(f"{m} Train Vanilla",            sc["train_tab_deepsurv_vanilla"])
-                print_stats(f"{m} Test Vanilla",             sc["test_tab_deepsurv_vanilla"])
-                print_stats(f"{m} Train Simple",             sc["train_tab_deepsurv_simple"])
-                print_stats(f"{m} Test Simple",              sc["test_tab_deepsurv_simple"])
-                print_stats(f"{m} Train RSF",                sc["train_tab_rsf"])
-                print_stats(f"{m} Test RSF",                 sc["test_tab_rsf"])
-                print_stats(f"{m} Train Cox",                sc["train_tab_cox"])
-                print_stats(f"{m} Test Cox",                 sc["test_tab_cox"])
-                if sc.get("train_deepsurv_vanilla"):
-                    print_stats("Train DeepSurv Vanilla",    sc["train_deepsurv_vanilla"])
-                    print_stats("Test DeepSurv Vanilla",     sc["test_deepsurv_vanilla"])
-                if sc.get("train_deepsurv_simple"):
-                    print_stats("Train DeepSurv Simple",     sc["train_deepsurv_simple"])
-                    print_stats("Test DeepSurv Simple",      sc["test_deepsurv_simple"])
-                if sc.get("train_rsf"):
-                    print_stats("Train RSF",                 sc["train_rsf"])
-                    print_stats("Test RSF",                  sc["test_rsf"])
-                if sc.get("train_cox"):
-                    print_stats("Train Cox",                 sc["train_cox"])
-                    print_stats("Test Cox",                  sc["test_cox"])
+            with Tee(filepath):
+                for result in results:
+                    pt = result["preprocess_type"]
+                    sc = result["scores"]
+                    m  = args.model.upper()
+                    print(f"\n  Preprocess: {pt} | Seed: {args.seed}")
+                    if sc.get("train_tab_tuned_deepsurv"):
+                        print_stats(f"{m} Train Tuned DeepSurv", sc["train_tab_tuned_deepsurv"])
+                        print_stats(f"{m} Test Tuned DeepSurv",  sc["test_tab_tuned_deepsurv"])
+                    if sc.get("train_tab_tuned_rsf"):
+                        print_stats(f"{m} Train Tuned RSF",      sc["train_tab_tuned_rsf"])
+                        print_stats(f"{m} Test Tuned RSF",       sc["test_tab_tuned_rsf"])
+                    print_stats(f"{m} Train Vanilla",            sc["train_tab_deepsurv_vanilla"])
+                    print_stats(f"{m} Test Vanilla",             sc["test_tab_deepsurv_vanilla"])
+                    print_stats(f"{m} Train Simple",             sc["train_tab_deepsurv_simple"])
+                    print_stats(f"{m} Test Simple",              sc["test_tab_deepsurv_simple"])
+                    print_stats(f"{m} Train RSF",                sc["train_tab_rsf"])
+                    print_stats(f"{m} Test RSF",                 sc["test_tab_rsf"])
+                    print_stats(f"{m} Train Cox",                sc["train_tab_cox"])
+                    print_stats(f"{m} Test Cox",                 sc["test_tab_cox"])
+                    if sc.get("train_deepsurv_vanilla"):
+                        print_stats("Train DeepSurv Vanilla",    sc["train_deepsurv_vanilla"])
+                        print_stats("Test DeepSurv Vanilla",     sc["test_deepsurv_vanilla"])
+                    if sc.get("train_deepsurv_simple"):
+                        print_stats("Train DeepSurv Simple",     sc["train_deepsurv_simple"])
+                        print_stats("Test DeepSurv Simple",      sc["test_deepsurv_simple"])
+                    if sc.get("train_rsf"):
+                        print_stats("Train RSF",                 sc["train_rsf"])
+                        print_stats("Test RSF",                  sc["test_rsf"])
+                    if sc.get("train_cox"):
+                        print_stats("Train Cox",                 sc["train_cox"])
+                        print_stats("Test Cox",                  sc["test_cox"])
 
-        print(f"Result saved in '{filepath}'")
+            print(f"Result saved in '{filepath}'")
 
-    if km_pdf is not None:
+    finally:
+        print(f"[PDF] Closing PdfPages → {output_pdf_path}")
         km_pdf.close()
-        print("KM curves saved → plot_curve.pdf")
+        print(f"KM curves saved → {output_pdf_path}")
