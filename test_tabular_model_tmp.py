@@ -18,7 +18,6 @@ import random
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.backends.backend_pdf import PdfPages
 
 from lifelines import CoxPHFitter, KaplanMeierFitter
 from sklearn.model_selection import KFold
@@ -37,6 +36,8 @@ DATASETS = [
     ("OrmoniTirodei", "Total mortality", "Follow Up Data"),
     ("HURRAH",        "STATO_AL_FU",     "FU"),
 ]
+
+SURVIVAL_PRED_DIR = Path("survival_predictions")
 
 
 def set_seed(seed: int):
@@ -163,6 +164,29 @@ def load_or_fit_rsf(ckpt_path: Path, rsf, train_data, train_structured, label: s
     dump(rsf, ckpt_path)
     print(f"  [ckpt] {label} saved → {ckpt_path}")
     return rsf
+
+
+def _surv_filename(tabular_model: str, survival_model: str) -> str:
+    if survival_model.endswith("_baseline"):
+        return survival_model.removesuffix("_baseline") + ".pkl"
+    return f"{tabular_model}_{survival_model}.pkl"
+
+
+def save_survival_prediction(
+    dataset_name: str, tabular_model: str, survival_model: str,
+    preprocess_type: str, seed: int, fold: int,
+    t_test: np.ndarray, y_test: np.ndarray,
+    X_test_features: pd.DataFrame, surv_df: pd.DataFrame,
+):
+    path = (
+        SURVIVAL_PRED_DIR / tabular_model / dataset_name / preprocess_type
+        / f"seed{seed}" / f"fold{fold}" / _surv_filename(tabular_model, survival_model)
+    )
+    if path.exists():
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    dump({"t_test": t_test, "y_test": y_test, "X_test_features": X_test_features, "surv_df": surv_df}, path)
+    print(f"  [surv] Saved → {path}")
 
 
 def load_or_fit_cox(ckpt_path: Path, df_fit: pd.DataFrame, label: str = "Cox") -> CoxPHFitter:
@@ -316,7 +340,7 @@ def plot_km_curves(fold_data, dataset_name, model_name, preprocess_type, seed,
 
 # ── Main ──────────────────────────────────────────────────────────────────────
 
-def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, compute_shap=False, pdf_pages=None):
+def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, compute_shap=False):
     match dataset_name:
         case "OrmoniTirodei":
             data = load_data(dataset_name, "Dataset Sirbu")
@@ -374,10 +398,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
         t_eval = df_tmp_eval["__duration__"].values.astype(np.float32)
 
         feature_names_shap = list(X.columns)
-
-        # Extract age column before potential numpy conversion (for KM stratification)
-        _km_age_col = "Age" if dataset_name == "OrmoniTirodei" else "ETA"
-        _km_ages = X[_km_age_col].values.copy() if _km_age_col in X.columns else None
+        X_features_df = X.copy()  # preserve DataFrame with column names before tabdpt numpy conversion
 
         if model == "tabdpt":
             X      = X.to_numpy()
@@ -387,7 +408,6 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
 
         folds  = get_or_create_folds(X, dataset_name=dataset_name, seed=seed, n_splits=5)
         scores = defaultdict(list)
-        km_fold_data = []
 
         if compute_shap:
             shap_fold_values = {k: [] for k in ["deepsurv_simple", "deepsurv_vanilla", "rsf", "cox"]}
@@ -411,6 +431,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 X_train, X_test = X.iloc[train_idx], X.iloc[test_idx]
                 y_train, y_test = y.iloc[train_idx], y.iloc[test_idx]
             t_train, t_test = t[train_idx], t[test_idx]
+            X_test_features = X_features_df.iloc[test_idx].reset_index(drop=True)
 
             print(f"X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
 
@@ -494,6 +515,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 scores["test_tab_tuned_deepsurv"].append(c_test)
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
+                save_survival_prediction(dataset_name, model, "deepsurv_tuned", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_tuned_test)
 
                 # Tuned RSF
                 rsf_tuned_path   = ckpt_dir / f"{model}_rsf_tuned.pkl"
@@ -539,6 +561,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 scores["test_tab_tuned_rsf"].append(c_test)
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
+                save_survival_prediction(dataset_name, model, "rsf_tuned", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_tuned_test)
 
             # ── DeepSurv Simple (embedding) ───────────────────────────────────
             simple_path     = ckpt_dir / f"{model}_deepsurv_simple.pt"
@@ -553,6 +576,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             scores["test_tab_deepsurv_simple"].append(c_test)
             print(f"C-index TRAIN: {c_train:.4f}")
             print(f"C-index TEST:  {c_test:.4f}")
+            save_survival_prediction(dataset_name, model, "deepsurv_simple", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_simple_test)
 
             # ── DeepSurv Vanilla (embedding) ──────────────────────────────────
             vanilla_path         = ckpt_dir / f"{model}_deepsurv_vanilla.pt"
@@ -570,6 +594,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             scores["test_tab_deepsurv_vanilla"].append(c_test)
             print(f"C-index TRAIN: {c_train:.4f}")
             print(f"C-index TEST:  {c_test:.4f}")
+            save_survival_prediction(dataset_name, model, "deepsurv_vanilla", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_vanilla_test)
 
             # ── RSF (embedding) ───────────────────────────────────────────────
             rsf_emb_path = ckpt_dir / f"{model}_rsf.pkl"
@@ -587,6 +612,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             scores["test_tab_rsf"].append(c_test)
             print(f"C-index train: {c_train:.4f}")
             print(f"C-index test:  {c_test:.4f}")
+            save_survival_prediction(dataset_name, model, "rsf", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_test)
 
             # ── Cox (embedding) ───────────────────────────────────────────────
             cox_emb_path = ckpt_dir / f"{model}_tab_cox.pkl"
@@ -602,6 +628,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             scores["test_tab_cox"].append(c_test)
             print(f"C-index train: {c_train:.4f}")
             print(f"C-index test:  {c_test:.4f}")
+            save_survival_prediction(dataset_name, model, "cox", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_cox_test)
 
             # ── Capture SHAP refs before baseline models ──────────────────────
             if compute_shap:
@@ -634,6 +661,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 scores["test_deepsurv_vanilla"].append(c_test)
                 print(f"C-index TRAIN: {c_train:.4f}")
                 print(f"C-index TEST:  {c_test:.4f}")
+                save_survival_prediction(dataset_name, model, "deepsurv_vanilla_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_vanilla_base_test)
 
                 # DeepSurv Simple baseline
                 simple_base_path     = ckpt_dir / "deepsurv_simple_baseline.pt"
@@ -648,6 +676,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 scores["test_deepsurv_simple"].append(c_test)
                 print(f"C-index TRAIN: {c_train:.4f}")
                 print(f"C-index TEST:  {c_test:.4f}")
+                save_survival_prediction(dataset_name, model, "deepsurv_simple_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_simple_base_test)
 
                 # RSF baseline
                 rsf_base_path = ckpt_dir / "rsf_baseline.pkl"
@@ -665,6 +694,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 scores["test_rsf"].append(c_test)
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
+                save_survival_prediction(dataset_name, model, "rsf_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_base_test)
 
                 # Cox baseline
                 cox_base_path = ckpt_dir / f"{model}_cox.pkl"
@@ -689,6 +719,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 scores["test_cox"].append(c_test)
                 print(f"C-index train: {c_train:.4f}")
                 print(f"C-index test:  {c_test:.4f}")
+                save_survival_prediction(dataset_name, model, "cox_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, surv_test_base)
 
             # ── SHAP computation ──────────────────────────────────────────────
             if compute_shap:
@@ -799,29 +830,6 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     dump(fold_shap, shap_cache_path)
                     print(f"  [SHAP] Fold {fold_n}: values cached → {shap_cache_path}")
 
-            # ── Collect survival curves for KM plotting ───────────────────────
-            _fold_models = {
-                "deepsurv_simple":  _surv_df_simple_test,
-                "deepsurv_vanilla": _surv_df_vanilla_test,
-                "rsf":              _surv_df_rsf_test,
-                "cox":              _surv_df_cox_test,
-            }
-            if tuning:
-                _fold_models["deepsurv_tuned"] = _surv_df_tuned_test
-                _fold_models["rsf_tuned"]      = _surv_df_rsf_tuned_test
-            if preprocess_type != "NaN":
-                _fold_models.update({
-                    "deepsurv_simple_baseline":  _surv_df_simple_base_test,
-                    "deepsurv_vanilla_baseline": _surv_df_vanilla_base_test,
-                    "rsf_baseline":              _surv_df_rsf_base_test,
-                    "cox_baseline":              surv_test_base,
-                })
-            km_fold_data.append({
-                "t_test":   t_test.copy(),
-                "y_test":   np.asarray(y_test).copy(),
-                "age_test": _km_ages[test_idx] if _km_ages is not None else None,
-                "models":   _fold_models,
-            })
 
             '''
             # 5. Visualize embeddings via t-SNE
@@ -899,25 +907,6 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         sf.write(f"{feature_names_shap[i]:<35} {mean_s[i]:>14.6f} {std_s[i]:>14.6f}\n")
             print(f"[SHAP] Results saved → {shap_path}")
 
-        if km_fold_data and pdf_pages is not None:
-            model_names = list(km_fold_data[0]["models"].keys())
-            print(f"[PDF] Plotting KM curves for {len(model_names)} models: {model_names}")
-            for m_name in model_names:
-                per_model_data = [
-                    {"t_test": d["t_test"], "y_test": d["y_test"], "age_test": d["age_test"],
-                     "surv_df": d["models"][m_name]}
-                    for d in km_fold_data
-                ]
-                plot_km_curves(
-                    per_model_data,
-                    dataset_name=dataset_name,
-                    model_name=f"{model}/{m_name}",
-                    preprocess_type=preprocess_type,
-                    seed=seed,
-                    age_threshold=60,
-                    pdf_pages=pdf_pages,
-                )
-
         results.append({"preprocess_type": preprocess_type, "scores": dict(scores)})
 
     return results
@@ -936,55 +925,45 @@ if __name__ == "__main__":
     set_seed(args.seed)
     print(f"STARTED  model={args.model}  seed={args.seed}  tuning={args.tuning}  shap={args.shap}")
 
-    output_pdf_path = Path("results") / f"plot_curves_{args.model}_{args.seed}.pdf"
-    output_pdf_path.parent.mkdir(parents=True, exist_ok=True)
-    print(f"[PDF] Opening PdfPages → {output_pdf_path}")
-    km_pdf = PdfPages(output_pdf_path)
+    for dataset_name, feature_event, feature_time in DATASETS:
+        results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap)
 
-    try:
-        for dataset_name, feature_event, feature_time in DATASETS:
-            results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap, pdf_pages=km_pdf)
+        output_dir = Path("results") / dataset_name / args.model
+        output_dir.mkdir(parents=True, exist_ok=True)
+        filepath = output_dir / f"results_cv_{dataset_name}_{args.model}_seed{args.seed}.txt"
 
-            output_dir = Path("results") / dataset_name / args.model
-            output_dir.mkdir(parents=True, exist_ok=True)
-            filepath = output_dir / f"results_cv_{dataset_name}_{args.model}_seed{args.seed}.txt"
+        with Tee(filepath):
+            for result in results:
+                pt = result["preprocess_type"]
+                sc = result["scores"]
+                m  = args.model.upper()
+                print(f"\n  Preprocess: {pt} | Seed: {args.seed}")
+                if sc.get("train_tab_tuned_deepsurv"):
+                    print_stats(f"{m} Train Tuned DeepSurv", sc["train_tab_tuned_deepsurv"])
+                    print_stats(f"{m} Test Tuned DeepSurv",  sc["test_tab_tuned_deepsurv"])
+                if sc.get("train_tab_tuned_rsf"):
+                    print_stats(f"{m} Train Tuned RSF",      sc["train_tab_tuned_rsf"])
+                    print_stats(f"{m} Test Tuned RSF",       sc["test_tab_tuned_rsf"])
+                print_stats(f"{m} Train Vanilla",            sc["train_tab_deepsurv_vanilla"])
+                print_stats(f"{m} Test Vanilla",             sc["test_tab_deepsurv_vanilla"])
+                print_stats(f"{m} Train Simple",             sc["train_tab_deepsurv_simple"])
+                print_stats(f"{m} Test Simple",              sc["test_tab_deepsurv_simple"])
+                print_stats(f"{m} Train RSF",                sc["train_tab_rsf"])
+                print_stats(f"{m} Test RSF",                 sc["test_tab_rsf"])
+                print_stats(f"{m} Train Cox",                sc["train_tab_cox"])
+                print_stats(f"{m} Test Cox",                 sc["test_tab_cox"])
+                if sc.get("train_deepsurv_vanilla"):
+                    print_stats("Train DeepSurv Vanilla",    sc["train_deepsurv_vanilla"])
+                    print_stats("Test DeepSurv Vanilla",     sc["test_deepsurv_vanilla"])
+                if sc.get("train_deepsurv_simple"):
+                    print_stats("Train DeepSurv Simple",     sc["train_deepsurv_simple"])
+                    print_stats("Test DeepSurv Simple",      sc["test_deepsurv_simple"])
+                if sc.get("train_rsf"):
+                    print_stats("Train RSF",                 sc["train_rsf"])
+                    print_stats("Test RSF",                  sc["test_rsf"])
+                if sc.get("train_cox"):
+                    print_stats("Train Cox",                 sc["train_cox"])
+                    print_stats("Test Cox",                  sc["test_cox"])
 
-            with Tee(filepath):
-                for result in results:
-                    pt = result["preprocess_type"]
-                    sc = result["scores"]
-                    m  = args.model.upper()
-                    print(f"\n  Preprocess: {pt} | Seed: {args.seed}")
-                    if sc.get("train_tab_tuned_deepsurv"):
-                        print_stats(f"{m} Train Tuned DeepSurv", sc["train_tab_tuned_deepsurv"])
-                        print_stats(f"{m} Test Tuned DeepSurv",  sc["test_tab_tuned_deepsurv"])
-                    if sc.get("train_tab_tuned_rsf"):
-                        print_stats(f"{m} Train Tuned RSF",      sc["train_tab_tuned_rsf"])
-                        print_stats(f"{m} Test Tuned RSF",       sc["test_tab_tuned_rsf"])
-                    print_stats(f"{m} Train Vanilla",            sc["train_tab_deepsurv_vanilla"])
-                    print_stats(f"{m} Test Vanilla",             sc["test_tab_deepsurv_vanilla"])
-                    print_stats(f"{m} Train Simple",             sc["train_tab_deepsurv_simple"])
-                    print_stats(f"{m} Test Simple",              sc["test_tab_deepsurv_simple"])
-                    print_stats(f"{m} Train RSF",                sc["train_tab_rsf"])
-                    print_stats(f"{m} Test RSF",                 sc["test_tab_rsf"])
-                    print_stats(f"{m} Train Cox",                sc["train_tab_cox"])
-                    print_stats(f"{m} Test Cox",                 sc["test_tab_cox"])
-                    if sc.get("train_deepsurv_vanilla"):
-                        print_stats("Train DeepSurv Vanilla",    sc["train_deepsurv_vanilla"])
-                        print_stats("Test DeepSurv Vanilla",     sc["test_deepsurv_vanilla"])
-                    if sc.get("train_deepsurv_simple"):
-                        print_stats("Train DeepSurv Simple",     sc["train_deepsurv_simple"])
-                        print_stats("Test DeepSurv Simple",      sc["test_deepsurv_simple"])
-                    if sc.get("train_rsf"):
-                        print_stats("Train RSF",                 sc["train_rsf"])
-                        print_stats("Test RSF",                  sc["test_rsf"])
-                    if sc.get("train_cox"):
-                        print_stats("Train Cox",                 sc["train_cox"])
-                        print_stats("Test Cox",                  sc["test_cox"])
+        print(f"Result saved in '{filepath}'")
 
-            print(f"Result saved in '{filepath}'")
-
-    finally:
-        print(f"[PDF] Closing PdfPages → {output_pdf_path}")
-        km_pdf.close()
-        print(f"KM curves saved → {output_pdf_path}")
