@@ -235,6 +235,7 @@ def carica_cartella(app, accounts, cartella_locale, cartella_remota):
             tasks.append((percorso_locale, percorso_remoto))
 
     caricati = saltati = errori = 0
+    file_con_errore = []
 
     def upload_task(percorso_locale, percorso_remoto):
         try:
@@ -249,6 +250,7 @@ def carica_cartella(app, accounts, cartella_locale, cartella_remota):
             for p_loc, p_rem in tasks
         }
         for future in as_completed(futures):
+            p_loc, p_rem = futures[future]
             esito = future.result()
             if esito == "caricato":
                 caricati += 1
@@ -256,11 +258,16 @@ def carica_cartella(app, accounts, cartella_locale, cartella_remota):
                 saltati += 1
             else:
                 errori += 1
+                file_con_errore.append(p_loc)
 
     print(f"\n{'='*50}")
     print(f"🆕 Nuovi/aggiornati: {caricati}")
     print(f"⏭️  Saltati (già aggiornati): {saltati}")
     print(f"❌ Errori: {errori}")
+    if file_con_errore:
+        print("\nFile non caricati:")
+        for path in file_con_errore:
+            print(f"  - {os.path.basename(path)}  ({path})")
     print(f"{'='*50}\n")
 
 
