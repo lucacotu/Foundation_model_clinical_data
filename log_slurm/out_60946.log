@@ -1,0 +1,67 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py:62: UserWarning: Memory efficient kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:960.)
+  attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py:62: UserWarning: Memory Efficient attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/sdp_utils_cpp.h:552.)
+  attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py:62: UserWarning: Flash attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:962.)
+  attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py:62: UserWarning: Flash attention only supports gpu architectures in the range [sm80, sm121]. Attempting to run on a sm 7.5 gpu. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:339.)
+  attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py:62: UserWarning: cuDNN attention kernel not used because: (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:964.)
+  attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py:62: UserWarning: cuDNN attention has been runtime disabled. (Triggered internally at /pytorch/aten/src/ATen/native/transformers/cuda/sdp_utils.cpp:680.)
+  attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+STARTED  model=tabdpt  seed=42  tuning=False  shap=False
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 929, in <module>
+    results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 441, in main
+    train_emb, test_emb = get_embeddings(model, X_train, y_train, X_test, y_test, seed, device)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 212, in get_embeddings
+    return get_tabdpt_embeddings(X_train, y_train, X_query, device=device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/__init__.py", line 66, in get_tabdpt_embeddings
+    train_emb, test_emb = extractor._embed_all(X_test)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/embedding.py", line 141, in _embed_all
+    test_emb = self._clf.predict_embeddings(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/tabdpt.py", line 458, in predict_embeddings
+    _, src = self.model(
+             ^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/model.py", line 104, in forward
+    src = layer(src, eval_pos)
+          ^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/transformer_layer.py", line 62, in forward
+    attn = F.scaled_dot_product_attention(q, k, v).transpose(1, 2)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No available kernel. Aborting execution.

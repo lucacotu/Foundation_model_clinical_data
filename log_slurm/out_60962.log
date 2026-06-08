@@ -1,0 +1,759 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabicl/embedding.py:142: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  y_t = torch.from_numpy(y_ctx).long().unsqueeze(0).to(self.device)    # (1, ctx_size)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+STARTED  model=tabicl  seed=77  tuning=False  shap=False
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5161, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9220
+C-index TEST:  0.7377
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9241
+C-index TEST:  0.7388
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/tabicl_rsf.pkl
+C-index train: 0.9640
+C-index test:  0.7348
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/tabicl_tab_cox.pkl
+C-index train: 0.9277
+C-index test:  0.7558
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8043
+C-index TEST:  0.7798
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7993
+C-index TEST:  0.7790
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/rsf_baseline.pkl
+C-index train: 0.9079
+C-index test:  0.7946
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold1/tabicl_cox.pkl
+C-index train: 0.8025
+C-index test:  0.7858
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5161, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9164
+C-index TEST:  0.7332
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9213
+C-index TEST:  0.7537
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/tabicl_rsf.pkl
+C-index train: 0.9627
+C-index test:  0.7486
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/tabicl_tab_cox.pkl
+C-index train: 0.9274
+C-index test:  0.7329
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.7953
+C-index TEST:  0.8056
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7891
+C-index TEST:  0.8071
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/rsf_baseline.pkl
+C-index train: 0.9052
+C-index test:  0.8087
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold2/tabicl_cox.pkl
+C-index train: 0.7980
+C-index test:  0.8055
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5162, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9229
+C-index TEST:  0.7469
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9215
+C-index TEST:  0.7709
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/tabicl_rsf.pkl
+C-index train: 0.9613
+C-index test:  0.7563
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/tabicl_tab_cox.pkl
+C-index train: 0.9262
+C-index test:  0.7621
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8044
+C-index TEST:  0.7958
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7786
+C-index TEST:  0.7872
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/rsf_baseline.pkl
+C-index train: 0.9061
+C-index test:  0.8036
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold3/tabicl_cox.pkl
+C-index train: 0.7982
+C-index test:  0.8060
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5162, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9198
+C-index TEST:  0.7227
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9224
+C-index TEST:  0.7440
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/tabicl_rsf.pkl
+C-index train: 0.9643
+C-index test:  0.7236
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/tabicl_tab_cox.pkl
+C-index train: 0.9289
+C-index test:  0.7341
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8109
+C-index TEST:  0.7786
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7855
+C-index TEST:  0.7572
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/rsf_baseline.pkl
+C-index train: 0.9121
+C-index test:  0.7834
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold4/tabicl_cox.pkl
+C-index train: 0.8041
+C-index test:  0.7792
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5162, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9204
+C-index TEST:  0.7305
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9193
+C-index TEST:  0.7351
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/tabicl_rsf.pkl
+C-index train: 0.9659
+C-index test:  0.7285
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/tabicl_tab_cox.pkl
+C-index train: 0.9259
+C-index test:  0.7305
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8052
+C-index TEST:  0.7935
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7772
+C-index TEST:  0.7576
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/rsf_baseline.pkl
+C-index train: 0.9093
+C-index test:  0.7940
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/OrmoniTirodei/-1/seed77/fold5/tabicl_cox.pkl
+C-index train: 0.8009
+C-index test:  0.7926
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5161, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold1/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9242
+C-index TEST:  0.7514
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold1/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9163
+C-index TEST:  0.7444
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold1/tabicl_rsf.pkl
+C-index train: 0.9622
+C-index test:  0.7409
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold1/tabicl_tab_cox.pkl
+C-index train: 0.9257
+C-index test:  0.7458
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5161, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold2/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9215
+C-index TEST:  0.7496
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold2/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9178
+C-index TEST:  0.7545
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold2/tabicl_rsf.pkl
+C-index train: 0.9615
+C-index test:  0.7555
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold2/tabicl_tab_cox.pkl
+C-index train: 0.9240
+C-index test:  0.7430
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5162, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold3/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9198
+C-index TEST:  0.7692
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold3/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9182
+C-index TEST:  0.7782
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold3/tabicl_rsf.pkl
+C-index train: 0.9604
+C-index test:  0.7642
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold3/tabicl_tab_cox.pkl
+C-index train: 0.9245
+C-index test:  0.7601
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5162, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold4/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9240
+C-index TEST:  0.7409
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold4/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9192
+C-index TEST:  0.7458
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold4/tabicl_rsf.pkl
+C-index train: 0.9627
+C-index test:  0.7339
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold4/tabicl_tab_cox.pkl
+C-index train: 0.9273
+C-index test:  0.7392
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (5162, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold5/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9227
+C-index TEST:  0.7256
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold5/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9179
+C-index TEST:  0.7489
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold5/tabicl_rsf.pkl
+C-index train: 0.9635
+C-index test:  0.7406
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/OrmoniTirodei/NaN/seed77/fold5/tabicl_tab_cox.pkl
+C-index train: 0.9243
+C-index test:  0.7348
+
+  Preprocess: -1 | Seed: 77
+  TABICL Train Vanilla → mean: 0.921730 | std: 0.001571 | min: 0.919311 | max: 0.924146
+  TABICL Test Vanilla → mean: 0.748500 | std: 0.012807 | min: 0.735083 | max: 0.770851
+  TABICL Train Simple → mean: 0.920311 | std: 0.002237 | min: 0.916421 | max: 0.922937
+  TABICL Test Simple → mean: 0.734206 | std: 0.008003 | min: 0.722667 | max: 0.746861
+  TABICL Train RSF → mean: 0.963647 | std: 0.001525 | min: 0.961340 | max: 0.965861
+  TABICL Test RSF → mean: 0.738357 | std: 0.012278 | min: 0.723575 | max: 0.756263
+  TABICL Train Cox → mean: 0.927249 | std: 0.001099 | min: 0.925886 | max: 0.928942
+  TABICL Test Cox → mean: 0.743074 | std: 0.013166 | min: 0.730462 | max: 0.762125
+  Train DeepSurv Vanilla → mean: 0.804029 | std: 0.004996 | min: 0.795343 | max: 0.810937
+  Test DeepSurv Vanilla → mean: 0.790657 | std: 0.010230 | min: 0.778591 | max: 0.805647
+  Train DeepSurv Simple → mean: 0.785970 | std: 0.007989 | min: 0.777223 | max: 0.799338
+  Test DeepSurv Simple → mean: 0.777619 | std: 0.018905 | min: 0.757153 | max: 0.807134
+  Train RSF  → mean: 0.908116 | std: 0.002443 | min: 0.905242 | max: 0.912100
+  Test RSF   → mean: 0.796860 | std: 0.008740 | min: 0.783351 | max: 0.808696
+  Train Cox  → mean: 0.800737 | std: 0.002377 | min: 0.797973 | max: 0.804055
+  Test Cox   → mean: 0.793828 | std: 0.010610 | min: 0.779231 | max: 0.806035
+
+  Preprocess: NaN | Seed: 77
+  TABICL Train Vanilla → mean: 0.917873 | std: 0.000926 | min: 0.916302 | max: 0.919189
+  TABICL Test Vanilla → mean: 0.754348 | std: 0.012420 | min: 0.744370 | max: 0.778190
+  TABICL Train Simple → mean: 0.922446 | std: 0.001646 | min: 0.919810 | max: 0.924185
+  TABICL Test Simple → mean: 0.747356 | std: 0.014223 | min: 0.725646 | max: 0.769217
+  TABICL Train RSF → mean: 0.962076 | std: 0.001060 | min: 0.960407 | max: 0.963537
+  TABICL Test RSF → mean: 0.747024 | std: 0.011139 | min: 0.733883 | max: 0.764229
+  TABICL Train Cox → mean: 0.925146 | std: 0.001202 | min: 0.923990 | max: 0.927263
+  TABICL Test Cox → mean: 0.744576 | std: 0.008578 | min: 0.734804 | max: 0.760050
+Result saved in 'results/OrmoniTirodei/tabicl/results_cv_OrmoniTirodei_tabicl_seed77.txt'
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/HURRAH_seed77.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13566, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/-1/seed77/fold1/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9512
+C-index TEST:  0.7801
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/-1/seed77/fold1/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9494
+C-index TEST:  0.7545
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/-1/seed77/fold1/tabicl_rsf.pkl
+C-index train: 0.9551
+C-index test:  0.7045
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/-1/seed77/fold1/tabicl_tab_cox.pkl
+C-index train: 0.9483
+C-index test:  0.7263
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.5641
+C-index TEST:  0.5399
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.4283
+C-index TEST:  0.4143
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold1/rsf_baseline.pkl
+C-index train: 0.5121
+C-index test:  0.5151
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold1/tabicl_cox.pkl
+C-index train: 0.6094
+C-index test:  0.6136
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13566, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/-1/seed77/fold2/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9472
+C-index TEST:  0.7901
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/-1/seed77/fold2/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9491
+C-index TEST:  0.7825
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/-1/seed77/fold2/tabicl_rsf.pkl
+C-index train: 0.9561
+C-index test:  0.7312
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/-1/seed77/fold2/tabicl_tab_cox.pkl
+C-index train: 0.9482
+C-index test:  0.7643
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold2/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.5014
+C-index TEST:  0.5009
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold2/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.4555
+C-index TEST:  0.4398
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold2/rsf_baseline.pkl
+C-index train: 0.6097
+C-index test:  0.6066
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold2/tabicl_cox.pkl
+C-index train: 0.6747
+C-index test:  0.6785
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13566, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/-1/seed77/fold3/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9505
+C-index TEST:  0.7841
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/-1/seed77/fold3/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9509
+C-index TEST:  0.7616
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/-1/seed77/fold3/tabicl_rsf.pkl
+C-index train: 0.9558
+C-index test:  0.7044
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/-1/seed77/fold3/tabicl_tab_cox.pkl
+C-index train: 0.9500
+C-index test:  0.7543
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold3/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.4938
+C-index TEST:  0.4927
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold3/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.4650
+C-index TEST:  0.4787
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold3/rsf_baseline.pkl
+C-index train: 0.6081
+C-index test:  0.6248
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold3/tabicl_cox.pkl
+C-index train: 0.6626
+C-index test:  0.6564
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13567, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/-1/seed77/fold4/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9481
+C-index TEST:  0.7721
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/-1/seed77/fold4/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9479
+C-index TEST:  0.7639
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/-1/seed77/fold4/tabicl_rsf.pkl
+C-index train: 0.9568
+C-index test:  0.7279
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/-1/seed77/fold4/tabicl_tab_cox.pkl
+C-index train: 0.9493
+C-index test:  0.7458
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold4/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.4814
+C-index TEST:  0.4780
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold4/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.4474
+C-index TEST:  0.4442
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold4/rsf_baseline.pkl
+C-index train: 0.5683
+C-index test:  0.5671
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold4/tabicl_cox.pkl
+C-index train: 0.6976
+C-index test:  0.7004
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13567, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/-1/seed77/fold5/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9481
+C-index TEST:  0.8068
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/-1/seed77/fold5/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9499
+C-index TEST:  0.7216
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/-1/seed77/fold5/tabicl_rsf.pkl
+C-index train: 0.9568
+C-index test:  0.7448
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/-1/seed77/fold5/tabicl_tab_cox.pkl
+C-index train: 0.9487
+C-index test:  0.7771
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold5/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.5004
+C-index TEST:  0.5019
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold5/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.4322
+C-index TEST:  0.4559
+  [ckpt] Loading RSF baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold5/rsf_baseline.pkl
+C-index train: 0.4952
+C-index test:  0.5099
+  [ckpt] Loading Cox baseline from checkpoints/tabicl/HURRAH/-1/seed77/fold5/tabicl_cox.pkl
+C-index train: 0.6570
+C-index test:  0.6513
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/HURRAH_seed77.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13566, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/NaN/seed77/fold1/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9475
+C-index TEST:  0.7527
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/NaN/seed77/fold1/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9505
+C-index TEST:  0.7447
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/NaN/seed77/fold1/tabicl_rsf.pkl
+C-index train: 0.9557
+C-index test:  0.7002
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/NaN/seed77/fold1/tabicl_tab_cox.pkl
+C-index train: 0.9501
+C-index test:  0.7146
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13566, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/NaN/seed77/fold2/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9472
+C-index TEST:  0.7936
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/NaN/seed77/fold2/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9460
+C-index TEST:  0.7582
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/NaN/seed77/fold2/tabicl_rsf.pkl
+C-index train: 0.9563
+C-index test:  0.7170
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/NaN/seed77/fold2/tabicl_tab_cox.pkl
+C-index train: 0.9504
+C-index test:  0.7401
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13566, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/NaN/seed77/fold3/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9492
+C-index TEST:  0.7422
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/NaN/seed77/fold3/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9494
+C-index TEST:  0.6977
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/NaN/seed77/fold3/tabicl_rsf.pkl
+C-index train: 0.9559
+C-index test:  0.7015
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/NaN/seed77/fold3/tabicl_tab_cox.pkl
+C-index train: 0.9507
+C-index test:  0.6832
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13567, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/NaN/seed77/fold4/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9469
+C-index TEST:  0.7303
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/NaN/seed77/fold4/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9474
+C-index TEST:  0.7626
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/NaN/seed77/fold4/tabicl_rsf.pkl
+C-index train: 0.9572
+C-index test:  0.6730
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/NaN/seed77/fold4/tabicl_tab_cox.pkl
+C-index train: 0.9489
+C-index test:  0.7380
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABICL Embeddings...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Successfully generated embeddings with shape: (13567, 512)
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabicl/HURRAH/NaN/seed77/fold5/tabicl_deepsurv_simple.pt
+C-index TRAIN: 0.9510
+C-index TEST:  0.7692
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabicl/HURRAH/NaN/seed77/fold5/tabicl_deepsurv_vanilla.pt
+C-index TRAIN: 0.9458
+C-index TEST:  0.7579
+  [ckpt] Loading TABICL RSF from checkpoints/tabicl/HURRAH/NaN/seed77/fold5/tabicl_rsf.pkl
+C-index train: 0.9555
+C-index test:  0.7158
+  [ckpt] Loading TABICL Cox (embedding) from checkpoints/tabicl/HURRAH/NaN/seed77/fold5/tabicl_tab_cox.pkl
+C-index train: 0.9495
+C-index test:  0.7097
+
+  Preprocess: -1 | Seed: 77
+  TABICL Train Vanilla → mean: 0.949426 | std: 0.000959 | min: 0.947940 | max: 0.950855
+  TABICL Test Vanilla → mean: 0.756831 | std: 0.019874 | min: 0.721626 | max: 0.782481
+  TABICL Train Simple → mean: 0.949023 | std: 0.001542 | min: 0.947218 | max: 0.951165
+  TABICL Test Simple → mean: 0.786643 | std: 0.011662 | min: 0.772075 | max: 0.806814
+  TABICL Train RSF → mean: 0.956112 | std: 0.000654 | min: 0.955066 | max: 0.956838
+  TABICL Test RSF → mean: 0.722587 | std: 0.015828 | min: 0.704423 | max: 0.744803
+  TABICL Train Cox → mean: 0.948866 | std: 0.000675 | min: 0.948152 | max: 0.949963
+  TABICL Test Cox → mean: 0.753545 | std: 0.017158 | min: 0.726315 | max: 0.777102
+  Train DeepSurv Vanilla → mean: 0.508214 | std: 0.028830 | min: 0.481357 | max: 0.564074
+  Test DeepSurv Vanilla → mean: 0.502694 | std: 0.020483 | min: 0.477995 | max: 0.539904
+  Train DeepSurv Simple → mean: 0.445674 | std: 0.013842 | min: 0.428276 | max: 0.465007
+  Test DeepSurv Simple → mean: 0.446573 | std: 0.021049 | min: 0.414271 | max: 0.478719
+  Train RSF  → mean: 0.558667 | std: 0.047613 | min: 0.495154 | max: 0.609666
+  Test RSF   → mean: 0.564664 | std: 0.046567 | min: 0.509852 | max: 0.624781
+  Train Cox  → mean: 0.660253 | std: 0.029022 | min: 0.609360 | max: 0.697617
+  Test Cox   → mean: 0.660011 | std: 0.029053 | min: 0.613551 | max: 0.700404
+
+  Preprocess: NaN | Seed: 77
+  TABICL Train Vanilla → mean: 0.947839 | std: 0.001877 | min: 0.945752 | max: 0.950540
+  TABICL Test Vanilla → mean: 0.744229 | std: 0.024012 | min: 0.697733 | max: 0.762639
+  TABICL Train Simple → mean: 0.948358 | std: 0.001536 | min: 0.946937 | max: 0.951004
+  TABICL Test Simple → mean: 0.757592 | std: 0.022061 | min: 0.730345 | max: 0.793575
+  TABICL Train RSF → mean: 0.956142 | std: 0.000617 | min: 0.955496 | max: 0.957247
+  TABICL Test RSF → mean: 0.701491 | std: 0.015864 | min: 0.672984 | max: 0.717008
+  TABICL Train Cox → mean: 0.949919 | std: 0.000644 | min: 0.948901 | max: 0.950672
+  TABICL Test Cox → mean: 0.717108 | std: 0.020868 | min: 0.683186 | max: 0.740094
+Result saved in 'results/HURRAH/tabicl/results_cv_HURRAH_tabicl_seed77.txt'

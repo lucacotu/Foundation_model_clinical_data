@@ -1,0 +1,633 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+[I 2026-05-30 11:18:17,975] A new study created in memory with name: rsf_tuning_tabpfn_3_-1_seed77
+[I 2026-05-30 11:21:22,725] Trial 0 finished with value: 0.792739914363894 and parameters: {'n_estimators': 100, 'max_depth': 6, 'min_samples_split': 9, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 0 with value: 0.792739914363894.
+[I 2026-05-30 11:23:43,457] Trial 3 finished with value: 0.7884312638899809 and parameters: {'n_estimators': 150, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 0 with value: 0.792739914363894.
+[I 2026-05-30 11:24:49,608] Trial 1 finished with value: 0.7979708883259925 and parameters: {'n_estimators': 250, 'max_depth': 4, 'min_samples_split': 9, 'min_samples_leaf': 3, 'max_features': 'log2'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:25:12,718] Trial 2 finished with value: 0.7838944294345831 and parameters: {'n_estimators': 150, 'max_depth': 4, 'min_samples_split': 6, 'min_samples_leaf': 3, 'max_features': 'sqrt'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:26:22,404] Trial 5 finished with value: 0.7598699159554293 and parameters: {'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 5, 'min_samples_leaf': 11, 'max_features': 'sqrt'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:26:32,607] Trial 6 finished with value: 0.7840727580923819 and parameters: {'n_estimators': 50, 'max_depth': 9, 'min_samples_split': 16, 'min_samples_leaf': 15, 'max_features': 'log2'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:27:04,159] Trial 4 finished with value: 0.7976506637469344 and parameters: {'n_estimators': 150, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:29:35,312] Trial 9 finished with value: 0.7953745764694378 and parameters: {'n_estimators': 100, 'max_depth': 5, 'min_samples_split': 7, 'min_samples_leaf': 3, 'max_features': 'log2'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:35:04,937] Trial 11 finished with value: 0.7972767488192917 and parameters: {'n_estimators': 150, 'max_depth': 8, 'min_samples_split': 5, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:37:04,810] Trial 12 finished with value: 0.7824869752966871 and parameters: {'n_estimators': 50, 'max_depth': 8, 'min_samples_split': 13, 'min_samples_leaf': 15, 'max_features': 'log2'}. Best is trial 1 with value: 0.7979708883259925.
+[I 2026-05-30 11:37:38,676] Trial 10 finished with value: 0.7994435378871697 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 15, 'min_samples_leaf': 3, 'max_features': 'log2'}. Best is trial 10 with value: 0.7994435378871697.
+[I 2026-05-30 11:39:41,608] Trial 7 finished with value: 0.7928453775486137 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 18, 'min_samples_leaf': 11, 'max_features': 'sqrt'}. Best is trial 10 with value: 0.7994435378871697.
+[I 2026-05-30 11:42:21,061] Trial 8 finished with value: 0.799888400775442 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 6, 'min_samples_leaf': 11, 'max_features': 'sqrt'}. Best is trial 8 with value: 0.799888400775442.
+[I 2026-05-30 11:45:56,198] Trial 15 finished with value: 0.7956717908991024 and parameters: {'n_estimators': 300, 'max_depth': 3, 'min_samples_split': 10, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 8 with value: 0.799888400775442.
+[I 2026-05-30 11:48:04,472] Trial 13 finished with value: 0.7962432096090384 and parameters: {'n_estimators': 300, 'max_depth': 3, 'min_samples_split': 20, 'min_samples_leaf': 6, 'max_features': 'sqrt'}. Best is trial 8 with value: 0.799888400775442.
+[I 2026-05-30 11:48:33,639] Trial 14 finished with value: 0.797303593993584 and parameters: {'n_estimators': 300, 'max_depth': 3, 'min_samples_split': 20, 'min_samples_leaf': 5, 'max_features': 'sqrt'}. Best is trial 8 with value: 0.799888400775442.
+[I 2026-05-30 11:57:59,317] Trial 16 finished with value: 0.7978232398673848 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 20, 'min_samples_leaf': 6, 'max_features': 'sqrt'}. Best is trial 8 with value: 0.799888400775442.
+[I 2026-05-30 12:00:45,351] Trial 18 finished with value: 0.8000993271448815 and parameters: {'n_estimators': 250, 'max_depth': 6, 'min_samples_split': 16, 'min_samples_leaf': 9, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:01:04,866] Trial 17 finished with value: 0.7959939329906099 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 20, 'min_samples_leaf': 9, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:01:48,848] Trial 19 finished with value: 0.7918770337616416 and parameters: {'n_estimators': 250, 'max_depth': 7, 'min_samples_split': 15, 'min_samples_leaf': 9, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:11:46,117] Trial 20 finished with value: 0.7918770337616416 and parameters: {'n_estimators': 250, 'max_depth': 7, 'min_samples_split': 16, 'min_samples_leaf': 9, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:12:28,932] Trial 23 finished with value: 0.7890026825999168 and parameters: {'n_estimators': 200, 'max_depth': 7, 'min_samples_split': 11, 'min_samples_leaf': 13, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:14:04,194] Trial 21 finished with value: 0.7918770337616416 and parameters: {'n_estimators': 250, 'max_depth': 7, 'min_samples_split': 16, 'min_samples_leaf': 9, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:14:21,935] Trial 22 finished with value: 0.7931905297895147 and parameters: {'n_estimators': 250, 'max_depth': 7, 'min_samples_split': 16, 'min_samples_leaf': 13, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:21:25,480] Trial 24 finished with value: 0.7740192403199178 and parameters: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 11, 'min_samples_leaf': 13, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:21:59,181] Trial 25 finished with value: 0.7740192403199178 and parameters: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 15, 'min_samples_leaf': 13, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:23:52,913] Trial 26 finished with value: 0.7771658782494645 and parameters: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 18, 'min_samples_leaf': 11, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:24:13,485] Trial 27 finished with value: 0.7771658782494645 and parameters: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 18, 'min_samples_leaf': 11, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:31:06,185] Trial 28 finished with value: 0.7771658782494645 and parameters: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 18, 'min_samples_leaf': 11, 'max_features': 'sqrt'}. Best is trial 18 with value: 0.8000993271448815.
+[I 2026-05-30 12:31:13,284] Trial 29 finished with value: 0.8006918384917614 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 14, 'min_samples_leaf': 11, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:33:07,493] Trial 30 finished with value: 0.7967225877214008 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 18, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:33:29,001] Trial 31 finished with value: 0.7983543908158823 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 14, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:40:43,944] Trial 32 finished with value: 0.7983543908158823 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 8, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:40:57,418] Trial 33 finished with value: 0.7983543908158823 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 9, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:41:35,097] Trial 35 finished with value: 0.799299724453461 and parameters: {'n_estimators': 250, 'max_depth': 6, 'min_samples_split': 8, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:42:45,958] Trial 34 finished with value: 0.8006343131182779 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 14, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:46:48,300] Trial 36 finished with value: 0.7874840127399527 and parameters: {'n_estimators': 250, 'max_depth': 4, 'min_samples_split': 12, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:47:01,932] Trial 37 finished with value: 0.7874840127399527 and parameters: {'n_estimators': 250, 'max_depth': 4, 'min_samples_split': 12, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:47:41,222] Trial 38 finished with value: 0.7886230151349257 and parameters: {'n_estimators': 250, 'max_depth': 4, 'min_samples_split': 12, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:51:19,461] Trial 39 finished with value: 0.7999881114228135 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 12, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:55:47,241] Trial 40 finished with value: 0.7983179580793428 and parameters: {'n_estimators': 300, 'max_depth': 4, 'min_samples_split': 14, 'min_samples_leaf': 14, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 12:59:19,693] Trial 41 finished with value: 0.8006822509295142 and parameters: {'n_estimators': 300, 'max_depth': 8, 'min_samples_split': 14, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:00:36,741] Trial 42 finished with value: 0.7999823588854651 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 14, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:03:08,944] Trial 43 finished with value: 0.7973783769791125 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 14, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:07:58,027] Trial 44 finished with value: 0.7973783769791125 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 14, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:08:24,018] Trial 47 finished with value: 0.7956315231376639 and parameters: {'n_estimators': 100, 'max_depth': 8, 'min_samples_split': 17, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:11:48,472] Trial 45 finished with value: 0.7973783769791125 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 14, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:12:33,605] Trial 48 finished with value: 0.7956315231376639 and parameters: {'n_estimators': 100, 'max_depth': 8, 'min_samples_split': 17, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:13:11,699] Trial 46 finished with value: 0.7973783769791125 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 13, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:22:54,739] Trial 49 finished with value: 0.798881706739481 and parameters: {'n_estimators': 300, 'max_depth': 8, 'min_samples_split': 13, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 29 with value: 0.8006918384917614.
+[I 2026-05-30 13:26:02,572] Trial 50 finished with value: 0.8022872088497035 and parameters: {'n_estimators': 300, 'max_depth': 8, 'min_samples_split': 13, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:28:09,509] Trial 51 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:28:49,441] Trial 52 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:36:49,297] Trial 53 finished with value: 0.7965154963768603 and parameters: {'n_estimators': 300, 'max_depth': 7, 'min_samples_split': 10, 'min_samples_leaf': 14, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:40:22,121] Trial 54 finished with value: 0.797094585136594 and parameters: {'n_estimators': 300, 'max_depth': 8, 'min_samples_split': 11, 'min_samples_leaf': 14, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:42:40,672] Trial 55 finished with value: 0.8011501239671799 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 15, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:44:15,290] Trial 56 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:52:10,773] Trial 57 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:55:38,576] Trial 58 finished with value: 0.7930601389429521 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 15, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:58:16,836] Trial 59 finished with value: 0.7930601389429521 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 15, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 13:59:43,733] Trial 60 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 10, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:08:02,460] Trial 61 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 10, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:12:10,804] Trial 62 finished with value: 0.7981588045460385 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 10, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:14:27,292] Trial 63 finished with value: 0.7981588045460385 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 10, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:15:44,375] Trial 64 finished with value: 0.7981588045460385 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 10, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:24:16,019] Trial 65 finished with value: 0.7981588045460385 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 10, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:27:51,762] Trial 66 finished with value: 0.7912154919665816 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:30:09,020] Trial 67 finished with value: 0.7912154919665816 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:31:39,865] Trial 68 finished with value: 0.7912154919665816 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:31:52,970] Trial 69 finished with value: 0.7881091217984733 and parameters: {'n_estimators': 150, 'max_depth': 9, 'min_samples_split': 11, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:38:02,136] Trial 71 finished with value: 0.7838023888370095 and parameters: {'n_estimators': 150, 'max_depth': 9, 'min_samples_split': 9, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:39:35,997] Trial 72 finished with value: 0.7838023888370095 and parameters: {'n_estimators': 150, 'max_depth': 9, 'min_samples_split': 9, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:43:26,111] Trial 70 finished with value: 0.7932384676007509 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 9, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:48:19,563] Trial 73 finished with value: 0.796714917671603 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 9, 'min_samples_leaf': 4, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:52:05,185] Trial 74 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:53:03,224] Trial 75 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 12, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:55:41,488] Trial 76 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 12, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 14:58:51,288] Trial 77 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:03:58,864] Trial 78 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 12, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:05:53,781] Trial 79 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 8, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:06:43,542] Trial 82 finished with value: 0.79343309511437 and parameters: {'n_estimators': 50, 'max_depth': 10, 'min_samples_split': 8, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:09:32,105] Trial 80 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 13, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:11:34,477] Trial 81 finished with value: 0.7993936825634841 and parameters: {'n_estimators': 250, 'max_depth': 10, 'min_samples_split': 7, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:18:58,369] Trial 83 finished with value: 0.7993936825634841 and parameters: {'n_estimators': 250, 'max_depth': 10, 'min_samples_split': 7, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:21:59,205] Trial 84 finished with value: 0.7912154919665816 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 7, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:25:01,122] Trial 85 finished with value: 0.7912154919665816 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 6, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:27:15,156] Trial 86 finished with value: 0.7912154919665816 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 7, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:33:54,961] Trial 87 finished with value: 0.799491475698406 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 6, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:37:21,801] Trial 88 finished with value: 0.799491475698406 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 6, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:40:11,761] Trial 89 finished with value: 0.797738869319609 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 13, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:42:14,430] Trial 90 finished with value: 0.797738869319609 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 13, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:49:03,365] Trial 91 finished with value: 0.797738869319609 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 13, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:52:09,937] Trial 92 finished with value: 0.797738869319609 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 13, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:55:21,256] Trial 93 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 8, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 15:57:47,882] Trial 94 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 16:04:31,670] Trial 95 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 16:08:00,606] Trial 96 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 11, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 16:10:27,573] Trial 97 finished with value: 0.8018711086481729 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 8, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 16:11:33,710] Trial 98 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 8, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+[I 2026-05-30 16:13:13,538] Trial 99 finished with value: 0.7966669798603667 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 8, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 50 with value: 0.8022872088497035.
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+STARTED  model=tabpfn  seed=77  tuning=True  shap=True
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1
+C-index train: 0.9180
+C-index test:  0.7803
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1
+C-index train: 0.9417
+C-index test:  0.7856
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9007
+C-index TEST:  0.7821
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9167
+C-index TEST:  0.7728
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/tabpfn_rsf.pkl
+C-index train: 0.9593
+C-index test:  0.7921
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/tabpfn_tab_cox.pkl
+C-index train: 0.9179
+C-index test:  0.7407
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8114
+C-index TEST:  0.7771
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7895
+C-index TEST:  0.7751
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/rsf_baseline.pkl
+C-index train: 0.9079
+C-index test:  0.7946
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/tabpfn_cox.pkl
+C-index train: 0.8025
+C-index test:  0.7858
+  [SHAP] Fold 1: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold1/shap_values.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2
+C-index train: 0.9178
+C-index test:  0.8060
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2
+C-index train: 0.9267
+C-index test:  0.8113
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9064
+C-index TEST:  0.8041
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9160
+C-index TEST:  0.8012
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/tabpfn_rsf.pkl
+C-index train: 0.9592
+C-index test:  0.8044
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/tabpfn_tab_cox.pkl
+C-index train: 0.9168
+C-index test:  0.8043
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.7958
+C-index TEST:  0.8008
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7814
+C-index TEST:  0.8039
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/rsf_baseline.pkl
+C-index train: 0.9052
+C-index test:  0.8087
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/tabpfn_cox.pkl
+C-index train: 0.7980
+C-index test:  0.8055
+  [SHAP] Fold 2: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold2/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3
+C-index train: 0.9182
+C-index test:  0.8082
+[Trial 0] START
+[Trial 0] fitting...
+[Trial 1] START
+[Trial 2] START
+[Trial 3] START
+[Trial 1] fitting...
+[Trial 2] fitting...
+[Trial 3] fitting...
+[Trial 0] done
+[Trial 4] START
+[Trial 4] fitting...
+[Trial 3] done
+[Trial 5] START
+[Trial 5] fitting...
+[Trial 1] done
+[Trial 6] START
+[Trial 6] fitting...
+[Trial 2] done
+[Trial 7] START
+[Trial 7] fitting...
+[Trial 5] done
+[Trial 8] START
+[Trial 8] fitting...
+[Trial 6] done
+[Trial 9] START
+[Trial 9] fitting...
+[Trial 4] done
+[Trial 10] START
+[Trial 10] fitting...
+[Trial 9] done
+[Trial 11] START
+[Trial 11] fitting...
+[Trial 11] done
+[Trial 12] START
+[Trial 12] fitting...
+[Trial 12] done
+[Trial 13] START
+[Trial 13] fitting...
+[Trial 10] done
+[Trial 14] START
+[Trial 14] fitting...
+[Trial 7] done
+[Trial 15] START
+[Trial 15] fitting...
+[Trial 8] done
+[Trial 16] START
+[Trial 16] fitting...
+[Trial 15] done
+[Trial 17] START
+[Trial 17] fitting...
+[Trial 13] done
+[Trial 18] START
+[Trial 18] fitting...
+[Trial 14] done
+[Trial 19] START
+[Trial 19] fitting...
+[Trial 16] done
+[Trial 20] START
+[Trial 20] fitting...
+[Trial 18] done
+[Trial 21] START
+[Trial 21] fitting...
+[Trial 17] done
+[Trial 22] START
+[Trial 22] fitting...
+[Trial 19] done
+[Trial 23] START
+[Trial 23] fitting...
+[Trial 20] done
+[Trial 24] START
+[Trial 24] fitting...
+[Trial 23] done
+[Trial 25] START
+[Trial 25] fitting...
+[Trial 21] done
+[Trial 26] START
+[Trial 26] fitting...
+[Trial 22] done
+[Trial 27] START
+[Trial 27] fitting...
+[Trial 24] done
+[Trial 28] START
+[Trial 28] fitting...
+[Trial 25] done
+[Trial 29] START
+[Trial 29] fitting...
+[Trial 26] done
+[Trial 30] START
+[Trial 30] fitting...
+[Trial 27] done
+[Trial 31] START
+[Trial 31] fitting...
+[Trial 28] done
+[Trial 29] done
+[Trial 32] START
+[Trial 32] fitting...
+[Trial 33] START
+[Trial 33] fitting...
+[Trial 30] done
+[Trial 34] START
+[Trial 34] fitting...
+[Trial 31] done
+[Trial 35] START
+[Trial 35] fitting...
+[Trial 32] done
+[Trial 36] START
+[Trial 36] fitting...
+[Trial 33] done
+[Trial 37] START
+[Trial 37] fitting...
+[Trial 35] done
+[Trial 38] START
+[Trial 38] fitting...
+[Trial 34] done
+[Trial 39] START
+[Trial 39] fitting...
+[Trial 36] done
+[Trial 40] START
+[Trial 40] fitting...
+[Trial 37] done
+[Trial 41] START
+[Trial 41] fitting...
+[Trial 38] done
+[Trial 42] START
+[Trial 42] fitting...
+[Trial 39] done
+[Trial 43] START
+[Trial 43] fitting...
+[Trial 40] done
+[Trial 44] START
+[Trial 44] fitting...
+[Trial 41] done
+[Trial 45] START
+[Trial 45] fitting...
+[Trial 42] done
+[Trial 46] START
+[Trial 46] fitting...
+[Trial 43] done
+[Trial 47] START
+[Trial 47] fitting...
+[Trial 44] done
+[Trial 48] START
+[Trial 48] fitting...
+[Trial 47] done
+[Trial 49] START
+[Trial 49] fitting...
+[Trial 45] done
+[Trial 50] START
+[Trial 50] fitting...
+[Trial 48] done
+[Trial 51] START
+[Trial 51] fitting...
+[Trial 46] done
+[Trial 52] START
+[Trial 52] fitting...
+[Trial 49] done
+[Trial 53] START
+[Trial 53] fitting...
+[Trial 50] done
+[Trial 54] START
+[Trial 54] fitting...
+[Trial 51] done
+[Trial 55] START
+[Trial 55] fitting...
+[Trial 52] done
+[Trial 56] START
+[Trial 56] fitting...
+[Trial 53] done
+[Trial 57] START
+[Trial 57] fitting...
+[Trial 54] done
+[Trial 58] START
+[Trial 58] fitting...
+[Trial 55] done
+[Trial 59] START
+[Trial 59] fitting...
+[Trial 56] done
+[Trial 60] START
+[Trial 60] fitting...
+[Trial 57] done
+[Trial 61] START
+[Trial 61] fitting...
+[Trial 58] done
+[Trial 62] START
+[Trial 62] fitting...
+[Trial 59] done
+[Trial 63] START
+[Trial 63] fitting...
+[Trial 60] done
+[Trial 64] START
+[Trial 64] fitting...
+[Trial 61] done
+[Trial 65] START
+[Trial 65] fitting...
+[Trial 62] done
+[Trial 66] START
+[Trial 66] fitting...
+[Trial 63] done
+[Trial 67] START
+[Trial 67] fitting...
+[Trial 64] done
+[Trial 68] START
+[Trial 68] fitting...
+[Trial 65] done
+[Trial 69] START
+[Trial 69] fitting...
+[Trial 66] done
+[Trial 70] START
+[Trial 70] fitting...
+[Trial 67] done
+[Trial 71] START
+[Trial 71] fitting...
+[Trial 68] done
+[Trial 72] START
+[Trial 72] fitting...
+[Trial 69] done
+[Trial 73] START
+[Trial 73] fitting...
+[Trial 71] done
+[Trial 74] START
+[Trial 74] fitting...
+[Trial 72] done
+[Trial 75] START
+[Trial 75] fitting...
+[Trial 70] done
+[Trial 76] START
+[Trial 76] fitting...
+[Trial 73] done
+[Trial 77] START
+[Trial 77] fitting...
+[Trial 74] done
+[Trial 78] START
+[Trial 78] fitting...
+[Trial 75] done
+[Trial 79] START
+[Trial 79] fitting...
+[Trial 76] done
+[Trial 80] START
+[Trial 80] fitting...
+[Trial 77] done
+[Trial 81] START
+[Trial 81] fitting...
+[Trial 78] done
+[Trial 82] START
+[Trial 82] fitting...
+[Trial 79] done
+[Trial 83] START
+[Trial 83] fitting...
+[Trial 82] done
+[Trial 84] START
+[Trial 84] fitting...
+[Trial 80] done
+[Trial 85] START
+[Trial 85] fitting...
+[Trial 81] done
+[Trial 86] START
+[Trial 86] fitting...
+[Trial 83] done
+[Trial 87] START
+[Trial 87] fitting...
+[Trial 84] done
+[Trial 88] START
+[Trial 88] fitting...
+[Trial 85] done
+[Trial 89] START
+[Trial 89] fitting...
+[Trial 86] done
+[Trial 90] START
+[Trial 90] fitting...
+[Trial 87] done
+[Trial 91] START
+[Trial 91] fitting...
+[Trial 88] done
+[Trial 92] START
+[Trial 92] fitting...
+[Trial 89] done
+[Trial 93] START
+[Trial 93] fitting...
+[Trial 90] done
+[Trial 94] START
+[Trial 94] fitting...
+[Trial 91] done
+[Trial 95] START
+[Trial 95] fitting...
+[Trial 92] done
+[Trial 96] START
+[Trial 96] fitting...
+[Trial 93] done
+[Trial 97] START
+[Trial 97] fitting...
+[Trial 94] done
+[Trial 98] START
+[Trial 98] fitting...
+[Trial 95] done
+[Trial 99] START
+[Trial 99] fitting...
+[Trial 96] done
+[Trial 97] done
+[Trial 98] done
+[Trial 99] done
+  [ckpt] Params saved → checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_rsf_tuned_params.json
+  [ckpt] TABPFN RSF Tuned saved → checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_rsf_tuned.pkl
+C-index train: 0.9501
+C-index test:  0.7996
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.8955
+C-index TEST:  0.8057
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9150
+C-index TEST:  0.7984
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_rsf.pkl
+C-index train: 0.9590
+C-index test:  0.8038
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_tab_cox.pkl
+C-index train: 0.9156
+C-index test:  0.7897
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8015
+C-index TEST:  0.7992
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7930
+C-index TEST:  0.7984
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/rsf_baseline.pkl
+C-index train: 0.9061
+C-index test:  0.8036
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/tabpfn_cox.pkl
+C-index train: 0.7982
+C-index test:  0.8060
+  [SHAP] Fold 3: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold3/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4
+C-index train: 0.9229
+C-index test:  0.7824
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4
+C-index train: 0.9472
+C-index test:  0.7744
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9227
+C-index TEST:  0.7826
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9177
+C-index TEST:  0.7817
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/tabpfn_rsf.pkl
+C-index train: 0.9610
+C-index test:  0.7681
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/tabpfn_tab_cox.pkl
+C-index train: 0.9208
+C-index test:  0.7811
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8168
+C-index TEST:  0.7727
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7740
+C-index TEST:  0.7594
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/rsf_baseline.pkl
+C-index train: 0.9121
+C-index test:  0.7834
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/tabpfn_cox.pkl
+C-index train: 0.8041
+C-index test:  0.7792
+  [SHAP] Fold 4: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold4/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5
+C-index train: 0.9263
+C-index test:  0.7864
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5
+C-index train: 0.9388
+C-index test:  0.7860
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.8921
+C-index TEST:  0.7870
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9173
+C-index TEST:  0.7910
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/tabpfn_rsf.pkl
+C-index train: 0.9608
+C-index test:  0.7876
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/tabpfn_tab_cox.pkl
+C-index train: 0.9157
+C-index test:  0.7851
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8084
+C-index TEST:  0.7953
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7870
+C-index TEST:  0.7731
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/rsf_baseline.pkl
+C-index train: 0.9093
+C-index test:  0.7940
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/tabpfn_cox.pkl
+C-index train: 0.8009
+C-index test:  0.7926
+  [SHAP] Fold 5: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed77/fold5/shap_values.pkl
+[SHAP] Results saved → results/OrmoniTirodei/tabpfn/shap_OrmoniTirodei_tabpfn_-1_seed77.txt
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed77/fold1
+C-index train: 0.9210
+C-index test:  0.7868
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed77/fold1
+C-index train: 0.9516
+C-index test:  0.7845
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/NaN/seed77/fold1/tabpfn_deepsurv_simple.pt
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 929, in <module>
+    print(f"STARTED  model={args.model}  seed={args.seed}  tuning={args.tuning}  shap={args.shap}")
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 570, in main
+    simple_path     = ckpt_dir / f"{model}_deepsurv_simple.pt"
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 142, in load_or_fit_deepsurv
+    load_net_state(model.net, ckpt_path, device=model.device, model=model)
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model_tmp.py", line 91, in load_net_state
+    checkpoint = torch.load(str(path), map_location=device or "cpu", weights_only=False)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/serialization.py", line 1573, in load
+    return _legacy_load(
+           ^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/serialization.py", line 1822, in _legacy_load
+    magic_number = pickle_module.load(f, **pickle_load_args)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+EOFError: Ran out of input

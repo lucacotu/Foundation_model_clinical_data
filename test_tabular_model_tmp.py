@@ -209,6 +209,9 @@ def get_embeddings(model_name: str, X_train, y_train, X_query, y_query, seed: in
         y_tr = y_train.values if hasattr(y_train, "values") else y_train
         return get_tabicl_embeddings(X_train, y_tr, X_query, device=device, random_state=seed)
     if model_name == "tabdpt":
+        torch.backends.cuda.enable_flash_sdp(False)
+        torch.backends.cuda.enable_mem_efficient_sdp(False)
+        torch.backends.cuda.enable_math_sdp(True)
         return get_tabdpt_embeddings(X_train, y_train, X_query, device=device)
     raise ValueError(f"Unknown model: {model_name}")
 

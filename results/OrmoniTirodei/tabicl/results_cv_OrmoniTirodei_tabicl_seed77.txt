@@ -1,13 +1,17 @@
 
   Preprocess: -1 | Seed: 77
-  TABICL Train Vanilla → mean: 0.921723 | std: 0.001568 | min: 0.919302 | max: 0.924128
-  TABICL Test Vanilla → mean: 0.748498 | std: 0.012812 | min: 0.735025 | max: 0.770882
-  TABICL Train Simple → mean: 0.920303 | std: 0.002239 | min: 0.916406 | max: 0.922934
-  TABICL Test Simple → mean: 0.734188 | std: 0.007932 | min: 0.722971 | max: 0.746892
-  TABICL Train RSF → mean: 0.965227 | std: 0.001504 | min: 0.962986 | max: 0.967473
-  TABICL Test RSF → mean: 0.738445 | std: 0.012782 | min: 0.722869 | max: 0.757423
-  TABICL Train Cox → mean: 0.927252 | std: 0.001087 | min: 0.925905 | max: 0.928938
-  TABICL Test Cox → mean: 0.743104 | std: 0.013075 | min: 0.730517 | max: 0.762071
+  TABICL Train Tuned DeepSurv → mean: 0.915175 | std: 0.004711 | min: 0.910654 | max: 0.924020
+  TABICL Test Tuned DeepSurv → mean: 0.741650 | std: 0.012489 | min: 0.723639 | max: 0.759078
+  TABICL Train Tuned RSF → mean: 0.949244 | std: 0.005560 | min: 0.943908 | max: 0.959277
+  TABICL Test Tuned RSF → mean: 0.738220 | std: 0.011383 | min: 0.721858 | max: 0.754585
+  TABICL Train Vanilla → mean: 0.921730 | std: 0.001571 | min: 0.919311 | max: 0.924146
+  TABICL Test Vanilla → mean: 0.748500 | std: 0.012807 | min: 0.735083 | max: 0.770851
+  TABICL Train Simple → mean: 0.920311 | std: 0.002237 | min: 0.916421 | max: 0.922937
+  TABICL Test Simple → mean: 0.734206 | std: 0.008003 | min: 0.722667 | max: 0.746861
+  TABICL Train RSF → mean: 0.963647 | std: 0.001525 | min: 0.961340 | max: 0.965861
+  TABICL Test RSF → mean: 0.738357 | std: 0.012278 | min: 0.723575 | max: 0.756263
+  TABICL Train Cox → mean: 0.927249 | std: 0.001099 | min: 0.925886 | max: 0.928942
+  TABICL Test Cox → mean: 0.743074 | std: 0.013166 | min: 0.730462 | max: 0.762125
   Train DeepSurv Vanilla → mean: 0.804029 | std: 0.004996 | min: 0.795343 | max: 0.810937
   Test DeepSurv Vanilla → mean: 0.790657 | std: 0.010230 | min: 0.778591 | max: 0.805647
   Train DeepSurv Simple → mean: 0.785970 | std: 0.007989 | min: 0.777223 | max: 0.799338
@@ -18,11 +22,15 @@
   Test Cox   → mean: 0.793828 | std: 0.010610 | min: 0.779231 | max: 0.806035
 
   Preprocess: NaN | Seed: 77
-  TABICL Train Vanilla → mean: 0.918108 | std: 0.001123 | min: 0.916273 | max: 0.919389
-  TABICL Test Vanilla → mean: 0.752096 | std: 0.008389 | min: 0.744299 | max: 0.767282
-  TABICL Train Simple → mean: 0.922436 | std: 0.001662 | min: 0.919775 | max: 0.924166
-  TABICL Test Simple → mean: 0.747334 | std: 0.014197 | min: 0.725609 | max: 0.769084
-  TABICL Train RSF → mean: 0.963965 | std: 0.001039 | min: 0.962335 | max: 0.965435
-  TABICL Test RSF → mean: 0.746661 | std: 0.010749 | min: 0.734032 | max: 0.763053
-  TABICL Train Cox → mean: 0.925148 | std: 0.001204 | min: 0.924009 | max: 0.927275
-  TABICL Test Cox → mean: 0.744567 | std: 0.008531 | min: 0.734614 | max: 0.759825
+  TABICL Train Tuned DeepSurv → mean: 0.917708 | std: 0.004041 | min: 0.912890 | max: 0.923318
+  TABICL Test Tuned DeepSurv → mean: 0.753474 | std: 0.011778 | min: 0.741986 | max: 0.775058
+  TABICL Train Tuned RSF → mean: 0.954676 | std: 0.005689 | min: 0.944444 | max: 0.961297
+  TABICL Test Tuned RSF → mean: 0.747412 | std: 0.012319 | min: 0.731202 | max: 0.766367
+  TABICL Train Vanilla → mean: 0.917873 | std: 0.000926 | min: 0.916302 | max: 0.919189
+  TABICL Test Vanilla → mean: 0.754348 | std: 0.012420 | min: 0.744370 | max: 0.778190
+  TABICL Train Simple → mean: 0.922446 | std: 0.001646 | min: 0.919810 | max: 0.924185
+  TABICL Test Simple → mean: 0.747356 | std: 0.014223 | min: 0.725646 | max: 0.769217
+  TABICL Train RSF → mean: 0.962076 | std: 0.001060 | min: 0.960407 | max: 0.963537
+  TABICL Test RSF → mean: 0.747024 | std: 0.011139 | min: 0.733883 | max: 0.764229
+  TABICL Train Cox → mean: 0.925146 | std: 0.001202 | min: 0.923990 | max: 0.927263
+  TABICL Test Cox → mean: 0.744576 | std: 0.008578 | min: 0.734804 | max: 0.760050

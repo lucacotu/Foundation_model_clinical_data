@@ -1,0 +1,695 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+STARTED  model=tabpfn  seed=42  tuning=True  shap=True
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1
+C-index train: 0.9195
+C-index test:  0.7909
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1
+C-index train: 0.9320
+C-index test:  0.7900
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9152
+C-index TEST:  0.7917
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9198
+C-index TEST:  0.7790
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/tabpfn_rsf.pkl
+C-index train: 0.9582
+C-index test:  0.7940
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/tabpfn_tab_cox.pkl
+C-index train: 0.9222
+C-index test:  0.7936
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8084
+C-index TEST:  0.7859
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7927
+C-index TEST:  0.7865
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/rsf_baseline.pkl
+C-index train: 0.9081
+C-index test:  0.7890
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/tabpfn_cox.pkl
+C-index train: 0.8007
+C-index test:  0.7911
+  [SHAP] Fold 1: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold1/shap_values.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2
+C-index train: 0.9196
+C-index test:  0.8059
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2
+C-index train: 0.9540
+C-index test:  0.8024
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9149
+C-index TEST:  0.8109
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9166
+C-index TEST:  0.8040
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/tabpfn_rsf.pkl
+C-index train: 0.9601
+C-index test:  0.8040
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/tabpfn_tab_cox.pkl
+C-index train: 0.9209
+C-index test:  0.8102
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8064
+C-index TEST:  0.8017
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7935
+C-index TEST:  0.7976
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/rsf_baseline.pkl
+C-index train: 0.9091
+C-index test:  0.8083
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/tabpfn_cox.pkl
+C-index train: 0.7979
+C-index test:  0.8054
+  [SHAP] Fold 2: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold2/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3
+C-index train: 0.9156
+C-index test:  0.7798
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3
+C-index train: 0.9530
+C-index test:  0.7607
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9138
+C-index TEST:  0.7842
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9178
+C-index TEST:  0.7784
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/tabpfn_rsf.pkl
+C-index train: 0.9576
+C-index test:  0.7617
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/tabpfn_tab_cox.pkl
+C-index train: 0.9200
+C-index test:  0.7846
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8110
+C-index TEST:  0.7809
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7830
+C-index TEST:  0.7623
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/rsf_baseline.pkl
+C-index train: 0.9086
+C-index test:  0.7865
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/tabpfn_cox.pkl
+C-index train: 0.8041
+C-index test:  0.7835
+  [SHAP] Fold 3: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold3/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4
+C-index train: 0.9184
+C-index test:  0.7866
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4
+C-index train: 0.9313
+C-index test:  0.7816
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9149
+C-index TEST:  0.7939
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9072
+C-index TEST:  0.7816
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/tabpfn_rsf.pkl
+C-index train: 0.9559
+C-index test:  0.7798
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/tabpfn_tab_cox.pkl
+C-index train: 0.9185
+C-index test:  0.7917
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.7975
+C-index TEST:  0.7907
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7886
+C-index TEST:  0.7764
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/rsf_baseline.pkl
+C-index train: 0.9077
+C-index test:  0.7910
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/tabpfn_cox.pkl
+C-index train: 0.8013
+C-index test:  0.7894
+  [SHAP] Fold 4: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold4/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5
+C-index train: 0.9122
+C-index test:  0.7987
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5
+C-index train: 0.9281
+C-index test:  0.7930
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9161
+C-index TEST:  0.8015
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9130
+C-index TEST:  0.7991
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/tabpfn_rsf.pkl
+C-index train: 0.9577
+C-index test:  0.7919
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/tabpfn_tab_cox.pkl
+C-index train: 0.9194
+C-index test:  0.8016
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8016
+C-index TEST:  0.7908
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7796
+C-index TEST:  0.7803
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/rsf_baseline.pkl
+C-index train: 0.9083
+C-index test:  0.7933
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/tabpfn_cox.pkl
+C-index train: 0.7999
+C-index test:  0.7937
+  [SHAP] Fold 5: loading cached values from checkpoints/tabpfn/OrmoniTirodei/-1/seed42/fold5/shap_values.pkl
+[SHAP] Results saved → results/OrmoniTirodei/tabpfn/shap_OrmoniTirodei_tabpfn_-1_seed42.txt
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1
+C-index train: 0.9196
+C-index test:  0.7934
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1
+C-index train: 0.9601
+C-index test:  0.7882
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9209
+C-index TEST:  0.7943
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9201
+C-index TEST:  0.7933
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1/tabpfn_rsf.pkl
+C-index train: 0.9576
+C-index test:  0.7871
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1/tabpfn_tab_cox.pkl
+C-index train: 0.9222
+C-index test:  0.7947
+  [SHAP] Fold 1: loading cached values from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold1/shap_values.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2
+C-index train: 0.9211
+C-index test:  0.8095
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2
+C-index train: 0.9512
+C-index test:  0.8040
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9146
+C-index TEST:  0.8110
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9175
+C-index TEST:  0.8102
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2/tabpfn_rsf.pkl
+C-index train: 0.9593
+C-index test:  0.8038
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2/tabpfn_tab_cox.pkl
+C-index train: 0.9209
+C-index test:  0.8130
+  [SHAP] Fold 2: loading cached values from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold2/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3
+C-index train: 0.9137
+C-index test:  0.7759
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3
+C-index train: 0.9496
+C-index test:  0.7745
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9146
+C-index TEST:  0.7793
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9159
+C-index TEST:  0.7770
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3/tabpfn_rsf.pkl
+C-index train: 0.9581
+C-index test:  0.7651
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3/tabpfn_tab_cox.pkl
+C-index train: 0.9206
+C-index test:  0.7801
+  [SHAP] Fold 3: loading cached values from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold3/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4
+C-index train: 0.9162
+C-index test:  0.7842
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4
+C-index train: 0.9467
+C-index test:  0.7773
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9189
+C-index TEST:  0.7935
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9160
+C-index TEST:  0.7713
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4/tabpfn_rsf.pkl
+C-index train: 0.9555
+C-index test:  0.7753
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4/tabpfn_tab_cox.pkl
+C-index train: 0.9195
+C-index test:  0.7927
+  [SHAP] Fold 4: loading cached values from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold4/shap_values.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (5162, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5
+C-index train: 0.9141
+C-index test:  0.7962
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5
+C-index train: 0.9351
+C-index test:  0.7956
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9176
+C-index TEST:  0.7949
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9181
+C-index TEST:  0.7952
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5/tabpfn_rsf.pkl
+C-index train: 0.9573
+C-index test:  0.7970
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5/tabpfn_tab_cox.pkl
+C-index train: 0.9199
+C-index test:  0.8026
+  [SHAP] Fold 5: loading cached values from checkpoints/tabpfn/OrmoniTirodei/NaN/seed42/fold5/shap_values.pkl
+[SHAP] Results saved → results/OrmoniTirodei/tabpfn/shap_OrmoniTirodei_tabpfn_NaN_seed42.txt
+
+  Preprocess: -1 | Seed: 42
+  TABPFN Train Tuned DeepSurv → mean: 0.917060 | std: 0.002815 | min: 0.912205 | max: 0.919570
+  TABPFN Test Tuned DeepSurv → mean: 0.792389 | std: 0.009129 | min: 0.779816 | max: 0.805900
+  TABPFN Train Tuned RSF → mean: 0.939681 | std: 0.011380 | min: 0.928118 | max: 0.954012
+  TABPFN Test Tuned RSF → mean: 0.785548 | std: 0.014082 | min: 0.760712 | max: 0.802384
+  TABPFN Train Vanilla → mean: 0.914885 | std: 0.004422 | min: 0.907233 | max: 0.919800
+  TABPFN Test Vanilla → mean: 0.788430 | std: 0.010885 | min: 0.778418 | max: 0.804020
+  TABPFN Train Simple → mean: 0.914971 | std: 0.000730 | min: 0.913771 | max: 0.916050
+  TABPFN Test Simple → mean: 0.796431 | std: 0.009088 | min: 0.784166 | max: 0.810863
+  TABPFN Train RSF → mean: 0.957899 | std: 0.001352 | min: 0.955877 | max: 0.960094
+  TABPFN Test RSF → mean: 0.786288 | std: 0.014485 | min: 0.761749 | max: 0.803986
+  TABPFN Train Cox → mean: 0.920181 | std: 0.001264 | min: 0.918488 | max: 0.922150
+  TABPFN Test Cox → mean: 0.796359 | std: 0.008796 | min: 0.784648 | max: 0.810241
+  Train DeepSurv Vanilla → mean: 0.804978 | std: 0.004857 | min: 0.797460 | max: 0.811021
+  Test DeepSurv Vanilla → mean: 0.790035 | std: 0.006892 | min: 0.780942 | max: 0.801734
+  Train DeepSurv Simple → mean: 0.787514 | std: 0.005433 | min: 0.779604 | max: 0.793539
+  Test DeepSurv Simple → mean: 0.780612 | std: 0.011638 | min: 0.762297 | max: 0.797635
+  Train RSF  → mean: 0.908356 | std: 0.000484 | min: 0.907708 | max: 0.909131
+  Test RSF   → mean: 0.793611 | std: 0.007696 | min: 0.786462 | max: 0.808318
+  Train Cox  → mean: 0.800750 | std: 0.002026 | min: 0.797857 | max: 0.804083
+  Test Cox   → mean: 0.792607 | std: 0.007239 | min: 0.783452 | max: 0.805430
+
+  Preprocess: NaN | Seed: 42
+  TABPFN Train Tuned DeepSurv → mean: 0.916950 | std: 0.002963 | min: 0.913667 | max: 0.921132
+  TABPFN Test Tuned DeepSurv → mean: 0.791823 | std: 0.011373 | min: 0.775896 | max: 0.809529
+  TABPFN Train Tuned RSF → mean: 0.948559 | std: 0.008090 | min: 0.935083 | max: 0.960135
+  TABPFN Test Tuned RSF → mean: 0.787922 | std: 0.011043 | min: 0.774486 | max: 0.803983
+  TABPFN Train Vanilla → mean: 0.917516 | std: 0.001543 | min: 0.915934 | max: 0.920100
+  TABPFN Test Vanilla → mean: 0.789387 | std: 0.013862 | min: 0.771288 | max: 0.810162
+  TABPFN Train Simple → mean: 0.917328 | std: 0.002462 | min: 0.914555 | max: 0.920898
+  TABPFN Test Simple → mean: 0.794604 | std: 0.010050 | min: 0.779301 | max: 0.811021
+  TABPFN Train RSF → mean: 0.957556 | std: 0.001236 | min: 0.955490 | max: 0.959296
+  TABPFN Test RSF → mean: 0.785683 | std: 0.014065 | min: 0.765144 | max: 0.803840
+  TABPFN Train Cox → mean: 0.920624 | std: 0.000920 | min: 0.919487 | max: 0.922164
+  TABPFN Test Cox → mean: 0.796601 | std: 0.010914 | min: 0.780102 | max: 0.812963
+Result saved in 'results/OrmoniTirodei/tabpfn/results_cv_OrmoniTirodei_tabpfn_seed42.txt'
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/HURRAH_seed42.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13566, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold1
+C-index train: 0.9547
+C-index test:  0.8538
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold1
+C-index train: 0.9658
+C-index test:  0.8347
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9622
+C-index TEST:  0.8525
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9566
+C-index TEST:  0.7897
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/tabpfn_rsf.pkl
+C-index train: 0.9763
+C-index test:  0.8138
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/tabpfn_tab_cox.pkl
+C-index train: 0.9596
+C-index test:  0.8558
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8601
+C-index TEST:  0.8523
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.8376
+C-index TEST:  0.8483
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/rsf_baseline.pkl
+C-index train: 0.9420
+C-index test:  0.8571
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/tabpfn_cox.pkl
+C-index train: 0.8272
+C-index test:  0.8313
+  [SHAP] Fold 1: loading cached values from checkpoints/tabpfn/HURRAH/-1/seed42/fold1/shap_values.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13566, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold2
+C-index train: 0.9544
+C-index test:  0.8518
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold2
+C-index train: 0.9662
+C-index test:  0.8127
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9595
+C-index TEST:  0.8383
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9560
+C-index TEST:  0.8347
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/tabpfn_rsf.pkl
+C-index train: 0.9761
+C-index test:  0.8154
+  Fitting TABPFN Cox (embedding)...
+C-index train: 0.9577
+C-index test:  0.8504
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8571
+C-index TEST:  0.8499
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.8336
+C-index TEST:  0.8302
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/rsf_baseline.pkl
+C-index train: 0.9412
+C-index test:  0.8474
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/tabpfn_cox.pkl
+C-index train: 0.8289
+C-index test:  0.8265
+  [SHAP] Fold 2: loading cached values from checkpoints/tabpfn/HURRAH/-1/seed42/fold2/shap_values.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13566, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold3
+C-index train: 0.9548
+C-index test:  0.8441
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold3
+C-index train: 0.9695
+C-index test:  0.8250
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9595
+C-index TEST:  0.8416
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9546
+C-index TEST:  0.6643
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/tabpfn_rsf.pkl
+C-index train: 0.9758
+C-index test:  0.8134
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/tabpfn_tab_cox.pkl
+C-index train: 0.9591
+C-index test:  0.8431
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8118
+C-index TEST:  0.8057
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.8363
+C-index TEST:  0.8399
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/rsf_baseline.pkl
+C-index train: 0.9421
+C-index test:  0.8658
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/tabpfn_cox.pkl
+C-index train: 0.8259
+C-index test:  0.8319
+  [SHAP] Fold 3: loading cached values from checkpoints/tabpfn/HURRAH/-1/seed42/fold3/shap_values.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13567, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold4
+C-index train: 0.9535
+C-index test:  0.8545
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold4
+C-index train: 0.9649
+C-index test:  0.8466
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9612
+C-index TEST:  0.8455
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9561
+C-index TEST:  0.6085
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/tabpfn_rsf.pkl
+C-index train: 0.9755
+C-index test:  0.8270
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/tabpfn_tab_cox.pkl
+C-index train: 0.9581
+C-index test:  0.8494
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8574
+C-index TEST:  0.8486
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.8346
+C-index TEST:  0.8314
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/rsf_baseline.pkl
+C-index train: 0.9425
+C-index test:  0.8532
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/tabpfn_cox.pkl
+C-index train: 0.8296
+C-index test:  0.8177
+  [SHAP] Fold 4: loading cached values from checkpoints/tabpfn/HURRAH/-1/seed42/fold4/shap_values.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13567, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold5
+C-index train: 0.9562
+C-index test:  0.8399
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/-1/seed42/fold5
+C-index train: 0.9646
+C-index test:  0.8043
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9597
+C-index TEST:  0.8414
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9559
+C-index TEST:  0.7869
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/tabpfn_rsf.pkl
+C-index train: 0.9735
+C-index test:  0.8117
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/tabpfn_tab_cox.pkl
+C-index train: 0.9578
+C-index test:  0.8433
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8588
+C-index TEST:  0.8351
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.8393
+C-index TEST:  0.8305
+  [ckpt] Loading RSF baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/rsf_baseline.pkl
+C-index train: 0.9428
+C-index test:  0.8423
+  [ckpt] Loading Cox baseline from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/tabpfn_cox.pkl
+C-index train: 0.8291
+C-index test:  0.8232
+  [SHAP] Fold 5: loading cached values from checkpoints/tabpfn/HURRAH/-1/seed42/fold5/shap_values.pkl
+[SHAP] Results saved → results/HURRAH/tabpfn/shap_HURRAH_tabpfn_-1_seed42.txt
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/HURRAH_seed42.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13566, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1
+C-index train: 0.9537
+C-index test:  0.8489
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1
+C-index train: 0.9652
+C-index test:  0.8308
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9598
+C-index TEST:  0.8465
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9568
+C-index TEST:  0.4029
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1/tabpfn_rsf.pkl
+C-index train: 0.9764
+C-index test:  0.8072
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1/tabpfn_tab_cox.pkl
+C-index train: 0.9569
+C-index test:  0.8475
+  [SHAP] Fold 1: loading cached values from checkpoints/tabpfn/HURRAH/NaN/seed42/fold1/shap_values.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13566, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2
+C-index train: 0.9535
+C-index test:  0.8497
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2
+C-index train: 0.9648
+C-index test:  0.8227
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9568
+C-index TEST:  0.8425
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9536
+C-index TEST:  0.4691
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2/tabpfn_rsf.pkl
+C-index train: 0.9767
+C-index test:  0.7997
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2/tabpfn_tab_cox.pkl
+C-index train: 0.9562
+C-index test:  0.8412
+  [SHAP] Fold 2: loading cached values from checkpoints/tabpfn/HURRAH/NaN/seed42/fold2/shap_values.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13566, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3
+C-index train: 0.9501
+C-index test:  0.8428
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3
+C-index train: 0.9640
+C-index test:  0.8175
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9553
+C-index TEST:  0.8255
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9529
+C-index TEST:  0.3175
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3/tabpfn_rsf.pkl
+C-index train: 0.9761
+C-index test:  0.8096
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3/tabpfn_tab_cox.pkl
+C-index train: 0.9552
+C-index test:  0.8394
+  [SHAP] Fold 3: loading cached values from checkpoints/tabpfn/HURRAH/NaN/seed42/fold3/shap_values.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13567, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4
+C-index train: 0.9553
+C-index test:  0.8475
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4
+C-index train: 0.9624
+C-index test:  0.7899
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9589
+C-index TEST:  0.8360
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9531
+C-index TEST:  0.8403
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4/tabpfn_rsf.pkl
+C-index train: 0.9749
+C-index test:  0.7775
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4/tabpfn_tab_cox.pkl
+C-index train: 0.9569
+C-index test:  0.8375
+  [SHAP] Fold 4: loading cached values from checkpoints/tabpfn/HURRAH/NaN/seed42/fold4/shap_values.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABPFN Embeddings...
+Successfully generated embeddings with shape: (13567, 192)
+  [ckpt] Loading TABPFN DeepSurv Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5
+C-index train: 0.9522
+C-index test:  0.8272
+  [ckpt] Loading TABPFN RSF Tuned from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5
+C-index train: 0.9650
+C-index test:  0.8029
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5/tabpfn_deepsurv_simple.pt
+C-index TRAIN: 0.9592
+C-index TEST:  0.8077
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5/tabpfn_deepsurv_vanilla.pt
+C-index TRAIN: 0.9549
+C-index TEST:  0.7833
+  [ckpt] Loading TABPFN RSF from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5/tabpfn_rsf.pkl
+C-index train: 0.9773
+C-index test:  0.7912
+  [ckpt] Loading TABPFN Cox (embedding) from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5/tabpfn_tab_cox.pkl
+C-index train: 0.9558
+C-index test:  0.8291
+  [SHAP] Fold 5: loading cached values from checkpoints/tabpfn/HURRAH/NaN/seed42/fold5/shap_values.pkl
+[SHAP] Results saved → results/HURRAH/tabpfn/shap_HURRAH_tabpfn_NaN_seed42.txt
+
+  Preprocess: -1 | Seed: 42
+  TABPFN Train Tuned DeepSurv → mean: 0.954721 | std: 0.000876 | min: 0.953505 | max: 0.956205
+  TABPFN Test Tuned DeepSurv → mean: 0.848811 | std: 0.005802 | min: 0.839871 | max: 0.854494
+  TABPFN Train Tuned RSF → mean: 0.966221 | std: 0.001747 | min: 0.964636 | max: 0.969509
+  TABPFN Test Tuned RSF → mean: 0.824670 | std: 0.015099 | min: 0.804334 | max: 0.846606
+  TABPFN Train Vanilla → mean: 0.955849 | std: 0.000653 | min: 0.954635 | max: 0.956612
+  TABPFN Test Vanilla → mean: 0.736844 | std: 0.085592 | min: 0.608460 | max: 0.834743
+  TABPFN Train Simple → mean: 0.960423 | std: 0.001109 | min: 0.959475 | max: 0.962210
+  TABPFN Test Simple → mean: 0.843883 | std: 0.004853 | min: 0.838349 | max: 0.852452
+  TABPFN Train RSF → mean: 0.975449 | std: 0.001034 | min: 0.973453 | max: 0.976329
+  TABPFN Test RSF → mean: 0.816258 | std: 0.005487 | min: 0.811684 | max: 0.826977
+  TABPFN Train Cox → mean: 0.958453 | std: 0.000760 | min: 0.957707 | max: 0.959592
+  TABPFN Test Cox → mean: 0.848419 | std: 0.004781 | min: 0.843100 | max: 0.855832
+  Train DeepSurv Vanilla → mean: 0.849045 | std: 0.018640 | min: 0.811827 | max: 0.860091
+  Test DeepSurv Vanilla → mean: 0.838316 | std: 0.017404 | min: 0.805656 | max: 0.852332
+  Train DeepSurv Simple → mean: 0.836267 | std: 0.002043 | min: 0.833573 | max: 0.839261
+  Test DeepSurv Simple → mean: 0.836073 | std: 0.007084 | min: 0.830228 | max: 0.848277
+  Train RSF  → mean: 0.942125 | std: 0.000530 | min: 0.941241 | max: 0.942813
+  Test RSF   → mean: 0.853144 | std: 0.008095 | min: 0.842264 | max: 0.865833
+  Train Cox  → mean: 0.828143 | std: 0.001397 | min: 0.825850 | max: 0.829596
+  Test Cox   → mean: 0.826137 | std: 0.005266 | min: 0.817748 | max: 0.831868
+
+  Preprocess: NaN | Seed: 42
+  TABPFN Train Tuned DeepSurv → mean: 0.952963 | std: 0.001725 | min: 0.950117 | max: 0.955271
+  TABPFN Test Tuned DeepSurv → mean: 0.843218 | std: 0.008373 | min: 0.827163 | max: 0.849730
+  TABPFN Train Tuned RSF → mean: 0.964298 | std: 0.001026 | min: 0.962436 | max: 0.965208
+  TABPFN Test Tuned RSF → mean: 0.812754 | std: 0.014607 | min: 0.789875 | max: 0.830809
+  TABPFN Train Vanilla → mean: 0.954256 | std: 0.001459 | min: 0.952932 | max: 0.956840
+  TABPFN Test Vanilla → mean: 0.562625 | std: 0.209842 | min: 0.317522 | max: 0.840349
+  TABPFN Train Simple → mean: 0.958009 | std: 0.001678 | min: 0.955323 | max: 0.959844
+  TABPFN Test Simple → mean: 0.831630 | std: 0.013896 | min: 0.807749 | max: 0.846504
+  TABPFN Train RSF → mean: 0.976292 | std: 0.000810 | min: 0.974871 | max: 0.977310
+  TABPFN Test RSF → mean: 0.797047 | std: 0.011712 | min: 0.777464 | max: 0.809635
+  TABPFN Train Cox → mean: 0.956209 | std: 0.000675 | min: 0.955185 | max: 0.956947
+  TABPFN Test Cox → mean: 0.838941 | std: 0.005935 | min: 0.829146 | max: 0.847478
+Result saved in 'results/HURRAH/tabpfn/results_cv_HURRAH_tabpfn_seed42.txt'
