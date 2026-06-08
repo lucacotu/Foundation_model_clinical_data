@@ -1,0 +1,308 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torchtuples/tupletree.py:146: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(data)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+Model:        tabpfn
+Seed:         42
+Sample sizes: [1000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9062  test=0.7732
+  [tabpfn+DS-vanilla] train=0.9106  test=0.7725
+  [tabpfn+RSF]        train=0.9581  test=0.7677
+  [tabpfn+Cox]        train=0.9205  test=0.7730
+  [DS-simple]         train=0.7957  test=0.7770
+  [DS-vanilla]        train=0.8085  test=0.7543
+  [RSF]               train=0.9068  test=0.7709
+  [Cox]               train=0.8092  test=0.7724
+  Fold 2: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9146  test=0.8019
+  [tabpfn+DS-vanilla] train=0.9149  test=0.7577
+  [tabpfn+RSF]        train=0.9550  test=0.7914
+  [tabpfn+Cox]        train=0.9189  test=0.7852
+  [DS-simple]         train=0.7956  test=0.7970
+  [DS-vanilla]        train=0.8192  test=0.7772
+  [RSF]               train=0.9082  test=0.7921
+  [Cox]               train=0.8028  test=0.7920
+  Fold 3: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9179  test=0.7708
+  [tabpfn+DS-vanilla] train=0.9194  test=0.7674
+  [tabpfn+RSF]        train=0.9593  test=0.7570
+  [tabpfn+Cox]        train=0.9248  test=0.7688
+  [DS-simple]         train=0.8071  test=0.7614
+  [DS-vanilla]        train=0.8113  test=0.7531
+  [RSF]               train=0.9159  test=0.7685
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9100  test=0.7656
+  [tabpfn+DS-vanilla] train=0.9140  test=0.7616
+  [tabpfn+RSF]        train=0.9571  test=0.7567
+  [tabpfn+Cox]        train=0.9224  test=0.7776
+  [DS-simple]         train=0.8170  test=0.7613
+  [DS-vanilla]        train=0.8152  test=0.7675
+  [RSF]               train=0.9195  test=0.7866
+  [Cox]               train=0.8325  test=0.7730
+  Fold 5: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9087  test=0.7754
+  [tabpfn+DS-vanilla] train=0.9061  test=0.7602
+  [tabpfn+RSF]        train=0.9571  test=0.7583
+  [tabpfn+Cox]        train=0.9173  test=0.7733
+  [DS-simple]         train=0.8016  test=0.7745
+  [DS-vanilla]        train=0.8040  test=0.7542
+  [RSF]               train=0.9078  test=0.7795
+  [Cox]               train=0.8076  test=0.7763
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9037  test=0.7750
+  [tabpfn+DS-vanilla] train=0.9085  test=0.7745
+  [tabpfn+RSF]        train=0.9554  test=0.7671
+  [tabpfn+Cox]        train=0.9241  test=0.7784
+  Fold 2: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9143  test=0.7994
+  [tabpfn+DS-vanilla] train=0.8923  test=0.7964
+  [tabpfn+RSF]        train=0.9560  test=0.7868
+  [tabpfn+Cox]        train=0.9171  test=0.7939
+  Fold 3: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9177  test=0.7710
+  [tabpfn+DS-vanilla] train=0.9220  test=0.7655
+  [tabpfn+RSF]        train=0.9613  test=0.7541
+  [tabpfn+Cox]        train=0.9259  test=0.7728
+  Fold 4: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9091  test=0.7705
+  [tabpfn+DS-vanilla] train=0.9133  test=0.7770
+  [tabpfn+RSF]        train=0.9571  test=0.7742
+  [tabpfn+Cox]        train=0.9251  test=0.7698
+  Fold 5: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9075  test=0.7784
+  [tabpfn+DS-vanilla] train=0.9126  test=0.7722
+  [tabpfn+RSF]        train=0.9564  test=0.7537
+  [tabpfn+Cox]        train=0.9203  test=0.7660
+
+Data saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed42_data.txt
+
+Dataset: OrmoniTirodei | Model: tabpfn | Seed: 42
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9115 | std: 0.0042 | min: 0.9062 | max: 0.9179
+    TEST  tabpfn+DS-simple            → mean: 0.7774 | std: 0.0127 | min: 0.7656 | max: 0.8019
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9130 | std: 0.0045 | min: 0.9061 | max: 0.9194
+    TEST  tabpfn+DS-vanilla           → mean: 0.7639 | std: 0.0054 | min: 0.7577 | max: 0.7725
+    TRAIN tabpfn+RSF                  → mean: 0.9573 | std: 0.0014 | min: 0.9550 | max: 0.9593
+    TEST  tabpfn+RSF                  → mean: 0.7662 | std: 0.0132 | min: 0.7567 | max: 0.7914
+    TRAIN tabpfn+Cox                  → mean: 0.9208 | std: 0.0026 | min: 0.9173 | max: 0.9248
+    TEST  tabpfn+Cox                  → mean: 0.7756 | std: 0.0055 | min: 0.7688 | max: 0.7852
+    TRAIN DS-simple (base)            → mean: 0.8034 | std: 0.0080 | min: 0.7956 | max: 0.8170
+    TEST  DS-simple (base)            → mean: 0.7742 | std: 0.0131 | min: 0.7613 | max: 0.7970
+    TRAIN DS-vanilla (base)           → mean: 0.8117 | std: 0.0053 | min: 0.8040 | max: 0.8192
+    TEST  DS-vanilla (base)           → mean: 0.7613 | std: 0.0096 | min: 0.7531 | max: 0.7772
+    TRAIN RSF (base)                  → mean: 0.9116 | std: 0.0051 | min: 0.9068 | max: 0.9195
+    TEST  RSF (base)                  → mean: 0.7795 | std: 0.0090 | min: 0.7685 | max: 0.7921
+    TRAIN Cox (base)                  → mean: 0.8130 | std: 0.0115 | min: 0.8028 | max: 0.8325
+    TEST  Cox (base)                  → mean: 0.7785 | std: 0.0080 | min: 0.7724 | max: 0.7920
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9105 | std: 0.0050 | min: 0.9037 | max: 0.9177
+    TEST  tabpfn+DS-simple            → mean: 0.7789 | std: 0.0107 | min: 0.7705 | max: 0.7994
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9097 | std: 0.0098 | min: 0.8923 | max: 0.9220
+    TEST  tabpfn+DS-vanilla           → mean: 0.7771 | std: 0.0104 | min: 0.7655 | max: 0.7964
+    TRAIN tabpfn+RSF                  → mean: 0.9573 | std: 0.0021 | min: 0.9554 | max: 0.9613
+    TEST  tabpfn+RSF                  → mean: 0.7672 | std: 0.0126 | min: 0.7537 | max: 0.7868
+    TRAIN tabpfn+Cox                  → mean: 0.9225 | std: 0.0033 | min: 0.9171 | max: 0.9259
+    TEST  tabpfn+Cox                  → mean: 0.7762 | std: 0.0097 | min: 0.7660 | max: 0.7939
+Text summary saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed42.txt
+
+######################################################################
+Dataset: HURRAH
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed42.pkl
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9477  test=0.8305
+  [tabpfn+DS-vanilla] train=0.9575  test=0.8016
+  [tabpfn+RSF]        train=0.9821  test=0.7645
+  [tabpfn+Cox]        train=0.9630  test=0.7836
+  [DS-simple]         train=0.8421  test=0.8246
+  [DS-vanilla]        train=0.8637  test=0.7977
+  [RSF]               train=0.9447  test=0.8212
+  [Cox]               train=0.8399  test=0.8200
+  Fold 2: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9554  test=0.8213
+  [tabpfn+DS-vanilla] train=0.9594  test=0.7921
+  [tabpfn+RSF]        train=0.9837  test=0.8049
+  [tabpfn+Cox]        train=0.9673  test=0.8143
+  [DS-simple]         train=0.8480  test=0.8005
+  [DS-vanilla]        train=0.8499  test=0.7997
+  [RSF]               train=0.9434  test=0.8070
+  [Cox]               train=0.8499  test=0.8154
+  Fold 3: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9450  test=0.8215
+  [tabpfn+DS-vanilla] train=0.9510  test=0.8151
+  [tabpfn+RSF]        train=0.9774  test=0.7620
+  [tabpfn+Cox]        train=0.9603  test=0.8178
+  [DS-simple]         train=0.8466  test=0.8202
+  [DS-vanilla]        train=0.7872  test=0.7584
+  [RSF]               train=0.9483  test=0.8258
+  [Cox]               train=0.8367  test=0.8152
+  Fold 4: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9490  test=0.8194
+  [tabpfn+DS-vanilla] train=0.9520  test=0.7131
+  [tabpfn+RSF]        train=0.9787  test=0.7855
+  [tabpfn+Cox]        train=0.9654  test=0.8108
+  [DS-simple]         train=0.8363  test=0.8155
+  [DS-vanilla]        train=0.8569  test=0.7854
+  [RSF]               train=0.9491  test=0.7972
+  [Cox]               train=0.8314  test=0.8052
+  Fold 5: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9443  test=0.8285
+  [tabpfn+DS-vanilla] train=0.9476  test=0.8120
+  [tabpfn+RSF]        train=0.9820  test=0.7837
+  [tabpfn+Cox]        train=0.9610  test=0.8072
+  [DS-simple]         train=0.8477  test=0.8229
+  [DS-vanilla]        train=0.8313  test=0.8055
+  [RSF]               train=0.9521  test=0.8300
+  [Cox]               train=0.8501  test=0.8232
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed42.pkl
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9489  test=0.8218
+  [tabpfn+DS-vanilla] train=0.9503  test=0.7885
+  [tabpfn+RSF]        train=0.9825  test=0.6886
+  [tabpfn+Cox]        train=0.9585  test=0.7993
+  Fold 2: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9559  test=0.8190
+  [tabpfn+DS-vanilla] train=0.9542  test=0.7969
+  [tabpfn+RSF]        train=0.9840  test=0.7918
+  [tabpfn+Cox]        train=0.9615  test=0.8060
+  Fold 3: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9486  test=0.8232
+  [tabpfn+DS-vanilla] train=0.9507  test=0.8130
+  [tabpfn+RSF]        train=0.9767  test=0.8060
+  [tabpfn+Cox]        train=0.9587  test=0.8194
+  Fold 4: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9472  test=0.8161
+  [tabpfn+DS-vanilla] train=0.9612  test=0.6909
+  [tabpfn+RSF]        train=0.9788  test=0.7862
+  [tabpfn+Cox]        train=0.9657  test=0.7869
+  Fold 5: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9453  test=0.8257
+  [tabpfn+DS-vanilla] train=0.9552  test=0.8064
+  [tabpfn+RSF]        train=0.9830  test=0.7877
+  [tabpfn+Cox]        train=0.9633  test=0.7937
+
+Data saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed42_data.txt
+
+Dataset: HURRAH | Model: tabpfn | Seed: 42
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9483 | std: 0.0040 | min: 0.9443 | max: 0.9554
+    TEST  tabpfn+DS-simple            → mean: 0.8243 | std: 0.0044 | min: 0.8194 | max: 0.8305
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9535 | std: 0.0043 | min: 0.9476 | max: 0.9594
+    TEST  tabpfn+DS-vanilla           → mean: 0.7868 | std: 0.0377 | min: 0.7131 | max: 0.8151
+    TRAIN tabpfn+RSF                  → mean: 0.9808 | std: 0.0023 | min: 0.9774 | max: 0.9837
+    TEST  tabpfn+RSF                  → mean: 0.7801 | std: 0.0157 | min: 0.7620 | max: 0.8049
+    TRAIN tabpfn+Cox                  → mean: 0.9634 | std: 0.0026 | min: 0.9603 | max: 0.9673
+    TEST  tabpfn+Cox                  → mean: 0.8068 | std: 0.0121 | min: 0.7836 | max: 0.8178
+    TRAIN DS-simple (base)            → mean: 0.8441 | std: 0.0045 | min: 0.8363 | max: 0.8480
+    TEST  DS-simple (base)            → mean: 0.8168 | std: 0.0087 | min: 0.8005 | max: 0.8246
+    TRAIN DS-vanilla (base)           → mean: 0.8378 | std: 0.0275 | min: 0.7872 | max: 0.8637
+    TEST  DS-vanilla (base)           → mean: 0.7893 | std: 0.0168 | min: 0.7584 | max: 0.8055
+    TRAIN RSF (base)                  → mean: 0.9475 | std: 0.0031 | min: 0.9434 | max: 0.9521
+    TEST  RSF (base)                  → mean: 0.8163 | std: 0.0123 | min: 0.7972 | max: 0.8300
+    TRAIN Cox (base)                  → mean: 0.8416 | std: 0.0074 | min: 0.8314 | max: 0.8501
+    TEST  Cox (base)                  → mean: 0.8158 | std: 0.0061 | min: 0.8052 | max: 0.8232
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9492 | std: 0.0036 | min: 0.9453 | max: 0.9559
+    TEST  tabpfn+DS-simple            → mean: 0.8212 | std: 0.0033 | min: 0.8161 | max: 0.8257
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9543 | std: 0.0039 | min: 0.9503 | max: 0.9612
+    TEST  tabpfn+DS-vanilla           → mean: 0.7792 | std: 0.0449 | min: 0.6909 | max: 0.8130
+    TRAIN tabpfn+RSF                  → mean: 0.9810 | std: 0.0028 | min: 0.9767 | max: 0.9840
+    TEST  tabpfn+RSF                  → mean: 0.7721 | std: 0.0423 | min: 0.6886 | max: 0.8060
+    TRAIN tabpfn+Cox                  → mean: 0.9615 | std: 0.0027 | min: 0.9585 | max: 0.9657
+    TEST  tabpfn+Cox                  → mean: 0.8011 | std: 0.0111 | min: 0.7869 | max: 0.8194
+Text summary saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed42.txt

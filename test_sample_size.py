@@ -22,7 +22,7 @@ from src.tabpfn import get_tabpfn_embeddings
 from src.tabdpt import get_tabdpt_embeddings
 from src.tabicl import get_tabicl_embeddings
 
-DEFAULT_SAMPLE_SIZES = [100, 500, 1000, 2500, 5000]
+DEFAULT_SAMPLE_SIZES = [100, 500, 1000, 2500, 5000, 10000, 15000, 20000, 25000]
 
 
 def set_seed(seed: int):

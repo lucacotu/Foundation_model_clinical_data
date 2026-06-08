@@ -12,4 +12,4 @@
 #SBATCH --chdir=/scratch.hpc/luca.cotugno/Foundation_model_clinical_data 
 #SBATCH --gres=gpu:1
 
-.venv/bin/python3 test_tabular_model_tmp.py "$@"
+.venv/bin/python3 "$@"

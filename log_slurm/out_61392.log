@@ -1,0 +1,447 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torchtuples/tupletree.py:146: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(data)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX', 'MIO', 'Endocardite', 'EmboliaPolmonare'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column Amiodarone have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'Amiodarone'].var())
+>>> print(df.loc[~events, 'Amiodarone'].var())
+
+A very low variance means that the column Amiodarone completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus_event has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX', 'MIN', 'Miocardite', 'Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EPA have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EPA'].var())
+>>> print(df.loc[~events, 'EPA'].var())
+
+A very low variance means that the column EPA completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Subclinical primary hyperthyroidism
+(SCT) has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column EmboliaPolmonare has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX', 'MIO', 'Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ipotiroidismo has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Miocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus_event has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipertiroidismo', 'SindromeX', 'MIN', 'EmboliaPolmonare'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column Endocardite have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'Endocardite'].var())
+>>> print(df.loc[~events, 'Endocardite'].var())
+
+A very low variance means that the column Endocardite completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ipotiroidismo has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Miocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus_event has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipotiroidismo', 'SindromeX', 'MIN', 'MIO', 'EmboliaPolmonare'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column Subclinical primary hypothyroidism (SCH) have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'Subclinical primary hypothyroidism (SCH)'].var())
+>>> print(df.loc[~events, 'Subclinical primary hypothyroidism (SCH)'].var())
+
+A very low variance means that the column Subclinical primary hypothyroidism (SCH) completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Endocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Non Fatal AMI (Follow-Up) has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Non Fatal AMI (Follow-Up)_event has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ictus_event has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+Model:        tabpfn
+Seed:         42
+Sample sizes: [100]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8846  test=0.7330
+  [tabpfn+DS-vanilla] train=0.9066  test=0.7296
+  [tabpfn+RSF]        train=0.9479  test=0.6828
+  [tabpfn+Cox]        train=0.9602  test=0.6653
+  [DS-simple]         train=0.5102  test=0.5050
+  [DS-vanilla]        train=0.8520  test=0.6803
+  [RSF]               train=0.9331  test=0.7477
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8944  test=0.6765
+  [tabpfn+DS-vanilla] train=0.8965  test=0.6681
+  [tabpfn+RSF]        train=0.9179  test=0.6366
+  [tabpfn+Cox]        train=0.9440  test=0.6841
+  [DS-simple]         train=0.6379  test=0.5308
+  [DS-vanilla]        train=0.7733  test=0.6521
+  [RSF]               train=0.9397  test=0.7646
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9150  test=0.6300
+  [tabpfn+DS-vanilla] train=0.9119  test=0.6202
+  [tabpfn+RSF]        train=0.9176  test=0.6107
+  [tabpfn+Cox]        train=0.9502  test=0.6086
+  [DS-simple]         train=0.8414  test=0.6085
+  [DS-vanilla]        train=0.7755  test=0.5944
+  [RSF]               train=0.9005  test=0.6600
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9355  test=0.7056
+  [tabpfn+DS-vanilla] train=0.9548  test=0.6676
+  [tabpfn+RSF]        train=0.9521  test=0.7044
+  [tabpfn+Cox]        train=0.9723  test=0.7022
+  [DS-simple]         train=0.6110  test=0.5988
+  [DS-vanilla]        train=0.8830  test=0.6455
+  [RSF]               train=0.9379  test=0.7502
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9266  test=0.7225
+  [tabpfn+DS-vanilla] train=0.9314  test=0.7200
+  [tabpfn+RSF]        train=0.9317  test=0.7103
+  [tabpfn+Cox]        train=0.8861  test=0.3245
+  [DS-simple]         train=0.8213  test=0.6434
+  [DS-vanilla]        train=0.6118  test=0.5046
+  [RSF]               train=0.9433  test=0.6855
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8913  test=0.7448
+  [tabpfn+DS-vanilla] train=0.9306  test=0.7487
+  [tabpfn+RSF]        train=0.9329  test=0.7384
+  [tabpfn+Cox]        train=0.9571  test=0.6550
+  Fold 2: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9072  test=0.6932
+  [tabpfn+DS-vanilla] train=0.9109  test=0.6912
+  [tabpfn+RSF]        train=0.9331  test=0.6380
+  [tabpfn+Cox]        train=0.9541  test=0.7307
+  Fold 3: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9114  test=0.6384
+  [tabpfn+DS-vanilla] train=0.9139  test=0.6416
+  [tabpfn+RSF]        train=0.9178  test=0.6264
+  [tabpfn+Cox]        train=0.9487  test=0.6255
+  Fold 4: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9367  test=0.7138
+  [tabpfn+DS-vanilla] train=0.9445  test=0.7114
+  [tabpfn+RSF]        train=0.9710  test=0.7041
+  [tabpfn+Cox]        train=0.9801  test=0.6733
+  Fold 5: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9287  test=0.7410
+  [tabpfn+DS-vanilla] train=0.9244  test=0.7434
+  [tabpfn+RSF]        train=0.9298  test=0.7117
+  [tabpfn+Cox]        train=0.9660  test=0.5058
+
+Data saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed42_data.txt
+
+Dataset: OrmoniTirodei | Model: tabpfn | Seed: 42
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9112 | std: 0.0191 | min: 0.8846 | max: 0.9355
+    TEST  tabpfn+DS-simple            → mean: 0.6935 | std: 0.0371 | min: 0.6300 | max: 0.7330
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9202 | std: 0.0207 | min: 0.8965 | max: 0.9548
+    TEST  tabpfn+DS-vanilla           → mean: 0.6811 | std: 0.0398 | min: 0.6202 | max: 0.7296
+    TRAIN tabpfn+RSF                  → mean: 0.9334 | std: 0.0145 | min: 0.9176 | max: 0.9521
+    TEST  tabpfn+RSF                  → mean: 0.6690 | std: 0.0390 | min: 0.6107 | max: 0.7103
+    TRAIN tabpfn+Cox                  → mean: 0.9425 | std: 0.0298 | min: 0.8861 | max: 0.9723
+    TEST  tabpfn+Cox                  → mean: 0.5969 | std: 0.1398 | min: 0.3245 | max: 0.7022
+    TRAIN DS-simple (base)            → mean: 0.6843 | std: 0.1275 | min: 0.5102 | max: 0.8414
+    TEST  DS-simple (base)            → mean: 0.5773 | std: 0.0514 | min: 0.5050 | max: 0.6434
+    TRAIN DS-vanilla (base)           → mean: 0.7791 | std: 0.0940 | min: 0.6118 | max: 0.8830
+    TEST  DS-vanilla (base)           → mean: 0.6154 | std: 0.0619 | min: 0.5046 | max: 0.6803
+    TRAIN RSF (base)                  → mean: 0.9309 | std: 0.0156 | min: 0.9005 | max: 0.9433
+    TEST  RSF (base)                  → mean: 0.7216 | std: 0.0411 | min: 0.6600 | max: 0.7646
+    TRAIN Cox (base)                  → no valid scores
+    TEST  Cox (base)                  → no valid scores
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9150 | std: 0.0161 | min: 0.8913 | max: 0.9367
+    TEST  tabpfn+DS-simple            → mean: 0.7062 | std: 0.0388 | min: 0.6384 | max: 0.7448
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9249 | std: 0.0121 | min: 0.9109 | max: 0.9445
+    TEST  tabpfn+DS-vanilla           → mean: 0.7073 | std: 0.0390 | min: 0.6416 | max: 0.7487
+    TRAIN tabpfn+RSF                  → mean: 0.9369 | std: 0.0179 | min: 0.9178 | max: 0.9710
+    TEST  tabpfn+RSF                  → mean: 0.6837 | std: 0.0437 | min: 0.6264 | max: 0.7384
+    TRAIN tabpfn+Cox                  → mean: 0.9612 | std: 0.0110 | min: 0.9487 | max: 0.9801
+    TEST  tabpfn+Cox                  → mean: 0.6381 | std: 0.0745 | min: 0.5058 | max: 0.7307
+Text summary saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed42.txt
+
+######################################################################
+Dataset: HURRAH
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed42.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9645  test=0.8014
+  [tabpfn+DS-vanilla] train=0.9718  test=0.8059
+  [tabpfn+RSF]        train=0.9776  test=0.7621
+  [tabpfn+Cox]        train=0.9635  test=0.7750
+  [DS-simple]         train=0.9750  test=0.7834
+  [DS-vanilla]        train=0.9458  test=0.7187
+  [RSF]               train=0.9698  test=0.7785
+  [Cox]               train=0.9698  test=0.7667
+  Fold 2: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9673  test=0.7499
+  [tabpfn+DS-vanilla] train=0.9736  test=0.7647
+  [tabpfn+RSF]        train=0.9805  test=0.6260
+  [tabpfn+Cox]        train=0.9925  test=0.7307
+  [DS-simple]         train=0.8643  test=0.6329
+  [DS-vanilla]        train=0.7513  test=0.6236
+  [RSF]               train=0.9862  test=0.6778
+  [Cox]               train=0.9410  test=0.7074
+  Fold 3: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9512  test=0.7779
+  [tabpfn+DS-vanilla] train=0.9472  test=0.7792
+  [tabpfn+RSF]        train=0.9428  test=0.6940
+  [tabpfn+Cox]        train=0.9792  test=0.7257
+  [DS-simple]         train=0.9041  test=0.7662
+  [DS-vanilla]        train=0.8913  test=0.6802
+  [RSF]               train=0.9464  test=0.7350
+  [Cox]               train=0.9209  test=0.7725
+  Fold 4: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9552  test=0.7684
+  [tabpfn+DS-vanilla] train=0.9552  test=0.7715
+  [tabpfn+RSF]        train=0.9671  test=0.7476
+  [tabpfn+Cox]        train=0.9828  test=0.7299
+  [DS-simple]         train=0.8931  test=0.7692
+  [DS-vanilla]        train=0.7824  test=0.6449
+  [RSF]               train=0.9704  test=0.7185
+  [Cox]               train=0.9761  test=0.7876
+  Fold 5: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9412  test=0.7939
+  [tabpfn+DS-vanilla] train=0.9426  test=0.7901
+  [tabpfn+RSF]        train=0.9412  test=0.6995
+  [tabpfn+Cox]        train=0.9851  test=0.6590
+  [DS-simple]         train=0.8591  test=0.7655
+  [DS-vanilla]        train=0.8626  test=0.7060
+  [RSF]               train=0.9688  test=0.7114
+  [Cox]               train=0.9320  test=0.7614
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed42.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9677  test=0.7983
+  [tabpfn+DS-vanilla] train=0.9739  test=0.7883
+  [tabpfn+RSF]        train=0.9656  test=0.7849
+  [tabpfn+Cox]        train=0.9896  test=0.7671
+  Fold 2: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9661  test=0.7433
+  [tabpfn+DS-vanilla] train=0.9799  test=0.6764
+  [tabpfn+RSF]        train=0.9768  test=0.6247
+  [tabpfn+Cox]        train=0.9925  test=0.6653
+  Fold 3: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9520  test=0.7894
+  [tabpfn+DS-vanilla] train=0.9536  test=0.7836
+  [tabpfn+RSF]        train=0.9432  test=0.7877
+  [tabpfn+Cox]        train=0.9736  test=0.7444
+  Fold 4: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9456  test=0.7802
+  [tabpfn+DS-vanilla] train=0.9771  test=0.7755
+  [tabpfn+RSF]        train=0.9618  test=0.7556
+  [tabpfn+Cox]        train=0.9857  test=0.7663
+  Fold 5: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9412  test=0.7834
+  [tabpfn+DS-vanilla] train=0.9455  test=0.7918
+  [tabpfn+RSF]        train=0.9409  test=0.7648
+  [tabpfn+Cox]        train=0.9858  test=0.6271
+
+Data saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed42_data.txt
+
+Dataset: HURRAH | Model: tabpfn | Seed: 42
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9559 | std: 0.0094 | min: 0.9412 | max: 0.9673
+    TEST  tabpfn+DS-simple            → mean: 0.7783 | std: 0.0183 | min: 0.7499 | max: 0.8014
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9581 | std: 0.0126 | min: 0.9426 | max: 0.9736
+    TEST  tabpfn+DS-vanilla           → mean: 0.7823 | std: 0.0145 | min: 0.7647 | max: 0.8059
+    TRAIN tabpfn+RSF                  → mean: 0.9619 | std: 0.0168 | min: 0.9412 | max: 0.9805
+    TEST  tabpfn+RSF                  → mean: 0.7059 | std: 0.0479 | min: 0.6260 | max: 0.7621
+    TRAIN tabpfn+Cox                  → mean: 0.9806 | std: 0.0096 | min: 0.9635 | max: 0.9925
+    TEST  tabpfn+Cox                  → mean: 0.7241 | std: 0.0372 | min: 0.6590 | max: 0.7750
+    TRAIN DS-simple (base)            → mean: 0.8991 | std: 0.0415 | min: 0.8591 | max: 0.9750
+    TEST  DS-simple (base)            → mean: 0.7434 | std: 0.0556 | min: 0.6329 | max: 0.7834
+    TRAIN DS-vanilla (base)           → mean: 0.8467 | std: 0.0711 | min: 0.7513 | max: 0.9458
+    TEST  DS-vanilla (base)           → mean: 0.6747 | std: 0.0359 | min: 0.6236 | max: 0.7187
+    TRAIN RSF (base)                  → mean: 0.9683 | std: 0.0127 | min: 0.9464 | max: 0.9862
+    TEST  RSF (base)                  → mean: 0.7242 | std: 0.0329 | min: 0.6778 | max: 0.7785
+    TRAIN Cox (base)                  → mean: 0.9479 | std: 0.0215 | min: 0.9209 | max: 0.9761
+    TEST  Cox (base)                  → mean: 0.7591 | std: 0.0273 | min: 0.7074 | max: 0.7876
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9545 | std: 0.0107 | min: 0.9412 | max: 0.9677
+    TEST  tabpfn+DS-simple            → mean: 0.7789 | std: 0.0189 | min: 0.7433 | max: 0.7983
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9660 | std: 0.0138 | min: 0.9455 | max: 0.9799
+    TEST  tabpfn+DS-vanilla           → mean: 0.7631 | std: 0.0437 | min: 0.6764 | max: 0.7918
+    TRAIN tabpfn+RSF                  → mean: 0.9577 | std: 0.0137 | min: 0.9409 | max: 0.9768
+    TEST  tabpfn+RSF                  → mean: 0.7436 | std: 0.0606 | min: 0.6247 | max: 0.7877
+    TRAIN tabpfn+Cox                  → mean: 0.9854 | std: 0.0064 | min: 0.9736 | max: 0.9925
+    TEST  tabpfn+Cox                  → mean: 0.7140 | std: 0.0573 | min: 0.6271 | max: 0.7671
+Text summary saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed42.txt

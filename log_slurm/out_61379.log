@@ -1,0 +1,78 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabicl/embedding.py:142: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  y_t = torch.from_numpy(y_ctx).long().unsqueeze(0).to(self.device)    # (1, ctx_size)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/utils/validation.py:2684: UserWarning: X has feature names, but RandomSurvivalForest was fitted without feature names
+  warnings.warn(
+[I 2026-06-08 13:51:45,683] A new study created in memory with name: rsf_tuning_tabicl_3_NaN_seed789
+[I 2026-06-08 13:55:21,760] Trial 0 finished with value: 0.7578814113034956 and parameters: {'n_estimators': 50, 'max_depth': 5, 'min_samples_split': 5, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 0 with value: 0.7578814113034956.
+[I 2026-06-08 13:59:21,159] Trial 3 finished with value: 0.7733984306285026 and parameters: {'n_estimators': 150, 'max_depth': 3, 'min_samples_split': 8, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 3 with value: 0.7733984306285026.
+[I 2026-06-08 13:59:50,642] Trial 2 finished with value: 0.7666418507442683 and parameters: {'n_estimators': 100, 'max_depth': 7, 'min_samples_split': 13, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 3 with value: 0.7733984306285026.
+[I 2026-06-08 14:03:25,024] Trial 4 finished with value: 0.7802419185953978 and parameters: {'n_estimators': 100, 'max_depth': 7, 'min_samples_split': 5, 'min_samples_leaf': 11, 'max_features': 'log2'}. Best is trial 4 with value: 0.7802419185953978.
+[I 2026-06-08 14:03:47,721] Trial 5 finished with value: 0.7718175935466036 and parameters: {'n_estimators': 50, 'max_depth': 10, 'min_samples_split': 7, 'min_samples_leaf': 15, 'max_features': 'log2'}. Best is trial 4 with value: 0.7802419185953978.
+[I 2026-06-08 14:04:42,568] Trial 6 finished with value: 0.7534032891044489 and parameters: {'n_estimators': 50, 'max_depth': 10, 'min_samples_split': 17, 'min_samples_leaf': 6, 'max_features': 'log2'}. Best is trial 4 with value: 0.7802419185953978.
+[I 2026-06-08 14:20:06,950] Trial 1 finished with value: 0.7711516472746462 and parameters: {'n_estimators': 150, 'max_depth': 9, 'min_samples_split': 7, 'min_samples_leaf': 3, 'max_features': 'sqrt'}. Best is trial 4 with value: 0.7802419185953978.
+[I 2026-06-08 14:37:08,177] Trial 8 finished with value: 0.7757226982970205 and parameters: {'n_estimators': 200, 'max_depth': 5, 'min_samples_split': 20, 'min_samples_leaf': 4, 'max_features': 'sqrt'}. Best is trial 4 with value: 0.7802419185953978.
+[I 2026-06-08 14:49:35,795] Trial 11 finished with value: 0.7805929539533754 and parameters: {'n_estimators': 150, 'max_depth': 7, 'min_samples_split': 18, 'min_samples_leaf': 3, 'max_features': 'log2'}. Best is trial 11 with value: 0.7805929539533754.
+[I 2026-06-08 14:55:17,236] Trial 7 finished with value: 0.7752185267090527 and parameters: {'n_estimators': 300, 'max_depth': 6, 'min_samples_split': 16, 'min_samples_leaf': 5, 'max_features': 'sqrt'}. Best is trial 11 with value: 0.7805929539533754.
+[I 2026-06-08 15:00:43,388] Trial 9 finished with value: 0.7751143417183927 and parameters: {'n_estimators': 300, 'max_depth': 10, 'min_samples_split': 20, 'min_samples_leaf': 4, 'max_features': 'sqrt'}. Best is trial 11 with value: 0.7805929539533754.
+[I 2026-06-08 15:07:32,758] Trial 12 finished with value: 0.7811701597433385 and parameters: {'n_estimators': 200, 'max_depth': 9, 'min_samples_split': 18, 'min_samples_leaf': 5, 'max_features': 'log2'}. Best is trial 12 with value: 0.7811701597433385.
+[I 2026-06-08 15:15:01,146] Trial 10 finished with value: 0.7754132845810402 and parameters: {'n_estimators': 300, 'max_depth': 9, 'min_samples_split': 18, 'min_samples_leaf': 7, 'max_features': 'sqrt'}. Best is trial 12 with value: 0.7811701597433385.
+[I 2026-06-08 15:17:57,149] Trial 14 finished with value: 0.7808989646420225 and parameters: {'n_estimators': 200, 'max_depth': 8, 'min_samples_split': 12, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 12 with value: 0.7811701597433385.
+[I 2026-06-08 15:24:37,451] Trial 15 finished with value: 0.7822549401486023 and parameters: {'n_estimators': 200, 'max_depth': 8, 'min_samples_split': 16, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 15 with value: 0.7822549401486023.
+[I 2026-06-08 15:32:24,484] Trial 16 finished with value: 0.7822549401486023 and parameters: {'n_estimators': 200, 'max_depth': 8, 'min_samples_split': 13, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 15 with value: 0.7822549401486023.
+[I 2026-06-08 15:39:29,594] Trial 17 finished with value: 0.7825585948952496 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 12, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 15:40:34,925] Trial 13 finished with value: 0.774718543462418 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 12, 'min_samples_leaf': 8, 'max_features': 'sqrt'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 15:46:22,904] Trial 18 finished with value: 0.7825585948952496 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 15, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 15:53:57,873] Trial 19 finished with value: 0.7816225006073095 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 13, 'min_samples_leaf': 9, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 15:59:16,215] Trial 21 finished with value: 0.7814628200939864 and parameters: {'n_estimators': 250, 'max_depth': 6, 'min_samples_split': 15, 'min_samples_leaf': 11, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:00:22,907] Trial 20 finished with value: 0.778493286088843 and parameters: {'n_estimators': 250, 'max_depth': 8, 'min_samples_split': 11, 'min_samples_leaf': 12, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:03:58,068] Trial 22 finished with value: 0.7803895576273884 and parameters: {'n_estimators': 250, 'max_depth': 5, 'min_samples_split': 11, 'min_samples_leaf': 11, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:12:53,534] Trial 23 finished with value: 0.7814628200939864 and parameters: {'n_estimators': 250, 'max_depth': 6, 'min_samples_split': 10, 'min_samples_leaf': 11, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:20:47,286] Trial 24 finished with value: 0.7765991087209643 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 10, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:22:06,784] Trial 25 finished with value: 0.7765991087209643 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 15, 'min_samples_leaf': 10, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:26:11,511] Trial 26 finished with value: 0.776582355355632 and parameters: {'n_estimators': 250, 'max_depth': 9, 'min_samples_split': 15, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:30:31,066] Trial 27 finished with value: 0.77541799646504 and parameters: {'n_estimators': 200, 'max_depth': 9, 'min_samples_split': 15, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 17 with value: 0.7825585948952496.
+[I 2026-06-08 16:36:46,207] Trial 28 finished with value: 0.7855082342790608 and parameters: {'n_estimators': 200, 'max_depth': 7, 'min_samples_split': 15, 'min_samples_leaf': 8, 'max_features': 'log2'}. Best is trial 28 with value: 0.7855082342790608.
+[I 2026-06-08 16:38:31,903] Trial 29 finished with value: 0.7786880439608306 and parameters: {'n_estimators': 200, 'max_depth': 7, 'min_samples_split': 15, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 28 with value: 0.7855082342790608.
+[I 2026-06-08 16:42:25,236] Trial 30 finished with value: 0.7803413917020582 and parameters: {'n_estimators': 200, 'max_depth': 7, 'min_samples_split': 14, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 28 with value: 0.7855082342790608.
+[I 2026-06-08 16:47:49,399] Trial 33 finished with value: 0.782306770872599 and parameters: {'n_estimators': 150, 'max_depth': 4, 'min_samples_split': 14, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 28 with value: 0.7855082342790608.
+[I 2026-06-08 16:51:09,595] Trial 32 finished with value: 0.7760666658289984 and parameters: {'n_estimators': 300, 'max_depth': 3, 'min_samples_split': 14, 'min_samples_leaf': 7, 'max_features': 'log2'}. Best is trial 28 with value: 0.7855082342790608.
