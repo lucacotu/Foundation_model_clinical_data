@@ -141,13 +141,27 @@ def plot_section(prep_data, section_label, ax, model):
             ax.fill_between(x_arr, y_arr - s_arr, y_arr + s_arr,
                             alpha=0.15, color=color)
 
+    all_means = [
+        entry["mean"]
+        for ss in sample_sizes
+        for entry in prep_data[ss].values()
+    ]
+    all_stds = [
+        entry["std"]
+        for ss in sample_sizes
+        for entry in prep_data[ss].values()
+    ]
+    pad = 0.03
+    y_min = max(0.0, min(m - s for m, s in zip(all_means, all_stds)) - pad)
+    y_max = min(1.0, max(m + s for m, s in zip(all_means, all_stds)) + pad)
+
     tick_labels = [str(int(ss)) if ss == int(ss) else f"{ss:.0f}" for ss in sample_sizes]
     ax.set_xticks(x_positions)
     ax.set_xticklabels(tick_labels, rotation=30, ha="right", fontsize=8)
     ax.set_xlabel("Sample size (actual mean)", fontsize=10)
     ax.set_ylabel("C-index (Test)", fontsize=10)
     ax.set_title(f"Preprocessing: {section_label}", fontsize=11, fontweight="bold")
-    ax.set_ylim(0.4, 1.0)
+    ax.set_ylim(y_min, y_max)
     ax.grid(axis="both", linestyle="--", alpha=0.4)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
