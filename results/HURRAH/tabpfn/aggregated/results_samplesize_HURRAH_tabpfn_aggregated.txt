@@ -1,0 +1,205 @@
+
+Dataset: HURRAH | Model: tabpfn | Seeds: 42, 77, 123, 456, 789 (aggregated, n=5)
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple                  → mean: 0.9549 | std: 0.0076 | min: 0.9229 | max: 0.9854
+    TEST  tabpfn+DS-simple                  → mean: 0.7517 | std: 0.0190 | min: 0.6551 | max: 0.8061
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9635 | std: 0.0066 | min: 0.9247 | max: 0.9853
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7435 | std: 0.0148 | min: 0.6518 | max: 0.7994
+    TRAIN tabpfn+RSF                        → mean: 0.9605 | std: 0.0081 | min: 0.9382 | max: 0.9812
+    TEST  tabpfn+RSF                        → mean: 0.7054 | std: 0.0264 | min: 0.5919 | max: 0.7900
+    TRAIN tabpfn+Cox                        → mean: 0.9853 | std: 0.0043 | min: 0.9635 | max: 0.9958
+    TEST  tabpfn+Cox                        → mean: 0.6896 | std: 0.0360 | min: 0.5379 | max: 0.7829
+    TRAIN DS-simple (base)                  → mean: 0.8679 | std: 0.0471 | min: 0.5090 | max: 0.9698
+    TEST  DS-simple (base)                  → mean: 0.6877 | std: 0.0314 | min: 0.4791 | max: 0.7861
+    TRAIN DS-vanilla (base)                 → mean: 0.7898 | std: 0.0291 | min: 0.5318 | max: 0.9254
+    TEST  DS-vanilla (base)                 → mean: 0.6226 | std: 0.0271 | min: 0.5218 | max: 0.7149
+    TRAIN RSF (base)                        → mean: 0.9667 | std: 0.0027 | min: 0.9379 | max: 0.9965
+    TEST  RSF (base)                        → mean: 0.7036 | std: 0.0248 | min: 0.6063 | max: 0.7785
+    TRAIN Cox (base)                        → mean: 0.9384 | std: 0.0099 | min: 0.8747 | max: 0.9795
+    TEST  Cox (base)                        → mean: 0.7362 | std: 0.0187 | min: 0.6448 | max: 0.7876
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple                  → mean: 0.9515 | std: 0.0046 | min: 0.9337 | max: 0.9636
+    TEST  tabpfn+DS-simple                  → mean: 0.8141 | std: 0.0020 | min: 0.7916 | max: 0.8396
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9579 | std: 0.0026 | min: 0.9473 | max: 0.9698
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8032 | std: 0.0047 | min: 0.7724 | max: 0.8402
+    TRAIN tabpfn+RSF                        → mean: 0.9799 | std: 0.0016 | min: 0.9731 | max: 0.9889
+    TEST  tabpfn+RSF                        → mean: 0.7795 | std: 0.0083 | min: 0.7421 | max: 0.8208
+    TRAIN tabpfn+Cox                        → mean: 0.9676 | std: 0.0022 | min: 0.9591 | max: 0.9766
+    TEST  tabpfn+Cox                        → mean: 0.7355 | std: 0.0555 | min: 0.3293 | max: 0.8281
+    TRAIN DS-simple (base)                  → mean: 0.8594 | std: 0.0138 | min: 0.8160 | max: 0.8988
+    TEST  DS-simple (base)                  → mean: 0.8042 | std: 0.0023 | min: 0.7820 | max: 0.8273
+    TRAIN DS-vanilla (base)                 → mean: 0.8470 | std: 0.0208 | min: 0.6624 | max: 0.9310
+    TEST  DS-vanilla (base)                 → mean: 0.7553 | std: 0.0159 | min: 0.6050 | max: 0.8006
+    TRAIN RSF (base)                        → mean: 0.9474 | std: 0.0039 | min: 0.9308 | max: 0.9623
+    TEST  RSF (base)                        → mean: 0.7906 | std: 0.0066 | min: 0.7431 | max: 0.8189
+    TRAIN Cox (base)                        → mean: 0.8563 | std: 0.0119 | min: 0.8138 | max: 0.8879
+    TEST  Cox (base)                        → mean: 0.8053 | std: 0.0035 | min: 0.7722 | max: 0.8318
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple                  → mean: 0.9504 | std: 0.0030 | min: 0.9424 | max: 0.9582
+    TEST  tabpfn+DS-simple                  → mean: 0.8262 | std: 0.0028 | min: 0.8054 | max: 0.8450
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9534 | std: 0.0027 | min: 0.9436 | max: 0.9628
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7950 | std: 0.0290 | min: 0.5041 | max: 0.8343
+    TRAIN tabpfn+RSF                        → mean: 0.9806 | std: 0.0015 | min: 0.9769 | max: 0.9845
+    TEST  tabpfn+RSF                        → mean: 0.7947 | std: 0.0120 | min: 0.7043 | max: 0.8298
+    TRAIN tabpfn+Cox                        → mean: 0.9621 | std: 0.0021 | min: 0.9555 | max: 0.9673
+    TEST  tabpfn+Cox                        → mean: 0.7684 | std: 0.0343 | min: 0.6059 | max: 0.8312
+    TRAIN DS-simple (base)                  → mean: 0.8508 | std: 0.0026 | min: 0.8320 | max: 0.8640
+    TEST  DS-simple (base)                  → mean: 0.8224 | std: 0.0015 | min: 0.7997 | max: 0.8450
+    TRAIN DS-vanilla (base)                 → mean: 0.8462 | std: 0.0137 | min: 0.7632 | max: 0.8957
+    TEST  DS-vanilla (base)                 → mean: 0.7920 | std: 0.0094 | min: 0.7290 | max: 0.8244
+    TRAIN RSF (base)                        → mean: 0.9473 | std: 0.0025 | min: 0.9376 | max: 0.9574
+    TEST  RSF (base)                        → mean: 0.8116 | std: 0.0031 | min: 0.7888 | max: 0.8300
+    TRAIN Cox (base)                        → mean: 0.8434 | std: 0.0040 | min: 0.8255 | max: 0.8663
+    TEST  Cox (base)                        → mean: 0.8168 | std: 0.0014 | min: 0.7962 | max: 0.8443
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple                  → mean: 0.9501 | std: 0.0011 | min: 0.9452 | max: 0.9541
+    TEST  tabpfn+DS-simple                  → mean: 0.8369 | std: 0.0010 | min: 0.8237 | max: 0.8511
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9539 | std: 0.0023 | min: 0.9461 | max: 0.9595
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8094 | std: 0.0357 | min: 0.6713 | max: 0.8442
+    TRAIN tabpfn+RSF                        → mean: 0.9811 | std: 0.0005 | min: 0.9776 | max: 0.9851
+    TEST  tabpfn+RSF                        → mean: 0.8158 | std: 0.0097 | min: 0.7838 | max: 0.8391
+    TRAIN tabpfn+Cox                        → mean: 0.9601 | std: 0.0009 | min: 0.9556 | max: 0.9662
+    TEST  tabpfn+Cox                        → mean: 0.8169 | std: 0.0172 | min: 0.7343 | max: 0.8491
+    TRAIN DS-simple (base)                  → mean: 0.8434 | std: 0.0040 | min: 0.8259 | max: 0.8515
+    TEST  DS-simple (base)                  → mean: 0.8287 | std: 0.0012 | min: 0.8143 | max: 0.8460
+    TRAIN DS-vanilla (base)                 → mean: 0.8471 | std: 0.0080 | min: 0.8071 | max: 0.8786
+    TEST  DS-vanilla (base)                 → mean: 0.8175 | std: 0.0041 | min: 0.7878 | max: 0.8364
+    TRAIN RSF (base)                        → mean: 0.9459 | std: 0.0012 | min: 0.9369 | max: 0.9495
+    TEST  RSF (base)                        → mean: 0.8323 | std: 0.0012 | min: 0.8144 | max: 0.8535
+    TRAIN Cox (base)                        → mean: 0.8355 | std: 0.0039 | min: 0.8194 | max: 0.8471
+    TEST  Cox (base)                        → mean: 0.8224 | std: 0.0010 | min: 0.8061 | max: 0.8448
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple                  → mean: 0.9542 | std: 0.0036 | min: 0.9467 | max: 0.9648
+    TEST  tabpfn+DS-simple                  → mean: 0.8407 | std: 0.0006 | min: 0.8213 | max: 0.8549
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9558 | std: 0.0010 | min: 0.9507 | max: 0.9611
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8108 | std: 0.0219 | min: 0.5951 | max: 0.8523
+    TRAIN tabpfn+RSF                        → mean: 0.9815 | std: 0.0001 | min: 0.9801 | max: 0.9827
+    TEST  tabpfn+RSF                        → mean: 0.8145 | std: 0.0118 | min: 0.7747 | max: 0.8417
+    TRAIN tabpfn+Cox                        → mean: 0.9583 | std: 0.0016 | min: 0.9537 | max: 0.9636
+    TEST  tabpfn+Cox                        → mean: 0.8320 | std: 0.0100 | min: 0.7682 | max: 0.8539
+    TRAIN DS-simple (base)                  → mean: 0.8381 | std: 0.0018 | min: 0.8274 | max: 0.8485
+    TEST  DS-simple (base)                  → mean: 0.8308 | std: 0.0003 | min: 0.8168 | max: 0.8452
+    TRAIN DS-vanilla (base)                 → mean: 0.8521 | std: 0.0061 | min: 0.7931 | max: 0.8768
+    TEST  DS-vanilla (base)                 → mean: 0.8288 | std: 0.0041 | min: 0.7933 | max: 0.8454
+    TRAIN RSF (base)                        → mean: 0.9447 | std: 0.0006 | min: 0.9417 | max: 0.9484
+    TEST  RSF (base)                        → mean: 0.8427 | std: 0.0019 | min: 0.8268 | max: 0.8557
+    TRAIN Cox (base)                        → mean: 0.8313 | std: 0.0014 | min: 0.8211 | max: 0.8412
+    TEST  Cox (base)                        → mean: 0.8247 | std: 0.0006 | min: 0.8119 | max: 0.8471
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabpfn+DS-simple                  → mean: 0.9579 | std: 0.0016 | min: 0.9508 | max: 0.9613
+    TEST  tabpfn+DS-simple                  → mean: 0.8443 | std: 0.0034 | min: 0.8297 | max: 0.8603
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.8484 | std: 0.1282 | min: 0.0807 | max: 0.9594
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7698 | std: 0.0595 | min: 0.2377 | max: 0.8575
+    TRAIN tabpfn+RSF                        → mean: 0.9819 | std: 0.0002 | min: 0.9805 | max: 0.9829
+    TEST  tabpfn+RSF                        → mean: 0.8153 | std: 0.0116 | min: 0.7330 | max: 0.8484
+    TRAIN tabpfn+Cox                        → mean: 0.9574 | std: 0.0015 | min: 0.9537 | max: 0.9614
+    TEST  tabpfn+Cox                        → mean: 0.8436 | std: 0.0039 | min: 0.8250 | max: 0.8605
+    TRAIN DS-simple (base)                  → mean: 0.8100 | std: 0.0261 | min: 0.5379 | max: 0.8395
+    TEST  DS-simple (base)                  → mean: 0.8088 | std: 0.0242 | min: 0.5620 | max: 0.8454
+    TRAIN DS-vanilla (base)                 → mean: 0.8045 | std: 0.0372 | min: 0.4178 | max: 0.8556
+    TEST  DS-vanilla (base)                 → mean: 0.7985 | std: 0.0370 | min: 0.4200 | max: 0.8456
+    TRAIN RSF (base)                        → mean: 0.9429 | std: 0.0006 | min: 0.9402 | max: 0.9450
+    TEST  RSF (base)                        → mean: 0.8496 | std: 0.0012 | min: 0.8352 | max: 0.8629
+    TRAIN Cox (base)                        → mean: 0.8287 | std: 0.0010 | min: 0.8227 | max: 0.8329
+    TEST  Cox (base)                        → mean: 0.8260 | std: 0.0005 | min: 0.8137 | max: 0.8482
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabpfn+DS-simple                  → mean: 0.9601 | std: 0.0006 | min: 0.9556 | max: 0.9623
+    TEST  tabpfn+DS-simple                  → mean: 0.8435 | std: 0.0017 | min: 0.8187 | max: 0.8595
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9554 | std: 0.0004 | min: 0.9513 | max: 0.9585
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7493 | std: 0.0736 | min: 0.2755 | max: 0.8497
+    TRAIN tabpfn+RSF                        → mean: 0.9821 | std: 0.0003 | min: 0.9812 | max: 0.9828
+    TEST  tabpfn+RSF                        → mean: 0.8063 | std: 0.0107 | min: 0.7703 | max: 0.8320
+    TRAIN tabpfn+Cox                        → mean: 0.9570 | std: 0.0014 | min: 0.9533 | max: 0.9594
+    TEST  tabpfn+Cox                        → mean: 0.8454 | std: 0.0035 | min: 0.8307 | max: 0.8598
+    TRAIN DS-simple (base)                  → mean: 0.8365 | std: 0.0009 | min: 0.8311 | max: 0.8411
+    TEST  DS-simple (base)                  → mean: 0.8341 | std: 0.0008 | min: 0.8245 | max: 0.8536
+    TRAIN DS-vanilla (base)                 → mean: 0.8536 | std: 0.0025 | min: 0.8285 | max: 0.8664
+    TEST  DS-vanilla (base)                 → mean: 0.8447 | std: 0.0020 | min: 0.8277 | max: 0.8614
+    TRAIN RSF (base)                        → mean: 0.9418 | std: 0.0003 | min: 0.9406 | max: 0.9435
+    TEST  RSF (base)                        → mean: 0.8520 | std: 0.0006 | min: 0.8397 | max: 0.8658
+    TRAIN Cox (base)                        → mean: 0.8282 | std: 0.0001 | min: 0.8241 | max: 0.8313
+    TEST  Cox (base)                        → mean: 0.8263 | std: 0.0004 | min: 0.8151 | max: 0.8468
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple                  → mean: 0.9544 | std: 0.0076 | min: 0.9158 | max: 0.9844
+    TEST  tabpfn+DS-simple                  → mean: 0.7480 | std: 0.0258 | min: 0.6567 | max: 0.7973
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9631 | std: 0.0041 | min: 0.9310 | max: 0.9844
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7414 | std: 0.0259 | min: 0.6414 | max: 0.7890
+    TRAIN tabpfn+RSF                        → mean: 0.9598 | std: 0.0067 | min: 0.9409 | max: 0.9829
+    TEST  tabpfn+RSF                        → mean: 0.6864 | std: 0.0411 | min: 0.4066 | max: 0.7901
+    TRAIN tabpfn+Cox                        → mean: 0.9698 | std: 0.0295 | min: 0.6195 | max: 0.9958
+    TEST  tabpfn+Cox                        → mean: 0.6356 | std: 0.0669 | min: 0.3788 | max: 0.7829
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple                  → mean: 0.9505 | std: 0.0035 | min: 0.9341 | max: 0.9617
+    TEST  tabpfn+DS-simple                  → mean: 0.8083 | std: 0.0032 | min: 0.7806 | max: 0.8334
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9565 | std: 0.0015 | min: 0.9425 | max: 0.9688
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8002 | std: 0.0039 | min: 0.7471 | max: 0.8167
+    TRAIN tabpfn+RSF                        → mean: 0.9801 | std: 0.0015 | min: 0.9714 | max: 0.9880
+    TEST  tabpfn+RSF                        → mean: 0.7667 | std: 0.0070 | min: 0.6874 | max: 0.8123
+    TRAIN tabpfn+Cox                        → mean: 0.9635 | std: 0.0053 | min: 0.8894 | max: 0.9805
+    TEST  tabpfn+Cox                        → mean: 0.7648 | std: 0.0378 | min: 0.4433 | max: 0.8154
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple                  → mean: 0.9491 | std: 0.0027 | min: 0.9397 | max: 0.9576
+    TEST  tabpfn+DS-simple                  → mean: 0.8211 | std: 0.0021 | min: 0.8075 | max: 0.8394
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9524 | std: 0.0033 | min: 0.9435 | max: 0.9617
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8106 | std: 0.0074 | min: 0.7503 | max: 0.8387
+    TRAIN tabpfn+RSF                        → mean: 0.9817 | std: 0.0011 | min: 0.9767 | max: 0.9860
+    TEST  tabpfn+RSF                        → mean: 0.7775 | std: 0.0144 | min: 0.6886 | max: 0.8187
+    TRAIN tabpfn+Cox                        → mean: 0.9614 | std: 0.0019 | min: 0.9535 | max: 0.9689
+    TEST  tabpfn+Cox                        → mean: 0.7541 | std: 0.0386 | min: 0.4623 | max: 0.8237
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple                  → mean: 0.9492 | std: 0.0013 | min: 0.9429 | max: 0.9575
+    TEST  tabpfn+DS-simple                  → mean: 0.8322 | std: 0.0013 | min: 0.8159 | max: 0.8460
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9522 | std: 0.0018 | min: 0.9465 | max: 0.9600
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8084 | std: 0.0125 | min: 0.7453 | max: 0.8354
+    TRAIN tabpfn+RSF                        → mean: 0.9811 | std: 0.0005 | min: 0.9785 | max: 0.9849
+    TEST  tabpfn+RSF                        → mean: 0.8025 | std: 0.0159 | min: 0.7660 | max: 0.8263
+    TRAIN tabpfn+Cox                        → mean: 0.9582 | std: 0.0009 | min: 0.9507 | max: 0.9639
+    TEST  tabpfn+Cox                        → mean: 0.7940 | std: 0.0267 | min: 0.6627 | max: 0.8351
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple                  → mean: 0.9540 | std: 0.0036 | min: 0.9445 | max: 0.9649
+    TEST  tabpfn+DS-simple                  → mean: 0.8362 | std: 0.0013 | min: 0.8207 | max: 0.8493
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9548 | std: 0.0014 | min: 0.9486 | max: 0.9629
+    TEST  tabpfn+DS-vanilla                 → mean: 0.8210 | std: 0.0079 | min: 0.7724 | max: 0.8503
+    TRAIN tabpfn+RSF                        → mean: 0.9820 | std: 0.0004 | min: 0.9799 | max: 0.9839
+    TEST  tabpfn+RSF                        → mean: 0.8079 | std: 0.0127 | min: 0.7323 | max: 0.8335
+    TRAIN tabpfn+Cox                        → mean: 0.9576 | std: 0.0010 | min: 0.9534 | max: 0.9620
+    TEST  tabpfn+Cox                        → mean: 0.8199 | std: 0.0212 | min: 0.7167 | max: 0.8470
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabpfn+DS-simple                  → mean: 0.9471 | std: 0.0180 | min: 0.7265 | max: 0.9638
+    TEST  tabpfn+DS-simple                  → mean: 0.8350 | std: 0.0060 | min: 0.8091 | max: 0.8540
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9026 | std: 0.0860 | min: 0.3875 | max: 0.9613
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7615 | std: 0.0570 | min: 0.1846 | max: 0.8528
+    TRAIN tabpfn+RSF                        → mean: 0.9821 | std: 0.0003 | min: 0.9808 | max: 0.9834
+    TEST  tabpfn+RSF                        → mean: 0.7978 | std: 0.0139 | min: 0.7374 | max: 0.8368
+    TRAIN tabpfn+Cox                        → mean: 0.9572 | std: 0.0006 | min: 0.9528 | max: 0.9606
+    TEST  tabpfn+Cox                        → mean: 0.8374 | std: 0.0043 | min: 0.8180 | max: 0.8541
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabpfn+DS-simple                  → mean: 0.9584 | std: 0.0007 | min: 0.9547 | max: 0.9613
+    TEST  tabpfn+DS-simple                  → mean: 0.8393 | std: 0.0053 | min: 0.8201 | max: 0.8548
+    TRAIN tabpfn+DS-vanilla                 → mean: 0.9559 | std: 0.0011 | min: 0.9526 | max: 0.9599
+    TEST  tabpfn+DS-vanilla                 → mean: 0.7991 | std: 0.0145 | min: 0.6719 | max: 0.8467
+    TRAIN tabpfn+RSF                        → mean: 0.9822 | std: 0.0002 | min: 0.9813 | max: 0.9829
+    TEST  tabpfn+RSF                        → mean: 0.7935 | std: 0.0223 | min: 0.7142 | max: 0.8355
+    TRAIN tabpfn+Cox                        → mean: 0.9568 | std: 0.0009 | min: 0.9547 | max: 0.9595
+    TEST  tabpfn+Cox                        → mean: 0.8408 | std: 0.0043 | min: 0.8291 | max: 0.8545
