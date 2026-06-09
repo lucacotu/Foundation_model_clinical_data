@@ -1,0 +1,1429 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabicl/embedding.py:142: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  y_t = torch.from_numpy(y_ctx).long().unsqueeze(0).to(self.device)    # (1, ctx_size)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Subclinical primary hyperthyroidism\n(SCT)', 'Ipertiroidismo', 'Normal', 'SindromeX', 'MIN', 'MIO', 'Miocardite', 'Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column CABG  have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'CABG '].var())
+>>> print(df.loc[~events, 'CABG '].var())
+
+A very low variance means that the column CABG  completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipotiroidismo', 'MIN', 'MIO', 'Miocardite', 'EPA', 'Ictus', 'Ictus_event'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ipertiroidismo has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MIN', 'MIO', 'Endocardite', 'EmboliaPolmonare'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column Ipotiroidismo have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'Ipotiroidismo'].var())
+>>> print(df.loc[~events, 'Ipotiroidismo'].var())
+
+A very low variance means that the column Ipotiroidismo completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column SindromeX has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Miocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipertiroidismo', 'SindromeX', 'MIO', 'Miocardite', 'Pericardite', 'Endocardite', 'EmboliaPolmonare', 'Ictus', 'Ictus_event'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column AMI have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'AMI'].var())
+>>> print(df.loc[~events, 'AMI'].var())
+
+A very low variance means that the column AMI completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Endocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Miocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MIO'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+Model:        tabicl
+Seed:         77
+Sample sizes: [100, 500, 1000, 2500, 5000, 10000, 15000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8640  test=0.6072
+  [tabicl+DS-vanilla] train=0.9182  test=0.6183
+  [tabicl+RSF]        train=0.9121  test=0.5968
+  [tabicl+Cox]        train=0.9947  test=0.6021
+  [DS-simple]         train=0.7015  test=0.6211
+  [DS-vanilla]        train=0.8432  test=0.6757
+  [RSF]               train=0.9133  test=0.7406
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8664  test=0.5680
+  [tabicl+DS-vanilla] train=0.9132  test=0.6294
+  [tabicl+RSF]        train=0.9247  test=0.6133
+  [tabicl+Cox]        train=0.9983  test=0.5301
+  [DS-simple]         train=0.6346  test=0.6458
+  [DS-vanilla]        train=0.7869  test=0.6541
+  [RSF]               train=0.8928  test=0.7550
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8697  test=0.5366
+  [tabicl+DS-vanilla] train=0.9229  test=0.6485
+  [tabicl+RSF]        train=0.9502  test=0.5990
+  [tabicl+Cox]        train=0.9969  test=0.6074
+  [DS-simple]         train=0.7417  test=0.6521
+  [DS-vanilla]        train=0.8343  test=0.6463
+  [RSF]               train=0.8852  test=0.7030
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8676  test=0.6003
+  [tabicl+DS-vanilla] train=0.9429  test=0.6242
+  [tabicl+RSF]        train=0.9319  test=0.5856
+  [tabicl+Cox]        train=0.9972  test=0.6504
+  [DS-simple]         train=0.7699  test=0.6438
+  [DS-vanilla]        train=0.6268  test=0.5600
+  [RSF]               train=0.9261  test=0.7253
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8728  test=0.6095
+  [tabicl+DS-vanilla] train=0.8850  test=0.5966
+  [tabicl+RSF]        train=0.9285  test=0.6491
+  [tabicl+Cox]        train=0.9962  test=0.6059
+  [DS-simple]         train=0.7512  test=0.6148
+  [DS-vanilla]        train=0.6760  test=0.5994
+  [RSF]               train=0.9031  test=0.7323
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9079  test=0.7219
+  [tabicl+DS-vanilla] train=0.9057  test=0.6998
+  [tabicl+RSF]        train=0.9568  test=0.7179
+  [tabicl+Cox]        train=0.9562  test=0.6332
+  [DS-simple]         train=0.8117  test=0.7527
+  [DS-vanilla]        train=0.8020  test=0.7426
+  [RSF]               train=0.9198  test=0.7667
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.8817  test=0.6662
+  [tabicl+DS-vanilla] train=0.9108  test=0.7089
+  [tabicl+RSF]        train=0.9610  test=0.6919
+  [tabicl+Cox]        train=0.9463  test=0.6656
+  [DS-simple]         train=0.7826  test=0.7698
+  [DS-vanilla]        train=0.8289  test=0.7489
+  [RSF]               train=0.9011  test=0.7988
+  [Cox]               train=0.7991  test=0.7915
+  Fold 3: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.8963  test=0.6777
+  [tabicl+DS-vanilla] train=0.9068  test=0.6647
+  [tabicl+RSF]        train=0.9577  test=0.6964
+  [tabicl+Cox]        train=0.9631  test=0.6643
+  [DS-simple]         train=0.7724  test=0.7678
+  [DS-vanilla]        train=0.7961  test=0.7590
+  [RSF]               train=0.9103  test=0.7690
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9091  test=0.6958
+  [tabicl+DS-vanilla] train=0.9540  test=0.6729
+  [tabicl+RSF]        train=0.9612  test=0.6950
+  [tabicl+Cox]        train=0.9639  test=0.6358
+  [DS-simple]         train=0.7999  test=0.7446
+  [DS-vanilla]        train=0.8010  test=0.6946
+  [RSF]               train=0.9172  test=0.7497
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9132  test=0.7073
+  [tabicl+DS-vanilla] train=0.9155  test=0.7222
+  [tabicl+RSF]        train=0.9626  test=0.7126
+  [tabicl+Cox]        train=0.9608  test=0.6781
+  [DS-simple]         train=0.8129  test=0.7589
+  [DS-vanilla]        train=0.8316  test=0.7265
+  [RSF]               train=0.9254  test=0.7849
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9302  test=0.7068
+  [tabicl+DS-vanilla] train=0.9203  test=0.7378
+  [tabicl+RSF]        train=0.9587  test=0.7390
+  [tabicl+Cox]        train=0.9393  test=0.6762
+  [DS-simple]         train=0.7712  test=0.7495
+  [DS-vanilla]        train=0.7841  test=0.7485
+  [RSF]               train=0.9111  test=0.7748
+  [Cox]               train=0.8205  test=0.7754
+  Fold 2: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9319  test=0.6976
+  [tabicl+DS-vanilla] train=0.9213  test=0.7273
+  [tabicl+RSF]        train=0.9643  test=0.6862
+  [tabicl+Cox]        train=0.9448  test=0.6561
+  [DS-simple]         train=0.7826  test=0.7722
+  [DS-vanilla]        train=0.8357  test=0.7841
+  [RSF]               train=0.9094  test=0.8061
+  [Cox]               train=0.8174  test=0.7966
+  Fold 3: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.8961  test=0.7433
+  [tabicl+DS-vanilla] train=0.9280  test=0.7550
+  [tabicl+RSF]        train=0.9596  test=0.7432
+  [tabicl+Cox]        train=0.9473  test=0.7001
+  [DS-simple]         train=0.8135  test=0.7656
+  [DS-vanilla]        train=0.8301  test=0.7810
+  [RSF]               train=0.9141  test=0.7986
+  [Cox]               train=0.8286  test=0.7964
+  Fold 4: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9071  test=0.7113
+  [tabicl+DS-vanilla] train=0.9212  test=0.7164
+  [tabicl+RSF]        train=0.9618  test=0.6907
+  [tabicl+Cox]        train=0.9440  test=0.6856
+  [DS-simple]         train=0.8015  test=0.7600
+  [DS-vanilla]        train=0.8143  test=0.7518
+  [RSF]               train=0.9134  test=0.7640
+  [Cox]               train=0.8112  test=0.7661
+  Fold 5: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9038  test=0.7150
+  [tabicl+DS-vanilla] train=0.9338  test=0.7334
+  [tabicl+RSF]        train=0.9645  test=0.7214
+  [tabicl+Cox]        train=0.9500  test=0.7038
+  [DS-simple]         train=0.8333  test=0.7783
+  [DS-vanilla]        train=0.8396  test=0.7685
+  [RSF]               train=0.9208  test=0.7808
+  [Cox]               train=0.8343  test=0.7871
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9144  test=0.7106
+  [tabicl+DS-vanilla] train=0.9250  test=0.7299
+  [tabicl+RSF]        train=0.9630  test=0.7291
+  [tabicl+Cox]        train=0.9303  test=0.7251
+  [DS-simple]         train=0.7625  test=0.7539
+  [DS-vanilla]        train=0.8207  test=0.7731
+  [RSF]               train=0.9133  test=0.7869
+  [Cox]               train=0.8065  test=0.7824
+  Fold 2: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9179  test=0.7283
+  [tabicl+DS-vanilla] train=0.9153  test=0.7445
+  [tabicl+RSF]        train=0.9633  test=0.7212
+  [tabicl+Cox]        train=0.9311  test=0.7230
+  [DS-simple]         train=0.7675  test=0.7809
+  [DS-vanilla]        train=0.8076  test=0.8010
+  [RSF]               train=0.9055  test=0.8031
+  [Cox]               train=0.8049  test=0.8018
+  Fold 3: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9122  test=0.7557
+  [tabicl+DS-vanilla] train=0.9230  test=0.7708
+  [tabicl+RSF]        train=0.9636  test=0.7430
+  [tabicl+Cox]        train=0.9318  test=0.7370
+  [DS-simple]         train=0.8014  test=0.7934
+  [DS-vanilla]        train=0.8099  test=0.7973
+  [RSF]               train=0.9147  test=0.8028
+  [Cox]               train=0.8040  test=0.8044
+  Fold 4: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9296  test=0.6916
+  [tabicl+DS-vanilla] train=0.9288  test=0.7289
+  [tabicl+RSF]        train=0.9624  test=0.7053
+  [tabicl+Cox]        train=0.9322  test=0.6897
+  [DS-simple]         train=0.8051  test=0.7681
+  [DS-vanilla]        train=0.8045  test=0.7709
+  [RSF]               train=0.9150  test=0.7731
+  [Cox]               train=0.8100  test=0.7768
+  Fold 5: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9222  test=0.7048
+  [tabicl+DS-vanilla] train=0.9198  test=0.7456
+  [tabicl+RSF]        train=0.9662  test=0.7211
+  [tabicl+Cox]        train=0.9351  test=0.7176
+  [DS-simple]         train=0.8029  test=0.7860
+  [DS-vanilla]        train=0.7993  test=0.7787
+  [RSF]               train=0.9117  test=0.7880
+  [Cox]               train=0.8054  test=0.7891
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9243  test=0.7530
+  [tabicl+DS-vanilla] train=0.9214  test=0.7582
+  [tabicl+RSF]        train=0.9632  test=0.7333
+  [tabicl+Cox]        train=0.9276  test=0.7539
+  [DS-simple]         train=0.7964  test=0.7785
+  [DS-vanilla]        train=0.8083  test=0.7757
+  [RSF]               train=0.9087  test=0.7897
+  [Cox]               train=0.8032  test=0.7844
+  Fold 2: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9264  test=0.7419
+  [tabicl+DS-vanilla] train=0.9230  test=0.7481
+  [tabicl+RSF]        train=0.9621  test=0.7377
+  [tabicl+Cox]        train=0.9276  test=0.7320
+  [DS-simple]         train=0.7753  test=0.8046
+  [DS-vanilla]        train=0.8073  test=0.8096
+  [RSF]               train=0.9048  test=0.8148
+  [Cox]               train=0.7976  test=0.8059
+  Fold 3: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9235  test=0.7573
+  [tabicl+DS-vanilla] train=0.9210  test=0.7759
+  [tabicl+RSF]        train=0.9623  test=0.7602
+  [tabicl+Cox]        train=0.9260  test=0.7623
+  [DS-simple]         train=0.7765  test=0.7832
+  [DS-vanilla]        train=0.8037  test=0.8000
+  [RSF]               train=0.9062  test=0.7979
+  [Cox]               train=0.7991  test=0.8062
+  Fold 4: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9275  test=0.7053
+  [tabicl+DS-vanilla] train=0.9272  test=0.7385
+  [tabicl+RSF]        train=0.9643  test=0.7154
+  [tabicl+Cox]        train=0.9288  test=0.7340
+  [DS-simple]         train=0.8018  test=0.7743
+  [DS-vanilla]        train=0.8072  test=0.7796
+  [RSF]               train=0.9119  test=0.7774
+  [Cox]               train=0.8048  test=0.7797
+  Fold 5: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9246  test=0.7021
+  [tabicl+DS-vanilla] train=0.9262  test=0.7193
+  [tabicl+RSF]        train=0.9656  test=0.7192
+  [tabicl+Cox]        train=0.9270  test=0.7285
+  [DS-simple]         train=0.7966  test=0.7832
+  [DS-vanilla]        train=0.8033  test=0.7895
+  [RSF]               train=0.9100  test=0.7939
+  [Cox]               train=0.8021  test=0.7922
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9229  test=0.7378
+  [tabicl+DS-vanilla] train=0.9232  test=0.7515
+  [tabicl+RSF]        train=0.9638  test=0.7276
+  [tabicl+Cox]        train=0.9277  test=0.7555
+  [DS-simple]         train=0.7764  test=0.7610
+  [DS-vanilla]        train=0.8080  test=0.7815
+  [RSF]               train=0.9079  test=0.7946
+  [Cox]               train=0.8025  test=0.7858
+  Fold 2: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9259  test=0.7272
+  [tabicl+DS-vanilla] train=0.9220  test=0.7542
+  [tabicl+RSF]        train=0.9617  test=0.7389
+  [tabicl+Cox]        train=0.9274  test=0.7330
+  [DS-simple]         train=0.7853  test=0.7935
+  [DS-vanilla]        train=0.8032  test=0.8058
+  [RSF]               train=0.9052  test=0.8087
+  [Cox]               train=0.7980  test=0.8055
+  Fold 3: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9190  test=0.7542
+  [tabicl+DS-vanilla] train=0.9216  test=0.7530
+  [tabicl+RSF]        train=0.9615  test=0.7580
+  [tabicl+Cox]        train=0.9262  test=0.7622
+  [DS-simple]         train=0.7816  test=0.7946
+  [DS-vanilla]        train=0.7931  test=0.7902
+  [RSF]               train=0.9061  test=0.8036
+  [Cox]               train=0.7982  test=0.8060
+  Fold 4: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9255  test=0.7103
+  [tabicl+DS-vanilla] train=0.9227  test=0.7427
+  [tabicl+RSF]        train=0.9641  test=0.7044
+  [tabicl+Cox]        train=0.9289  test=0.7339
+  [DS-simple]         train=0.7947  test=0.7705
+  [DS-vanilla]        train=0.8046  test=0.7796
+  [RSF]               train=0.9121  test=0.7834
+  [Cox]               train=0.8041  test=0.7792
+  Fold 5: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9218  test=0.7094
+  [tabicl+DS-vanilla] train=0.9226  test=0.7406
+  [tabicl+RSF]        train=0.9647  test=0.7262
+  [tabicl+Cox]        train=0.9259  test=0.7304
+  [DS-simple]         train=0.7765  test=0.7694
+  [DS-vanilla]        train=0.8035  test=0.7945
+  [RSF]               train=0.9093  test=0.7940
+  [Cox]               train=0.8009  test=0.7926
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8773  test=0.6190
+  [tabicl+DS-vanilla] train=0.8822  test=0.6540
+  [tabicl+RSF]        train=0.9324  test=0.6305
+  [tabicl+Cox]        train=0.9932  test=0.6487
+  Fold 2: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8779  test=0.5721
+  [tabicl+DS-vanilla] train=0.9592  test=0.6124
+  [tabicl+RSF]        train=0.9319  test=0.6008
+  [tabicl+Cox]        train=0.9940  test=0.4999
+  Fold 3: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8697  test=0.5448
+  [tabicl+DS-vanilla] train=0.8799  test=0.6280
+  [tabicl+RSF]        train=0.9528  test=0.5919
+  [tabicl+Cox]        train=0.9929  test=0.5860
+  Fold 4: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8545  test=0.5579
+  [tabicl+DS-vanilla] train=0.8428  test=0.5892
+  [tabicl+RSF]        train=0.9422  test=0.5988
+  [tabicl+Cox]        train=0.9977  test=0.6191
+  Fold 5: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8913  test=0.6393
+  [tabicl+DS-vanilla] train=0.8930  test=0.6702
+  [tabicl+RSF]        train=0.9297  test=0.6669
+  [tabicl+Cox]        train=0.9924  test=0.5931
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9127  test=0.7189
+  [tabicl+DS-vanilla] train=0.9043  test=0.6923
+  [tabicl+RSF]        train=0.9590  test=0.7098
+  [tabicl+Cox]        train=0.9574  test=0.6002
+  Fold 2: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.8899  test=0.6857
+  [tabicl+DS-vanilla] train=0.9192  test=0.7112
+  [tabicl+RSF]        train=0.9600  test=0.6840
+  [tabicl+Cox]        train=0.9438  test=0.6681
+  Fold 3: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.8828  test=0.6138
+  [tabicl+DS-vanilla] train=0.9184  test=0.7050
+  [tabicl+RSF]        train=0.9540  test=0.7004
+  [tabicl+Cox]        train=0.9596  test=0.6514
+  Fold 4: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9088  test=0.7054
+  [tabicl+DS-vanilla] train=0.9154  test=0.7111
+  [tabicl+RSF]        train=0.9581  test=0.6990
+  [tabicl+Cox]        train=0.9602  test=0.6442
+  Fold 5: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9184  test=0.7046
+  [tabicl+DS-vanilla] train=0.8919  test=0.6467
+  [tabicl+RSF]        train=0.9622  test=0.7236
+  [tabicl+Cox]        train=0.9624  test=0.6878
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9203  test=0.7278
+  [tabicl+DS-vanilla] train=0.9240  test=0.7032
+  [tabicl+RSF]        train=0.9611  test=0.7369
+  [tabicl+Cox]        train=0.9378  test=0.6991
+  Fold 2: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.8916  test=0.7274
+  [tabicl+DS-vanilla] train=0.9219  test=0.7321
+  [tabicl+RSF]        train=0.9622  test=0.7032
+  [tabicl+Cox]        train=0.9399  test=0.7005
+  Fold 3: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9099  test=0.7419
+  [tabicl+DS-vanilla] train=0.9334  test=0.7350
+  [tabicl+RSF]        train=0.9575  test=0.7438
+  [tabicl+Cox]        train=0.9462  test=0.7145
+  Fold 4: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9183  test=0.7196
+  [tabicl+DS-vanilla] train=0.9352  test=0.7177
+  [tabicl+RSF]        train=0.9605  test=0.6874
+  [tabicl+Cox]        train=0.9429  test=0.7162
+  Fold 5: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9078  test=0.7120
+  [tabicl+DS-vanilla] train=0.9353  test=0.7049
+  [tabicl+RSF]        train=0.9619  test=0.7214
+  [tabicl+Cox]        train=0.9496  test=0.7042
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9229  test=0.6957
+  [tabicl+DS-vanilla] train=0.9178  test=0.7247
+  [tabicl+RSF]        train=0.9630  test=0.7298
+  [tabicl+Cox]        train=0.9306  test=0.7046
+  Fold 2: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9091  test=0.7487
+  [tabicl+DS-vanilla] train=0.9137  test=0.7487
+  [tabicl+RSF]        train=0.9615  test=0.7318
+  [tabicl+Cox]        train=0.9267  test=0.7354
+  Fold 3: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9266  test=0.7434
+  [tabicl+DS-vanilla] train=0.9250  test=0.7586
+  [tabicl+RSF]        train=0.9625  test=0.7582
+  [tabicl+Cox]        train=0.9315  test=0.7592
+  Fold 4: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9153  test=0.7097
+  [tabicl+DS-vanilla] train=0.9191  test=0.7387
+  [tabicl+RSF]        train=0.9620  test=0.7162
+  [tabicl+Cox]        train=0.9304  test=0.6955
+  Fold 5: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9317  test=0.6991
+  [tabicl+DS-vanilla] train=0.9219  test=0.7299
+  [tabicl+RSF]        train=0.9629  test=0.7308
+  [tabicl+Cox]        train=0.9329  test=0.7076
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9213  test=0.7399
+  [tabicl+DS-vanilla] train=0.9190  test=0.7376
+  [tabicl+RSF]        train=0.9636  test=0.7347
+  [tabicl+Cox]        train=0.9254  test=0.7457
+  Fold 2: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9192  test=0.7684
+  [tabicl+DS-vanilla] train=0.9174  test=0.7440
+  [tabicl+RSF]        train=0.9608  test=0.7524
+  [tabicl+Cox]        train=0.9242  test=0.7429
+  Fold 3: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9141  test=0.7616
+  [tabicl+DS-vanilla] train=0.9204  test=0.7608
+  [tabicl+RSF]        train=0.9612  test=0.7606
+  [tabicl+Cox]        train=0.9248  test=0.7625
+  Fold 4: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9236  test=0.7316
+  [tabicl+DS-vanilla] train=0.9165  test=0.7470
+  [tabicl+RSF]        train=0.9634  test=0.7231
+  [tabicl+Cox]        train=0.9273  test=0.7379
+  Fold 5: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9219  test=0.7345
+  [tabicl+DS-vanilla] train=0.9166  test=0.7418
+  [tabicl+RSF]        train=0.9638  test=0.7369
+  [tabicl+Cox]        train=0.9249  test=0.7351
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9229  test=0.7447
+  [tabicl+DS-vanilla] train=0.9210  test=0.7494
+  [tabicl+RSF]        train=0.9632  test=0.7314
+  [tabicl+Cox]        train=0.9257  test=0.7458
+  Fold 2: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9191  test=0.7700
+  [tabicl+DS-vanilla] train=0.9188  test=0.7501
+  [tabicl+RSF]        train=0.9611  test=0.7447
+  [tabicl+Cox]        train=0.9240  test=0.7430
+  Fold 3: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9201  test=0.7434
+  [tabicl+DS-vanilla] train=0.9173  test=0.7651
+  [tabicl+RSF]        train=0.9602  test=0.7512
+  [tabicl+Cox]        train=0.9246  test=0.7602
+  Fold 4: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9252  test=0.7148
+  [tabicl+DS-vanilla] train=0.9180  test=0.7444
+  [tabicl+RSF]        train=0.9636  test=0.7230
+  [tabicl+Cox]        train=0.9273  test=0.7390
+  Fold 5: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9078  test=0.7340
+  [tabicl+DS-vanilla] train=0.9183  test=0.7443
+  [tabicl+RSF]        train=0.9636  test=0.7300
+  [tabicl+Cox]        train=0.9242  test=0.7349
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+Data saved → results/OrmoniTirodei/tabicl/results_samplesize_OrmoniTirodei_tabicl_seed77_data.txt
+
+Dataset: OrmoniTirodei | Model: tabicl | Seed: 77
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabicl+DS-simple            → mean: 0.8681 | std: 0.0030 | min: 0.8640 | max: 0.8728
+    TEST  tabicl+DS-simple            → mean: 0.5843 | std: 0.0281 | min: 0.5366 | max: 0.6095
+    TRAIN tabicl+DS-vanilla           → mean: 0.9165 | std: 0.0187 | min: 0.8850 | max: 0.9429
+    TEST  tabicl+DS-vanilla           → mean: 0.6234 | std: 0.0168 | min: 0.5966 | max: 0.6485
+    TRAIN tabicl+RSF                  → mean: 0.9295 | std: 0.0123 | min: 0.9121 | max: 0.9502
+    TEST  tabicl+RSF                  → mean: 0.6087 | std: 0.0220 | min: 0.5856 | max: 0.6491
+    TRAIN tabicl+Cox                  → mean: 0.9967 | std: 0.0012 | min: 0.9947 | max: 0.9983
+    TEST  tabicl+Cox                  → mean: 0.5992 | std: 0.0388 | min: 0.5301 | max: 0.6504
+    TRAIN DS-simple (base)            → mean: 0.7198 | std: 0.0481 | min: 0.6346 | max: 0.7699
+    TEST  DS-simple (base)            → mean: 0.6355 | std: 0.0148 | min: 0.6148 | max: 0.6521
+    TRAIN DS-vanilla (base)           → mean: 0.7534 | std: 0.0869 | min: 0.6268 | max: 0.8432
+    TEST  DS-vanilla (base)           → mean: 0.6271 | std: 0.0418 | min: 0.5600 | max: 0.6757
+    TRAIN RSF (base)                  → mean: 0.9041 | std: 0.0145 | min: 0.8852 | max: 0.9261
+    TEST  RSF (base)                  → mean: 0.7312 | std: 0.0172 | min: 0.7030 | max: 0.7550
+    TRAIN Cox (base)                  → no valid scores
+    TEST  Cox (base)                  → no valid scores
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabicl+DS-simple            → mean: 0.9016 | std: 0.0114 | min: 0.8817 | max: 0.9132
+    TEST  tabicl+DS-simple            → mean: 0.6938 | std: 0.0200 | min: 0.6662 | max: 0.7219
+    TRAIN tabicl+DS-vanilla           → mean: 0.9186 | std: 0.0180 | min: 0.9057 | max: 0.9540
+    TEST  tabicl+DS-vanilla           → mean: 0.6937 | std: 0.0217 | min: 0.6647 | max: 0.7222
+    TRAIN tabicl+RSF                  → mean: 0.9598 | std: 0.0022 | min: 0.9568 | max: 0.9626
+    TEST  tabicl+RSF                  → mean: 0.7028 | std: 0.0104 | min: 0.6919 | max: 0.7179
+    TRAIN tabicl+Cox                  → mean: 0.9581 | std: 0.0065 | min: 0.9463 | max: 0.9639
+    TEST  tabicl+Cox                  → mean: 0.6554 | std: 0.0178 | min: 0.6332 | max: 0.6781
+    TRAIN DS-simple (base)            → mean: 0.7959 | std: 0.0160 | min: 0.7724 | max: 0.8129
+    TEST  DS-simple (base)            → mean: 0.7587 | std: 0.0094 | min: 0.7446 | max: 0.7698
+    TRAIN DS-vanilla (base)           → mean: 0.8119 | std: 0.0151 | min: 0.7961 | max: 0.8316
+    TEST  DS-vanilla (base)           → mean: 0.7343 | std: 0.0225 | min: 0.6946 | max: 0.7590
+    TRAIN RSF (base)                  → mean: 0.9148 | std: 0.0084 | min: 0.9011 | max: 0.9254
+    TEST  RSF (base)                  → mean: 0.7738 | std: 0.0167 | min: 0.7497 | max: 0.7988
+    TRAIN Cox (base)                  → mean: 0.7991 | std: 0.0000 | min: 0.7991 | max: 0.7991
+    TEST  Cox (base)                  → mean: 0.7915 | std: 0.0000 | min: 0.7915 | max: 0.7915
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabicl+DS-simple            → mean: 0.9138 | std: 0.0145 | min: 0.8961 | max: 0.9319
+    TEST  tabicl+DS-simple            → mean: 0.7148 | std: 0.0154 | min: 0.6976 | max: 0.7433
+    TRAIN tabicl+DS-vanilla           → mean: 0.9249 | std: 0.0052 | min: 0.9203 | max: 0.9338
+    TEST  tabicl+DS-vanilla           → mean: 0.7340 | std: 0.0127 | min: 0.7164 | max: 0.7550
+    TRAIN tabicl+RSF                  → mean: 0.9618 | std: 0.0024 | min: 0.9587 | max: 0.9645
+    TEST  tabicl+RSF                  → mean: 0.7161 | std: 0.0238 | min: 0.6862 | max: 0.7432
+    TRAIN tabicl+Cox                  → mean: 0.9451 | std: 0.0036 | min: 0.9393 | max: 0.9500
+    TEST  tabicl+Cox                  → mean: 0.6844 | std: 0.0173 | min: 0.6561 | max: 0.7038
+    TRAIN DS-simple (base)            → mean: 0.8004 | std: 0.0220 | min: 0.7712 | max: 0.8333
+    TEST  DS-simple (base)            → mean: 0.7651 | std: 0.0099 | min: 0.7495 | max: 0.7783
+    TRAIN DS-vanilla (base)           → mean: 0.8208 | std: 0.0203 | min: 0.7841 | max: 0.8396
+    TEST  DS-vanilla (base)           → mean: 0.7668 | std: 0.0146 | min: 0.7485 | max: 0.7841
+    TRAIN RSF (base)                  → mean: 0.9138 | std: 0.0039 | min: 0.9094 | max: 0.9208
+    TEST  RSF (base)                  → mean: 0.7849 | std: 0.0155 | min: 0.7640 | max: 0.8061
+    TRAIN Cox (base)                  → mean: 0.8224 | std: 0.0082 | min: 0.8112 | max: 0.8343
+    TEST  Cox (base)                  → mean: 0.7843 | std: 0.0120 | min: 0.7661 | max: 0.7966
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabicl+DS-simple            → mean: 0.9192 | std: 0.0062 | min: 0.9122 | max: 0.9296
+    TEST  tabicl+DS-simple            → mean: 0.7182 | std: 0.0222 | min: 0.6916 | max: 0.7557
+    TRAIN tabicl+DS-vanilla           → mean: 0.9224 | std: 0.0046 | min: 0.9153 | max: 0.9288
+    TEST  tabicl+DS-vanilla           → mean: 0.7439 | std: 0.0152 | min: 0.7289 | max: 0.7708
+    TRAIN tabicl+RSF                  → mean: 0.9637 | std: 0.0013 | min: 0.9624 | max: 0.9662
+    TEST  tabicl+RSF                  → mean: 0.7239 | std: 0.0123 | min: 0.7053 | max: 0.7430
+    TRAIN tabicl+Cox                  → mean: 0.9321 | std: 0.0016 | min: 0.9303 | max: 0.9351
+    TEST  tabicl+Cox                  → mean: 0.7185 | std: 0.0157 | min: 0.6897 | max: 0.7370
+    TRAIN DS-simple (base)            → mean: 0.7879 | std: 0.0188 | min: 0.7625 | max: 0.8051
+    TEST  DS-simple (base)            → mean: 0.7765 | std: 0.0140 | min: 0.7539 | max: 0.7934
+    TRAIN DS-vanilla (base)           → mean: 0.8084 | std: 0.0071 | min: 0.7993 | max: 0.8207
+    TEST  DS-vanilla (base)           → mean: 0.7842 | std: 0.0125 | min: 0.7709 | max: 0.8010
+    TRAIN RSF (base)                  → mean: 0.9120 | std: 0.0035 | min: 0.9055 | max: 0.9150
+    TEST  RSF (base)                  → mean: 0.7908 | std: 0.0112 | min: 0.7731 | max: 0.8031
+    TRAIN Cox (base)                  → mean: 0.8061 | std: 0.0021 | min: 0.8040 | max: 0.8100
+    TEST  Cox (base)                  → mean: 0.7909 | std: 0.0107 | min: 0.7768 | max: 0.8044
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabicl+DS-simple            → mean: 0.9253 | std: 0.0015 | min: 0.9235 | max: 0.9275
+    TEST  tabicl+DS-simple            → mean: 0.7319 | std: 0.0236 | min: 0.7021 | max: 0.7573
+    TRAIN tabicl+DS-vanilla           → mean: 0.9237 | std: 0.0025 | min: 0.9210 | max: 0.9272
+    TEST  tabicl+DS-vanilla           → mean: 0.7480 | std: 0.0189 | min: 0.7193 | max: 0.7759
+    TRAIN tabicl+RSF                  → mean: 0.9635 | std: 0.0013 | min: 0.9621 | max: 0.9656
+    TEST  tabicl+RSF                  → mean: 0.7332 | std: 0.0159 | min: 0.7154 | max: 0.7602/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MENOPAUSA', 'ANNI_MENOP'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column IMT have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'IMT'].var())
+>>> print(df.loc[~events, 'IMT'].var())
+
+A very low variance means that the column IMT completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column IMA_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column CBV_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column HF_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:231: RuntimeWarning: overflow encountered in exp
+  .assign(expg=np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)))
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)

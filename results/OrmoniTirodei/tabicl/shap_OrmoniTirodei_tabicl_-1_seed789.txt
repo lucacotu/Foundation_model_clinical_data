@@ -1,0 +1,794 @@
+SHAP — OrmoniTirodei | tabicl | preprocess: -1 | seed: 789
+======================================================================
+
+--- deepsurv_simple ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Diuretics                                 0.235041       0.087692
+Angiography                               0.159411       0.077891
+Vessels                                   0.142410       0.032300
+Aritmie                                   0.093250       0.041061
+Creatinina                                0.070639       0.021395
+Euthyroid                                 0.065138       0.032835
+Valvulopatie                              0.049110       0.020972
+Post-ischemic Dilated
+Cardiomyopathy       0.044421       0.012344
+Dyslipidemia
+Hystory of dyslipidemia       0.043401       0.020846
+Documented resting 
+or exertional ischemia       0.040611       0.025271
+vsx                                       0.040366       0.005781
+PMI                                       0.033802       0.018871
+HDL                                       0.029721       0.011068
+TSH                                       0.028481       0.007789
+CABG _event                               0.028180       0.016953
+CAD                                       0.027483       0.019585
+Low T3                                    0.024542       0.010004
+PCI_event                                 0.023321       0.010092
+Ipolipemizzanti                           0.022684       0.009023
+AMI                                       0.021768       0.012537
+fT3                                       0.020586       0.005084
+Antiplatelet                              0.020107       0.003464
+Acute Myocardial Infarction               0.019919       0.017572
+Angina                                    0.019458       0.007489
+Previous Myocardial Infarction            0.018634       0.010809
+DimSettoIV                                0.017645       0.008276
+ACE-inhibitors                            0.017470       0.009210
+Previous PCI                              0.016654       0.007711
+Diabetes
+History of diabetes              0.015795       0.007152
+WmsiBas                                   0.015751       0.005812
+Triglycerides                             0.015717       0.004318
+Nitrates                                  0.015501       0.005325
+Ipertensione                              0.015249       0.007553
+BMI                                       0.015075       0.005101
+DimPP                                     0.014992       0.001436
+Glycemia                                  0.014651       0.006941
+CABG                                      0.014387       0.008975
+Total cholesterol                         0.014179       0.005159
+B-Blockers                                0.014030       0.004492
+Antidiabetici                             0.014016       0.003896
+Smoke
+History of smoke                    0.013663       0.008523
+Gender (Male = 1)                         0.013221       0.003491
+Weight                                    0.012842       0.006967
+PCI                                       0.012409       0.003034
+Ictus                                     0.011673       0.007583
+Primary Dilated
+Cardiomyopathy            0.011569       0.005058
+LDL                                       0.011225       0.004824
+Non Fatal AMI (Follow-Up)                 0.011018       0.008721
+fe                                        0.010910       0.004254
+Previous CABG                             0.010822       0.003701
+Height                                    0.010092       0.004573
+EPA                                       0.009346       0.004126
+Calcium channel blockers                  0.009273       0.003942
+fT4                                       0.009178       0.004855
+Systolic blood pressure                   0.009034       0.003667
+Hypertension
+History of hypertension       0.008508       0.001808
+Subclinical primary hypothyroidism (SCH)       0.007810       0.003225
+Age                                       0.007628       0.002200
+HR                                        0.007418       0.002472
+Subclinical primary hyperthyroidism
+(SCT)       0.007161       0.002314
+Amiodarone                                0.006991       0.006533
+Atrial Fibrillation                       0.006735       0.004207
+MalattiaVasoAorta                         0.006651       0.001929
+Non Fatal AMI (Follow-Up)_event           0.006375       0.002025
+Normal                                    0.005232       0.003556
+Pericardite                               0.005230       0.004126
+Diastolic blood pressure                  0.005129       0.001720
+Ipotiroidismo                             0.003958       0.001884
+Miocardite                                0.003636       0.002567
+Ictus_event                               0.003524       0.003182
+Ipertiroidismo                            0.002496       0.003124
+MIN                                       0.002254       0.002760
+MIO                                       0.001628       0.003257
+SindromeX                                 0.001604       0.001976
+EmboliaPolmonare                          0.000483       0.000967
+Endocardite                               0.000000       0.000000
+
+--- deepsurv_vanilla ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Angiography                               0.214665       0.032611
+Vessels                                   0.139458       0.027519
+Diuretics                                 0.094607       0.059528
+Creatinina                                0.069775       0.011468
+Dyslipidemia
+Hystory of dyslipidemia       0.065995       0.008410
+Valvulopatie                              0.061039       0.017708
+Low T3                                    0.045714       0.021869
+Aritmie                                   0.038377       0.015561
+vsx                                       0.031649       0.011635
+Documented resting 
+or exertional ischemia       0.030769       0.022372
+Ipolipemizzanti                           0.029775       0.019837
+WmsiBas                                   0.029633       0.003959
+HDL                                       0.028836       0.006959
+TSH                                       0.028303       0.007227
+PCI_event                                 0.025657       0.012043
+CABG _event                               0.025277       0.011202
+Post-ischemic Dilated
+Cardiomyopathy       0.022291       0.006682
+Euthyroid                                 0.020838       0.004724
+CAD                                       0.020497       0.011771
+PCI                                       0.019424       0.006681
+Antidiabetici                             0.019381       0.006116
+fT3                                       0.017435       0.005487
+PMI                                       0.017419       0.007632
+Systolic blood pressure                   0.015810       0.002941
+Gender (Male = 1)                         0.015307       0.006303
+Nitrates                                  0.015274       0.004509
+LDL                                       0.014299       0.005452
+Diabetes
+History of diabetes              0.013752       0.004370
+Ipertensione                              0.013749       0.005519
+Previous Myocardial Infarction            0.013675       0.005798
+ACE-inhibitors                            0.013473       0.002671
+CABG                                      0.012841       0.001476
+AMI                                       0.012440       0.004304
+Triglycerides                             0.012296       0.004172
+Atrial Fibrillation                       0.011954       0.004571
+Height                                    0.011853       0.004764
+Primary Dilated
+Cardiomyopathy            0.011636       0.004220
+BMI                                       0.011506       0.005192
+Glycemia                                  0.011381       0.004847
+Diastolic blood pressure                  0.011123       0.005426
+DimSettoIV                                0.011113       0.004650
+Acute Myocardial Infarction               0.010948       0.004594
+Antiplatelet                              0.010897       0.004699
+DimPP                                     0.010663       0.002107
+Previous CABG                             0.010207       0.004321
+B-Blockers                                0.009970       0.006001
+Smoke
+History of smoke                    0.009968       0.003605
+Calcium channel blockers                  0.009856       0.002652
+Non Fatal AMI (Follow-Up)                 0.009324       0.004459
+Angina                                    0.009079       0.005110
+Previous PCI                              0.009072       0.003615
+EPA                                       0.009063       0.002872
+fT4                                       0.008895       0.003165
+Weight                                    0.008840       0.003700
+Total cholesterol                         0.008747       0.003693
+Hypertension
+History of hypertension       0.007922       0.004060
+Amiodarone                                0.007703       0.002887
+fe                                        0.007342       0.000957
+Age                                       0.007000       0.003176
+Ictus                                     0.006843       0.004104
+Subclinical primary hypothyroidism (SCH)       0.006617       0.001617
+Non Fatal AMI (Follow-Up)_event           0.006567       0.002448
+Normal                                    0.006402       0.003580
+HR                                        0.006358       0.003488
+MalattiaVasoAorta                         0.006271       0.002910
+Ipotiroidismo                             0.005270       0.002361
+Ipertiroidismo                            0.004868       0.006308
+Miocardite                                0.004842       0.003898
+Pericardite                               0.004549       0.003591
+Subclinical primary hyperthyroidism
+(SCT)       0.004501       0.001429
+Ictus_event                               0.004316       0.003556
+MIN                                       0.003595       0.004554
+EmboliaPolmonare                          0.003271       0.006543
+SindromeX                                 0.002249       0.002756
+MIO                                       0.000582       0.001164
+Endocardite                               0.000000       0.000000
+
+--- rsf ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Diuretics                                65.964260       6.325413
+Angiography                              50.751542       5.281553
+Ipolipemizzanti                          29.739492       5.014628
+WmsiBas                                  24.241983       4.109976
+Vessels                                  23.965600       4.721660
+Dyslipidemia
+Hystory of dyslipidemia      17.072019       2.100396
+Low T3                                   15.077530       5.803710
+TSH                                      13.204774       2.548216
+Valvulopatie                             10.373539       2.811895
+fT3                                      10.224943       4.623056
+Nitrates                                  9.128986       2.116935
+Creatinina                                8.339250       1.814592
+BMI                                       7.516689       3.737395
+B-Blockers                                7.062192       1.092432
+Euthyroid                                 6.377699       2.932328
+Total cholesterol                         6.104274       1.569614
+Ipertensione                              5.599461       1.883609
+LDL                                       5.366696       1.190617
+CAD                                       4.602926       1.425126
+Post-ischemic Dilated
+Cardiomyopathy       4.519491       1.360458
+CABG _event                               4.444522       1.428944
+Aritmie                                   4.317248       1.822049
+ACE-inhibitors                            4.282268       1.435103
+Diabetes
+History of diabetes              3.688490       0.933206
+HDL                                       3.553346       1.162751
+Previous Myocardial Infarction            3.464164       0.691868
+Hypertension
+History of hypertension       3.427550       1.560264
+Triglycerides                             3.408988       1.631555
+Antidiabetici                             3.345111       1.743695
+PCI_event                                 3.271650       1.193951
+PCI                                       3.195839       0.446641
+Systolic blood pressure                   3.002300       1.255618
+Calcium channel blockers                  2.991489       1.271452
+PMI                                       2.869322       1.145942
+Documented resting 
+or exertional ischemia       2.697045       0.809448
+Height                                    2.649504       0.354566
+Previous PCI                              2.644818       0.969002
+DimPP                                     2.553670       1.215443
+Atrial Fibrillation                       2.537046       0.727380
+Acute Myocardial Infarction               2.454667       0.918267
+fT4                                       2.301687       1.179623
+Angina                                    2.297713       0.756072
+Smoke
+History of smoke                    2.137446       0.257773
+vsx                                       2.105041       0.408977
+Diastolic blood pressure                  2.102185       0.921058
+Weight                                    2.072562       0.832889
+DimSettoIV                                2.028388       0.513483
+AMI                                       2.021432       1.034859
+Primary Dilated
+Cardiomyopathy            2.020277       0.493613
+CABG                                      2.010834       0.804712
+Gender (Male = 1)                         1.997979       1.170931
+Glycemia                                  1.991217       0.870225
+fe                                        1.981898       0.459246
+EPA                                       1.924068       0.899574
+Ipotiroidismo                             1.858124       0.787872
+Non Fatal AMI (Follow-Up)_event           1.849532       0.951073
+Pericardite                               1.832000       0.891313
+Age                                       1.820001       1.143234
+Non Fatal AMI (Follow-Up)                 1.754541       0.851940
+Antiplatelet                              1.680146       0.574941
+Subclinical primary hyperthyroidism
+(SCT)       1.592394       0.553196
+MalattiaVasoAorta                         1.585416       0.877840
+Previous CABG                             1.560439       0.837571
+Subclinical primary hypothyroidism (SCH)       1.518192       0.442786
+Ictus_event                               1.463542       1.244850
+Miocardite                                1.424232       0.826649
+Amiodarone                                1.416234       0.613403
+HR                                        1.293600       0.785293
+Normal                                    1.227386       0.818386
+Ictus                                     1.097022       0.893143
+MIN                                       0.954207       1.095300
+EmboliaPolmonare                          0.561072       1.122143
+Ipertiroidismo                            0.509166       0.839948
+SindromeX                                 0.392087       0.486359
+MIO                                       0.168870       0.337741
+Endocardite                               0.000000       0.000000
+
+--- cox ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Angiography                               0.794367       0.148738
+Diuretics                                 0.692796       0.156513
+Vessels                                   0.418590       0.110124
+Creatinina                                0.350623       0.213860
+Valvulopatie                              0.275519       0.083290
+Euthyroid                                 0.251719       0.096204
+Aritmie                                   0.203196       0.060233
+Dyslipidemia
+Hystory of dyslipidemia       0.149581       0.043694
+PMI                                       0.146329       0.091905
+vsx                                       0.134387       0.020724
+PCI_event                                 0.132978       0.020072
+HDL                                       0.129188       0.106950
+Ipolipemizzanti                           0.122902       0.065415
+Post-ischemic Dilated
+Cardiomyopathy       0.119189       0.083662
+WmsiBas                                   0.112040       0.026594
+Documented resting 
+or exertional ischemia       0.102707       0.039189
+CABG _event                               0.094375       0.059896
+TSH                                       0.085966       0.017927
+B-Blockers                                0.083069       0.015893
+ACE-inhibitors                            0.082349       0.036194
+Glycemia                                  0.073179       0.030715
+Diabetes
+History of diabetes              0.069995       0.045698
+LDL                                       0.068447       0.043124
+Ipertensione                              0.064925       0.039025
+Antiplatelet                              0.064250       0.010959
+Systolic blood pressure                   0.062080       0.028820
+fT3                                       0.061976       0.032606
+DimSettoIV                                0.058499       0.019935
+PCI                                       0.054108       0.009279
+CAD                                       0.054101       0.033906
+Triglycerides                             0.053835       0.034602
+Acute Myocardial Infarction               0.053515       0.036630
+Low T3                                    0.052871       0.016222
+Primary Dilated
+Cardiomyopathy            0.052646       0.016228
+Previous Myocardial Infarction            0.051598       0.022747
+Weight                                    0.051539       0.039248
+Hypertension
+History of hypertension       0.047794       0.012429
+BMI                                       0.044589       0.017732
+Ictus                                     0.043928       0.025463
+Calcium channel blockers                  0.041640       0.013008
+Angina                                    0.040649       0.013469
+AMI                                       0.039181       0.006430
+Previous PCI                              0.038752       0.015318
+Height                                    0.037931       0.015091
+fT4                                       0.036739       0.006343
+Pericardite                               0.036594       0.025521
+Atrial Fibrillation                       0.035501       0.018482
+Ipotiroidismo                             0.034371       0.021068
+Previous CABG                             0.034263       0.013569
+Normal                                    0.033117       0.038001
+MalattiaVasoAorta                         0.032083       0.011782
+Antidiabetici                             0.032075       0.014951
+DimPP                                     0.031796       0.016400
+Subclinical primary hyperthyroidism
+(SCT)       0.031470       0.021839
+Non Fatal AMI (Follow-Up)_event           0.031357       0.007443
+Nitrates                                  0.030958       0.017177
+CABG                                      0.030895       0.012098
+Diastolic blood pressure                  0.030318       0.016168
+EPA                                       0.030222       0.010152
+fe                                        0.029867       0.013848
+Ictus_event                               0.029256       0.024290
+Subclinical primary hypothyroidism (SCH)       0.028918       0.015131
+Ipertiroidismo                            0.027617       0.040548
+Total cholesterol                         0.027051       0.012939
+Smoke
+History of smoke                    0.026498       0.005406
+Amiodarone                                0.026476       0.003395
+HR                                        0.026239       0.007540
+Non Fatal AMI (Follow-Up)                 0.026205       0.003503
+Miocardite                                0.025421       0.017768
+Gender (Male = 1)                         0.020497       0.010813
+Age                                       0.020422       0.012242
+MIN                                       0.010341       0.012830
+MIO                                       0.009701       0.019401
+EmboliaPolmonare                          0.006771       0.013450
+SindromeX                                 0.004217       0.006306
+Endocardite                               0.000000       0.000000
+
+--- deepsurv_tuned ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Diuretics                                 0.365800       0.237782
+Angiography                               0.182149       0.073165
+Vessels                                   0.122766       0.057723
+Creatinina                                0.070388       0.025002
+Ipolipemizzanti                           0.067971       0.036627
+Valvulopatie                              0.057168       0.008063
+WmsiBas                                   0.055253       0.014844
+Dyslipidemia
+Hystory of dyslipidemia       0.053723       0.020988
+Low T3                                    0.050572       0.011407
+Aritmie                                   0.044929       0.015315
+TSH                                       0.039875       0.014565
+Nitrates                                  0.030606       0.019990
+Ipertensione                              0.030266       0.018635
+fT3                                       0.027142       0.010816
+PCI_event                                 0.026837       0.016154
+Diabetes
+History of diabetes              0.026306       0.011994
+CAD                                       0.025950       0.020893
+Previous Myocardial Infarction            0.024927       0.012742
+HDL                                       0.024801       0.011417
+Euthyroid                                 0.023821       0.008488
+CABG _event                               0.019672       0.008033
+Angina                                    0.018920       0.007478
+Post-ischemic Dilated
+Cardiomyopathy       0.018838       0.020424
+Triglycerides                             0.018440       0.007285
+PCI                                       0.018302       0.011088
+PMI                                       0.017769       0.010205
+Antidiabetici                             0.017506       0.009224
+Systolic blood pressure                   0.016518       0.007232
+Non Fatal AMI (Follow-Up)                 0.016424       0.006886
+DimSettoIV                                0.016216       0.007725
+Smoke
+History of smoke                    0.015296       0.006178
+Total cholesterol                         0.015238       0.005455
+vsx                                       0.015119       0.012407
+AMI                                       0.014358       0.007746
+Documented resting 
+or exertional ischemia       0.014142       0.006215
+DimPP                                     0.013708       0.007335
+B-Blockers                                0.013644       0.004121
+Acute Myocardial Infarction               0.013627       0.003723
+Glycemia                                  0.013464       0.005469
+Atrial Fibrillation                       0.013253       0.006863
+Diastolic blood pressure                  0.012535       0.006331
+CABG                                      0.012430       0.005033
+BMI                                       0.012325       0.006181
+Hypertension
+History of hypertension       0.012304       0.004452
+Previous PCI                              0.011874       0.008913
+Antiplatelet                              0.011688       0.005894
+Height                                    0.011489       0.006275
+LDL                                       0.011127       0.004117
+ACE-inhibitors                            0.010515       0.002392
+Weight                                    0.009730       0.005571
+fT4                                       0.009589       0.003174
+Subclinical primary hypothyroidism (SCH)       0.009572       0.005579
+fe                                        0.009462       0.005063
+Non Fatal AMI (Follow-Up)_event           0.009275       0.005307
+Gender (Male = 1)                         0.009101       0.004176
+Primary Dilated
+Cardiomyopathy            0.009075       0.003837
+Amiodarone                                0.008386       0.003179
+EPA                                       0.007876       0.001717
+Previous CABG                             0.007745       0.001969
+Subclinical primary hyperthyroidism
+(SCT)       0.007675       0.002083
+MalattiaVasoAorta                         0.007539       0.002218
+Normal                                    0.006592       0.003880
+HR                                        0.006080       0.003382
+Calcium channel blockers                  0.005866       0.003374
+Age                                       0.005723       0.002608
+Pericardite                               0.005648       0.003693
+Miocardite                                0.005536       0.003466
+Ictus_event                               0.005389       0.004366
+Ipotiroidismo                             0.005297       0.002258
+Ictus                                     0.004069       0.003427
+Ipertiroidismo                            0.003204       0.003910
+MIN                                       0.003046       0.003803
+SindromeX                                 0.001612       0.002085
+EmboliaPolmonare                          0.001498       0.002996
+MIO                                       0.000542       0.001084
+Endocardite                               0.000000       0.000000
+
+--- deepsurv_simple_baseline ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Age                                       0.536711       0.064879
+PCI                                       0.272077       0.373799
+CABG                                      0.175754       0.243577
+fe                                        0.174622       0.038225
+Angiography                               0.142732       0.031309
+Non Fatal AMI (Follow-Up)                 0.107250       0.117608
+Diuretics                                 0.060276       0.015636
+Vessels                                   0.059175       0.010459
+Ipolipemizzanti                           0.044062       0.014890
+Creatinina                                0.042107       0.018966
+Systolic blood pressure                   0.039922       0.023049
+LDL                                       0.039087       0.017862
+Diabetes
+History of diabetes              0.035127       0.014121
+Valvulopatie                              0.031416       0.003680
+fT3                                       0.028495       0.018108
+Triglycerides                             0.024806       0.019877
+Non Fatal AMI (Follow-Up)_event           0.021274       0.006304
+Diastolic blood pressure                  0.021214       0.014486
+Dyslipidemia
+Hystory of dyslipidemia       0.020165       0.006445
+fT4                                       0.018262       0.010176
+CABG _event                               0.017761       0.018892
+Total cholesterol                         0.017186       0.004616
+Gender (Male = 1)                         0.015523       0.008045
+Glycemia                                  0.015332       0.011258
+EPA                                       0.014312       0.005561
+Subclinical primary hypothyroidism (SCH)       0.014309       0.007257
+Normal                                    0.013551       0.007982
+vsx                                       0.013035       0.010843
+B-Blockers                                0.012934       0.004252
+WmsiBas                                   0.012888       0.004181
+Weight                                    0.012510       0.007034
+Ictus                                     0.012348       0.011684
+HDL                                       0.012085       0.007886
+ACE-inhibitors                            0.011790       0.003302
+AMI                                       0.011449       0.004914
+PCI_event                                 0.011025       0.004768
+HR                                        0.010685       0.005419
+MIN                                       0.009825       0.006614
+Antidiabetici                             0.009739       0.002987
+Previous CABG                             0.009378       0.002952
+Documented resting 
+or exertional ischemia       0.009010       0.002617
+Euthyroid                                 0.008929       0.001463
+PMI                                       0.008924       0.002537
+Height                                    0.008790       0.007998
+Smoke
+History of smoke                    0.008758       0.003026
+DimSettoIV                                0.008456       0.004144
+BMI                                       0.008383       0.001732
+Antiplatelet                              0.007810       0.002940
+DimPP                                     0.007511       0.005045
+TSH                                       0.007169       0.003941
+Previous Myocardial Infarction            0.007074       0.002533
+Low T3                                    0.007018       0.004409
+Pericardite                               0.006867       0.004069
+Ipotiroidismo                             0.006677       0.003568
+Angina                                    0.006673       0.003892
+CAD                                       0.006669       0.003373
+Miocardite                                0.006667       0.002133
+Nitrates                                  0.006623       0.002291
+Ipertensione                              0.006432       0.005962
+Aritmie                                   0.006255       0.002988
+Post-ischemic Dilated
+Cardiomyopathy       0.005742       0.001828
+Previous PCI                              0.005712       0.001292
+Hypertension
+History of hypertension       0.005541       0.001320
+Calcium channel blockers                  0.005511       0.000935
+Atrial Fibrillation                       0.005453       0.002210
+Primary Dilated
+Cardiomyopathy            0.005010       0.001884
+MalattiaVasoAorta                         0.004999       0.001258
+Subclinical primary hyperthyroidism
+(SCT)       0.004846       0.002515
+Acute Myocardial Infarction               0.004698       0.001284
+Ictus_event                               0.004452       0.004555
+Amiodarone                                0.004148       0.003120
+EmboliaPolmonare                          0.002991       0.004008
+Ipertiroidismo                            0.001964       0.002697
+MIO                                       0.001754       0.003508
+SindromeX                                 0.001464       0.001793
+Endocardite                               0.000000       0.000000
+
+--- deepsurv_vanilla_baseline ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Age                                       0.536145       0.044021
+fe                                        0.219864       0.026944
+Ipolipemizzanti                           0.045106       0.008552
+Angiography                               0.037831       0.005793
+Diuretics                                 0.037149       0.011759
+Glycemia                                  0.035353       0.012685
+Creatinina                                0.031308       0.004568
+CABG                                      0.030120       0.022425
+Vessels                                   0.030018       0.012173
+LDL                                       0.028975       0.010088
+fT4                                       0.026116       0.005859
+Dyslipidemia
+Hystory of dyslipidemia       0.025049       0.004102
+Weight                                    0.022728       0.007457
+Non Fatal AMI (Follow-Up)                 0.021141       0.015664
+PCI                                       0.019633       0.008318
+Diastolic blood pressure                  0.019464       0.014273
+Valvulopatie                              0.018539       0.003229
+fT3                                       0.017062       0.005047
+HR                                        0.016776       0.007843
+DimSettoIV                                0.015784       0.005957
+Systolic blood pressure                   0.015407       0.008975
+Triglycerides                             0.015114       0.010075
+BMI                                       0.014854       0.008550
+Diabetes
+History of diabetes              0.013996       0.004916
+Ictus                                     0.013641       0.010291
+Total cholesterol                         0.012462       0.011396
+Gender (Male = 1)                         0.012046       0.003407
+HDL                                       0.010074       0.005197
+TSH                                       0.009994       0.007492
+B-Blockers                                0.009887       0.002267
+Angina                                    0.009779       0.004667
+EPA                                       0.009461       0.005654
+Euthyroid                                 0.008901       0.002254
+Antiplatelet                              0.008784       0.003854
+Post-ischemic Dilated
+Cardiomyopathy       0.008643       0.003544
+PMI                                       0.008396       0.002102
+vsx                                       0.008362       0.004975
+ACE-inhibitors                            0.007603       0.002640
+Subclinical primary hypothyroidism (SCH)       0.007479       0.003051
+Height                                    0.007288       0.002785
+WmsiBas                                   0.007136       0.002501
+Previous Myocardial Infarction            0.006948       0.002382
+DimPP                                     0.006663       0.002338
+Smoke
+History of smoke                    0.006586       0.001477
+Documented resting 
+or exertional ischemia       0.006434       0.001279
+Antidiabetici                             0.005506       0.001502
+Ipotiroidismo                             0.005466       0.000762
+Previous CABG                             0.005363       0.001152
+Previous PCI                              0.005311       0.003024
+Low T3                                    0.005301       0.002159
+AMI                                       0.005220       0.000657
+Primary Dilated
+Cardiomyopathy            0.004756       0.002050
+CAD                                       0.004742       0.001947
+CABG _event                               0.004564       0.001946
+PCI_event                                 0.004201       0.001509
+MalattiaVasoAorta                         0.003962       0.001849
+Amiodarone                                0.003910       0.001265
+Acute Myocardial Infarction               0.003904       0.002360
+Calcium channel blockers                  0.003897       0.001655
+Aritmie                                   0.003893       0.001454
+Hypertension
+History of hypertension       0.003781       0.001871
+Atrial Fibrillation                       0.003611       0.001388
+Miocardite                                0.003598       0.001482
+Pericardite                               0.003405       0.002337
+Normal                                    0.003222       0.001824
+Subclinical primary hyperthyroidism
+(SCT)       0.002886       0.001013
+Nitrates                                  0.002852       0.001674
+Non Fatal AMI (Follow-Up)_event           0.002595       0.000689
+MIN                                       0.002518       0.002795
+Ipertensione                              0.002493       0.001016
+Ictus_event                               0.002020       0.001717
+SindromeX                                 0.001893       0.002421
+EmboliaPolmonare                          0.001744       0.003488
+Ipertiroidismo                            0.000947       0.000973
+MIO                                       0.000577       0.001154
+Endocardite                               0.000000       0.000000
+
+--- rsf_baseline ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Age                                      84.658973       5.582343
+Creatinina                               44.228002       6.304382
+Diuretics                                24.680098       3.449046
+fe                                       20.733485       3.355115
+WmsiBas                                  14.369060       1.637387
+EPA                                       8.932508       3.546695
+fT3                                       8.474520       3.001963
+BMI                                       6.614883       2.208194
+Weight                                    6.156442       1.191149
+fT4                                       5.316650       0.948323
+Valvulopatie                              3.977482       1.105462
+Dyslipidemia
+Hystory of dyslipidemia       3.931657       0.592039
+Glycemia                                  3.913257       1.270188
+vsx                                       3.603243       0.925194
+Post-ischemic Dilated
+Cardiomyopathy       3.580452       0.631110
+Ipolipemizzanti                           3.441369       0.845093
+Angiography                               3.175603       0.887391
+Total cholesterol                         2.869032       1.206612
+DimSettoIV                                2.826429       1.169227
+Aritmie                                   2.604842       0.423617
+Atrial Fibrillation                       2.423295       1.025498
+Euthyroid                                 2.280561       0.369115
+HR                                        2.204133       0.473623
+Height                                    2.141992       0.653875
+LDL                                       2.129072       0.671841
+DimPP                                     2.051462       0.659996
+TSH                                       2.030139       0.856964
+Diabetes
+History of diabetes              1.881679       0.509518
+Diastolic blood pressure                  1.862395       0.874698
+Systolic blood pressure                   1.600136       0.725496
+HDL                                       1.397435       0.519177
+Calcium channel blockers                  1.257638       0.504118
+Previous Myocardial Infarction            1.003915       0.507506
+Low T3                                    1.003681       0.506630
+PCI                                       1.000199       0.503877
+Vessels                                   0.991479       0.628953
+Non Fatal AMI (Follow-Up)                 0.978424       0.285710
+PCI_event                                 0.961580       0.411135
+CABG _event                               0.946602       0.630015
+Smoke
+History of smoke                    0.937328       0.230739
+B-Blockers                                0.935706       0.839386
+Antiplatelet                              0.915623       0.235931
+Primary Dilated
+Cardiomyopathy            0.902101       0.365135
+Nitrates                                  0.899890       0.394729
+CAD                                       0.881381       0.338786
+Hypertension
+History of hypertension       0.856701       0.300447
+Previous PCI                              0.849053       0.364779
+Acute Myocardial Infarction               0.827119       0.391267
+ACE-inhibitors                            0.787222       0.140965
+MalattiaVasoAorta                         0.780342       0.259425
+Amiodarone                                0.766157       0.300163
+Triglycerides                             0.760806       0.282357
+PMI                                       0.752397       0.258693
+Previous CABG                             0.723244       0.315082
+Pericardite                               0.721666       0.480226
+Subclinical primary hypothyroidism (SCH)       0.710769       0.279388
+Antidiabetici                             0.683551       0.348438
+Ipertensione                              0.682696       0.231454
+Documented resting 
+or exertional ischemia       0.648815       0.294110
+Gender (Male = 1)                         0.620631       0.148693
+Angina                                    0.620182       0.266194
+Ipotiroidismo                             0.572020       0.188616
+Non Fatal AMI (Follow-Up)_event           0.558632       0.343279
+Normal                                    0.546086       0.288113
+CABG                                      0.536804       0.226950
+AMI                                       0.531194       0.207110
+Miocardite                                0.520145       0.487518
+Subclinical primary hyperthyroidism
+(SCT)       0.504098       0.186692
+Ictus                                     0.370207       0.316015
+Ictus_event                               0.357977       0.320708
+SindromeX                                 0.273316       0.350216
+MIN                                       0.268748       0.294235
+Ipertiroidismo                            0.207614       0.246343
+EmboliaPolmonare                          0.115188       0.230375
+MIO                                       0.050781       0.101563
+Endocardite                               0.000000       0.000000
+
+--- cox_baseline ---
+Feature                                 Mean|SHAP|      Std|SHAP|
+-----------------------------------------------------------------
+Age                                       0.457401       0.032057
+fe                                        0.225043       0.059297
+Angiography                               0.154461       0.025650
+Diuretics                                 0.135535       0.016798
+Creatinina                                0.086017       0.034775
+Ipolipemizzanti                           0.065031       0.013944
+EPA                                       0.062894       0.021842
+Weight                                    0.058286       0.023422
+Valvulopatie                              0.057895       0.003534
+Diabetes
+History of diabetes              0.056927       0.015899
+Dyslipidemia
+Hystory of dyslipidemia       0.042384       0.014126
+LDL                                       0.041708       0.018297
+Vessels                                   0.037142       0.022387
+BMI                                       0.030502       0.010431
+fT4                                       0.029617       0.017592
+Subclinical primary hypothyroidism (SCH)       0.027544       0.018336
+Diastolic blood pressure                  0.025186       0.012206
+Euthyroid                                 0.023844       0.004321
+Glycemia                                  0.021481       0.021268
+Previous CABG                             0.021264       0.010675
+TSH                                       0.020868       0.016149
+B-Blockers                                0.019180       0.002994
+Low T3                                    0.016905       0.006006
+MIN                                       0.015986       0.015903
+PCI                                       0.015977       0.004015
+AMI                                       0.015469       0.009845
+ACE-inhibitors                            0.015401       0.004712
+Aritmie                                   0.015221       0.005403
+Post-ischemic Dilated
+Cardiomyopathy       0.014748       0.004977
+HR                                        0.014113       0.006200
+Total cholesterol                         0.013254       0.009884
+CABG _event                               0.012812       0.005570
+PMI                                       0.012525       0.007038
+HDL                                       0.012314       0.006670
+Systolic blood pressure                   0.012264       0.005792
+fT3                                       0.011803       0.006993
+Previous Myocardial Infarction            0.011108       0.005741
+Ipotiroidismo                             0.011021       0.003218
+DimPP                                     0.010476       0.003582
+Primary Dilated
+Cardiomyopathy            0.010448       0.004092
+Hypertension
+History of hypertension       0.010230       0.004710
+DimSettoIV                                0.010203       0.006642
+CAD                                       0.010098       0.004738
+Atrial Fibrillation                       0.010090       0.002787
+Non Fatal AMI (Follow-Up)                 0.009973       0.004356
+Normal                                    0.009651       0.006210
+Non Fatal AMI (Follow-Up)_event           0.009639       0.006037
+Gender (Male = 1)                         0.009548       0.003794
+CABG                                      0.009238       0.003148
+vsx                                       0.009009       0.003630
+Calcium channel blockers                  0.009002       0.004309
+Ictus                                     0.008726       0.006942
+Acute Myocardial Infarction               0.008648       0.003906
+PCI_event                                 0.007999       0.001807
+Angina                                    0.007950       0.002283
+Subclinical primary hyperthyroidism
+(SCT)       0.007716       0.005089
+Documented resting 
+or exertional ischemia       0.007593       0.004705
+EmboliaPolmonare                          0.007128       0.011116
+Ipertensione                              0.007093       0.004404
+Height                                    0.007009       0.003692
+Smoke
+History of smoke                    0.006995       0.002689
+Antiplatelet                              0.006990       0.004015
+Antidiabetici                             0.006687       0.002189
+MalattiaVasoAorta                         0.006683       0.003410
+Amiodarone                                0.005912       0.005507
+Ictus_event                               0.005809       0.005783
+Miocardite                                0.005688       0.002389
+WmsiBas                                   0.005611       0.002750
+Nitrates                                  0.005579       0.002832
+Triglycerides                             0.005492       0.001969
+Pericardite                               0.005074       0.001612
+Previous PCI                              0.004650       0.000884
+Ipertiroidismo                            0.004420       0.005469
+SindromeX                                 0.004222       0.005616
+MIO                                       0.000746       0.001492
+Endocardite                               0.000000       0.000000

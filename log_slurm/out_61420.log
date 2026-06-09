@@ -161,3 +161,1546 @@ A very low variance means that the column Miocardite completely determines wheth
   expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
 /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
   return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:471: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:473: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+Model:        tabpfn
+Seed:         789
+Sample sizes: [100, 500, 1000, 2500, 5000, 10000, 15000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed789.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8975  test=0.7704
+  [tabpfn+DS-vanilla] train=0.9061  test=0.7693
+  [tabpfn+RSF]        train=0.9291  test=0.7709
+  [tabpfn+Cox]        train=0.9405  test=0.6750
+  [DS-simple]         train=0.8337  test=0.7041
+  [DS-vanilla]        train=0.7331  test=0.6317
+  [RSF]               train=0.9303  test=0.7383
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9361  test=0.7291
+  [tabpfn+DS-vanilla] train=0.9351  test=0.7326
+  [tabpfn+RSF]        train=0.9371  test=0.7168
+  [tabpfn+Cox]        train=0.9721  test=0.4566
+  [DS-simple]         train=0.6457  test=0.6707
+  [DS-vanilla]        train=0.7655  test=0.6293
+  [RSF]               train=0.9137  test=0.7170
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9152  test=0.7513
+  [tabpfn+DS-vanilla] train=0.9192  test=0.7520
+  [tabpfn+RSF]        train=0.9333  test=0.7473
+  [tabpfn+Cox]        train=0.9639  test=0.5750
+  [DS-simple]         train=0.8620  test=0.6827
+  [DS-vanilla]        train=0.8264  test=0.6577
+  [RSF]               train=0.9473  test=0.6953
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9147  test=0.7438
+  [tabpfn+DS-vanilla] train=0.9112  test=0.7445
+  [tabpfn+RSF]        train=0.9035  test=0.7326
+  [tabpfn+Cox]        train=0.9603  test=0.5001
+  [DS-simple]         train=0.7827  test=0.6652
+  [DS-vanilla]        train=0.7292  test=0.6092
+  [RSF]               train=0.9449  test=0.6910
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9482  test=0.6995
+  [tabpfn+DS-vanilla] train=0.9338  test=0.6971
+  [tabpfn+RSF]        train=0.9532  test=0.6664
+  [tabpfn+Cox]        train=0.9819  test=0.5047
+  [DS-simple]         train=0.9013  test=0.6649
+  [DS-vanilla]        train=0.8189  test=0.6198
+  [RSF]               train=0.9582  test=0.7075
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9036  test=0.7777
+  [tabpfn+DS-vanilla] train=0.9094  test=0.7843
+  [tabpfn+RSF]        train=0.9464  test=0.7322
+  [tabpfn+Cox]        train=0.9242  test=0.3196
+  [DS-simple]         train=0.8110  test=0.7592
+  [DS-vanilla]        train=0.8313  test=0.7427
+  [RSF]               train=0.9063  test=0.7761
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9093  test=0.7721
+  [tabpfn+DS-vanilla] train=0.9236  test=0.7764
+  [tabpfn+RSF]        train=0.9555  test=0.7648
+  [tabpfn+Cox]        train=0.9336  test=0.7495
+  [DS-simple]         train=0.8017  test=0.7610
+  [DS-vanilla]        train=0.8274  test=0.7602
+  [RSF]               train=0.9112  test=0.7699
+  [Cox]               train=0.8161  test=0.7653
+  Fold 3: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.8984  test=0.7782
+  [tabpfn+DS-vanilla] train=0.9037  test=0.7764
+  [tabpfn+RSF]        train=0.9523  test=0.7586
+  [tabpfn+Cox]        train=0.9116  test=0.7800
+  [DS-simple]         train=0.8247  test=0.7713
+  [DS-vanilla]        train=0.8230  test=0.7243
+  [RSF]               train=0.9093  test=0.7787
+  [Cox]               train=0.8319  test=0.7760
+  Fold 4: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9192  test=0.8043
+  [tabpfn+DS-vanilla] train=0.9214  test=0.8005
+  [tabpfn+RSF]        train=0.9626  test=0.7860
+  [tabpfn+Cox]        train=0.9404  test=0.7984
+  [DS-simple]         train=0.8121  test=0.7746
+  [DS-vanilla]        train=0.6947  test=0.6806
+  [RSF]               train=0.9335  test=0.7802
+  [Cox]               train=0.8435  test=0.7851
+  Fold 5: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9038  test=0.7621
+  [tabpfn+DS-vanilla] train=0.9051  test=0.7592
+  [tabpfn+RSF]        train=0.9538  test=0.7090
+  [tabpfn+Cox]        train=0.9248  test=0.7586
+  [DS-simple]         train=0.7563  test=0.7324
+  [DS-vanilla]        train=0.8177  test=0.7252
+  [RSF]               train=0.9192  test=0.7757
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9161  test=0.7865
+  [tabpfn+DS-vanilla] train=0.9187  test=0.7924
+  [tabpfn+RSF]        train=0.9572  test=0.7519
+  [tabpfn+Cox]        train=0.9196  test=0.7830
+  [DS-simple]         train=0.8122  test=0.7821
+  [DS-vanilla]        train=0.8171  test=0.7821
+  [RSF]               train=0.9118  test=0.7792
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9121  test=0.7805
+  [tabpfn+DS-vanilla] train=0.9208  test=0.7779
+  [tabpfn+RSF]        train=0.9598  test=0.7696
+  [tabpfn+Cox]        train=0.9299  test=0.7584
+  [DS-simple]         train=0.8177  test=0.7859
+  [DS-vanilla]        train=0.8106  test=0.7825
+  [RSF]               train=0.9191  test=0.7709
+  [Cox]               train=0.8193  test=0.7820
+  Fold 3: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9005  test=0.7820
+  [tabpfn+DS-vanilla] train=0.9085  test=0.7796
+  [tabpfn+RSF]        train=0.9589  test=0.7445
+  [tabpfn+Cox]        train=0.9134  test=0.7703
+  [DS-simple]         train=0.8111  test=0.7786
+  [DS-vanilla]        train=0.8113  test=0.7604
+  [RSF]               train=0.9168  test=0.7915
+  [Cox]               train=0.8166  test=0.7837
+  Fold 4: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9032  test=0.7939
+  [tabpfn+DS-vanilla] train=0.9038  test=0.7936
+  [tabpfn+RSF]        train=0.9570  test=0.7878
+  [tabpfn+Cox]        train=0.9230  test=0.7912
+  [DS-simple]         train=0.8029  test=0.7948
+  [DS-vanilla]        train=0.7987  test=0.7694
+  [RSF]               train=0.9157  test=0.7963
+  [Cox]               train=0.8069  test=0.7961
+  Fold 5: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.8972  test=0.7783
+  [tabpfn+DS-vanilla] train=0.8993  test=0.7763
+  [tabpfn+RSF]        train=0.9602  test=0.7551
+  [tabpfn+Cox]        train=0.9169  test=0.7699
+  [DS-simple]         train=0.8011  test=0.7743
+  [DS-vanilla]        train=0.7828  test=0.7498
+  [RSF]               train=0.9192  test=0.7826
+  [Cox]               train=0.8002  test=0.7745
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9060  test=0.7963
+  [tabpfn+DS-vanilla] train=0.9167  test=0.7776
+  [tabpfn+RSF]        train=0.9547  test=0.7843
+  [tabpfn+Cox]        train=0.9185  test=0.7718
+  [DS-simple]         train=0.7880  test=0.7843
+  [DS-vanilla]        train=0.8066  test=0.7819
+  [RSF]               train=0.9075  test=0.7862
+  [Cox]               train=0.7980  test=0.7881
+  Fold 2: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.8966  test=0.7855
+  [tabpfn+DS-vanilla] train=0.9176  test=0.7839
+  [tabpfn+RSF]        train=0.9579  test=0.7758
+  [tabpfn+Cox]        train=0.9201  test=0.7844
+  [DS-simple]         train=0.8051  test=0.7896
+  [DS-vanilla]        train=0.8125  test=0.7863
+  [RSF]               train=0.9116  test=0.7816
+  [Cox]               train=0.8082  test=0.7894
+  Fold 3: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9025  test=0.7912
+  [tabpfn+DS-vanilla] train=0.9075  test=0.7792
+  [tabpfn+RSF]        train=0.9568  test=0.7855
+  [tabpfn+Cox]        train=0.9163  test=0.7843
+  [DS-simple]         train=0.7940  test=0.7840
+  [DS-vanilla]        train=0.8243  test=0.7813
+  [RSF]               train=0.9113  test=0.7939
+  [Cox]               train=0.8105  test=0.7963
+  Fold 4: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9233  test=0.8029
+  [tabpfn+DS-vanilla] train=0.9252  test=0.8023
+  [tabpfn+RSF]        train=0.9611  test=0.7926
+  [tabpfn+Cox]        train=0.9238  test=0.8020
+  [DS-simple]         train=0.7782  test=0.7816
+  [DS-vanilla]        train=0.7901  test=0.7852
+  [RSF]               train=0.9112  test=0.8014
+  [Cox]               train=0.7950  test=0.7999
+  Fold 5: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9077  test=0.7804
+  [tabpfn+DS-vanilla] train=0.9173  test=0.7786
+  [tabpfn+RSF]        train=0.9608  test=0.7808
+  [tabpfn+Cox]        train=0.9196  test=0.7867
+  [DS-simple]         train=0.7853  test=0.7654
+  [DS-vanilla]        train=0.8094  test=0.7812
+  [RSF]               train=0.9141  test=0.7879
+  [Cox]               train=0.8106  test=0.7854
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9006  test=0.7905
+  [tabpfn+DS-vanilla] train=0.9138  test=0.7915
+  [tabpfn+RSF]        train=0.9588  test=0.7845
+  [tabpfn+Cox]        train=0.9191  test=0.7722
+  [DS-simple]         train=0.7944  test=0.7879
+  [DS-vanilla]        train=0.8164  test=0.7925
+  [RSF]               train=0.9083  test=0.7969
+  [Cox]               train=0.8023  test=0.7893
+  Fold 2: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8898  test=0.7911
+  [tabpfn+DS-vanilla] train=0.9172  test=0.7909
+  [tabpfn+RSF]        train=0.9585  test=0.7899
+  [tabpfn+Cox]        train=0.9200  test=0.7920
+  [DS-simple]         train=0.7296  test=0.7069
+  [DS-vanilla]        train=0.8104  test=0.7971
+  [RSF]               train=0.9064  test=0.7883
+  [Cox]               train=0.7995  test=0.7953
+  Fold 3: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8938  test=0.7945
+  [tabpfn+DS-vanilla] train=0.9158  test=0.7873
+  [tabpfn+RSF]        train=0.9587  test=0.7823
+  [tabpfn+Cox]        train=0.9182  test=0.7951
+  [DS-simple]         train=0.7864  test=0.7739
+  [DS-vanilla]        train=0.8040  test=0.7859
+  [RSF]               train=0.9081  test=0.7995
+  [Cox]               train=0.8008  test=0.7947
+  Fold 4: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8931  test=0.7992
+  [tabpfn+DS-vanilla] train=0.9139  test=0.7853
+  [tabpfn+RSF]        train=0.9609  test=0.7908
+  [tabpfn+Cox]        train=0.9195  test=0.7890
+  [DS-simple]         train=0.7773  test=0.7841
+  [DS-vanilla]        train=0.8029  test=0.7949
+  [RSF]               train=0.9090  test=0.8104
+  [Cox]               train=0.7976  test=0.8024
+  Fold 5: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8961  test=0.7799
+  [tabpfn+DS-vanilla] train=0.9156  test=0.7718
+  [tabpfn+RSF]        train=0.9583  test=0.7831
+  [tabpfn+Cox]        train=0.9189  test=0.7820
+  [DS-simple]         train=0.7949  test=0.7718
+  [DS-vanilla]        train=0.8041  test=0.7784
+  [RSF]               train=0.9107  test=0.7984
+  [Cox]               train=0.8034  test=0.7837
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.9194  test=0.7909
+  [tabpfn+DS-vanilla] train=0.9138  test=0.7676
+  [tabpfn+RSF]        train=0.9578  test=0.7819
+  [tabpfn+Cox]        train=0.9183  test=0.7811
+  [DS-simple]         train=0.7682  test=0.7574
+  [DS-vanilla]        train=0.8111  test=0.7913
+  [RSF]               train=0.9077  test=0.7904
+  [Cox]               train=0.8016  test=0.7899
+  Fold 2: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.8905  test=0.7923
+  [tabpfn+DS-vanilla] train=0.9184  test=0.7848
+  [tabpfn+RSF]        train=0.9588  test=0.7796
+  [tabpfn+Cox]        train=0.9213  test=0.7951
+  [DS-simple]         train=0.7703  test=0.7850
+  [DS-vanilla]        train=0.8116  test=0.7972
+  [RSF]               train=0.9079  test=0.7860
+  [Cox]               train=0.7995  test=0.7954
+  Fold 3: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9205  test=0.7927
+  [tabpfn+DS-vanilla] train=0.9164  test=0.7906
+  [tabpfn+RSF]        train=0.9580  test=0.7914
+  [tabpfn+Cox]        train=0.9177  test=0.7919
+  [DS-simple]         train=0.7733  test=0.7699
+  [DS-vanilla]        train=0.8087  test=0.7889
+  [RSF]               train=0.9068  test=0.7919
+  [Cox]               train=0.8004  test=0.7942
+  Fold 4: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.8956  test=0.7967
+  [tabpfn+DS-vanilla] train=0.9061  test=0.7310
+  [tabpfn+RSF]        train=0.9601  test=0.7984
+  [tabpfn+Cox]        train=0.9195  test=0.7864
+  [DS-simple]         train=0.7829  test=0.7899
+  [DS-vanilla]        train=0.7229  test=0.7174
+  [RSF]               train=0.9091  test=0.8077
+  [Cox]               train=0.7983  test=0.8027
+  Fold 5: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9189  test=0.7860
+  [tabpfn+DS-vanilla] train=0.9153  test=0.7737
+  [tabpfn+RSF]        train=0.9583  test=0.7732
+  [tabpfn+Cox]        train=0.9191  test=0.7845
+  [DS-simple]         train=0.7924  test=0.7826
+  [DS-vanilla]        train=0.8122  test=0.7848
+  [RSF]               train=0.9103  test=0.7930
+  [Cox]               train=0.8033  test=0.7838
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed789.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9020  test=0.7822
+  [tabpfn+DS-vanilla] train=0.9151  test=0.7833
+  [tabpfn+RSF]        train=0.9270  test=0.7776
+  [tabpfn+Cox]        train=0.9438  test=0.7678
+  Fold 2: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9386  test=0.7323
+  [tabpfn+DS-vanilla] train=0.9361  test=0.7305
+  [tabpfn+RSF]        train=0.9356  test=0.6876
+  [tabpfn+Cox]        train=0.9741  test=0.6665
+  Fold 3: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9122  test=0.7494
+  [tabpfn+DS-vanilla] train=0.9117  test=0.7497
+  [tabpfn+RSF]        train=0.9293  test=0.7395
+  [tabpfn+Cox]        train=0.9408  test=0.6927
+  Fold 4: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8988  test=0.7389
+  [tabpfn+DS-vanilla] train=0.9033  test=0.7429
+  [tabpfn+RSF]        train=0.9303  test=0.7321
+  [tabpfn+Cox]        train=0.9568  test=0.7118
+  Fold 5: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9257  test=0.7149
+  [tabpfn+DS-vanilla] train=0.9288  test=0.7075
+  [tabpfn+RSF]        train=0.9482  test=0.6966
+  [tabpfn+Cox]        train=0.9844  test=0.5714
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9044  test=0.7867
+  [tabpfn+DS-vanilla] train=0.9136  test=0.7917
+  [tabpfn+RSF]        train=0.9476  test=0.7621
+  [tabpfn+Cox]        train=0.9223  test=0.3255
+  Fold 2: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9096  test=0.7740
+  [tabpfn+DS-vanilla] train=0.9189  test=0.7759
+  [tabpfn+RSF]        train=0.9547  test=0.7683
+  [tabpfn+Cox]        train=0.9322  test=0.7747
+  Fold 3: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.8845  test=0.7779
+  [tabpfn+DS-vanilla] train=0.9022  test=0.7768
+  [tabpfn+RSF]        train=0.9503  test=0.7495
+  [tabpfn+Cox]        train=0.9138  test=0.7787
+  Fold 4: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9072  test=0.7978
+  [tabpfn+DS-vanilla] train=0.9078  test=0.8008
+  [tabpfn+RSF]        train=0.9653  test=0.7911
+  [tabpfn+Cox]        train=0.9336  test=0.8027
+  Fold 5: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9030  test=0.7646
+  [tabpfn+DS-vanilla] train=0.9168  test=0.7520
+  [tabpfn+RSF]        train=0.9531  test=0.7221
+  [tabpfn+Cox]        train=0.9253  test=0.7631
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9023  test=0.7904
+  [tabpfn+DS-vanilla] train=0.9137  test=0.7734
+  [tabpfn+RSF]        train=0.9553  test=0.7662
+  [tabpfn+Cox]        train=0.9202  test=0.6183
+  Fold 2: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9016  test=0.7804
+  [tabpfn+DS-vanilla] train=0.9156  test=0.7836
+  [tabpfn+RSF]        train=0.9587  test=0.7723
+  [tabpfn+Cox]        train=0.9302  test=0.7822
+  Fold 3: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.8908  test=0.7839
+  [tabpfn+DS-vanilla] train=0.9014  test=0.7822
+  [tabpfn+RSF]        train=0.9598  test=0.7319
+  [tabpfn+Cox]        train=0.9120  test=0.7641
+  Fold 4: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9042  test=0.7970
+  [tabpfn+DS-vanilla] train=0.9083  test=0.7930
+  [tabpfn+RSF]        train=0.9575  test=0.7917
+  [tabpfn+Cox]        train=0.9208  test=0.8022
+  Fold 5: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.8981  test=0.7769
+  [tabpfn+DS-vanilla] train=0.9051  test=0.7810
+  [tabpfn+RSF]        train=0.9586  test=0.7480
+  [tabpfn+Cox]        train=0.9194  test=0.7615
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9204  test=0.7928
+  [tabpfn+DS-vanilla] train=0.9095  test=0.7977
+  [tabpfn+RSF]        train=0.9540  test=0.7768
+  [tabpfn+Cox]        train=0.9179  test=0.7915
+  Fold 2: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.8956  test=0.7856
+  [tabpfn+DS-vanilla] train=0.9062  test=0.7826
+  [tabpfn+RSF]        train=0.9581  test=0.7849
+  [tabpfn+Cox]        train=0.9193  test=0.7862
+  Fold 3: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9040  test=0.7888
+  [tabpfn+DS-vanilla] train=0.9131  test=0.7779
+  [tabpfn+RSF]        train=0.9585  test=0.7866
+  [tabpfn+Cox]        train=0.9176  test=0.7825
+  Fold 4: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.8940  test=0.7962
+  [tabpfn+DS-vanilla] train=0.9073  test=0.7958
+  [tabpfn+RSF]        train=0.9612  test=0.7909
+  [tabpfn+Cox]        train=0.9211  test=0.7791
+  Fold 5: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9102  test=0.7803
+  [tabpfn+DS-vanilla] train=0.9096  test=0.7791
+  [tabpfn+RSF]        train=0.9600  test=0.7714
+  [tabpfn+Cox]        train=0.9188  test=0.7817
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8971  test=0.7923
+  [tabpfn+DS-vanilla] train=0.9133  test=0.7931
+  [tabpfn+RSF]        train=0.9577  test=0.7889
+  [tabpfn+Cox]        train=0.9184  test=0.7868
+  Fold 2: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8957  test=0.7930
+  [tabpfn+DS-vanilla] train=0.9162  test=0.7894
+  [tabpfn+RSF]        train=0.9583  test=0.7781
+  [tabpfn+Cox]        train=0.9203  test=0.7842
+  Fold 3: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9219  test=0.7957
+  [tabpfn+DS-vanilla] train=0.9160  test=0.7840
+  [tabpfn+RSF]        train=0.9586  test=0.7768
+  [tabpfn+Cox]        train=0.9183  test=0.7942
+  Fold 4: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9196  test=0.8046
+  [tabpfn+DS-vanilla] train=0.9034  test=0.7911
+  [tabpfn+RSF]        train=0.9613  test=0.7986
+  [tabpfn+Cox]        train=0.9188  test=0.8012
+  Fold 5: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9234  test=0.7817
+  [tabpfn+DS-vanilla] train=0.9159  test=0.7783
+  [tabpfn+RSF]        train=0.9590  test=0.7713
+  [tabpfn+Cox]        train=0.9193  test=0.7836
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.8916  test=0.7914
+  [tabpfn+DS-vanilla] train=0.9193  test=0.7904
+  [tabpfn+RSF]        train=0.9586  test=0.7855
+  [tabpfn+Cox]        train=0.9178  test=0.7851
+  Fold 2: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.9021  test=0.7947
+  [tabpfn+DS-vanilla] train=0.9138  test=0.7915
+  [tabpfn+RSF]        train=0.9594  test=0.7854
+  [tabpfn+Cox]        train=0.9213  test=0.7868
+  Fold 3: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9204  test=0.7937
+  [tabpfn+DS-vanilla] train=0.9184  test=0.7956
+  [tabpfn+RSF]        train=0.9586  test=0.7869
+  [tabpfn+Cox]        train=0.9182  test=0.7934
+  Fold 4: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9190  test=0.8028
+  [tabpfn+DS-vanilla] train=0.9140  test=0.8050
+  [tabpfn+RSF]        train=0.9616  test=0.7832
+  [tabpfn+Cox]        train=0.9192  test=0.8001
+  Fold 5: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9225  test=0.7847
+  [tabpfn+DS-vanilla] train=0.9147  test=0.7819
+  [tabpfn+RSF]        train=0.9590  test=0.7738
+  [tabpfn+Cox]        train=0.9189  test=0.7837
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+Data saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed789_data.txt
+
+Dataset: OrmoniTirodei | Model: tabpfn | Seed: 789
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9223 | std: 0.0178 | min: 0.8975 | max: 0.9482
+    TEST  tabpfn+DS-simple            → mean: 0.7388 | std: 0.0237 | min: 0.6995 | max: 0.7704
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9211 | std: 0.0117 | min: 0.9061 | max: 0.9351
+    TEST  tabpfn+DS-vanilla           → mean: 0.7391 | std: 0.0241 | min: 0.6971 | max: 0.7693
+    TRAIN tabpfn+RSF                  → mean: 0.9312 | std: 0.0161 | min: 0.9035 | max: 0.9532
+    TEST  tabpfn+RSF                  → mean: 0.7268 | std: 0.0350 | min: 0.6664 | max: 0.7709
+    TRAIN tabpfn+Cox                  → mean: 0.9637 | std: 0.0138 | min: 0.9405 | max: 0.9819
+    TEST  tabpfn+Cox                  → mean: 0.5423 | std: 0.0764 | min: 0.4566 | max: 0.6750
+    TRAIN DS-simple (base)            → mean: 0.8051 | std: 0.0886 | min: 0.6457 | max: 0.9013
+    TEST  DS-simple (base)            → mean: 0.6775 | std: 0.0148 | min: 0.6649 | max: 0.7041
+    TRAIN DS-vanilla (base)           → mean: 0.7746 | std: 0.0413 | min: 0.7292 | max: 0.8264
+    TEST  DS-vanilla (base)           → mean: 0.6296 | std: 0.0161 | min: 0.6092 | max: 0.6577
+    TRAIN RSF (base)                  → mean: 0.9389 | std: 0.0154 | min: 0.9137 | max: 0.9582
+    TEST  RSF (base)                  → mean: 0.7098 | std: 0.0169 | min: 0.6910 | max: 0.7383
+    TRAIN Cox (base)                  → no valid scores
+    TEST  Cox (base)                  → no valid scores
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9069 | std: 0.0071 | min: 0.8984 | max: 0.9192
+    TEST  tabpfn+DS-simple            → mean: 0.7789 | std: 0.0140 | min: 0.7621 | max: 0.8043
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9126 | std: 0.0083 | min: 0.9037 | max: 0.9236
+    TEST  tabpfn+DS-vanilla           → mean: 0.7794 | std: 0.0134 | min: 0.7592 | max: 0.8005
+    TRAIN tabpfn+RSF                  → mean: 0.9541 | std: 0.0052 | min: 0.9464 | max: 0.9626
+    TEST  tabpfn+RSF                  → mean: 0.7501 | std: 0.0268 | min: 0.7090 | max: 0.7860
+    TRAIN tabpfn+Cox                  → mean: 0.9269 | std: 0.0097 | min: 0.9116 | max: 0.9404
+    TEST  tabpfn+Cox                  → mean: 0.6812 | std: 0.1816 | min: 0.3196 | max: 0.7984
+    TRAIN DS-simple (base)            → mean: 0.8012 | std: 0.0236 | min: 0.7563 | max: 0.8247
+    TEST  DS-simple (base)            → mean: 0.7597 | std: 0.0149 | min: 0.7324 | max: 0.7746
+    TRAIN DS-vanilla (base)           → mean: 0.7988 | std: 0.0523 | min: 0.6947 | max: 0.8313
+    TEST  DS-vanilla (base)           → mean: 0.7266 | std: 0.0265 | min: 0.6806 | max: 0.7602
+    TRAIN RSF (base)                  → mean: 0.9159 | std: 0.0098 | min: 0.9063 | max: 0.9335
+    TEST  RSF (base)                  → mean: 0.7761 | std: 0.0035 | min: 0.7699 | max: 0.7802
+    TRAIN Cox (base)                  → mean: 0.8305 | std: 0.0112 | min: 0.8161 | max: 0.8435
+    TEST  Cox (base)                  → mean: 0.7755 | std: 0.0081 | min: 0.7653 | max: 0.7851
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9058 | std: 0.0071 | min: 0.8972 | max: 0.9161
+    TEST  tabpfn+DS-simple            → mean: 0.7843 | std: 0.0055 | min: 0.7783 | max: 0.7939
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9102 | std: 0.0083 | min: 0.8993 | max: 0.9208
+    TEST  tabpfn+DS-vanilla           → mean: 0.7840 | std: 0.0074 | min: 0.7763 | max: 0.7936
+    TRAIN tabpfn+RSF                  → mean: 0.9586 | std: 0.0013 | min: 0.9570 | max: 0.9602
+    TEST  tabpfn+RSF                  → mean: 0.7618 | std: 0.0154 | min: 0.7445 | max: 0.7878
+    TRAIN tabpfn+Cox                  → mean: 0.9206 | std: 0.0056 | min: 0.9134 | max: 0.9299
+    TEST  tabpfn+Cox                  → mean: 0.7746 | std: 0.0114 | min: 0.7584 | max: 0.7912
+    TRAIN DS-simple (base)            → mean: 0.8090 | std: 0.0061 | min: 0.8011 | max: 0.8177
+    TEST  DS-simple (base)            → mean: 0.7831 | std: 0.0070 | min: 0.7743 | max: 0.7948
+    TRAIN DS-vanilla (base)           → mean: 0.8041 | std: 0.0122 | min: 0.7828 | max: 0.8171
+    TEST  DS-vanilla (base)           → mean: 0.7688 | std: 0.0126 | min: 0.7498 | max: 0.7825
+    TRAIN RSF (base)                  → mean: 0.9165 | std: 0.0027 | min: 0.9118 | max: 0.9192
+    TEST  RSF (base)                  → mean: 0.7841 | std: 0.0090 | min: 0.7709 | max: 0.7963
+    TRAIN Cox (base)                  → mean: 0.8107 | std: 0.0077 | min: 0.8002 | max: 0.8193
+    TEST  Cox (base)                  → mean: 0.7841 | std: 0.0077 | min: 0.7745 | max: 0.7961
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9072 | std: 0.0089 | min: 0.8966 | max: 0.9233
+    TEST  tabpfn+DS-simple            → mean: 0.7913 | std: 0.0079 | min: 0.7804 | max: 0.8029
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9169 | std: 0.0056 | min: 0.9075 | max: 0.9252
+    TEST  tabpfn+DS-vanilla           → mean: 0.7843 | std: 0.0093 | min: 0.7776 | max: 0.8023
+    TRAIN tabpfn+RSF                  → mean: 0.9583 | std: 0.0024 | min: 0.9547 | max: 0.9611
+    TEST  tabpfn+RSF                  → mean: 0.7838 | std: 0.0056 | min: 0.7758 | max: 0.7926
+    TRAIN tabpfn+Cox                  → mean: 0.9197 | std: 0.0025 | min: 0.9163 | max: 0.9238
+    TEST  tabpfn+Cox                  → mean: 0.7858 | std: 0.0096 | min: 0.7718 | max: 0.8020
+    TRAIN DS-simple (base)            → mean: 0.7901 | std: 0.0090 | min: 0.7782 | max: 0.8051
+    TEST  DS-simple (base)            → mean: 0.7810 | std: 0.0082 | min: 0.7654 | max: 0.7896
+    TRAIN DS-vanilla (base)           → mean: 0.8086 | std: 0.0110 | min: 0.7901 | max: 0.8243
+    TEST  DS-vanilla (base)           → mean: 0.7832 | std: 0.0022 | min: 0.7812 | max: 0.7863
+    TRAIN RSF (base)                  → mean: 0.9111 | std: 0.0021 | min: 0.9075 | max: 0.9141
+    TEST  RSF (base)                  → mean: 0.7902 | std: 0.0069 | min: 0.7816 | max: 0.8014
+    TRAIN Cox (base)                  → mean: 0.8045 | std: 0.0066 | min: 0.7950 | max: 0.8106
+    TEST  Cox (base)                  → mean: 0.7918 | std: 0.0054 | min: 0.7854 | max: 0.7999
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.8947 | std: 0.0036 | min: 0.8898 | max: 0.9006
+    TEST  tabpfn+DS-simple            → mean: 0.7910 | std: 0.0063 | min: 0.7799 | max: 0.7992
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9152 | std: 0.0013 | min: 0.9138 | max: 0.9172
+    TEST  tabpfn+DS-vanilla           → mean: 0.7854 | std: 0.0071 | min: 0.7718 | max: 0.7915
+    TRAIN tabpfn+RSF                  → mean: 0.9591 | std: 0.0010 | min: 0.9583 | max: 0.9609
+    TEST  tabpfn+RSF                  → mean: 0.7861 | std: 0.0035 | min: 0.7823 | max: 0.7908
+    TRAIN tabpfn+Cox                  → mean: 0.9191 | std: 0.0006 | min: 0.9182 | max: 0.9200
+    TEST  tabpfn+Cox                  → mean: 0.7861 | std: 0.0082 | min: 0.7722 | max: 0.7951
+    TRAIN DS-simple (base)            → mean: 0.7765 | std: 0.0243 | min: 0.7296 | max: 0.7949
+    TEST  DS-simple (base)            → mean: 0.7649 | std: 0.0296 | min: 0.7069 | max: 0.7879
+    TRAIN DS-vanilla (base)           → mean: 0.8076 | std: 0.0051 | min: 0.8029 | max: 0.8164
+    TEST  DS-vanilla (base)           → mean: 0.7898 | std: 0.0068 | min: 0.7784 | max: 0.7971
+    TRAIN RSF (base)                  → mean: 0.9085 | std: 0.0014 | min: 0.9064 | max: 0.9107
+    TEST  RSF (base)                  → mean: 0.7987 | std: 0.0070 | min: 0.7883 | max: 0.8104
+    TRAIN Cox (base)                  → mean: 0.8007 | std: 0.0020 | min: 0.7976 | max: 0.8034
+    TEST  Cox (base)                  → mean: 0.7931 | std: 0.0063 | min: 0.7837 | max: 0.8024
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabpfn+DS-simple            → mean: 0.9090 | std: 0.0131 | min: 0.8905 | max: 0.9205
+    TEST  tabpfn+DS-simple            → mean: 0.7917 | std: 0.0035 | min: 0.7860 | max: 0.7967
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9140 | std: 0.0042 | min: 0.9061 | max: 0.9184
+    TEST  tabpfn+DS-vanilla           → mean: 0.7695 | std: 0.0209 | min: 0.7310 | max: 0.7906
+    TRAIN tabpfn+RSF                  → mean: 0.9586 | std: 0.0008 | min: 0.9578 | max: 0.9601
+    TEST  tabpfn+RSF                  → mean: 0.7849 | std: 0.0089 | min: 0.7732 | max: 0.7984
+    TRAIN tabpfn+Cox                  → mean: 0.9192 | std: 0.0012 | min: 0.9177 | max: 0.9213
+    TEST  tabpfn+Cox                  → mean: 0.7878 | std: 0.0051 | min: 0.7811 | max: 0.7951
+    TRAIN DS-simple (base)            → mean: 0.7775 | std: 0.0090 | min: 0.7682 | max: 0.7924
+    TEST  DS-simple (base)            → mean: 0.7770 | std: 0.0118 | min: 0.7574 | max: 0.7899
+    TRAIN DS-vanilla (base)           → mean: 0.7933 | std: 0.0352 | min: 0.7229 | max: 0.8122
+    TEST  DS-vanilla (base)           → mean: 0.7759 | std: 0.0295 | min: 0.7174 | max: 0.7972
+    TRAIN RSF (base)                  → mean: 0.9083 | std: 0.0012 | min: 0.9068 | max: 0.9103
+    TEST  RSF (base)                  → mean: 0.7938 | std: 0.0073 | min: 0.7860 | max: 0.8077
+    TRAIN Cox (base)                  → mean: 0.8006 | std: 0.0017 | min: 0.7983 | max: 0.8033
+    TEST  Cox (base)                  → mean: 0.7932 | std: 0.0062 | min: 0.7838 | max: 0.8027
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9155 | std: 0.0149 | min: 0.8988 | max: 0.9386
+    TEST  tabpfn+DS-simple            → mean: 0.7435 | std: 0.0223 | min: 0.7149 | max: 0.7822
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9190 | std: 0.0119 | min: 0.9033 | max: 0.9361
+    TEST  tabpfn+DS-vanilla           → mean: 0.7428 | std: 0.0248 | min: 0.7075 | max: 0.7833
+    TRAIN tabpfn+RSF                  → mean: 0.9341 | std: 0.0076 | min: 0.9270 | max: 0.9482
+    TEST  tabpfn+RSF                  → mean: 0.7267 | std: 0.0323 | min: 0.6876 | max: 0.7776
+    TRAIN tabpfn+Cox                  → mean: 0.9600 | std: 0.0169 | min: 0.9408 | max: 0.9844
+    TEST  tabpfn+Cox                  → mean: 0.6820 | std: 0.0646 | min: 0.5714 | max: 0.7678
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9017 | std: 0.0089 | min: 0.8845 | max: 0.9096
+    TEST  tabpfn+DS-simple            → mean: 0.7802 | std: 0.0113 | min: 0.7646 | max: 0.7978
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9119 | std: 0.0061 | min: 0.9022 | max: 0.9189
+    TEST  tabpfn+DS-vanilla           → mean: 0.7794 | std: 0.0166 | min: 0.7520 | max: 0.8008
+    TRAIN tabpfn+RSF                  → mean: 0.9542 | std: 0.0061 | min: 0.9476 | max: 0.9653
+    TEST  tabpfn+RSF                  → mean: 0.7586 | std: 0.0227 | min: 0.7221 | max: 0.7911
+    TRAIN tabpfn+Cox                  → mean: 0.9254 | std: 0.0072 | min: 0.9138 | max: 0.9336
+    TEST  tabpfn+Cox                  → mean: 0.6889 | std: 0.1822 | min: 0.3255 | max: 0.8027
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.8994 | std: 0.0047 | min: 0.8908 | max: 0.9042
+    TEST  tabpfn+DS-simple            → mean: 0.7857 | std: 0.0072 | min: 0.7769 | max: 0.7970
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9088 | std: 0.0053 | min: 0.9014 | max: 0.9156
+    TEST  tabpfn+DS-vanilla           → mean: 0.7827 | std: 0.0063 | min: 0.7734 | max: 0.7930
+    TRAIN tabpfn+RSF                  → mean: 0.9580 | std: 0.0015 | min: 0.9553 | max: 0.9598
+    TEST  tabpfn+RSF                  → mean: 0.7620 | std: 0.0205 | min: 0.7319 | max: 0.7917
+    TRAIN tabpfn+Cox                  → mean: 0.9205 | std: 0.0058 | min: 0.9120 | max: 0.9302
+    TEST  tabpfn+Cox                  → mean: 0.7457 | std: 0.0653 | min: 0.6183 | max: 0.8022
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9048 | std: 0.0097 | min: 0.8940 | max: 0.9204
+    TEST  tabpfn+DS-simple            → mean: 0.7887 | std: 0.0056 | min: 0.7803 | max: 0.7962
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9091 | std: 0.0024 | min: 0.9062 | max: 0.9131
+    TEST  tabpfn+DS-vanilla           → mean: 0.7866 | std: 0.0084 | min: 0.7779 | max: 0.7977
+    TRAIN tabpfn+RSF                  → mean: 0.9584 | std: 0.0025 | min: 0.9540 | max: 0.9612
+    TEST  tabpfn+RSF                  → mean: 0.7821 | std: 0.0070 | min: 0.7714 | max: 0.7909
+    TRAIN tabpfn+Cox                  → mean: 0.9190 | std: 0.0012 | min: 0.9176 | max: 0.9211
+    TEST  tabpfn+Cox                  → mean: 0.7842 | std: 0.0043 | min: 0.7791 | max: 0.7915
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.9115 | std: 0.0124 | min: 0.8957 | max: 0.9234
+    TEST  tabpfn+DS-simple            → mean: 0.7935 | std: 0.0073 | min: 0.7817 | max: 0.8046
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9130 | std: 0.0049 | min: 0.9034 | max: 0.9162
+    TEST  tabpfn+DS-vanilla           → mean: 0.7872 | std: 0.0054 | min: 0.7783 | max: 0.7931
+    TRAIN tabpfn+RSF                  → mean: 0.9590 | std: 0.0012 | min: 0.9577 | max: 0.9613
+    TEST  tabpfn+RSF                  → mean: 0.7827 | std: 0.0098 | min: 0.7713 | max: 0.7986
+    TRAIN tabpfn+Cox                  → mean: 0.9190 | std: 0.0007 | min: 0.9183 | max: 0.9203
+    TEST  tabpfn+Cox                  → mean: 0.7900 | std: 0.0068 | min: 0.7836 | max: 0.8012
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabpfn+DS-simple            → mean: 0.9111 | std: 0.0122 | min: 0.8916 | max: 0.9225
+    TEST  tabpfn+DS-simple            → mean: 0.7935 | std: 0.0058 | min: 0.7847 | max: 0.8028
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9160 | std: 0.0023 | min: 0.9138 | max: 0.9193
+    TEST  tabpfn+DS-vanilla           → mean: 0.7929 | std: 0.0075 | min: 0.7819 | max: 0.8050
+    TRAIN tabpfn+RSF                  → mean: 0.9594 | std: 0.0011 | min: 0.9586 | max: 0.9616
+    TEST  tabpfn+RSF                  → mean: 0.7829 | std: 0.0047 | min: 0.7738 | max: 0.7869
+    TRAIN tabpfn+Cox                  → mean: 0.9191 | std: 0.0012 | min: 0.9178 | max: 0.9213
+    TEST  tabpfn+Cox                  → mean: 0.7898 | std: 0.0061 | min: 0.7837 | max: 0.8001
+Text summary saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed789.txt
+
+######################################################################
+Dataset: HURRAH
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed789.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9630  test=0.7583
+  [tabpfn+DS-vanilla] train=0.9757  test=0.7409
+  [tabpfn+RSF]        train=0.9715  test=0.7393
+  [tabpfn+Cox]        train=0.9916  test=0.7357
+  [DS-simple]         train=0.5090  test=0.4967
+  [DS-vanilla]        train=0.7476  test=0.6306
+  [RSF]               train=0.9757  test=0.7091
+  [Cox]               train=0.9620  test=0.7075
+  Fold 2: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9456  test=0.7569
+  [tabpfn+DS-vanilla] train=0.9473  test=0.7596
+  [tabpfn+RSF]        train=0.9499  test=0.7320
+  [tabpfn+Cox]        train=0.9941  test=0.7251
+  [DS-simple]         train=0.9312  test=0.7722
+  [DS-vanilla]        train=0.8658  test=0.7149
+  [RSF]               train=0.9745  test=0.7527
+  [Cox]               train=0.9057  test=0.7756
+  Fold 3: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9854  test=0.7803
+  [tabpfn+DS-vanilla] train=0.9844  test=0.7843
+  [tabpfn+RSF]        train=0.9761  test=0.7612
+  [tabpfn+Cox]        train=0.9958  test=0.7471
+  [DS-simple]         train=0.9292  test=0.6800
+  [DS-vanilla]        train=0.8783  test=0.6012
+  [RSF]               train=0.9761  test=0.7406
+  [Cox]               train=0.9646  test=0.7782
+  Fold 4: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9651  test=0.7631
+  [tabpfn+DS-vanilla] train=0.9853  test=0.7532
+  [tabpfn+RSF]        train=0.9761  test=0.7491
+  [tabpfn+Cox]        train=0.9881  test=0.7275
+  [DS-simple]         train=0.9118  test=0.7413
+  [DS-vanilla]        train=0.8787  test=0.6630
+  [RSF]               train=0.9577  test=0.7312
+  [Cox]               train=0.9494  test=0.7738
+  Fold 5: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9726  test=0.6626
+  [tabpfn+DS-vanilla] train=0.9781  test=0.6636
+  [tabpfn+RSF]        train=0.9808  test=0.6155
+  [tabpfn+Cox]        train=0.9904  test=0.6502
+  [DS-simple]         train=0.9342  test=0.6336
+  [DS-vanilla]        train=0.8354  test=0.5565
+  [RSF]               train=0.9698  test=0.6663
+  [Cox]               train=0.9465  test=0.6448
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9617  test=0.8200
+  [tabpfn+DS-vanilla] train=0.9623  test=0.8207
+  [tabpfn+RSF]        train=0.9788  test=0.7629
+  [tabpfn+Cox]        train=0.9653  test=0.8168
+  [DS-simple]         train=0.8860  test=0.8050
+  [DS-vanilla]        train=0.8606  test=0.7608
+  [RSF]               train=0.9616  test=0.7945
+  [Cox]               train=0.8694  test=0.7986
+  Fold 2: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9494  test=0.7943
+  [tabpfn+DS-vanilla] train=0.9496  test=0.7934
+  [tabpfn+RSF]        train=0.9760  test=0.7629
+  [tabpfn+Cox]        train=0.9615  test=0.7936
+  [DS-simple]         train=0.8506  test=0.7978
+  [DS-vanilla]        train=0.8738  test=0.7637
+  [RSF]               train=0.9356  test=0.7730
+  [Cox]               train=0.8460  test=0.7939
+  Fold 3: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9553  test=0.8396
+  [tabpfn+DS-vanilla] train=0.9587  test=0.8402
+  [tabpfn+RSF]        train=0.9793  test=0.8078
+  [tabpfn+Cox]        train=0.9677  test=0.5003
+  [DS-simple]         train=0.8652  test=0.8273
+  [DS-vanilla]        train=0.8321  test=0.7690
+  [RSF]               train=0.9308  test=0.8134
+  [Cox]               train=0.8567  test=0.8318
+  Fold 4: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9459  test=0.8189
+  [tabpfn+DS-vanilla] train=0.9496  test=0.7994
+  [tabpfn+RSF]        train=0.9731  test=0.7781
+  [tabpfn+Cox]        train=0.9591  test=0.5361
+  [DS-simple]         train=0.8833  test=0.8075
+  [DS-vanilla]        train=0.9310  test=0.7791
+  [RSF]               train=0.9313  test=0.7917
+  [Cox]               train=0.8778  test=0.8094
+  Fold 5: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9553  test=0.7972
+  [tabpfn+DS-vanilla] train=0.9698  test=0.7724
+  [tabpfn+RSF]        train=0.9819  test=0.7461
+  [tabpfn+Cox]        train=0.9736  test=0.6188
+  [DS-simple]         train=0.8693  test=0.7917
+  [DS-vanilla]        train=0.7822  test=0.6509
+  [RSF]               train=0.9527  test=0.7689
+  [Cox]               train=0.8545  test=0.7722
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9563  test=0.8280
+  [tabpfn+DS-vanilla] train=0.9580  test=0.8210
+  [tabpfn+RSF]        train=0.9787  test=0.8149
+  [tabpfn+Cox]        train=0.9625  test=0.8216
+  [DS-simple]         train=0.8634  test=0.8238
+  [DS-vanilla]        train=0.8734  test=0.8066
+  [RSF]               train=0.9522  test=0.8128
+  [Cox]               train=0.8551  test=0.8181
+  Fold 2: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9528  test=0.8259
+  [tabpfn+DS-vanilla] train=0.9573  test=0.8014
+  [tabpfn+RSF]        train=0.9773  test=0.7574
+  [tabpfn+Cox]        train=0.9613  test=0.6624
+  [DS-simple]         train=0.8520  test=0.8143
+  [DS-vanilla]        train=0.8400  test=0.7788
+  [RSF]               train=0.9430  test=0.7976
+  [Cox]               train=0.8450  test=0.8078
+  Fold 3: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9505  test=0.8450
+  [tabpfn+DS-vanilla] train=0.9529  test=0.8321
+  [tabpfn+RSF]        train=0.9797  test=0.8298
+  [tabpfn+Cox]        train=0.9594  test=0.8312
+  [DS-simple]         train=0.8393  test=0.8450
+  [DS-vanilla]        train=0.8648  test=0.7894
+  [RSF]               train=0.9381  test=0.8277
+  [Cox]               train=0.8323  test=0.8443
+  Fold 4: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9424  test=0.8313
+  [tabpfn+DS-vanilla] train=0.9512  test=0.8276
+  [tabpfn+RSF]        train=0.9776  test=0.8190
+  [tabpfn+Cox]        train=0.9555  test=0.7357
+  [DS-simple]         train=0.8509  test=0.8202
+  [DS-vanilla]        train=0.8700  test=0.8118
+  [RSF]               train=0.9376  test=0.8126
+  [Cox]               train=0.8496  test=0.8185
+  Fold 5: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9502  test=0.8251
+  [tabpfn+DS-vanilla] train=0.9503  test=0.8133
+  [tabpfn+RSF]        train=0.9824  test=0.8129
+  [tabpfn+Cox]        train=0.9638  test=0.6059
+  [DS-simple]         train=0.8381  test=0.8192
+  [DS-vanilla]        train=0.7729  test=0.7290
+  [RSF]               train=0.9418  test=0.8099
+  [Cox]               train=0.8302  test=0.8083
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9511  test=0.8237
+  [tabpfn+DS-vanilla] train=0.9535  test=0.8202
+  [tabpfn+RSF]        train=0.9803  test=0.8107
+  [tabpfn+Cox]        train=0.9574  test=0.8199
+  [DS-simple]         train=0.8493  test=0.8247
+  [DS-vanilla]        train=0.8344  test=0.8035
+  [RSF]               train=0.9449  test=0.8400
+  [Cox]               train=0.8443  test=0.8170
+  Fold 2: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9527  test=0.8391
+  [tabpfn+DS-vanilla] train=0.9595  test=0.8232
+  [tabpfn+RSF]        train=0.9814  test=0.8346
+  [tabpfn+Cox]        train=0.9638  test=0.8177
+  [DS-simple]         train=0.8496  test=0.8210
+  [DS-vanilla]        train=0.8412  test=0.8045
+  [RSF]               train=0.9475  test=0.8222
+  [Cox]               train=0.8406  test=0.8114
+  Fold 3: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9517  test=0.8438
+  [tabpfn+DS-vanilla] train=0.9550  test=0.8340
+  [tabpfn+RSF]        train=0.9800  test=0.8171
+  [tabpfn+Cox]        train=0.9595  test=0.7343
+  [DS-simple]         train=0.8368  test=0.8460
+  [DS-vanilla]        train=0.8602  test=0.8364
+  [RSF]               train=0.9425  test=0.8374
+  [Cox]               train=0.8296  test=0.8448
+  Fold 4: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9464  test=0.8399
+  [tabpfn+DS-vanilla] train=0.9475  test=0.7876
+  [tabpfn+RSF]        train=0.9790  test=0.8283
+  [tabpfn+Cox]        train=0.9560  test=0.7589
+  [DS-simple]         train=0.8405  test=0.8341
+  [DS-vanilla]        train=0.8579  test=0.8183
+  [RSF]               train=0.9405  test=0.8310
+  [Cox]               train=0.8277  test=0.8183
+  Fold 5: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9509  test=0.8338
+  [tabpfn+DS-vanilla] train=0.9481  test=0.8329
+  [tabpfn+RSF]        train=0.9851  test=0.8193
+  [tabpfn+Cox]        train=0.9557  test=0.7992
+  [DS-simple]         train=0.8508  test=0.8276
+  [DS-vanilla]        train=0.8432  test=0.7968
+  [RSF]               train=0.9469  test=0.8252
+  [Cox]               train=0.8406  test=0.8183
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9591  test=0.8304
+  [tabpfn+DS-vanilla] train=0.9601  test=0.8301
+  [tabpfn+RSF]        train=0.9818  test=0.8056
+  [tabpfn+Cox]        train=0.9555  test=0.8269
+  [DS-simple]         train=0.8385  test=0.8221
+  [DS-vanilla]        train=0.8606  test=0.8292
+  [RSF]               train=0.9447  test=0.8508
+  [Cox]               train=0.8348  test=0.8197
+  Fold 2: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9502  test=0.8371
+  [tabpfn+DS-vanilla] train=0.9547  test=0.8231
+  [tabpfn+RSF]        train=0.9803  test=0.8341
+  [tabpfn+Cox]        train=0.9567  test=0.8046
+  [DS-simple]         train=0.8447  test=0.8276
+  [DS-vanilla]        train=0.8563  test=0.8261
+  [RSF]               train=0.9458  test=0.8329
+  [Cox]               train=0.8352  test=0.8137
+  Fold 3: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9511  test=0.8535
+  [tabpfn+DS-vanilla] train=0.9551  test=0.8523
+  [tabpfn+RSF]        train=0.9820  test=0.8329
+  [tabpfn+Cox]        train=0.9553  test=0.8419
+  [DS-simple]         train=0.8287  test=0.8442
+  [DS-vanilla]        train=0.8554  test=0.8446
+  [RSF]               train=0.9438  test=0.8450
+  [Cox]               train=0.8256  test=0.8471
+  Fold 4: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9467  test=0.8393
+  [tabpfn+DS-vanilla] train=0.9523  test=0.8074
+  [tabpfn+RSF]        train=0.9801  test=0.8102
+  [tabpfn+Cox]        train=0.9565  test=0.8184
+  [DS-simple]         train=0.8301  test=0.8286
+  [DS-vanilla]        train=0.8653  test=0.8418
+  [RSF]               train=0.9425  test=0.8419
+  [Cox]               train=0.8254  test=0.8238
+  Fold 5: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9477  test=0.8440
+  [tabpfn+DS-vanilla] train=0.9547  test=0.8343
+  [tabpfn+RSF]        train=0.9827  test=0.8331
+  [tabpfn+Cox]        train=0.9543  test=0.8403
+  [DS-simple]         train=0.8419  test=0.8293
+  [DS-vanilla]        train=0.8661  test=0.8362
+  [RSF]               train=0.9431  test=0.8450
+  [Cox]               train=0.8348  test=0.8232
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9546  test=0.8331
+  [tabpfn+DS-vanilla] train=0.9594  test=0.8312
+  [tabpfn+RSF]        train=0.9812  test=0.8255
+  [tabpfn+Cox]        train=0.9572  test=0.8348
+  [DS-simple]         train=0.8349  test=0.8228
+  [DS-vanilla]        train=0.8394  test=0.8273
+  [RSF]               train=0.9446  test=0.8563
+  [Cox]               train=0.8302  test=0.8202
+  Fold 2: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9589  test=0.8362
+  [tabpfn+DS-vanilla] train=0.1461  test=0.2377
+  [tabpfn+RSF]        train=0.9829  test=0.7330
+  [tabpfn+Cox]        train=0.9537  test=0.8335
+  [DS-simple]         train=0.8301  test=0.8253
+  [DS-vanilla]        train=0.8421  test=0.8283
+  [RSF]               train=0.9450  test=0.8376
+  [Cox]               train=0.8289  test=0.8175
+  Fold 3: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9593  test=0.8494
+  [tabpfn+DS-vanilla] train=0.9517  test=0.8575
+  [tabpfn+RSF]        train=0.9812  test=0.8484
+  [tabpfn+Cox]        train=0.9549  test=0.8496
+  [DS-simple]         train=0.8314  test=0.8450
+  [DS-vanilla]        train=0.4178  test=0.4200
+  [RSF]               train=0.9433  test=0.8574
+  [Cox]               train=0.8273  test=0.8482
+  Fold 4: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9541  test=0.8432
+  [tabpfn+DS-vanilla] train=0.2441  test=0.5148
+  [tabpfn+RSF]        train=0.9826  test=0.8324
+  [tabpfn+Cox]        train=0.9548  test=0.8394
+  [DS-simple]         train=0.8374  test=0.8307
+  [DS-vanilla]        train=0.8554  test=0.8429
+  [RSF]               train=0.9434  test=0.8426
+  [Cox]               train=0.8313  test=0.8250
+  Fold 5: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9508  test=0.8384
+  [tabpfn+DS-vanilla] train=0.9512  test=0.8369
+  [tabpfn+RSF]        train=0.9827  test=0.8365
+  [tabpfn+Cox]        train=0.9551  test=0.8376
+  [DS-simple]         train=0.8356  test=0.8301
+  [DS-vanilla]        train=0.8166  test=0.8176
+  [RSF]               train=0.9426  test=0.8548
+  [Cox]               train=0.8290  test=0.8243
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9556  test=0.8338
+  [tabpfn+DS-vanilla] train=0.9585  test=0.8326
+  [tabpfn+RSF]        train=0.9819  test=0.8206
+  [tabpfn+Cox]        train=0.9567  test=0.8357
+  [DS-simple]         train=0.8352  test=0.8262
+  [DS-vanilla]        train=0.8552  test=0.8388
+  [RSF]               train=0.9435  test=0.8540
+  [Cox]               train=0.8287  test=0.8202
+  Fold 2: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9594  test=0.8304
+  [tabpfn+DS-vanilla] train=0.9546  test=0.8391
+  [tabpfn+RSF]        train=0.9826  test=0.7703
+  [tabpfn+Cox]        train=0.9536  test=0.8349
+  [DS-simple]         train=0.8323  test=0.8245
+  [DS-vanilla]        train=0.8568  test=0.8439
+  [RSF]               train=0.9409  test=0.8449
+  [Cox]               train=0.8299  test=0.8180
+  Fold 3: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9603  test=0.8582
+  [tabpfn+DS-vanilla] train=0.9529  test=0.6023
+  [tabpfn+RSF]        train=0.9818  test=0.8061
+  [tabpfn+Cox]        train=0.9533  test=0.8545
+  [DS-simple]         train=0.8380  test=0.8536
+  [DS-vanilla]        train=0.8588  test=0.8614
+  [RSF]               train=0.9413  test=0.8596
+  [Cox]               train=0.8241  test=0.8468
+  Fold 4: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9623  test=0.8433
+  [tabpfn+DS-vanilla] train=0.9558  test=0.7806
+  [tabpfn+RSF]        train=0.9826  test=0.8168
+  [tabpfn+Cox]        train=0.9545  test=0.8427
+  [DS-simple]         train=0.8328  test=0.8303
+  [DS-vanilla]        train=0.8581  test=0.8497
+  [RSF]               train=0.9423  test=0.8478
+  [Cox]               train=0.8284  test=0.8255
+  Fold 5: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9603  test=0.8424
+  [tabpfn+DS-vanilla] train=0.9535  test=0.4323
+  [tabpfn+RSF]        train=0.9817  test=0.7767
+  [tabpfn+Cox]        train=0.9541  test=0.8402
+  [DS-simple]         train=0.8356  test=0.8291
+  [DS-vanilla]        train=0.8516  test=0.8411
+  [RSF]               train=0.9414  test=0.8538
+  [Cox]               train=0.8292  test=0.8244
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed789.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9472  test=0.7542
+  [tabpfn+DS-vanilla] train=0.9609  test=0.7495
+  [tabpfn+RSF]        train=0.9593  test=0.4066
+  [tabpfn+Cox]        train=0.9958  test=0.6560
+  Fold 2: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9448  test=0.7613
+  [tabpfn+DS-vanilla] train=0.9465  test=0.7682
+  [tabpfn+RSF]        train=0.9507  test=0.7581
+  [tabpfn+Cox]        train=0.9839  test=0.7024
+  Fold 3: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9844  test=0.7907
+  [tabpfn+DS-vanilla] train=0.9844  test=0.7890
+  [tabpfn+RSF]        train=0.9594  test=0.7529
+  [tabpfn+Cox]        train=0.9948  test=0.7829
+  Fold 4: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9660  test=0.7591
+  [tabpfn+DS-vanilla] train=0.9688  test=0.7526
+  [tabpfn+RSF]        train=0.9508  test=0.7317
+  [tabpfn+Cox]        train=0.9917  test=0.4552
+  Fold 5: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9767  test=0.6567
+  [tabpfn+DS-vanilla] train=0.9794  test=0.6587
+  [tabpfn+RSF]        train=0.9822  test=0.5655
+  [tabpfn+Cox]        train=0.9890  test=0.6388
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9575  test=0.8122
+  [tabpfn+DS-vanilla] train=0.9648  test=0.8123
+  [tabpfn+RSF]        train=0.9783  test=0.7289
+  [tabpfn+Cox]        train=0.9693  test=0.8036
+  Fold 2: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9490  test=0.7986
+  [tabpfn+DS-vanilla] train=0.9559  test=0.7913
+  [tabpfn+RSF]        train=0.9815  test=0.7828
+  [tabpfn+Cox]        train=0.9642  test=0.7639
+  Fold 3: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9509  test=0.8334
+  [tabpfn+DS-vanilla] train=0.9513  test=0.8167
+  [tabpfn+RSF]        train=0.9775  test=0.8015
+  [tabpfn+Cox]        train=0.9595  test=0.7843
+  Fold 4: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9507  test=0.8106
+  [tabpfn+DS-vanilla] train=0.9532  test=0.8039
+  [tabpfn+RSF]        train=0.9714  test=0.8028
+  [tabpfn+Cox]        train=0.9591  test=0.7471
+  Fold 5: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9568  test=0.7806
+  [tabpfn+DS-vanilla] train=0.9633  test=0.7471
+  [tabpfn+RSF]        train=0.9812  test=0.7436
+  [tabpfn+Cox]        train=0.9776  test=0.4433
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9478  test=0.8184
+  [tabpfn+DS-vanilla] train=0.9496  test=0.8147
+  [tabpfn+RSF]        train=0.9798  test=0.8049
+  [tabpfn+Cox]        train=0.9605  test=0.7993
+  Fold 2: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9514  test=0.8158
+  [tabpfn+DS-vanilla] train=0.9557  test=0.8086
+  [tabpfn+RSF]        train=0.9813  test=0.8031
+  [tabpfn+Cox]        train=0.9620  test=0.7667
+  Fold 3: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9456  test=0.8394
+  [tabpfn+DS-vanilla] train=0.9463  test=0.8387
+  [tabpfn+RSF]        train=0.9816  test=0.7925
+  [tabpfn+Cox]        train=0.9565  test=0.6745
+  Fold 4: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9397  test=0.8182
+  [tabpfn+DS-vanilla] train=0.9504  test=0.8218
+  [tabpfn+RSF]        train=0.9785  test=0.7792
+  [tabpfn+Cox]        train=0.9540  test=0.7393
+  Fold 5: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9483  test=0.8217
+  [tabpfn+DS-vanilla] train=0.9486  test=0.8217
+  [tabpfn+RSF]        train=0.9815  test=0.7617
+  [tabpfn+Cox]        train=0.9621  test=0.5954
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9492  test=0.8196
+  [tabpfn+DS-vanilla] train=0.9498  test=0.8163
+  [tabpfn+RSF]        train=0.9812  test=0.8034
+  [tabpfn+Cox]        train=0.9551  test=0.7716
+  Fold 2: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9500  test=0.8335
+  [tabpfn+DS-vanilla] train=0.9515  test=0.8257
+  [tabpfn+RSF]        train=0.9802  test=0.8119
+  [tabpfn+Cox]        train=0.9597  test=0.7647
+  Fold 3: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9513  test=0.8460
+  [tabpfn+DS-vanilla] train=0.9480  test=0.7665
+  [tabpfn+RSF]        train=0.9799  test=0.8250
+  [tabpfn+Cox]        train=0.9566  test=0.6627
+  Fold 4: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9449  test=0.8323
+  [tabpfn+DS-vanilla] train=0.9484  test=0.7535
+  [tabpfn+RSF]        train=0.9795  test=0.8236
+  [tabpfn+Cox]        train=0.9546  test=0.7266
+  Fold 5: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9483  test=0.8249
+  [tabpfn+DS-vanilla] train=0.9467  test=0.8246
+  [tabpfn+RSF]        train=0.9827  test=0.8141
+  [tabpfn+Cox]        train=0.9565  test=0.8186
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9472  test=0.8236
+  [tabpfn+DS-vanilla] train=0.9628  test=0.8248
+  [tabpfn+RSF]        train=0.9817  test=0.8166
+  [tabpfn+Cox]        train=0.9556  test=0.7868
+  Fold 2: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9508  test=0.8330
+  [tabpfn+DS-vanilla] train=0.9581  test=0.8025
+  [tabpfn+RSF]        train=0.9813  test=0.8228
+  [tabpfn+Cox]        train=0.9578  test=0.7924
+  Fold 3: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9504  test=0.8490
+  [tabpfn+DS-vanilla] train=0.9629  test=0.8131
+  [tabpfn+RSF]        train=0.9806  test=0.8044
+  [tabpfn+Cox]        train=0.9579  test=0.7844
+  Fold 4: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9445  test=0.8363
+  [tabpfn+DS-vanilla] train=0.9487  test=0.7879
+  [tabpfn+RSF]        train=0.9799  test=0.8182
+  [tabpfn+Cox]        train=0.9534  test=0.7167
+  Fold 5: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9487  test=0.8311
+  [tabpfn+DS-vanilla] train=0.9514  test=0.8318
+  [tabpfn+RSF]        train=0.9830  test=0.7567
+  [tabpfn+Cox]        train=0.9581  test=0.8152
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9601  test=0.8229
+  [tabpfn+DS-vanilla] train=0.9541  test=0.7610
+  [tabpfn+RSF]        train=0.9808  test=0.7886
+  [tabpfn+Cox]        train=0.9587  test=0.8180
+  Fold 2: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9535  test=0.8168
+  [tabpfn+DS-vanilla] train=0.9613  test=0.8062
+  [tabpfn+RSF]        train=0.9821  test=0.7704
+  [tabpfn+Cox]        train=0.9568  test=0.8236
+  Fold 3: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9566  test=0.8498
+  [tabpfn+DS-vanilla] train=0.9572  test=0.8165
+  [tabpfn+RSF]        train=0.9815  test=0.7730
+  [tabpfn+Cox]        train=0.9564  test=0.8417
+  Fold 4: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9613  test=0.8236
+  [tabpfn+DS-vanilla] train=0.4109  test=0.7694
+  [tabpfn+RSF]        train=0.9824  test=0.8049
+  [tabpfn+Cox]        train=0.9583  test=0.8325
+  Fold 5: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.7265  test=0.8091
+  [tabpfn+DS-vanilla] train=0.3875  test=0.1846
+  [tabpfn+RSF]        train=0.9830  test=0.8081
+  [tabpfn+Cox]        train=0.9586  test=0.8385
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9583  test=0.8344
+  [tabpfn+DS-vanilla] train=0.9555  test=0.8342
+  [tabpfn+RSF]        train=0.9820  test=0.7856
+  [tabpfn+Cox]        train=0.9581  test=0.8291
+  Fold 2: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9583  test=0.8332
+  [tabpfn+DS-vanilla] train=0.9556  test=0.7653
+  [tabpfn+RSF]        train=0.9824  test=0.7142
+  [tabpfn+Cox]        train=0.9557  test=0.8304
+  Fold 3: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9573  test=0.8459
+  [tabpfn+DS-vanilla] train=0.9570  test=0.8287
+  [tabpfn+RSF]        train=0.9821  test=0.8247
+  [tabpfn+Cox]        train=0.9573  test=0.8460
+  Fold 4: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9591  test=0.8439
+  [tabpfn+DS-vanilla] train=0.9550  test=0.8235
+  [tabpfn+RSF]        train=0.9826  test=0.7296
+  [tabpfn+Cox]        train=0.9561  test=0.8402
+  Fold 5: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9613  test=0.8326
+  [tabpfn+DS-vanilla] train=0.9585  test=0.8104
+  [tabpfn+RSF]        train=0.9825  test=0.7514
+  [tabpfn+Cox]        train=0.9588  test=0.8358
+
+Data saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed789_data.txt
+
+Dataset: HURRAH | Model: tabpfn | Seed: 789
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9663 | std: 0.0130 | min: 0.9456 | max: 0.9854
+    TEST  tabpfn+DS-simple            → mean: 0.7442 | std: 0.0416 | min: 0.6626 | max: 0.7803
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9742 | std: 0.0139 | min: 0.9473 | max: 0.9853
+    TEST  tabpfn+DS-vanilla           → mean: 0.7403 | std: 0.0409 | min: 0.6636 | max: 0.7843
+    TRAIN tabpfn+RSF                  → mean: 0.9709 | std: 0.0109 | min: 0.9499 | max: 0.9808
+    TEST  tabpfn+RSF                  → mean: 0.7194 | std: 0.0529 | min: 0.6155 | max: 0.7612
+    TRAIN tabpfn+Cox                  → mean: 0.9920 | std: 0.0027 | min: 0.9881 | max: 0.9958
+    TEST  tabpfn+Cox                  → mean: 0.7171 | std: 0.0343 | min: 0.6502 | max: 0.7471
+    TRAIN DS-simple (base)            → mean: 0.8431 | std: 0.1672 | min: 0.5090 | max: 0.9342
+    TEST  DS-simple (base)            → mean: 0.6648 | std: 0.0968 | min: 0.4967 | max: 0.7722
+    TRAIN DS-vanilla (base)           → mean: 0.8411 | std: 0.0493 | min: 0.7476 | max: 0.8787
+    TEST  DS-vanilla (base)           → mean: 0.6332 | std: 0.0538 | min: 0.5565 | max: 0.7149
+    TRAIN RSF (base)                  → mean: 0.9708 | std: 0.0069 | min: 0.9577 | max: 0.9761
+    TEST  RSF (base)                  → mean: 0.7200 | std: 0.0304 | min: 0.6663 | max: 0.7527
+    TRAIN Cox (base)                  → mean: 0.9456 | std: 0.0212 | min: 0.9057 | max: 0.9646
+    TEST  Cox (base)                  → mean: 0.7360 | std: 0.0527 | min: 0.6448 | max: 0.7782
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9535 | std: 0.0054 | min: 0.9459 | max: 0.9617
+    TEST  tabpfn+DS-simple            → mean: 0.8140 | std: 0.0166 | min: 0.7943 | max: 0.8396
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9580 | std: 0.0077 | min: 0.9496 | max: 0.9698
+    TEST  tabpfn+DS-vanilla           → mean: 0.8052 | std: 0.0233 | min: 0.7724 | max: 0.8402
+    TRAIN tabpfn+RSF                  → mean: 0.9778 | std: 0.0030 | min: 0.9731 | max: 0.9819
+    TEST  tabpfn+RSF                  → mean: 0.7715 | std: 0.0207 | min: 0.7461 | max: 0.8078
+    TRAIN tabpfn+Cox                  → mean: 0.9654 | std: 0.0051 | min: 0.9591 | max: 0.9736
+    TEST  tabpfn+Cox                  → mean: 0.6531 | std: 0.1302 | min: 0.5003 | max: 0.8168
+    TRAIN DS-simple (base)            → mean: 0.8709 | std: 0.0129 | min: 0.8506 | max: 0.8860
+    TEST  DS-simple (base)            → mean: 0.8059 | std: 0.0121 | min: 0.7917 | max: 0.8273
+    TRAIN DS-vanilla (base)           → mean: 0.8559 | std: 0.0490 | min: 0.7822 | max: 0.9310
+    TEST  DS-vanilla (base)           → mean: 0.7447 | std: 0.0473 | min: 0.6509 | max: 0.7791
+    TRAIN RSF (base)                  → mean: 0.9424 | std: 0.0125 | min: 0.9308 | max: 0.9616
+    TEST  RSF (base)                  → mean: 0.7883 | std: 0.0160 | min: 0.7689 | max: 0.8134
+    TRAIN Cox (base)                  → mean: 0.8609 | std: 0.0113 | min: 0.8460 | max: 0.8778
+    TEST  Cox (base)                  → mean: 0.8012 | std: 0.0195 | min: 0.7722 | max: 0.8318
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9505 | std: 0.0046 | min: 0.9424 | max: 0.9563
+    TEST  tabpfn+DS-simple            → mean: 0.8311 | std: 0.0073 | min: 0.8251 | max: 0.8450
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9539 | std: 0.0031 | min: 0.9503 | max: 0.9580
+    TEST  tabpfn+DS-vanilla           → mean: 0.8191 | std: 0.0109 | min: 0.8014 | max: 0.8321
+    TRAIN tabpfn+RSF                  → mean: 0.9792 | std: 0.0019 | min: 0.9773 | max: 0.9824
+    TEST  tabpfn+RSF                  → mean: 0.8068 | std: 0.0254 | min: 0.7574 | max: 0.8298
+    TRAIN tabpfn+Cox                  → mean: 0.9605 | std: 0.0029 | min: 0.9555 | max: 0.9638
+    TEST  tabpfn+Cox                  → mean: 0.7313 | std: 0.0879 | min: 0.6059 | max: 0.8312
+    TRAIN DS-simple (base)            → mean: 0.8488 | std: 0.0093 | min: 0.8381 | max: 0.8634
+    TEST  DS-simple (base)            → mean: 0.8245 | std: 0.0107 | min: 0.8143 | max: 0.8450
+    TRAIN DS-vanilla (base)           → mean: 0.8442 | std: 0.0376 | min: 0.7729 | max: 0.8734
+    TEST  DS-vanilla (base)           → mean: 0.7831 | std: 0.0295 | min: 0.7290 | max: 0.8118
+    TRAIN RSF (base)                  → mean: 0.9426 | std: 0.0053 | min: 0.9376 | max: 0.9522
+    TEST  RSF (base)                  → mean: 0.8121 | std: 0.0096 | min: 0.7976 | max: 0.8277
+    TRAIN Cox (base)                  → mean: 0.8424 | std: 0.0097 | min: 0.8302 | max: 0.8551
+    TEST  Cox (base)                  → mean: 0.8194 | std: 0.0133 | min: 0.8078 | max: 0.8443
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9506 | std: 0.0022 | min: 0.9464 | max: 0.9527
+    TEST  tabpfn+DS-simple            → mean: 0.8360 | std: 0.0070 | min: 0.8237 | max: 0.8438
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9527 | std: 0.0045 | min: 0.9475 | max: 0.9595
+    TEST  tabpfn+DS-vanilla           → mean: 0.8196 | std: 0.0168 | min: 0.7876 | max: 0.8340
+    TRAIN tabpfn+RSF                  → mean: 0.9811 | std: 0.0021 | min: 0.9790 | max: 0.9851
+    TEST  tabpfn+RSF                  → mean: 0.8220 | std: 0.0085 | min: 0.8107 | max: 0.8346
+    TRAIN tabpfn+Cox                  → mean: 0.9585 | std: 0.0030 | min: 0.9557 | max: 0.9638
+    TEST  tabpfn+Cox                  → mean: 0.7860 | std: 0.0339 | min: 0.7343 | max: 0.8199
+    TRAIN DS-simple (base)            → mean: 0.8454 | std: 0.0056 | min: 0.8368 | max: 0.8508
+    TEST  DS-simple (base)            → mean: 0.8306 | std: 0.0088 | min: 0.8210 | max: 0.8460
+    TRAIN DS-vanilla (base)           → mean: 0.8474 | std: 0.0100 | min: 0.8344 | max: 0.8602
+    TEST  DS-vanilla (base)           → mean: 0.8119 | std: 0.0141 | min: 0.7968 | max: 0.8364
+    TRAIN RSF (base)                  → mean: 0.9445 | std: 0.0026 | min: 0.9405 | max: 0.9475
+    TEST  RSF (base)                  → mean: 0.8312 | std: 0.0068 | min: 0.8222 | max: 0.8400
+    TRAIN Cox (base)                  → mean: 0.8366 | std: 0.0066 | min: 0.8277 | max: 0.8443
+    TEST  Cox (base)                  → mean: 0.8220 | std: 0.0117 | min: 0.8114 | max: 0.8448
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.9510 | std: 0.0044 | min: 0.9467 | max: 0.9591
+    TEST  tabpfn+DS-simple            → mean: 0.8409 | std: 0.0077 | min: 0.8304 | max: 0.8535
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9554 | std: 0.0025 | min: 0.9523 | max: 0.9601
+    TEST  tabpfn+DS-vanilla           → mean: 0.8294 | std: 0.0146 | min: 0.8074 | max: 0.8523
+    TRAIN tabpfn+RSF                  → mean: 0.9814 | std: 0.0010 | min: 0.9801 | max: 0.9827
+    TEST  tabpfn+RSF                  → mean: 0.8232 | std: 0.0126 | min: 0.8056 | max: 0.8341
+    TRAIN tabpfn+Cox                  → mean: 0.9556 | std: 0.0009 | min: 0.9543 | max: 0.9567
+    TEST  tabpfn+Cox                  → mean: 0.8264 | std: 0.0140 | min: 0.8046 | max: 0.8419
+    TRAIN DS-simple (base)            → mean: 0.8368 | std: 0.0063 | min: 0.8287 | max: 0.8447
+    TEST  DS-simple (base)            → mean: 0.8304 | std: 0.0074 | min: 0.8221 | max: 0.8442
+    TRAIN DS-vanilla (base)           → mean: 0.8608 | std: 0.0044 | min: 0.8554 | max: 0.8661
+    TEST  DS-vanilla (base)           → mean: 0.8356 | std: 0.0071 | min: 0.8261 | max: 0.8446
+    TRAIN RSF (base)                  → mean: 0.9440 | std: 0.0012 | min: 0.9425 | max: 0.9458
+    TEST  RSF (base)                  → mean: 0.8431 | std: 0.0059 | min: 0.8329 | max: 0.8508
+    TRAIN Cox (base)                  → mean: 0.8312 | std: 0.0046 | min: 0.8254 | max: 0.8352
+    TEST  Cox (base)                  → mean: 0.8255 | std: 0.0114 | min: 0.8137 | max: 0.8471
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabpfn+DS-simple            → mean: 0.9556 | std: 0.0032 | min: 0.9508 | max: 0.9593
+    TEST  tabpfn+DS-simple            → mean: 0.8401 | std: 0.0057 | min: 0.8331 | max: 0.8494
+    TRAIN tabpfn+DS-vanilla           → mean: 0.6505 | std: 0.3731 | min: 0.1461 | max: 0.9594
+    TEST  tabpfn+DS-vanilla           → mean: 0.6556 | std: 0.2445 | min: 0.2377 | max: 0.8575
+    TRAIN tabpfn+RSF                  → mean: 0.9821 | std: 0.0008 | min: 0.9812 | max: 0.9829
+    TEST  tabpfn+RSF                  → mean: 0.8152 | std: 0.0418 | min: 0.7330 | max: 0.8484
+    TRAIN tabpfn+Cox                  → mean: 0.9551 | std: 0.0011 | min: 0.9537 | max: 0.9572
+    TEST  tabpfn+Cox                  → mean: 0.8390 | std: 0.0057 | min: 0.8335 | max: 0.8496
+    TRAIN DS-simple (base)            → mean: 0.8339 | std: 0.0027 | min: 0.8301 | max: 0.8374
+    TEST  DS-simple (base)            → mean: 0.8308 | std: 0.0077 | min: 0.8228 | max: 0.8450
+    TRAIN DS-vanilla (base)           → mean: 0.7543 | std: 0.1687 | min: 0.4178 | max: 0.8554
+    TEST  DS-vanilla (base)           → mean: 0.7472 | std: 0.1638 | min: 0.4200 | max: 0.8429
+    TRAIN RSF (base)                  → mean: 0.9438 | std: 0.0009 | min: 0.9426 | max: 0.9450
+    TEST  RSF (base)                  → mean: 0.8498 | std: 0.0081 | min: 0.8376 | max: 0.8574
+    TRAIN Cox (base)                  → mean: 0.8294 | std: 0.0013 | min: 0.8273 | max: 0.8313
+    TEST  Cox (base)                  → mean: 0.8270 | std: 0.0109 | min: 0.8175 | max: 0.8482
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabpfn+DS-simple            → mean: 0.9596 | std: 0.0022 | min: 0.9556 | max: 0.9623
+    TEST  tabpfn+DS-simple            → mean: 0.8416 | std: 0.0097 | min: 0.8304 | max: 0.8582
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9551 | std: 0.0020 | min: 0.9529 | max: 0.9585
+    TEST  tabpfn+DS-vanilla           → mean: 0.6974 | std: 0.1579 | min: 0.4323 | max: 0.8391
+    TRAIN tabpfn+RSF                  → mean: 0.9821 | std: 0.0004 | min: 0.9817 | max: 0.9826
+    TEST  tabpfn+RSF                  → mean: 0.7981 | std: 0.0207 | min: 0.7703 | max: 0.8206
+    TRAIN tabpfn+Cox                  → mean: 0.9544 | std: 0.0012 | min: 0.9533 | max: 0.9567
+    TEST  tabpfn+Cox                  → mean: 0.8416 | std: 0.0071 | min: 0.8349 | max: 0.8545
+    TRAIN DS-simple (base)            → mean: 0.8348 | std: 0.0021 | min: 0.8323 | max: 0.8380
+    TEST  DS-simple (base)            → mean: 0.8327 | std: 0.0106 | min: 0.8245 | max: 0.8536
+    TRAIN DS-vanilla (base)           → mean: 0.8561 | std: 0.0025 | min: 0.8516 | max: 0.8588
+    TEST  DS-vanilla (base)           → mean: 0.8470 | std: 0.0081 | min: 0.8388 | max: 0.8614
+    TRAIN RSF (base)                  → mean: 0.9419 | std: 0.0009 | min: 0.9409 | max: 0.9435
+    TEST  RSF (base)                  → mean: 0.8520 | std: 0.0051 | min: 0.8449 | max: 0.8596
+    TRAIN Cox (base)                  → mean: 0.8281 | std: 0.0020 | min: 0.8241 | max: 0.8299
+    TEST  Cox (base)                  → mean: 0.8270 | std: 0.0103 | min: 0.8180 | max: 0.8468
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9638 | std: 0.0157 | min: 0.9448 | max: 0.9844
+    TEST  tabpfn+DS-simple            → mean: 0.7444 | std: 0.0457 | min: 0.6567 | max: 0.7907
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9680 | std: 0.0135 | min: 0.9465 | max: 0.9844
+    TEST  tabpfn+DS-vanilla           → mean: 0.7436 | std: 0.0447 | min: 0.6587 | max: 0.7890
+    TRAIN tabpfn+RSF                  → mean: 0.9605 | std: 0.0115 | min: 0.9507 | max: 0.9822
+    TEST  tabpfn+RSF                  → mean: 0.6430 | std: 0.1379 | min: 0.4066 | max: 0.7581
+    TRAIN tabpfn+Cox                  → mean: 0.9910 | std: 0.0043 | min: 0.9839 | max: 0.9958
+    TEST  tabpfn+Cox                  → mean: 0.6471 | std: 0.1081 | min: 0.4552 | max: 0.7829
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9530 | std: 0.0035 | min: 0.9490 | max: 0.9575
+    TEST  tabpfn+DS-simple            → mean: 0.8071 | std: 0.0173 | min: 0.7806 | max: 0.8334
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9577 | std: 0.0054 | min: 0.9513 | max: 0.9648
+    TEST  tabpfn+DS-vanilla           → mean: 0.7943 | std: 0.0251 | min: 0.7471 | max: 0.8167
+    TRAIN tabpfn+RSF                  → mean: 0.9780 | std: 0.0037 | min: 0.9714 | max: 0.9815
+    TEST  tabpfn+RSF                  → mean: 0.7719 | std: 0.0303 | min: 0.7289 | max: 0.8028
+    TRAIN tabpfn+Cox                  → mean: 0.9660 | std: 0.0069 | min: 0.9591 | max: 0.9776
+    TEST  tabpfn+Cox                  → mean: 0.7085 | std: 0.1339 | min: 0.4433 | max: 0.8036
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9466 | std: 0.0039 | min: 0.9397 | max: 0.9514
+    TEST  tabpfn+DS-simple            → mean: 0.8227 | std: 0.0086 | min: 0.8158 | max: 0.8394
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9501 | std: 0.0031 | min: 0.9463 | max: 0.9557
+    TEST  tabpfn+DS-vanilla           → mean: 0.8211 | std: 0.0101 | min: 0.8086 | max: 0.8387
+    TRAIN tabpfn+RSF                  → mean: 0.9806 | std: 0.0012 | min: 0.9785 | max: 0.9816
+    TEST  tabpfn+RSF                  → mean: 0.7883 | std: 0.0161 | min: 0.7617 | max: 0.8049
+    TRAIN tabpfn+Cox                  → mean: 0.9590 | std: 0.0032 | min: 0.9540 | max: 0.9621
+    TEST  tabpfn+Cox                  → mean: 0.7151 | std: 0.0725 | min: 0.5954 | max: 0.7993
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9488 | std: 0.0022 | min: 0.9449 | max: 0.9513
+    TEST  tabpfn+DS-simple            → mean: 0.8313 | std: 0.0089 | min: 0.8196 | max: 0.8460
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9489 | std: 0.0016 | min: 0.9467 | max: 0.9515
+    TEST  tabpfn+DS-vanilla           → mean: 0.7973 | std: 0.0309 | min: 0.7535 | max: 0.8257
+    TRAIN tabpfn+RSF                  → mean: 0.9807 | std: 0.0012 | min: 0.9795 | max: 0.9827
+    TEST  tabpfn+RSF                  → mean: 0.8156 | std: 0.0079 | min: 0.8034 | max: 0.8250
+    TRAIN tabpfn+Cox                  → mean: 0.9565 | std: 0.0018 | min: 0.9546 | max: 0.9597
+    TEST  tabpfn+Cox                  → mean: 0.7488 | std: 0.0521 | min: 0.6627 | max: 0.8186
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.9483 | std: 0.0023 | min: 0.9445 | max: 0.9508
+    TEST  tabpfn+DS-simple            → mean: 0.8346 | std: 0.0083 | min: 0.8236 | max: 0.8490
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9568 | std: 0.0058 | min: 0.9487 | max: 0.9629
+    TEST  tabpfn+DS-vanilla           → mean: 0.8120 | std: 0.0157 | min: 0.7879 | max: 0.8318
+    TRAIN tabpfn+RSF                  → mean: 0.9813 | std: 0.0010 | min: 0.9799 | max: 0.9830
+    TEST  tabpfn+RSF                  → mean: 0.8037 | std: 0.0243 | min: 0.7567 | max: 0.8228
+    TRAIN tabpfn+Cox                  → mean: 0.9566 | std: 0.0018 | min: 0.9534 | max: 0.9581
+    TEST  tabpfn+Cox                  → mean: 0.7791 | std: 0.0331 | min: 0.7167 | max: 0.8152
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabpfn+DS-simple            → mean: 0.9116 | std: 0.0926 | min: 0.7265 | max: 0.9613
+    TEST  tabpfn+DS-simple            → mean: 0.8244 | std: 0.0137 | min: 0.8091 | max: 0.8498
+    TRAIN tabpfn+DS-vanilla           → mean: 0.7342 | std: 0.2737 | min: 0.3875 | max: 0.9613
+    TEST  tabpfn+DS-vanilla           → mean: 0.6675 | std: 0.2424 | min: 0.1846 | max: 0.8165
+    TRAIN tabpfn+RSF                  → mean: 0.9820 | std: 0.0007 | min: 0.9808 | max: 0.9830
+    TEST  tabpfn+RSF                  → mean: 0.7890 | std: 0.0156 | min: 0.7704 | max: 0.8081
+    TRAIN tabpfn+Cox                  → mean: 0.9577 | std: 0.0009 | min: 0.9564 | max: 0.9587
+    TEST  tabpfn+Cox                  → mean: 0.8308 | std: 0.0089 | min: 0.8180 | max: 0.8417
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabpfn+DS-simple            → mean: 0.9588 | std: 0.0013 | min: 0.9573 | max: 0.9613
+    TEST  tabpfn+DS-simple            → mean: 0.8380 | std: 0.0057 | min: 0.8326 | max: 0.8459
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9563 | std: 0.0013 | min: 0.9550 | max: 0.9585
+    TEST  tabpfn+DS-vanilla           → mean: 0.8124 | std: 0.0249 | min: 0.7653 | max: 0.8342
+    TRAIN tabpfn+RSF                  → mean: 0.9823 | std: 0.0002 | min: 0.9820 | max: 0.9826
+    TEST  tabpfn+RSF                  → mean: 0.7611 | std: 0.0398 | min: 0.7142 | max: 0.8247
+    TRAIN tabpfn+Cox                  → mean: 0.9572 | std: 0.0012 | min: 0.9557 | max: 0.9588
+    TEST  tabpfn+Cox                  → mean: 0.8363 | std: 0.0062 | min: 0.8291 | max: 0.8460
+Text summary saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed789.txt
