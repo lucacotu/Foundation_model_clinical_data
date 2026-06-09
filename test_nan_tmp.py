@@ -602,7 +602,7 @@ if __name__ == "__main__":
         ("HURRAH",        "STATO_AL_FU",     "FU"),
     ]
 
-    percentages = [0.10, 0.40]  # extend freely: masks are cumulative
+    percentages = [0.10, 0.30, 0.50, 0.70, 0.90]  # extend freely: masks are cumulative
 
     print("STARTED")
     res_path = "results_nan"
