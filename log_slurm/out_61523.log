@@ -1,0 +1,2083 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torchtuples/tupletree.py:146: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(data)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/impute/_iterative.py:867: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/impute/_iterative.py:867: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/impute/_iterative.py:867: ConvergenceWarning: [IterativeImputer] Early stopping criterion not reached.
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+STARTED
+
+============================================================
+Dataset: OrmoniTirodei
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed789.pkl
+Generating NaN ordering → tmp/masks/OrmoniTirodei_tabpfn_seed789_fold0_eval.npy
+Generating NaN ordering → tmp/masks/OrmoniTirodei_tabpfn_seed789_fold1_train.npy
+Generating NaN ordering → tmp/masks/OrmoniTirodei_tabpfn_seed789_fold1_test.npy
+[fold=1, target=10%] actual NaN%: 10.0%
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TabPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+Fitting SimpleImputer (mean)...
+Fitting SimpleImputer (median)...
+Fitting SimpleImputer (constant, fill=-1)...
+Fitting KNNImputer...
+Fitting IterativeImputer (BayesianRidge, MICE-like)...
+Fitting DeepSurv Simple pilot model...
+0:	[0s / 0s],		train_loss: 39.8008,	val_loss: 18.0424
+1:	[0s / 0s],		train_loss: 11.3082,	val_loss: 12.0016
+2:	[0s / 0s],		train_loss: 8.3738,	val_loss: 11.1822
+3:	[0s / 0s],		train_loss: 8.2542,	val_loss: 11.1174
+4:	[0s / 1s],		train_loss: 7.6955,	val_loss: 9.5084
+5:	[0s / 1s],		train_loss: 6.1534,	val_loss: 8.0066
+6:	[0s / 1s],		train_loss: 5.4922,	val_loss: 8.1128
+7:	[0s / 1s],		train_loss: 5.5965,	val_loss: 7.6308
+8:	[0s / 1s],		train_loss: 6.1201,	val_loss: 7.8613
+9:	[0s / 1s],		train_loss: 5.2194,	val_loss: 6.6800
+10:	[0s / 1s],		train_loss: 4.8488,	val_loss: 6.5920
+11:	[0s / 1s],		train_loss: 6.1942,	val_loss: 8.9181
+12:	[0s / 1s],		train_loss: 7.1725,	val_loss: 8.3566
+13:	[0s / 1s],		train_loss: 6.0991,	val_loss: 7.3504
+14:	[0s / 1s],		train_loss: 4.9634,	val_loss: 7.1911
+15:	[0s / 1s],		train_loss: 5.3114,	val_loss: 7.7998
+16:	[0s / 2s],		train_loss: 7.1094,	val_loss: 9.3185
+17:	[0s / 2s],		train_loss: 6.9908,	val_loss: 8.7885
+18:	[0s / 2s],		train_loss: 5.9011,	val_loss: 7.4194
+19:	[0s / 2s],		train_loss: 4.8564,	val_loss: 7.1617
+20:	[0s / 2s],		train_loss: 4.8772,	val_loss: 6.9312
+21:	[0s / 2s],		train_loss: 4.6584,	val_loss: 6.6004
+22:	[0s / 2s],		train_loss: 4.8391,	val_loss: 8.4327
+23:	[0s / 2s],		train_loss: 6.6950,	val_loss: 8.0737
+24:	[0s / 2s],		train_loss: 5.7906,	val_loss: 8.0914
+25:	[0s / 2s],		train_loss: 5.9470,	val_loss: 7.2445
+26:	[0s / 2s],		train_loss: 4.9236,	val_loss: 7.5306
+27:	[0s / 2s],		train_loss: 6.6494,	val_loss: 9.1537
+28:	[0s / 3s],		train_loss: 6.3499,	val_loss: 8.9209
+29:	[0s / 3s],		train_loss: 6.2742,	val_loss: 8.6556
+30:	[0s / 3s],		train_loss: 6.0014,	val_loss: 7.8205
+Saved fixed_epochs=11 → nan/tabpfn/OrmoniTirodei/nan_percentage0.1/seed789/fold1/fixed_epochs_deepsurv_simple.json
+Fitting DeepSurv Vanilla pilot model...
+0:	[0s / 0s],		train_loss: 4.8842,	val_loss: 6.6732
+1:	[0s / 0s],		train_loss: 4.6210,	val_loss: 6.5009
+2:	[0s / 0s],		train_loss: 4.5527,	val_loss: 6.3850
+3:	[0s / 0s],		train_loss: 4.4840,	val_loss: 6.3449
+4:	[0s / 0s],		train_loss: 4.4723,	val_loss: 6.3805
+5:	[0s / 0s],		train_loss: 4.4664,	val_loss: 6.3625
+6:	[0s / 0s],		train_loss: 4.4531,	val_loss: 6.3580
+7:	[0s / 1s],		train_loss: 4.4547,	val_loss: 6.3494
+8:	[0s / 1s],		train_loss: 4.4483,	val_loss: 6.3575
+9:	[0s / 1s],		train_loss: 4.4418,	val_loss: 6.3688
+10:	[0s / 1s],		train_loss: 4.4448,	val_loss: 6.3925
+11:	[0s / 1s],		train_loss: 4.4130,	val_loss: 6.3306
+12:	[0s / 1s],		train_loss: 4.4278,	val_loss: 6.3448
+13:	[0s / 1s],		train_loss: 4.3812,	val_loss: 6.3472
+14:	[0s / 1s],		train_loss: 4.3986,	val_loss: 6.3377
+15:	[0s / 1s],		train_loss: 4.3997,	val_loss: 6.3416
+16:	[0s / 2s],		train_loss: 4.3748,	val_loss: 6.3600
+17:	[0s / 2s],		train_loss: 4.4120,	val_loss: 6.3737
+18:	[0s / 2s],		train_loss: 4.3863,	val_loss: 6.3226
+19:	[0s / 2s],		train_loss: 4.3554,	val_loss: 6.3357
+20:	[0s / 2s],		train_loss: 4.3818,	val_loss: 6.3622
+21:	[0s / 2s],		train_loss: 4.3632,	val_loss: 6.3342
+22:	[0s / 2s],		train_loss: 4.3739,	val_loss: 6.3284
+23:	[0s / 2s],		train_loss: 4.3800,	val_loss: 6.3294
+24:	[0s / 2s],		train_loss: 4.3574,	val_loss: 6.3116
+25:	[0s / 2s],		train_loss: 4.3565,	val_loss: 6.3364
+26:	[0s / 3s],		train_loss: 4.3739,	val_loss: 6.3256
+27:	[0s / 3s],		train_loss: 4.3757,	val_loss: 6.3162
+28:	[0s / 3s],		train_loss: 4.3642,	val_loss: 6.3051
+29:	[0s / 3s],		train_loss: 4.3657,	val_loss: 6.3283
+30:	[0s / 3s],		train_loss: 4.3568,	val_loss: 6.3251
+31:	[0s / 3s],		train_loss: 4.3479,	val_loss: 6.3520
+32:	[0s / 3s],		train_loss: 4.3534,	val_loss: 6.3251
+33:	[0s / 3s],		train_loss: 4.3379,	val_loss: 6.3548
+34:	[0s / 3s],		train_loss: 4.3713,	val_loss: 6.3323
+35:	[0s / 4s],		train_loss: 4.3338,	val_loss: 6.3188
+36:	[0s / 4s],		train_loss: 4.3713,	val_loss: 6.3533
+37:	[0s / 4s],		train_loss: 4.3582,	val_loss: 6.3232
+38:	[0s / 4s],		train_loss: 4.3170,	val_loss: 6.3452
+39:	[0s / 4s],		train_loss: 4.3445,	val_loss: 6.3421
+40:	[0s / 4s],		train_loss: 4.3678,	val_loss: 6.3348
+41:	[0s / 4s],		train_loss: 4.3555,	val_loss: 6.3333
+42:	[0s / 4s],		train_loss: 4.3693,	val_loss: 6.3491
+43:	[0s / 4s],		train_loss: 4.3509,	val_loss: 6.3241
+44:	[0s / 4s],		train_loss: 4.3156,	val_loss: 6.3293
+45:	[0s / 5s],		train_loss: 4.3169,	val_loss: 6.3144
+46:	[0s / 5s],		train_loss: 4.3387,	val_loss: 6.3267
+47:	[0s / 5s],		train_loss: 4.3166,	val_loss: 6.3417
+48:	[0s / 5s],		train_loss: 4.3162,	val_loss: 6.3221
+Saved fixed_epochs=29 → nan/tabpfn/OrmoniTirodei/nan_percentage0.1/seed789/fold1/fixed_epochs_deepsurv_vanilla.json
+Evaluating method: embeddings
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.923939025962841
+C-index TEST : 0.7752886338754728
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 3.4986
+1:	[0s / 0s],		train_loss: 3.2675
+2:	[0s / 0s],		train_loss: 3.2165
+3:	[0s / 0s],		train_loss: 3.2398
+4:	[0s / 0s],		train_loss: 3.2510
+5:	[0s / 0s],		train_loss: 3.2361
+6:	[0s / 0s],		train_loss: 3.2500
+7:	[0s / 0s],		train_loss: 3.2537
+8:	[0s / 0s],		train_loss: 3.2196
+9:	[0s / 0s],		train_loss: 3.2437
+10:	[0s / 0s],		train_loss: 3.2422
+C-index TRAIN: 0.9178689057827846
+C-index TEST : 0.7842835177698996
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 3.4889
+1:	[0s / 0s],		train_loss: 3.2762
+2:	[0s / 0s],		train_loss: 3.2945
+3:	[0s / 0s],		train_loss: 3.2701
+4:	[0s / 0s],		train_loss: 3.2380
+5:	[0s / 0s],		train_loss: 3.2462
+6:	[0s / 0s],		train_loss: 3.2677
+7:	[0s / 0s],		train_loss: 3.2468
+8:	[0s / 0s],		train_loss: 3.2440
+9:	[0s / 0s],		train_loss: 3.2432
+10:	[0s / 0s],		train_loss: 3.2316
+11:	[0s / 1s],		train_loss: 3.2265
+12:	[0s / 1s],		train_loss: 3.2287
+13:	[0s / 1s],		train_loss: 3.2182
+14:	[0s / 1s],		train_loss: 3.2310
+15:	[0s / 1s],		train_loss: 3.2216
+16:	[0s / 1s],		train_loss: 3.2252
+17:	[0s / 1s],		train_loss: 3.2168
+18:	[0s / 1s],		train_loss: 3.2150
+19:	[0s / 1s],		train_loss: 3.2142
+20:	[0s / 1s],		train_loss: 3.2231
+21:	[0s / 1s],		train_loss: 3.2235
+22:	[0s / 1s],		train_loss: 3.2293
+23:	[0s / 1s],		train_loss: 3.2153
+24:	[0s / 2s],		train_loss: 3.2245
+25:	[0s / 2s],		train_loss: 3.2213
+26:	[0s / 2s],		train_loss: 3.2047
+27:	[0s / 2s],		train_loss: 3.2010
+28:	[0s / 2s],		train_loss: 3.2273
+C-index TRAIN: 0.9212769217304032
+C-index TEST : 0.4432967492865656
+Fitting Cox model...
+C-index TRAIN: 0.9171379234989809
+C-index TEST : 0.7801196689543068
+Evaluating method: mean
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.799743885604725
+C-index TEST : 0.7794327703696515
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 113.4039
+1:	[0s / 0s],		train_loss: 17.2217
+2:	[0s / 0s],		train_loss: 11.9444
+3:	[0s / 0s],		train_loss: 9.1157
+4:	[0s / 0s],		train_loss: 8.0829
+5:	[0s / 0s],		train_loss: 7.4410
+6:	[0s / 0s],		train_loss: 7.3752
+7:	[0s / 0s],		train_loss: 6.7521
+8:	[0s / 0s],		train_loss: 7.4386
+9:	[0s / 0s],		train_loss: 5.7024
+10:	[0s / 0s],		train_loss: 5.9233
+C-index TRAIN: 0.7325425960004427
+C-index TEST : 0.7340853331230686
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9052
+1:	[0s / 0s],		train_loss: 4.6026
+2:	[0s / 0s],		train_loss: 4.5124
+3:	[0s / 0s],		train_loss: 4.5045
+4:	[0s / 0s],		train_loss: 4.4776
+5:	[0s / 0s],		train_loss: 4.4949
+6:	[0s / 0s],		train_loss: 4.4693
+7:	[0s / 0s],		train_loss: 4.4388
+8:	[0s / 0s],		train_loss: 4.4405
+9:	[0s / 0s],		train_loss: 4.4375
+10:	[0s / 0s],		train_loss: 4.4430
+11:	[0s / 0s],		train_loss: 4.4044
+12:	[0s / 1s],		train_loss: 4.4280
+13:	[0s / 1s],		train_loss: 4.4118
+14:	[0s / 1s],		train_loss: 4.4047
+15:	[0s / 1s],		train_loss: 4.4754
+16:	[0s / 1s],		train_loss: 4.4113
+17:	[0s / 1s],		train_loss: 4.3919
+18:	[0s / 1s],		train_loss: 4.3849
+19:	[0s / 1s],		train_loss: 4.3755
+20:	[0s / 1s],		train_loss: 4.4053
+21:	[0s / 1s],		train_loss: 4.4094
+22:	[0s / 1s],		train_loss: 4.3751
+23:	[0s / 2s],		train_loss: 4.4085
+24:	[0s / 2s],		train_loss: 4.4173
+25:	[0s / 2s],		train_loss: 4.3777
+26:	[0s / 2s],		train_loss: 4.3826
+27:	[0s / 2s],		train_loss: 4.3507
+28:	[0s / 2s],		train_loss: 4.3729
+C-index TRAIN: 0.7918216761533872
+C-index TEST : 0.7725471048665172
+Fitting Cox model...
+C-index TRAIN: 0.7924497386696346
+C-index TEST : 0.7809566844481914
+Evaluating method: median
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7989264992368261
+C-index TEST : 0.7784092459885426
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 20.1282
+1:	[0s / 0s],		train_loss: 9.4674
+2:	[0s / 0s],		train_loss: 7.6132
+3:	[0s / 0s],		train_loss: 6.3687
+4:	[0s / 0s],		train_loss: 6.5755
+5:	[0s / 0s],		train_loss: 6.0539
+6:	[0s / 0s],		train_loss: 6.3710
+7:	[0s / 0s],		train_loss: 7.0778
+8:	[0s / 0s],		train_loss: 6.8202
+9:	[0s / 0s],		train_loss: 7.4297
+10:	[0s / 0s],		train_loss: 8.4648
+C-index TRAIN: 0.7532564355646675
+C-index TEST : 0.7449195282386586
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8859
+1:	[0s / 0s],		train_loss: 4.6177
+2:	[0s / 0s],		train_loss: 4.5181
+3:	[0s / 0s],		train_loss: 4.4943
+4:	[0s / 0s],		train_loss: 4.4537
+5:	[0s / 0s],		train_loss: 4.4668
+6:	[0s / 0s],		train_loss: 4.4492
+7:	[0s / 0s],		train_loss: 4.4312
+8:	[0s / 0s],		train_loss: 4.4375
+9:	[0s / 0s],		train_loss: 4.4353
+10:	[0s / 0s],		train_loss: 4.4590
+11:	[0s / 0s],		train_loss: 4.3846
+12:	[0s / 1s],		train_loss: 4.4237
+13:	[0s / 1s],		train_loss: 4.4209
+14:	[0s / 1s],		train_loss: 4.4252
+15:	[0s / 1s],		train_loss: 4.3869
+16:	[0s / 1s],		train_loss: 4.4234
+17:	[0s / 1s],		train_loss: 4.3635
+18:	[0s / 1s],		train_loss: 4.3681
+19:	[0s / 1s],		train_loss: 4.3821
+20:	[0s / 1s],		train_loss: 4.3686
+21:	[0s / 1s],		train_loss: 4.3699
+22:	[0s / 1s],		train_loss: 4.3825
+23:	[0s / 1s],		train_loss: 4.3625
+24:	[0s / 2s],		train_loss: 4.3596
+25:	[0s / 2s],		train_loss: 4.3844
+26:	[0s / 2s],		train_loss: 4.3532
+27:	[0s / 2s],		train_loss: 4.3551
+28:	[0s / 2s],		train_loss: 4.3643
+C-index TRAIN: 0.8020995632581468
+C-index TEST : 0.7848930834013156
+Fitting Cox model...
+C-index TRAIN: 0.7922172127759356
+C-index TEST : 0.7807140712615582
+Evaluating method: constant
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7964768594746744
+C-index TEST : 0.7716373054166427
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 36.1840
+1:	[0s / 0s],		train_loss: 11.6108
+2:	[0s / 0s],		train_loss: 10.2491
+3:	[0s / 0s],		train_loss: 8.6181
+4:	[0s / 0s],		train_loss: 7.5024
+5:	[0s / 0s],		train_loss: 6.3645
+6:	[0s / 0s],		train_loss: 5.7164
+7:	[0s / 0s],		train_loss: 5.1506
+8:	[0s / 0s],		train_loss: 4.7325
+9:	[0s / 0s],		train_loss: 4.9432
+10:	[0s / 0s],		train_loss: 4.8091
+C-index TRAIN: 0.7136701151786969
+C-index TEST : 0.7018253609629317
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8638
+1:	[0s / 0s],		train_loss: 4.7411
+2:	[0s / 0s],		train_loss: 4.7002
+3:	[0s / 0s],		train_loss: 4.6347
+4:	[0s / 0s],		train_loss: 4.5938
+5:	[0s / 0s],		train_loss: 4.5653
+6:	[0s / 0s],		train_loss: 4.6044
+7:	[0s / 0s],		train_loss: 4.5127
+8:	[0s / 0s],		train_loss: 4.5122
+9:	[0s / 1s],		train_loss: 4.4757
+10:	[0s / 1s],		train_loss: 4.4732
+11:	[0s / 1s],		train_loss: 4.4647
+12:	[0s / 1s],		train_loss: 4.4538
+13:	[0s / 1s],		train_loss: 4.4587
+14:	[0s / 1s],		train_loss: 4.4728
+15:	[0s / 1s],		train_loss: 4.4237
+16:	[0s / 1s],		train_loss: 4.4469
+17:	[0s / 1s],		train_loss: 4.4213
+18:	[0s / 1s],		train_loss: 4.4216
+19:	[0s / 1s],		train_loss: 4.4288
+20:	[0s / 1s],		train_loss: 4.3943
+21:	[0s / 2s],		train_loss: 4.4283
+22:	[0s / 2s],		train_loss: 4.4118
+23:	[0s / 2s],		train_loss: 4.3987
+24:	[0s / 2s],		train_loss: 4.4012
+25:	[0s / 2s],		train_loss: 4.3620
+26:	[0s / 2s],		train_loss: 4.3586
+27:	[0s / 2s],		train_loss: 4.3962
+28:	[0s / 2s],		train_loss: 4.4070
+C-index TRAIN: 0.8038097296223993
+C-index TEST : 0.7579448236960299
+Fitting Cox model...
+C-index TRAIN: 0.7462224339713239
+C-index TEST : 0.7191903997962049
+Evaluating method: knn
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.8000997659251778
+C-index TEST : 0.7751279026393282
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 158.9358
+1:	[0s / 0s],		train_loss: 16.7505
+2:	[0s / 0s],		train_loss: 12.5688
+3:	[0s / 0s],		train_loss: 9.5122
+4:	[0s / 0s],		train_loss: 8.3804
+5:	[0s / 0s],		train_loss: 7.2322
+6:	[0s / 0s],		train_loss: 6.3604
+7:	[0s / 0s],		train_loss: 6.0369
+8:	[0s / 0s],		train_loss: 5.7246
+9:	[0s / 0s],		train_loss: 5.7313
+10:	[0s / 0s],		train_loss: 5.3103
+C-index TRAIN: 0.7662195675204995
+C-index TEST : 0.7574747606469281
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 5.0006
+1:	[0s / 0s],		train_loss: 4.5755
+2:	[0s / 0s],		train_loss: 4.5636
+3:	[0s / 0s],		train_loss: 4.5409
+4:	[0s / 0s],		train_loss: 4.5064
+5:	[0s / 0s],		train_loss: 4.4827
+6:	[0s / 0s],		train_loss: 4.4779
+7:	[0s / 0s],		train_loss: 4.4597
+8:	[0s / 0s],		train_loss: 4.4369
+9:	[0s / 0s],		train_loss: 4.4439
+10:	[0s / 0s],		train_loss: 4.4446
+11:	[0s / 0s],		train_loss: 4.4110
+12:	[0s / 1s],		train_loss: 4.4066
+13:	[0s / 1s],		train_loss: 4.4498
+14:	[0s / 1s],		train_loss: 4.4062
+15:	[0s / 1s],		train_loss: 4.3949
+16:	[0s / 1s],		train_loss: 4.4182
+17:	[0s / 1s],		train_loss: 4.3983
+18:	[0s / 1s],		train_loss: 4.3721
+19:	[0s / 1s],		train_loss: 4.3870
+20:	[0s / 1s],		train_loss: 4.4038
+21:	[0s / 1s],		train_loss: 4.4111
+22:	[0s / 1s],		train_loss: 4.3821
+23:	[0s / 2s],		train_loss: 4.3949
+24:	[0s / 2s],		train_loss: 4.3654
+25:	[0s / 2s],		train_loss: 4.3672
+26:	[0s / 2s],		train_loss: 4.3557
+27:	[0s / 2s],		train_loss: 4.3882
+28:	[0s / 2s],		train_loss: 4.3661
+C-index TRAIN: 0.7988537182588625
+C-index TEST : 0.7789369296694698
+Fitting Cox model...
+C-index TRAIN: 0.7922845818350249
+C-index TEST : 0.7795313319767213
+Evaluating method: imputer_bayesian
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7977355971576602
+C-index TEST : 0.7776647267720619
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 19.6974
+1:	[0s / 0s],		train_loss: 9.9555
+2:	[0s / 0s],		train_loss: 9.0165
+3:	[0s / 0s],		train_loss: 7.0623
+4:	[0s / 0s],		train_loss: 5.6393
+5:	[0s / 0s],		train_loss: 4.8428
+6:	[0s / 0s],		train_loss: 5.5983
+7:	[0s / 0s],		train_loss: 5.8799
+8:	[0s / 0s],		train_loss: 6.7229
+9:	[0s / 0s],		train_loss: 6.7893
+10:	[0s / 0s],		train_loss: 5.2800
+C-index TRAIN: 0.7527748680938083
+C-index TEST : 0.7375774466781706
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.7960
+1:	[0s / 0s],		train_loss: 4.5655
+2:	[0s / 0s],		train_loss: 4.5194
+3:	[0s / 0s],		train_loss: 4.4833
+4:	[0s / 0s],		train_loss: 4.4493
+5:	[0s / 0s],		train_loss: 4.4486
+6:	[0s / 0s],		train_loss: 4.4386
+7:	[0s / 0s],		train_loss: 4.4149
+8:	[0s / 0s],		train_loss: 4.3964
+9:	[0s / 0s],		train_loss: 4.4078
+10:	[0s / 0s],		train_loss: 4.4555
+11:	[0s / 1s],		train_loss: 4.4295
+12:	[0s / 1s],		train_loss: 4.3947
+13:	[0s / 1s],		train_loss: 4.3623
+14:	[0s / 1s],		train_loss: 4.3880
+15:	[0s / 1s],		train_loss: 4.3806
+16:	[0s / 1s],		train_loss: 4.3915
+17:	[0s / 1s],		train_loss: 4.3771
+18:	[0s / 1s],		train_loss: 4.3699
+19:	[0s / 1s],		train_loss: 4.3475
+20:	[0s / 1s],		train_loss: 4.3572
+21:	[0s / 1s],		train_loss: 4.3542
+22:	[0s / 1s],		train_loss: 4.3910
+23:	[0s / 2s],		train_loss: 4.3531
+24:	[0s / 2s],		train_loss: 4.3365
+25:	[0s / 2s],		train_loss: 4.3679
+26:	[0s / 2s],		train_loss: 4.3615
+27:	[0s / 2s],		train_loss: 4.3443
+28:	[0s / 2s],		train_loss: 4.3304
+C-index TRAIN: 0.8042701159624921
+C-index TEST : 0.7784789972796996
+Fitting Cox model...
+C-index TRAIN: 0.7958487969584269
+C-index TEST : 0.7802743348607856
+[fold=1, target=30%] actual NaN%: 30.0%
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TabPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+Fitting SimpleImputer (mean)...
+Fitting SimpleImputer (median)...
+Fitting SimpleImputer (constant, fill=-1)...
+Fitting KNNImputer...
+Fitting IterativeImputer (BayesianRidge, MICE-like)...
+Fitting DeepSurv Simple pilot model...
+0:	[0s / 0s],		train_loss: 35.7168,	val_loss: 15.5982
+1:	[0s / 0s],		train_loss: 11.3078,	val_loss: 12.7449
+2:	[0s / 0s],		train_loss: 8.0938,	val_loss: 10.5187
+3:	[0s / 0s],		train_loss: 6.8627,	val_loss: 8.7151
+4:	[0s / 0s],		train_loss: 5.8083,	val_loss: 7.9412
+5:	[0s / 0s],		train_loss: 5.2499,	val_loss: 7.3685
+6:	[0s / 0s],		train_loss: 5.5926,	val_loss: 7.7285
+7:	[0s / 0s],		train_loss: 5.4172,	val_loss: 6.7486
+8:	[0s / 0s],		train_loss: 4.5587,	val_loss: 6.5703
+9:	[0s / 0s],		train_loss: 4.5613,	val_loss: 6.4721
+10:	[0s / 0s],		train_loss: 4.4948,	val_loss: 6.4881
+11:	[0s / 0s],		train_loss: 4.5154,	val_loss: 6.4968
+12:	[0s / 0s],		train_loss: 4.5553,	val_loss: 6.5445
+13:	[0s / 0s],		train_loss: 4.8178,	val_loss: 7.1231
+14:	[0s / 1s],		train_loss: 5.1245,	val_loss: 8.1047
+15:	[0s / 1s],		train_loss: 6.3046,	val_loss: 7.6498
+16:	[0s / 1s],		train_loss: 5.3014,	val_loss: 7.0707
+17:	[0s / 1s],		train_loss: 5.0086,	val_loss: 6.8227
+18:	[0s / 1s],		train_loss: 4.7489,	val_loss: 6.6098
+19:	[0s / 1s],		train_loss: 5.3195,	val_loss: 9.8744
+20:	[0s / 1s],		train_loss: 6.2806,	val_loss: 8.8125
+21:	[0s / 1s],		train_loss: 6.1202,	val_loss: 9.0702
+22:	[0s / 1s],		train_loss: 6.6850,	val_loss: 11.4263
+23:	[0s / 1s],		train_loss: 9.3685,	val_loss: 12.0071
+24:	[0s / 1s],		train_loss: 7.9455,	val_loss: 10.7092
+25:	[0s / 1s],		train_loss: 8.0347,	val_loss: 8.9717
+26:	[0s / 1s],		train_loss: 6.0121,	val_loss: 7.0234
+27:	[0s / 1s],		train_loss: 4.9861,	val_loss: 6.8344
+28:	[0s / 1s],		train_loss: 4.9033,	val_loss: 7.1061
+29:	[0s / 1s],		train_loss: 4.9364,	val_loss: 7.4692
+Saved fixed_epochs=10 → nan/tabpfn/OrmoniTirodei/nan_percentage0.3/seed789/fold1/fixed_epochs_deepsurv_simple.json
+Fitting DeepSurv Vanilla pilot model...
+0:	[0s / 0s],		train_loss: 4.8289,	val_loss: 6.7034
+1:	[0s / 0s],		train_loss: 4.6999,	val_loss: 6.6690
+2:	[0s / 0s],		train_loss: 4.6531,	val_loss: 6.4820
+3:	[0s / 0s],		train_loss: 4.5756,	val_loss: 6.4797
+4:	[0s / 0s],		train_loss: 4.5589,	val_loss: 6.4391
+5:	[0s / 0s],		train_loss: 4.5853,	val_loss: 6.4503
+6:	[0s / 0s],		train_loss: 4.5400,	val_loss: 6.4516
+7:	[0s / 0s],		train_loss: 4.5240,	val_loss: 6.4333
+8:	[0s / 0s],		train_loss: 4.5203,	val_loss: 6.4777
+9:	[0s / 0s],		train_loss: 4.4854,	val_loss: 6.4380
+10:	[0s / 1s],		train_loss: 4.4775,	val_loss: 6.4418
+11:	[0s / 1s],		train_loss: 4.4986,	val_loss: 6.4167
+12:	[0s / 1s],		train_loss: 4.4765,	val_loss: 6.4376
+13:	[0s / 1s],		train_loss: 4.4546,	val_loss: 6.4279
+14:	[0s / 1s],		train_loss: 4.4976,	val_loss: 85.2227
+15:	[0s / 1s],		train_loss: 4.4921,	val_loss: 33.2444
+16:	[0s / 1s],		train_loss: 4.5144,	val_loss: 6.4578
+17:	[0s / 1s],		train_loss: 4.4931,	val_loss: 6.4288
+18:	[0s / 1s],		train_loss: 4.4832,	val_loss: 133.1016
+19:	[0s / 1s],		train_loss: 4.4836,	val_loss: 54.5629
+20:	[0s / 1s],		train_loss: 4.4874,	val_loss: 151.6513
+21:	[0s / 1s],		train_loss: 4.4944,	val_loss: 286.7714
+22:	[0s / 2s],		train_loss: 4.4598,	val_loss: 152.6338
+23:	[0s / 2s],		train_loss: 4.4864,	val_loss: 177.8875
+24:	[0s / 2s],		train_loss: 4.4694,	val_loss: 6.5057
+25:	[0s / 2s],		train_loss: 4.5173,	val_loss: 6.5269
+26:	[0s / 2s],		train_loss: 4.4753,	val_loss: 6.4040
+27:	[0s / 2s],		train_loss: 4.4874,	val_loss: 6.4221
+28:	[0s / 2s],		train_loss: 4.4505,	val_loss: 6.4106
+29:	[0s / 2s],		train_loss: 4.4467,	val_loss: 6.4103
+30:	[0s / 2s],		train_loss: 4.4520,	val_loss: 6.4255
+31:	[0s / 2s],		train_loss: 4.4305,	val_loss: 6.4764
+32:	[0s / 2s],		train_loss: 4.4464,	val_loss: 6.4441
+33:	[0s / 2s],		train_loss: 4.4653,	val_loss: 6.4251
+34:	[0s / 3s],		train_loss: 4.4256,	val_loss: 6.4256
+35:	[0s / 3s],		train_loss: 4.4243,	val_loss: 6.4150
+36:	[0s / 3s],		train_loss: 4.4046,	val_loss: 12.9906
+37:	[0s / 3s],		train_loss: 4.4242,	val_loss: 6.3990
+38:	[0s / 3s],		train_loss: 4.4199,	val_loss: 6.4288
+39:	[0s / 3s],		train_loss: 4.4905,	val_loss: 6.4503
+40:	[0s / 3s],		train_loss: 4.4550,	val_loss: 6.4031
+41:	[0s / 3s],		train_loss: 4.4153,	val_loss: 6.4306
+42:	[0s / 3s],		train_loss: 4.3878,	val_loss: 6.4207
+43:	[0s / 3s],		train_loss: 4.4298,	val_loss: 6.4193
+44:	[0s / 3s],		train_loss: 4.3919,	val_loss: 6.4169
+45:	[0s / 4s],		train_loss: 4.3900,	val_loss: 6.4266
+46:	[0s / 4s],		train_loss: 4.4040,	val_loss: 6.4868
+47:	[0s / 4s],		train_loss: 4.4268,	val_loss: 6.4808
+48:	[0s / 4s],		train_loss: 4.4245,	val_loss: 6.4395
+49:	[0s / 4s],		train_loss: 4.4077,	val_loss: 6.4507
+50:	[0s / 4s],		train_loss: 4.4333,	val_loss: 7.6557
+51:	[0s / 4s],		train_loss: 4.4073,	val_loss: 7.2882
+52:	[0s / 4s],		train_loss: 4.4019,	val_loss: 6.4775
+53:	[0s / 4s],		train_loss: 4.3691,	val_loss: 6.4827
+54:	[0s / 4s],		train_loss: 4.3714,	val_loss: 10.4900
+55:	[0s / 4s],		train_loss: 4.3727,	val_loss: 9.4231
+56:	[0s / 5s],		train_loss: 4.4078,	val_loss: 7.7118
+57:	[0s / 5s],		train_loss: 4.3675,	val_loss: 6.7039
+Saved fixed_epochs=38 → nan/tabpfn/OrmoniTirodei/nan_percentage0.3/seed789/fold1/fixed_epochs_deepsurv_vanilla.json
+Evaluating method: embeddings
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.9205909143586233
+C-index TEST : 0.7312876998147042
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 3.5655
+1:	[0s / 0s],		train_loss: 3.2887
+2:	[0s / 0s],		train_loss: 3.2659
+3:	[0s / 0s],		train_loss: 3.2574
+4:	[0s / 0s],		train_loss: 3.2481
+5:	[0s / 0s],		train_loss: 3.2640
+6:	[0s / 0s],		train_loss: 3.2501
+7:	[0s / 0s],		train_loss: 3.2454
+8:	[0s / 0s],		train_loss: 3.2662
+9:	[0s / 0s],		train_loss: 3.2514
+C-index TRAIN: 0.9073743553051641
+C-index TEST : 0.7540842413637288
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 3.4308
+1:	[0s / 0s],		train_loss: 3.3046
+2:	[0s / 0s],		train_loss: 3.2847
+3:	[0s / 0s],		train_loss: 3.2687
+4:	[0s / 0s],		train_loss: 3.2705
+5:	[0s / 0s],		train_loss: 3.2688
+6:	[0s / 0s],		train_loss: 3.2730
+7:	[0s / 0s],		train_loss: 3.2942
+8:	[0s / 0s],		train_loss: 3.2774
+9:	[0s / 0s],		train_loss: 3.2540
+10:	[0s / 0s],		train_loss: 3.2608
+11:	[0s / 1s],		train_loss: 3.2676
+12:	[0s / 1s],		train_loss: 3.2370
+13:	[0s / 1s],		train_loss: 3.2550
+14:	[0s / 1s],		train_loss: 3.2352
+15:	[0s / 1s],		train_loss: 3.2528
+16:	[0s / 1s],		train_loss: 3.2448
+17:	[0s / 1s],		train_loss: 3.2507
+18:	[0s / 1s],		train_loss: 3.2432
+19:	[0s / 1s],		train_loss: 3.2291
+20:	[0s / 1s],		train_loss: 3.2240
+21:	[0s / 1s],		train_loss: 3.2275
+22:	[0s / 1s],		train_loss: 3.2071
+23:	[0s / 1s],		train_loss: 3.2401
+24:	[0s / 2s],		train_loss: 3.2326
+25:	[0s / 2s],		train_loss: 3.2308
+26:	[0s / 2s],		train_loss: 3.2464
+27:	[0s / 2s],		train_loss: 3.2454
+28:	[0s / 2s],		train_loss: 3.2230
+29:	[0s / 2s],		train_loss: 3.2376
+30:	[0s / 2s],		train_loss: 3.2271
+31:	[0s / 2s],		train_loss: 3.2555
+32:	[0s / 2s],		train_loss: 3.2347
+33:	[0s / 2s],		train_loss: 3.2107
+34:	[0s / 2s],		train_loss: 3.2264
+35:	[0s / 2s],		train_loss: 3.2287
+36:	[0s / 3s],		train_loss: 3.2206
+37:	[0s / 3s],		train_loss: 3.2352
+C-index TRAIN: 0.9173850055882727
+C-index TEST : 0.4558625960217503
+Fitting Cox model...
+C-index TRAIN: 0.9150683310743237
+C-index TEST : 0.7592458369093507
+Evaluating method: mean
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7831350798155394
+C-index TEST : 0.7623800960141686
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 19.5335
+1:	[0s / 0s],		train_loss: 9.5521
+2:	[0s / 0s],		train_loss: 8.8960
+3:	[0s / 0s],		train_loss: 7.3360
+4:	[0s / 0s],		train_loss: 5.6839
+5:	[0s / 0s],		train_loss: 4.9702
+6:	[0s / 0s],		train_loss: 4.7582
+7:	[0s / 0s],		train_loss: 4.5810
+8:	[0s / 0s],		train_loss: 4.6894
+9:	[0s / 0s],		train_loss: 4.5880
+C-index TRAIN: 0.7604603527488722
+C-index TEST : 0.7605650461116688
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8385
+1:	[0s / 0s],		train_loss: 4.6644
+2:	[0s / 0s],		train_loss: 4.6295
+3:	[0s / 0s],		train_loss: 4.5796
+4:	[0s / 0s],		train_loss: 4.5609
+5:	[0s / 0s],		train_loss: 4.5554
+6:	[0s / 0s],		train_loss: 4.5408
+7:	[0s / 0s],		train_loss: 4.5115
+8:	[0s / 0s],		train_loss: 4.5208
+9:	[0s / 0s],		train_loss: 4.5104
+10:	[0s / 0s],		train_loss: 4.5212
+11:	[0s / 1s],		train_loss: 4.5209
+12:	[0s / 1s],		train_loss: 4.5058
+13:	[0s / 1s],		train_loss: 4.4966
+14:	[0s / 1s],		train_loss: 4.4849
+15:	[0s / 1s],		train_loss: 4.4681
+16:	[0s / 1s],		train_loss: 4.4792
+17:	[0s / 1s],		train_loss: 4.4597
+18:	[0s / 1s],		train_loss: 4.4699
+19:	[0s / 1s],		train_loss: 4.4584
+20:	[0s / 1s],		train_loss: 4.4629
+21:	[0s / 1s],		train_loss: 4.4305
+22:	[0s / 1s],		train_loss: 4.4319
+23:	[0s / 2s],		train_loss: 4.4588
+24:	[0s / 2s],		train_loss: 4.4647
+25:	[0s / 2s],		train_loss: 4.4349
+26:	[0s / 2s],		train_loss: 4.4248
+27:	[0s / 2s],		train_loss: 4.4363
+28:	[0s / 2s],		train_loss: 4.4459
+29:	[0s / 2s],		train_loss: 4.4400
+30:	[0s / 2s],		train_loss: 4.4564
+31:	[0s / 2s],		train_loss: 4.4315
+32:	[0s / 2s],		train_loss: 4.4166
+33:	[0s / 2s],		train_loss: 4.4385
+34:	[0s / 2s],		train_loss: 4.4169
+35:	[0s / 3s],		train_loss: 4.4290
+36:	[0s / 3s],		train_loss: 4.4189
+37:	[0s / 3s],		train_loss: 4.3918
+C-index TRAIN: 0.7899759318904411
+C-index TEST : 0.7588273291624082
+Fitting Cox model...
+C-index TRAIN: 0.7719865269346536
+C-index TEST : 0.7646985682789323
+Evaluating method: median
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7812209400950968
+C-index TEST : 0.7602936226091228
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 61.8300
+1:	[0s / 0s],		train_loss: 11.2769
+2:	[0s / 0s],		train_loss: 8.8193
+3:	[0s / 0s],		train_loss: 7.8795
+4:	[0s / 0s],		train_loss: 7.0152
+5:	[0s / 0s],		train_loss: 6.5872
+6:	[0s / 0s],		train_loss: 6.5656
+7:	[0s / 0s],		train_loss: 6.6125
+8:	[0s / 0s],		train_loss: 7.4184
+9:	[0s / 0s],		train_loss: 7.0400
+C-index TRAIN: 0.7363928963526093
+C-index TEST : 0.7493244739084681
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8461
+1:	[0s / 0s],		train_loss: 4.6542
+2:	[0s / 0s],		train_loss: 4.5656
+3:	[0s / 0s],		train_loss: 4.5791
+4:	[0s / 0s],		train_loss: 4.5724
+5:	[0s / 0s],		train_loss: 4.5560
+6:	[0s / 0s],		train_loss: 4.5257
+7:	[0s / 0s],		train_loss: 4.5338
+8:	[0s / 0s],		train_loss: 4.5253
+9:	[0s / 0s],		train_loss: 4.5437
+10:	[0s / 0s],		train_loss: 4.4788
+11:	[0s / 1s],		train_loss: 4.5130
+12:	[0s / 1s],		train_loss: 4.5217
+13:	[0s / 1s],		train_loss: 4.4814
+14:	[0s / 1s],		train_loss: 4.4816
+15:	[0s / 1s],		train_loss: 4.4787
+16:	[0s / 1s],		train_loss: 4.4914
+17:	[0s / 1s],		train_loss: 4.4990
+18:	[0s / 1s],		train_loss: 4.4806
+19:	[0s / 1s],		train_loss: 4.4645
+20:	[0s / 1s],		train_loss: 4.4825
+21:	[0s / 1s],		train_loss: 4.4577
+22:	[0s / 1s],		train_loss: 4.4555
+23:	[0s / 2s],		train_loss: 4.4447
+24:	[0s / 2s],		train_loss: 4.4283
+25:	[0s / 2s],		train_loss: 4.4696
+26:	[0s / 2s],		train_loss: 4.4480
+27:	[0s / 2s],		train_loss: 4.4433
+28:	[0s / 2s],		train_loss: 4.4610
+29:	[0s / 2s],		train_loss: 4.4455
+30:	[0s / 2s],		train_loss: 4.4399
+31:	[0s / 2s],		train_loss: 4.4614
+32:	[0s / 2s],		train_loss: 4.4266
+33:	[0s / 2s],		train_loss: 4.4514
+34:	[0s / 2s],		train_loss: 4.4486
+35:	[0s / 3s],		train_loss: 4.4542
+36:	[0s / 3s],		train_loss: 4.4447
+37:	[0s / 3s],		train_loss: 4.4343
+C-index TRAIN: 0.7850335436330361
+C-index TEST : 0.7621632604786152
+Fitting Cox model...
+C-index TRAIN: 0.7701608440951206
+C-index TEST : 0.7650048674270569
+Evaluating method: constant
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7779534474203156
+C-index TEST : 0.7591002689973707
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 99.7505
+1:	[0s / 0s],		train_loss: 17.2782
+2:	[0s / 0s],		train_loss: 8.1334
+3:	[0s / 0s],		train_loss: 6.5882
+4:	[0s / 0s],		train_loss: 6.1615
+5:	[0s / 0s],		train_loss: 5.8624
+6:	[0s / 0s],		train_loss: 5.4880
+7:	[0s / 0s],		train_loss: 5.9983
+8:	[0s / 0s],		train_loss: 6.5098
+9:	[0s / 0s],		train_loss: 5.9545
+C-index TRAIN: 0.6542526578586754
+C-index TEST : 0.6637002150159367
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9435
+1:	[0s / 0s],		train_loss: 4.8322
+2:	[0s / 0s],		train_loss: 4.8372
+3:	[0s / 0s],		train_loss: 4.8126
+4:	[0s / 0s],		train_loss: 4.7747
+5:	[0s / 0s],		train_loss: 4.7841
+6:	[0s / 0s],		train_loss: 4.7564
+7:	[0s / 0s],		train_loss: 4.7007
+8:	[0s / 0s],		train_loss: 4.6751
+9:	[0s / 0s],		train_loss: 4.6218
+10:	[0s / 0s],		train_loss: 4.6169
+11:	[0s / 0s],		train_loss: 4.6157
+12:	[0s / 1s],		train_loss: 4.5893
+13:	[0s / 1s],		train_loss: 4.5928
+14:	[0s / 1s],		train_loss: 4.5852
+15:	[0s / 1s],		train_loss: 4.5413
+16:	[0s / 1s],		train_loss: 4.5412
+17:	[0s / 1s],		train_loss: 4.5191
+18:	[0s / 1s],		train_loss: 4.5261
+19:	[0s / 1s],		train_loss: 4.5290
+20:	[0s / 1s],		train_loss: 4.5083
+21:	[0s / 1s],		train_loss: 4.5034
+22:	[0s / 1s],		train_loss: 4.4838
+23:	[0s / 1s],		train_loss: 4.4751
+24:	[0s / 2s],		train_loss: 4.4816
+25:	[0s / 2s],		train_loss: 4.4679
+26:	[0s / 2s],		train_loss: 4.4248
+27:	[0s / 2s],		train_loss: 4.4308
+28:	[0s / 2s],		train_loss: 4.4379
+29:	[0s / 2s],		train_loss: 4.4269
+30:	[0s / 2s],		train_loss: 4.4479
+31:	[0s / 2s],		train_loss: 4.4013
+32:	[0s / 2s],		train_loss: 4.4215
+33:	[0s / 2s],		train_loss: 4.3948
+34:	[0s / 2s],		train_loss: 4.3906
+35:	[0s / 2s],		train_loss: 4.3576
+36:	[0s / 3s],		train_loss: 4.4017
+37:	[0s / 3s],		train_loss: 4.3708
+C-index TRAIN: 0.812364853655182
+C-index TEST : 0.7082060877713856
+Fitting Cox model...
+C-index TRAIN: 0.685588414611957
+C-index TEST : 0.6839478017728958
+Evaluating method: knn
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.779679289687514
+C-index TEST : 0.7533382058148316
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 21.5209
+1:	[0s / 0s],		train_loss: 7.7958
+2:	[0s / 0s],		train_loss: 7.9637
+3:	[0s / 0s],		train_loss: 6.8418
+4:	[0s / 0s],		train_loss: 5.7399
+5:	[0s / 0s],		train_loss: 5.5848
+6:	[0s / 0s],		train_loss: 6.4451
+7:	[0s / 0s],		train_loss: 5.2170
+8:	[0s / 0s],		train_loss: 6.4044
+9:	[0s / 0s],		train_loss: 6.7518
+C-index TRAIN: 0.7221689739169771
+C-index TEST : 0.7254710486651725
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8441
+1:	[0s / 0s],		train_loss: 4.6596
+2:	[0s / 0s],		train_loss: 4.6271
+3:	[0s / 0s],		train_loss: 4.5813
+4:	[0s / 0s],		train_loss: 4.5768
+5:	[0s / 0s],		train_loss: 4.5508
+6:	[0s / 0s],		train_loss: 4.5381
+7:	[0s / 0s],		train_loss: 4.5412
+8:	[0s / 0s],		train_loss: 4.5170
+9:	[0s / 0s],		train_loss: 4.5134
+10:	[0s / 0s],		train_loss: 4.5126
+11:	[0s / 1s],		train_loss: 4.5165
+12:	[0s / 1s],		train_loss: 4.4688
+13:	[0s / 1s],		train_loss: 4.5049
+14:	[0s / 1s],		train_loss: 4.5019
+15:	[0s / 1s],		train_loss: 4.4851
+16:	[0s / 1s],		train_loss: 4.4626
+17:	[0s / 1s],		train_loss: 4.4879
+18:	[0s / 1s],		train_loss: 4.4845
+19:	[0s / 1s],		train_loss: 4.4899
+20:	[0s / 1s],		train_loss: 4.4656
+21:	[0s / 1s],		train_loss: 4.4855
+22:	[0s / 1s],		train_loss: 4.4963
+23:	[0s / 2s],		train_loss: 4.4578
+24:	[0s / 2s],		train_loss: 4.4491
+25:	[0s / 2s],		train_loss: 4.4286
+26:	[0s / 2s],		train_loss: 4.4808
+27:	[0s / 2s],		train_loss: 4.4495
+28:	[0s / 2s],		train_loss: 4.4347
+29:	[0s / 2s],		train_loss: 4.4233
+30:	[0s / 2s],		train_loss: 4.4611
+31:	[0s / 2s],		train_loss: 4.4485
+32:	[0s / 2s],		train_loss: 4.4458
+33:	[0s / 2s],		train_loss: 4.4563
+34:	[0s / 2s],		train_loss: 4.4280
+35:	[0s / 3s],		train_loss: 4.4608
+36:	[0s / 3s],		train_loss: 4.4246
+37:	[0s / 3s],		train_loss: 4.4172
+C-index TRAIN: 0.7795744104320894
+C-index TEST : 0.7464540566441138
+Fitting Cox model...
+C-index TRAIN: 0.770613019247956
+C-index TEST : 0.7636068089390828
+Evaluating method: imputer_bayesian
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7874104957261704
+C-index TEST : 0.7535990149904622
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 74.4279
+1:	[0s / 0s],		train_loss: 18.0014
+2:	[0s / 0s],		train_loss: 11.0810
+3:	[0s / 0s],		train_loss: 8.8220
+4:	[0s / 0s],		train_loss: 7.1295
+5:	[0s / 0s],		train_loss: 9.9565
+6:	[0s / 0s],		train_loss: 9.2883
+7:	[0s / 0s],		train_loss: 7.0560
+8:	[0s / 0s],		train_loss: 5.2725
+9:	[0s / 0s],		train_loss: 4.5814
+C-index TRAIN: 0.758537068751711
+C-index TEST : 0.7448497769475015
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.7927
+1:	[0s / 0s],		train_loss: 4.5970
+2:	[0s / 0s],		train_loss: 4.5356
+3:	[0s / 0s],		train_loss: 4.5131
+4:	[0s / 0s],		train_loss: 4.5196
+5:	[0s / 0s],		train_loss: 4.4930
+6:	[0s / 0s],		train_loss: 4.4826
+7:	[0s / 0s],		train_loss: 4.4913
+8:	[0s / 0s],		train_loss: 4.4919
+9:	[0s / 0s],		train_loss: 4.4781
+10:	[0s / 0s],		train_loss: 4.4631
+11:	[0s / 1s],		train_loss: 4.4451
+12:	[0s / 1s],		train_loss: 4.4969
+13:	[0s / 1s],		train_loss: 4.4519
+14:	[0s / 1s],		train_loss: 4.4602
+15:	[0s / 1s],		train_loss: 4.4553
+16:	[0s / 1s],		train_loss: 4.4480
+17:	[0s / 1s],		train_loss: 4.4221
+18:	[0s / 1s],		train_loss: 4.4408
+19:	[0s / 1s],		train_loss: 4.4132
+20:	[0s / 1s],		train_loss: 4.4039
+21:	[0s / 1s],		train_loss: 4.4144
+22:	[0s / 1s],		train_loss: 4.4355
+23:	[0s / 2s],		train_loss: 4.4296
+24:	[0s / 2s],		train_loss: 4.4070
+25:	[0s / 2s],		train_loss: 4.4306
+26:	[0s / 2s],		train_loss: 4.4015
+27:	[0s / 2s],		train_loss: 4.3957
+28:	[0s / 2s],		train_loss: 4.4094
+29:	[0s / 2s],		train_loss: 4.4307
+30:	[0s / 2s],		train_loss: 4.4275
+31:	[0s / 2s],		train_loss: 4.4235
+32:	[0s / 2s],		train_loss: 4.4278
+33:	[0s / 2s],		train_loss: 4.4027
+34:	[0s / 2s],		train_loss: 4.4008
+35:	[0s / 3s],		train_loss: 4.3885
+36:	[0s / 3s],		train_loss: 4.4174
+37:	[0s / 3s],		train_loss: 4.4073
+C-index TRAIN: 0.787462468809152
+C-index TEST : 0.7414562249994693
+Fitting Cox model...
+C-index TRAIN: 0.7780368656181353
+C-index TEST : 0.7554216465550444
+[fold=1, target=50%] actual NaN%: 50.0%
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TabPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+Fitting SimpleImputer (mean)...
+Fitting SimpleImputer (median)...
+Fitting SimpleImputer (constant, fill=-1)...
+Fitting KNNImputer...
+Fitting IterativeImputer (BayesianRidge, MICE-like)...
+Fitting DeepSurv Simple pilot model...
+0:	[0s / 0s],		train_loss: 19.0535,	val_loss: 11.5663
+1:	[0s / 0s],		train_loss: 10.2763,	val_loss: 12.1970
+2:	[0s / 0s],		train_loss: 8.5301,	val_loss: 10.5290
+3:	[0s / 0s],		train_loss: 7.5951,	val_loss: 9.2534
+4:	[0s / 0s],		train_loss: 6.1835,	val_loss: 8.7555
+5:	[0s / 0s],		train_loss: 6.9500,	val_loss: 8.8730
+6:	[0s / 0s],		train_loss: 6.7083,	val_loss: 7.5767
+7:	[0s / 0s],		train_loss: 5.2996,	val_loss: 6.6582
+8:	[0s / 0s],		train_loss: 5.4605,	val_loss: 8.1806
+9:	[0s / 0s],		train_loss: 6.7532,	val_loss: 8.0137
+10:	[0s / 0s],		train_loss: 5.8656,	val_loss: 6.9982
+11:	[0s / 0s],		train_loss: 5.3936,	val_loss: 7.5325
+12:	[0s / 0s],		train_loss: 7.2146,	val_loss: 9.6022
+13:	[0s / 0s],		train_loss: 7.3166,	val_loss: 8.2630
+14:	[0s / 0s],		train_loss: 5.8513,	val_loss: 7.0491
+15:	[0s / 1s],		train_loss: 4.8112,	val_loss: 6.5782
+16:	[0s / 1s],		train_loss: 4.7509,	val_loss: 6.8937
+17:	[0s / 1s],		train_loss: 5.7687,	val_loss: 8.0371
+18:	[0s / 1s],		train_loss: 6.3028,	val_loss: 8.7462
+19:	[0s / 1s],		train_loss: 6.0471,	val_loss: 7.8727
+20:	[0s / 1s],		train_loss: 5.3695,	val_loss: 8.0165
+21:	[0s / 1s],		train_loss: 7.4127,	val_loss: 9.0015
+22:	[0s / 1s],		train_loss: 6.7201,	val_loss: 7.8151
+23:	[0s / 1s],		train_loss: 5.4592,	val_loss: 7.2113
+24:	[0s / 1s],		train_loss: 5.0831,	val_loss: 6.7412
+25:	[0s / 1s],		train_loss: 4.6916,	val_loss: 6.5915
+26:	[0s / 1s],		train_loss: 4.7925,	val_loss: 6.9503
+27:	[0s / 1s],		train_loss: 5.0612,	val_loss: 7.0781
+28:	[0s / 1s],		train_loss: 5.4407,	val_loss: 7.5248
+29:	[0s / 1s],		train_loss: 5.0806,	val_loss: 9.3519
+30:	[0s / 1s],		train_loss: 5.4797,	val_loss: 7.2904
+31:	[0s / 2s],		train_loss: 5.6878,	val_loss: 7.9979
+32:	[0s / 2s],		train_loss: 7.8196,	val_loss: 9.0007
+33:	[0s / 2s],		train_loss: 6.9182,	val_loss: 10.5683
+34:	[0s / 2s],		train_loss: 10.6440,	val_loss: 15.8326
+35:	[0s / 2s],		train_loss: 12.9371,	val_loss: 14.8586
+Saved fixed_epochs=16 → nan/tabpfn/OrmoniTirodei/nan_percentage0.5/seed789/fold1/fixed_epochs_deepsurv_simple.json
+Fitting DeepSurv Vanilla pilot model...
+0:	[0s / 0s],		train_loss: 4.8624,	val_loss: 6.7425
+1:	[0s / 0s],		train_loss: 4.7422,	val_loss: 6.6509
+2:	[0s / 0s],		train_loss: 4.7117,	val_loss: 6.5627
+3:	[0s / 0s],		train_loss: 4.6711,	val_loss: 6.5492
+4:	[0s / 0s],		train_loss: 4.6660,	val_loss: 6.5619
+5:	[0s / 0s],		train_loss: 4.6291,	val_loss: 6.5131
+6:	[0s / 0s],		train_loss: 4.6132,	val_loss: 6.5691
+7:	[0s / 0s],		train_loss: 4.6088,	val_loss: 6.4924
+8:	[0s / 0s],		train_loss: 4.6129,	val_loss: 6.5181
+9:	[0s / 0s],		train_loss: 4.5998,	val_loss: 6.4942
+10:	[0s / 0s],		train_loss: 4.5873,	val_loss: 6.5085
+11:	[0s / 1s],		train_loss: 4.5968,	val_loss: 6.4651
+12:	[0s / 1s],		train_loss: 4.5602,	val_loss: 6.4566
+13:	[0s / 1s],		train_loss: 4.5955,	val_loss: 6.4623
+14:	[0s / 1s],		train_loss: 4.5971,	val_loss: 6.4718
+15:	[0s / 1s],		train_loss: 4.5571,	val_loss: 6.4518
+16:	[0s / 1s],		train_loss: 4.6019,	val_loss: 6.5184
+17:	[0s / 1s],		train_loss: 4.5559,	val_loss: 6.4536
+18:	[0s / 1s],		train_loss: 4.5684,	val_loss: 6.4740
+19:	[0s / 1s],		train_loss: 4.5859,	val_loss: 6.4461
+20:	[0s / 1s],		train_loss: 4.5649,	val_loss: 6.4638
+21:	[0s / 1s],		train_loss: 4.5606,	val_loss: 6.4778
+22:	[0s / 2s],		train_loss: 4.5605,	val_loss: 6.4697
+23:	[0s / 2s],		train_loss: 4.5570,	val_loss: 6.5006
+24:	[0s / 2s],		train_loss: 4.5714,	val_loss: 6.6972
+25:	[0s / 2s],		train_loss: 4.5351,	val_loss: 75.3513
+26:	[0s / 2s],		train_loss: 4.5561,	val_loss: 262.0929
+27:	[0s / 2s],		train_loss: 4.5338,	val_loss: 592.9661
+28:	[0s / 2s],		train_loss: 4.5541,	val_loss: 580.4844
+29:	[0s / 2s],		train_loss: 4.5210,	val_loss: 95.3543
+30:	[0s / 2s],		train_loss: 4.5456,	val_loss: 246.5506
+31:	[0s / 2s],		train_loss: 4.5559,	val_loss: 275.7041
+32:	[0s / 2s],		train_loss: 4.5454,	val_loss: 233.4311
+33:	[0s / 3s],		train_loss: 4.5378,	val_loss: 204.8216
+34:	[0s / 3s],		train_loss: 4.5388,	val_loss: 347.4028
+35:	[0s / 3s],		train_loss: 4.5244,	val_loss: 415.2706
+36:	[0s / 3s],		train_loss: 4.5115,	val_loss: 74.8704
+37:	[0s / 3s],		train_loss: 4.5447,	val_loss: 135.1399
+38:	[0s / 3s],		train_loss: 4.5232,	val_loss: 237.2925
+39:	[0s / 3s],		train_loss: 4.5323,	val_loss: 242.1583
+Saved fixed_epochs=20 → nan/tabpfn/OrmoniTirodei/nan_percentage0.5/seed789/fold1/fixed_epochs_deepsurv_vanilla.json
+Evaluating method: embeddings
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.9208493801393401
+C-index TEST : 0.7104214494318303
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 3.5914
+1:	[0s / 0s],		train_loss: 3.2879
+2:	[0s / 0s],		train_loss: 3.2412
+3:	[0s / 0s],		train_loss: 3.2776
+4:	[0s / 0s],		train_loss: 3.2541
+5:	[0s / 0s],		train_loss: 3.2515
+6:	[0s / 0s],		train_loss: 3.2479
+7:	[0s / 0s],		train_loss: 3.2624
+8:	[0s / 0s],		train_loss: 3.2344
+9:	[0s / 0s],		train_loss: 3.2571
+10:	[0s / 0s],		train_loss: 3.2571
+11:	[0s / 0s],		train_loss: 3.2548
+12:	[0s / 0s],		train_loss: 3.2512
+13:	[0s / 0s],		train_loss: 3.2753
+14:	[0s / 0s],		train_loss: 3.2347
+15:	[0s / 0s],		train_loss: 3.2426
+C-index TRAIN: 0.9081668281844524
+C-index TEST : 0.7499749805151285
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 3.4331
+1:	[0s / 0s],		train_loss: 3.2957
+2:	[0s / 0s],		train_loss: 3.2778
+3:	[0s / 0s],		train_loss: 3.2753
+4:	[0s / 0s],		train_loss: 3.2734
+5:	[0s / 0s],		train_loss: 3.2505
+6:	[0s / 0s],		train_loss: 3.2639
+7:	[0s / 0s],		train_loss: 3.2522
+8:	[0s / 0s],		train_loss: 3.2632
+9:	[0s / 0s],		train_loss: 3.2806
+10:	[0s / 0s],		train_loss: 3.2563
+11:	[0s / 1s],		train_loss: 3.2569
+12:	[0s / 1s],		train_loss: 3.2541
+13:	[0s / 1s],		train_loss: 3.2615
+14:	[0s / 1s],		train_loss: 3.2584
+15:	[0s / 1s],		train_loss: 3.2594
+16:	[0s / 1s],		train_loss: 3.2424
+17:	[0s / 1s],		train_loss: 3.2451
+18:	[0s / 1s],		train_loss: 3.2374
+19:	[0s / 1s],		train_loss: 3.2729
+C-index TRAIN: 0.9140619007816118
+C-index TEST : 0.7198894290401919
+Fitting Cox model...
+C-index TRAIN: 0.9134669629412323
+C-index TEST : 0.7433819671683706
+Evaluating method: mean
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7563651164131743
+C-index TEST : 0.7277728412733553
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 66.0051
+1:	[0s / 0s],		train_loss: 15.1987
+2:	[0s / 0s],		train_loss: 11.2651
+3:	[0s / 0s],		train_loss: 9.9637
+4:	[0s / 0s],		train_loss: 8.2958
+5:	[0s / 0s],		train_loss: 8.4867
+6:	[0s / 0s],		train_loss: 7.4188
+7:	[0s / 0s],		train_loss: 6.7631
+8:	[0s / 0s],		train_loss: 7.3635
+9:	[0s / 0s],		train_loss: 7.2415
+10:	[0s / 0s],		train_loss: 6.1814
+11:	[0s / 0s],		train_loss: 5.7083
+12:	[0s / 0s],		train_loss: 5.4385
+13:	[0s / 0s],		train_loss: 4.7855
+14:	[0s / 0s],		train_loss: 4.5946
+15:	[0s / 0s],		train_loss: 4.6023
+C-index TRAIN: 0.7337118504041117
+C-index TEST : 0.7311360665730584
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9823
+1:	[0s / 0s],		train_loss: 4.7709
+2:	[0s / 0s],		train_loss: 4.7040
+3:	[0s / 0s],		train_loss: 4.6717
+4:	[0s / 0s],		train_loss: 4.6574
+5:	[0s / 0s],		train_loss: 4.6563
+6:	[0s / 0s],		train_loss: 4.6624
+7:	[0s / 0s],		train_loss: 4.6272
+8:	[0s / 0s],		train_loss: 4.6261
+9:	[0s / 0s],		train_loss: 4.6161
+10:	[0s / 0s],		train_loss: 4.6029
+11:	[0s / 1s],		train_loss: 4.6032
+12:	[0s / 1s],		train_loss: 4.5859
+13:	[0s / 1s],		train_loss: 4.6224
+14:	[0s / 1s],		train_loss: 4.5825
+15:	[0s / 1s],		train_loss: 4.5960
+16:	[0s / 1s],		train_loss: 4.5894
+17:	[0s / 1s],		train_loss: 4.5893
+18:	[0s / 1s],		train_loss: 4.5519
+19:	[0s / 1s],		train_loss: 4.5844
+C-index TRAIN: 0.7496269041789905
+C-index TEST : 0.7447345356838507
+Fitting Cox model...
+C-index TRAIN: 0.7506635665702412
+C-index TEST : 0.7425449516744859
+Evaluating method: median
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7533790435198523
+C-index TEST : 0.7283626945833573
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 60.3297
+1:	[0s / 0s],		train_loss: 10.4845
+2:	[0s / 0s],		train_loss: 8.3465
+3:	[0s / 0s],		train_loss: 7.2537
+4:	[0s / 0s],		train_loss: 6.6257
+5:	[0s / 0s],		train_loss: 6.6867
+6:	[0s / 0s],		train_loss: 6.2656
+7:	[0s / 0s],		train_loss: 5.7472
+8:	[0s / 0s],		train_loss: 5.8707
+9:	[0s / 0s],		train_loss: 5.7851
+10:	[0s / 0s],		train_loss: 5.4174
+11:	[0s / 0s],		train_loss: 5.9643
+12:	[0s / 0s],		train_loss: 5.8485
+13:	[0s / 0s],		train_loss: 5.1217
+14:	[0s / 0s],		train_loss: 5.4705
+15:	[0s / 0s],		train_loss: 5.6851
+C-index TRAIN: 0.7239175835670256
+C-index TEST : 0.725565061274993
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8791
+1:	[0s / 0s],		train_loss: 4.7087
+2:	[0s / 0s],		train_loss: 4.6947
+3:	[0s / 0s],		train_loss: 4.6365
+4:	[0s / 0s],		train_loss: 4.6279
+5:	[0s / 0s],		train_loss: 4.6206
+6:	[0s / 0s],		train_loss: 4.6208
+7:	[0s / 0s],		train_loss: 4.5968
+8:	[0s / 0s],		train_loss: 4.6277
+9:	[0s / 0s],		train_loss: 4.5941
+10:	[0s / 0s],		train_loss: 4.5974
+11:	[0s / 1s],		train_loss: 4.6113
+12:	[0s / 1s],		train_loss: 4.5962
+13:	[0s / 1s],		train_loss: 4.5993
+14:	[0s / 1s],		train_loss: 4.5847
+15:	[0s / 1s],		train_loss: 4.5898
+16:	[0s / 1s],		train_loss: 4.5771
+17:	[0s / 1s],		train_loss: 4.5901
+18:	[0s / 1s],		train_loss: 4.5686
+19:	[0s / 1s],		train_loss: 4.5753
+C-index TRAIN: 0.7464989083786395
+C-index TEST : 0.7409497699723724
+Fitting Cox model...
+C-index TRAIN: 0.7474591507430285
+C-index TEST : 0.7440764474151081
+Evaluating method: constant
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7557053288552504
+C-index TEST : 0.7373075395080411
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 58.3037
+1:	[0s / 0s],		train_loss: 11.7928
+2:	[0s / 0s],		train_loss: 7.7932
+3:	[0s / 0s],		train_loss: 6.8094
+4:	[0s / 0s],		train_loss: 6.3257
+5:	[0s / 0s],		train_loss: 6.0588
+6:	[0s / 0s],		train_loss: 7.2070
+7:	[0s / 0s],		train_loss: 7.0799
+8:	[0s / 0s],		train_loss: 6.8185
+9:	[0s / 0s],		train_loss: 6.5469
+10:	[0s / 0s],		train_loss: 5.7329
+11:	[0s / 0s],		train_loss: 5.2431
+12:	[0s / 0s],		train_loss: 5.1302
+13:	[0s / 0s],		train_loss: 5.6592
+14:	[0s / 0s],		train_loss: 5.4412
+15:	[0s / 0s],		train_loss: 5.0568
+C-index TRAIN: 0.6258673299813028
+C-index TEST : 0.6296509706043798
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9922
+1:	[0s / 0s],		train_loss: 4.8939
+2:	[0s / 0s],		train_loss: 4.8655
+3:	[0s / 0s],		train_loss: 4.8620
+4:	[0s / 0s],		train_loss: 4.8296
+5:	[0s / 0s],		train_loss: 4.8173
+6:	[0s / 0s],		train_loss: 4.7877
+7:	[0s / 0s],		train_loss: 4.8092
+8:	[0s / 0s],		train_loss: 4.7611
+9:	[0s / 0s],		train_loss: 4.7508
+10:	[0s / 0s],		train_loss: 4.7235
+11:	[0s / 1s],		train_loss: 4.7349
+12:	[0s / 1s],		train_loss: 4.7079
+13:	[0s / 1s],		train_loss: 4.7702
+14:	[0s / 1s],		train_loss: 4.7137
+15:	[0s / 1s],		train_loss: 4.6602
+16:	[0s / 1s],		train_loss: 4.6580
+17:	[0s / 1s],		train_loss: 4.6885
+18:	[0s / 1s],		train_loss: 4.6268
+19:	[0s / 1s],		train_loss: 4.6391
+C-index TRAIN: 0.7496782240993494
+C-index TEST : 0.669400108569401
+Fitting Cox model...
+C-index TRAIN: 0.6507580512090694
+C-index TEST : 0.641250913590281
+Evaluating method: knn
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7569335545128592
+C-index TEST : 0.7204762496853611
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 34.7774
+1:	[0s / 0s],		train_loss: 13.1906
+2:	[0s / 0s],		train_loss: 10.4398
+3:	[0s / 0s],		train_loss: 8.8912
+4:	[0s / 0s],		train_loss: 7.6671
+5:	[0s / 0s],		train_loss: 6.9569
+6:	[0s / 0s],		train_loss: 6.0825
+7:	[0s / 0s],		train_loss: 6.0555
+8:	[0s / 0s],		train_loss: 7.7440
+9:	[0s / 0s],		train_loss: 6.6125
+10:	[0s / 0s],		train_loss: 6.1634
+11:	[0s / 0s],		train_loss: 6.5385
+12:	[0s / 0s],		train_loss: 5.9571
+13:	[0s / 0s],		train_loss: 5.5893
+14:	[0s / 0s],		train_loss: 5.4102
+15:	[0s / 0s],		train_loss: 5.0373
+C-index TRAIN: 0.6656891621472478
+C-index TEST : 0.6736306760113179
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 5.0066
+1:	[0s / 0s],		train_loss: 4.7649
+2:	[0s / 0s],		train_loss: 4.7224
+3:	[0s / 0s],		train_loss: 4.7165
+4:	[0s / 0s],		train_loss: 4.6881
+5:	[0s / 0s],		train_loss: 4.6614
+6:	[0s / 0s],		train_loss: 4.6620
+7:	[0s / 0s],		train_loss: 4.6540
+8:	[0s / 0s],		train_loss: 4.6500
+9:	[0s / 0s],		train_loss: 4.5927
+10:	[0s / 0s],		train_loss: 4.6168
+11:	[0s / 0s],		train_loss: 4.6291
+12:	[0s / 1s],		train_loss: 4.6095
+13:	[0s / 1s],		train_loss: 4.6133
+14:	[0s / 1s],		train_loss: 4.6099
+15:	[0s / 1s],		train_loss: 4.5885
+16:	[0s / 1s],		train_loss: 4.5860
+17:	[0s / 1s],		train_loss: 4.5356
+18:	[0s / 1s],		train_loss: 4.5507
+19:	[0s / 1s],		train_loss: 4.5746
+C-index TRAIN: 0.7540837126808537
+C-index TEST : 0.7327767382476656
+Fitting Cox model...
+C-index TRAIN: 0.7464971355086635
+C-index TEST : 0.7366191245909693
+Evaluating method: imputer_bayesian
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7618254626304203
+C-index TEST : 0.7322429892370725
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 23.7395
+1:	[0s / 0s],		train_loss: 10.2277
+2:	[0s / 0s],		train_loss: 8.4271
+3:	[0s / 0s],		train_loss: 8.7290
+4:	[0s / 0s],		train_loss: 8.7251
+5:	[0s / 0s],		train_loss: 9.0895
+6:	[0s / 0s],		train_loss: 7.4358
+7:	[0s / 0s],		train_loss: 8.9019
+8:	[0s / 0s],		train_loss: 10.9191
+9:	[0s / 0s],		train_loss: 7.7928
+10:	[0s / 0s],		train_loss: 5.4895
+11:	[0s / 0s],		train_loss: 5.4331
+12:	[0s / 0s],		train_loss: 5.9594
+13:	[0s / 0s],		train_loss: 5.3533
+14:	[0s / 0s],		train_loss: 7.0906
+15:	[0s / 0s],		train_loss: 12.9125
+C-index TRAIN: 0.5948794289791087
+C-index TEST : 0.6093427305507623
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.8626
+1:	[0s / 0s],		train_loss: 4.6949
+2:	[0s / 0s],		train_loss: 4.6103
+3:	[0s / 0s],		train_loss: 4.5824
+4:	[0s / 0s],		train_loss: 4.5924
+5:	[0s / 0s],		train_loss: 4.5897
+6:	[0s / 0s],		train_loss: 4.5987
+7:	[0s / 0s],		train_loss: 4.5813
+8:	[0s / 0s],		train_loss: 4.5680
+9:	[0s / 0s],		train_loss: 4.5854
+10:	[0s / 0s],		train_loss: 4.5843
+11:	[0s / 1s],		train_loss: 4.5919
+12:	[0s / 1s],		train_loss: 4.5697
+13:	[0s / 1s],		train_loss: 4.5432
+14:	[0s / 1s],		train_loss: 4.5344
+15:	[0s / 1s],		train_loss: 4.5554
+16:	[0s / 1s],		train_loss: 4.5424
+17:	[0s / 1s],		train_loss: 4.5354
+18:	[0s / 1s],		train_loss: 4.5550
+19:	[0s / 1s],		train_loss: 4.5313
+C-index TRAIN: 0.7553182833467978
+C-index TEST : 0.7389269825288179
+Fitting Cox model...
+C-index TRAIN: 0.7533489980392059
+C-index TEST : 0.7470878835941931
+[fold=1, target=70%] actual NaN%: 70.0%
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TabPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+Fitting SimpleImputer (mean)...
+Fitting SimpleImputer (median)...
+Fitting SimpleImputer (constant, fill=-1)...
+Fitting KNNImputer...
+Fitting IterativeImputer (BayesianRidge, MICE-like)...
+Fitting DeepSurv Simple pilot model...
+0:	[0s / 0s],		train_loss: 52.7529,	val_loss: 12.5080
+1:	[0s / 0s],		train_loss: 12.1289,	val_loss: 14.0787
+2:	[0s / 0s],		train_loss: 11.1008,	val_loss: 13.2381
+3:	[0s / 0s],		train_loss: 9.9042,	val_loss: 11.6481
+4:	[0s / 0s],		train_loss: 8.2756,	val_loss: 9.6154
+5:	[0s / 0s],		train_loss: 6.6747,	val_loss: 8.1266
+6:	[0s / 0s],		train_loss: 5.6344,	val_loss: 7.3250
+7:	[0s / 0s],		train_loss: 5.0594,	val_loss: 6.9557
+8:	[0s / 0s],		train_loss: 4.8445,	val_loss: 6.9181
+9:	[0s / 0s],		train_loss: 4.7901,	val_loss: 6.8112
+10:	[0s / 0s],		train_loss: 4.7580,	val_loss: 6.6862
+11:	[0s / 0s],		train_loss: 4.7057,	val_loss: 6.6086
+12:	[0s / 0s],		train_loss: 4.7006,	val_loss: 6.6392
+13:	[0s / 0s],		train_loss: 4.7119,	val_loss: 6.6729
+14:	[0s / 0s],		train_loss: 4.6919,	val_loss: 6.5818
+15:	[0s / 1s],		train_loss: 4.7142,	val_loss: 6.6009
+16:	[0s / 1s],		train_loss: 4.7267,	val_loss: 6.8628
+17:	[0s / 1s],		train_loss: 4.9732,	val_loss: 6.7924
+18:	[0s / 1s],		train_loss: 4.8266,	val_loss: 6.6610
+19:	[0s / 1s],		train_loss: 4.7571,	val_loss: 6.6514
+20:	[0s / 1s],		train_loss: 4.7490,	val_loss: 6.7480
+21:	[0s / 1s],		train_loss: 4.9733,	val_loss: 6.9482
+22:	[0s / 1s],		train_loss: 5.0493,	val_loss: 6.9300
+23:	[0s / 1s],		train_loss: 4.8592,	val_loss: 6.6319
+24:	[0s / 1s],		train_loss: 4.8743,	val_loss: 6.8597
+25:	[0s / 1s],		train_loss: 4.8601,	val_loss: 6.7692
+26:	[0s / 1s],		train_loss: 5.2307,	val_loss: 7.2431
+27:	[0s / 1s],		train_loss: 5.8754,	val_loss: 9.0173
+28:	[0s / 1s],		train_loss: 8.9213,	val_loss: 12.4349
+29:	[0s / 1s],		train_loss: 9.3706,	val_loss: 9.3705
+30:	[0s / 2s],		train_loss: 7.0464,	val_loss: 8.4635
+31:	[0s / 2s],		train_loss: 5.7593,	val_loss: 8.2624
+32:	[0s / 2s],		train_loss: 5.5414,	val_loss: 7.4428
+33:	[0s / 2s],		train_loss: 5.3797,	val_loss: 7.7301
+34:	[0s / 2s],		train_loss: 5.6397,	val_loss: 7.2337
+Saved fixed_epochs=15 → nan/tabpfn/OrmoniTirodei/nan_percentage0.7/seed789/fold1/fixed_epochs_deepsurv_simple.json
+Fitting DeepSurv Vanilla pilot model...
+0:	[0s / 0s],		train_loss: 4.9311,	val_loss: 6.7765
+1:	[0s / 0s],		train_loss: 4.7960,	val_loss: 6.6670
+2:	[0s / 0s],		train_loss: 4.7877,	val_loss: 6.6891
+3:	[0s / 0s],		train_loss: 4.7706,	val_loss: 6.6485
+4:	[0s / 0s],		train_loss: 4.7093,	val_loss: 6.6204
+5:	[0s / 0s],		train_loss: 4.7378,	val_loss: 6.6516
+6:	[0s / 0s],		train_loss: 4.7152,	val_loss: 6.6060
+7:	[0s / 0s],		train_loss: 4.7025,	val_loss: 6.6397
+8:	[0s / 0s],		train_loss: 4.7117,	val_loss: 6.6059
+9:	[0s / 0s],		train_loss: 4.7185,	val_loss: 6.6255
+10:	[0s / 0s],		train_loss: 4.6996,	val_loss: 6.5996
+11:	[0s / 1s],		train_loss: 4.7055,	val_loss: 6.6396
+12:	[0s / 1s],		train_loss: 4.7132,	val_loss: 6.6063
+13:	[0s / 1s],		train_loss: 4.6923,	val_loss: 6.6022
+14:	[0s / 1s],		train_loss: 4.6911,	val_loss: 6.6087
+15:	[0s / 1s],		train_loss: 4.6667,	val_loss: 6.5534
+16:	[0s / 1s],		train_loss: 4.6562,	val_loss: 6.5829
+17:	[0s / 1s],		train_loss: 4.6738,	val_loss: 6.5681
+18:	[0s / 1s],		train_loss: 4.6628,	val_loss: 6.6339
+19:	[0s / 1s],		train_loss: 4.6662,	val_loss: 6.5716
+20:	[0s / 1s],		train_loss: 4.6549,	val_loss: 6.5645
+21:	[0s / 1s],		train_loss: 4.6635,	val_loss: 6.5893
+22:	[0s / 2s],		train_loss: 4.6739,	val_loss: 6.5830
+23:	[0s / 2s],		train_loss: 4.6489,	val_loss: 6.5627
+24:	[0s / 2s],		train_loss: 4.6489,	val_loss: 6.5644
+25:	[0s / 2s],		train_loss: 4.6488,	val_loss: 6.5828
+26:	[0s / 2s],		train_loss: 4.6378,	val_loss: 6.5934
+27:	[0s / 2s],		train_loss: 4.6646,	val_loss: 6.5841
+28:	[0s / 2s],		train_loss: 4.6466,	val_loss: 6.5952
+29:	[0s / 2s],		train_loss: 4.6275,	val_loss: 6.5471
+30:	[0s / 2s],		train_loss: 4.6397,	val_loss: 6.5651
+31:	[0s / 2s],		train_loss: 4.6326,	val_loss: 6.5749
+32:	[0s / 2s],		train_loss: 4.6303,	val_loss: 6.5522
+33:	[0s / 3s],		train_loss: 4.6309,	val_loss: 6.5840
+34:	[0s / 3s],		train_loss: 4.6365,	val_loss: 6.5651
+35:	[0s / 3s],		train_loss: 4.6295,	val_loss: 6.5532
+36:	[0s / 3s],		train_loss: 4.6239,	val_loss: 149.4759
+37:	[0s / 3s],		train_loss: 4.6125,	val_loss: 137.3466
+38:	[0s / 3s],		train_loss: 4.6264,	val_loss: 6.5683
+39:	[0s / 3s],		train_loss: 4.6227,	val_loss: 6.5845
+40:	[0s / 3s],		train_loss: 4.5891,	val_loss: 6.6094
+41:	[0s / 3s],		train_loss: 4.6074,	val_loss: 6.5704
+42:	[0s / 3s],		train_loss: 4.6223,	val_loss: 6.5574
+43:	[0s / 3s],		train_loss: 4.6025,	val_loss: 6.5490
+44:	[0s / 3s],		train_loss: 4.6048,	val_loss: 6.5685
+45:	[0s / 4s],		train_loss: 4.5939,	val_loss: 6.5617
+46:	[0s / 4s],		train_loss: 4.6094,	val_loss: 6.5945
+47:	[0s / 4s],		train_loss: 4.6134,	val_loss: 6.5739
+48:	[0s / 4s],		train_loss: 4.5962,	val_loss: 6.5592
+49:	[0s / 4s],		train_loss: 4.6223,	val_loss: 6.5557
+Saved fixed_epochs=30 → nan/tabpfn/OrmoniTirodei/nan_percentage0.7/seed789/fold1/fixed_epochs_deepsurv_vanilla.json
+Evaluating method: embeddings
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.9197612112098382
+C-index TEST : 0.699434104742178
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 3.5459
+1:	[0s / 0s],		train_loss: 3.3189
+2:	[0s / 0s],		train_loss: 3.2850
+3:	[0s / 0s],		train_loss: 3.2965
+4:	[0s / 0s],		train_loss: 3.2861
+5:	[0s / 0s],		train_loss: 3.2920
+6:	[0s / 0s],		train_loss: 3.2772
+7:	[0s / 0s],		train_loss: 3.2829
+8:	[0s / 0s],		train_loss: 3.2805
+9:	[0s / 0s],		train_loss: 3.2606
+10:	[0s / 0s],		train_loss: 3.2608
+11:	[0s / 0s],		train_loss: 3.2818
+12:	[0s / 0s],		train_loss: 3.2578
+13:	[0s / 0s],		train_loss: 3.2636
+14:	[0s / 0s],		train_loss: 3.2776
+C-index TRAIN: 0.9091723253877033
+C-index TEST : 0.7193147390543545
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 3.4870
+1:	[0s / 0s],		train_loss: 3.3366
+2:	[0s / 0s],		train_loss: 3.3103
+3:	[0s / 0s],		train_loss: 3.2959
+4:	[0s / 0s],		train_loss: 3.3003
+5:	[0s / 0s],		train_loss: 3.2725
+6:	[0s / 0s],		train_loss: 3.3062
+7:	[0s / 0s],		train_loss: 3.2844
+8:	[0s / 0s],		train_loss: 3.2903
+9:	[0s / 0s],		train_loss: 3.2763
+10:	[0s / 0s],		train_loss: 3.2627
+11:	[0s / 0s],		train_loss: 3.2822
+12:	[0s / 1s],		train_loss: 3.2860
+13:	[0s / 1s],		train_loss: 3.2759
+14:	[0s / 1s],		train_loss: 3.2665
+15:	[0s / 1s],		train_loss: 3.2636
+16:	[0s / 1s],		train_loss: 3.2819
+17:	[0s / 1s],		train_loss: 3.2618
+18:	[0s / 1s],		train_loss: 3.2532
+19:	[0s / 1s],		train_loss: 3.2656
+20:	[0s / 1s],		train_loss: 3.2764
+21:	[0s / 1s],		train_loss: 3.2693
+22:	[0s / 1s],		train_loss: 3.2591
+23:	[0s / 2s],		train_loss: 3.2498
+24:	[0s / 2s],		train_loss: 3.2466
+25:	[0s / 2s],		train_loss: 3.2569
+26:	[0s / 2s],		train_loss: 3.2652
+27:	[0s / 2s],		train_loss: 3.2716
+28:	[0s / 2s],		train_loss: 3.2680
+29:	[0s / 2s],		train_loss: 3.2599
+C-index TRAIN: 0.9112837202202165
+C-index TEST : 0.5000818819504887
+Fitting Cox model...
+C-index TRAIN: 0.9102694519760316
+C-index TEST : 0.7164549361169152
+Evaluating method: mean
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7368608407173368
+C-index TEST : 0.6933824220680954
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 33.7597
+1:	[0s / 0s],		train_loss: 8.5704
+2:	[0s / 0s],		train_loss: 7.8798
+3:	[0s / 0s],		train_loss: 7.8595
+4:	[0s / 0s],		train_loss: 6.2052
+5:	[0s / 0s],		train_loss: 5.1646
+6:	[0s / 0s],		train_loss: 5.1549
+7:	[0s / 0s],		train_loss: 5.3320
+8:	[0s / 0s],		train_loss: 7.2384
+9:	[0s / 0s],		train_loss: 6.1740
+10:	[0s / 0s],		train_loss: 4.8975
+11:	[0s / 0s],		train_loss: 4.7967
+12:	[0s / 0s],		train_loss: 4.6865
+13:	[0s / 0s],		train_loss: 4.7113
+14:	[0s / 0s],		train_loss: 4.7546
+C-index TRAIN: 0.708664276837939
+C-index TEST : 0.7007123729692518
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9851
+1:	[0s / 0s],		train_loss: 4.8707
+2:	[0s / 0s],		train_loss: 4.8091
+3:	[0s / 0s],		train_loss: 4.7617
+4:	[0s / 0s],		train_loss: 4.7775
+5:	[0s / 0s],		train_loss: 4.7414
+6:	[0s / 0s],		train_loss: 4.7241
+7:	[0s / 0s],		train_loss: 4.6934
+8:	[0s / 0s],		train_loss: 4.7132
+9:	[0s / 0s],		train_loss: 4.6947
+10:	[0s / 0s],		train_loss: 4.6825
+11:	[0s / 1s],		train_loss: 4.6727
+12:	[0s / 1s],		train_loss: 4.6857
+13:	[0s / 1s],		train_loss: 4.6568
+14:	[0s / 1s],		train_loss: 4.6621
+15:	[0s / 1s],		train_loss: 4.6801
+16:	[0s / 1s],		train_loss: 4.6615
+17:	[0s / 1s],		train_loss: 4.6758
+18:	[0s / 1s],		train_loss: 4.6560
+19:	[0s / 1s],		train_loss: 4.6547
+20:	[0s / 1s],		train_loss: 4.6777/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) [36] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+
+21:	[0s / 1s],		train_loss: 4.6744
+22:	[0s / 1s],		train_loss: 4.6488
+23:	[0s / 1s],		train_loss: 4.6694
+24:	[0s / 2s],		train_loss: 4.6596
+25:	[0s / 2s],		train_loss: 4.6365
+26:	[0s / 2s],		train_loss: 4.6476
+27:	[0s / 2s],		train_loss: 4.6472
+28:	[0s / 2s],		train_loss: 4.6510
+29:	[0s / 2s],		train_loss: 4.6643
+C-index TRAIN: 0.7324675756077725
+C-index TEST : 0.7118604488950485
+Fitting Cox model...
+C-index TRAIN: 0.7238547866462954
+C-index TEST : 0.7069687605195561
+Evaluating method: median
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7364740751357225
+C-index TEST : 0.6950822307069445
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 34.5248
+1:	[0s / 0s],		train_loss: 8.0981
+2:	[0s / 0s],		train_loss: 6.9285
+3:	[0s / 0s],		train_loss: 6.3929
+4:	[0s / 0s],		train_loss: 6.1046
+5:	[0s / 0s],		train_loss: 5.7606
+6:	[0s / 0s],		train_loss: 5.4664
+7:	[0s / 0s],		train_loss: 5.0481
+8:	[0s / 0s],		train_loss: 4.9159
+9:	[0s / 0s],		train_loss: 4.8627
+10:	[0s / 0s],		train_loss: 4.8855
+11:	[0s / 0s],		train_loss: 4.8820
+12:	[0s / 0s],		train_loss: 4.8623
+13:	[0s / 0s],		train_loss: 4.8649
+14:	[0s / 0s],		train_loss: 5.7557
+C-index TRAIN: 0.6874710159086155
+C-index TEST : 0.669814067319094
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9016
+1:	[0s / 0s],		train_loss: 4.7969
+2:	[0s / 0s],		train_loss: 4.7553
+3:	[0s / 0s],		train_loss: 4.7243
+4:	[0s / 0s],		train_loss: 4.7218
+5:	[0s / 0s],		train_loss: 4.7247
+6:	[0s / 0s],		train_loss: 4.6892
+7:	[0s / 0s],		train_loss: 4.7119
+8:	[0s / 0s],		train_loss: 4.7152
+9:	[0s / 0s],		train_loss: 4.6861
+10:	[0s / 0s],		train_loss: 4.7005
+11:	[0s / 0s],		train_loss: 4.6740
+12:	[0s / 1s],		train_loss: 4.6782
+13:	[0s / 1s],		train_loss: 4.6752
+14:	[0s / 1s],		train_loss: 4.6824
+15:	[0s / 1s],		train_loss: 4.6744
+16:	[0s / 1s],		train_loss: 4.6891
+17:	[0s / 1s],		train_loss: 4.6778
+18:	[0s / 1s],		train_loss: 4.6557
+19:	[0s / 1s],		train_loss: 4.6411
+20:	[0s / 1s],		train_loss: 4.6408
+21:	[0s / 1s],		train_loss: 4.6560
+22:	[0s / 1s],		train_loss: 4.6630
+23:	[0s / 1s],		train_loss: 4.6479
+24:	[0s / 2s],		train_loss: 4.6411
+25:	[0s / 2s],		train_loss: 4.6438
+26:	[0s / 2s],		train_loss: 4.6684
+27:	[0s / 2s],		train_loss: 4.6412
+28:	[0s / 2s],		train_loss: 4.6477
+29:	[0s / 2s],		train_loss: 4.6317
+C-index TRAIN: 0.7229705910729838
+C-index TEST : 0.7019436348914154
+Fitting Cox model...
+C-index TRAIN: 0.720321550093001
+C-index TEST : 0.7001028073378358
+Evaluating method: constant
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7365211028445605
+C-index TEST : 0.7021544050973031
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 34.4496
+1:	[0s / 0s],		train_loss: 9.3245
+2:	[0s / 0s],		train_loss: 7.1675
+3:	[0s / 0s],		train_loss: 6.6520
+4:	[0s / 0s],		train_loss: 6.4499
+5:	[0s / 0s],		train_loss: 6.3057
+6:	[0s / 0s],		train_loss: 6.0135
+7:	[0s / 0s],		train_loss: 5.8191
+8:	[0s / 0s],		train_loss: 5.5367
+9:	[0s / 0s],		train_loss: 5.3769
+10:	[0s / 0s],		train_loss: 5.3074
+11:	[0s / 0s],		train_loss: 5.2315
+12:	[0s / 0s],		train_loss: 5.2144
+13:	[0s / 0s],		train_loss: 5.0898
+14:	[0s / 0s],		train_loss: 5.1255
+C-index TRAIN: 0.5740179746621423
+C-index TEST : 0.560945948814683
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9578
+1:	[0s / 0s],		train_loss: 4.8848
+2:	[0s / 0s],		train_loss: 4.8747
+3:	[0s / 0s],		train_loss: 4.8852
+4:	[0s / 0s],		train_loss: 4.8564
+5:	[0s / 0s],		train_loss: 4.8772
+6:	[0s / 0s],		train_loss: 4.8529
+7:	[0s / 0s],		train_loss: 4.8515
+8:	[0s / 0s],		train_loss: 4.8272
+9:	[0s / 0s],		train_loss: 4.8216
+10:	[0s / 0s],		train_loss: 4.8288
+11:	[0s / 1s],		train_loss: 4.8121
+12:	[0s / 1s],		train_loss: 4.7915
+13:	[0s / 1s],		train_loss: 4.7679
+14:	[0s / 1s],		train_loss: 4.7805
+15:	[0s / 1s],		train_loss: 4.7488
+16:	[0s / 1s],		train_loss: 4.7289
+17:	[0s / 1s],		train_loss: 4.7516
+18:	[0s / 1s],		train_loss: 4.7065
+19:	[0s / 1s],		train_loss: 4.7005
+20:	[0s / 1s],		train_loss: 4.7036
+21:	[0s / 1s],		train_loss: 4.6795
+22:	[0s / 1s],		train_loss: 4.6469
+23:	[0s / 1s],		train_loss: 4.6835
+24:	[0s / 2s],		train_loss: 4.5920
+25:	[0s / 2s],		train_loss: 4.6372
+26:	[0s / 2s],		train_loss: 4.5933
+27:	[0s / 2s],		train_loss: 4.6060
+28:	[0s / 2s],		train_loss: 4.6108
+29:	[0s / 2s],		train_loss: 4.5798
+C-index TRAIN: 0.77357651137632
+C-index TEST : 0.6031515452943657
+Fitting Cox model...
+C-index TRAIN: 0.6199063812681918
+C-index TEST : 0.5915243083249683
+Evaluating method: knn
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7219464320805115
+C-index TEST : 0.6725419493363013
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 32.1835
+1:	[0s / 0s],		train_loss: 9.6978
+2:	[0s / 0s],		train_loss: 9.8565
+3:	[0s / 0s],		train_loss: 7.4372
+4:	[0s / 0s],		train_loss: 6.0680
+5:	[0s / 0s],		train_loss: 6.3587
+6:	[0s / 0s],		train_loss: 7.9600
+7:	[0s / 0s],		train_loss: 7.6236
+8:	[0s / 0s],		train_loss: 8.0005
+9:	[0s / 0s],		train_loss: 9.6632
+10:	[0s / 0s],		train_loss: 9.1805
+11:	[0s / 0s],		train_loss: 6.7367
+12:	[0s / 0s],		train_loss: 5.3207
+13:	[0s / 0s],		train_loss: 6.5800
+14:	[0s / 0s],		train_loss: 6.7047
+C-index TRAIN: 0.6455917214810071
+C-index TEST : 0.6213839262698526
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 5.0287
+1:	[0s / 0s],		train_loss: 4.8975
+2:	[0s / 0s],		train_loss: 4.8421
+3:	[0s / 0s],		train_loss: 4.8233
+4:	[0s / 0s],		train_loss: 4.8222
+5:	[0s / 0s],		train_loss: 4.8004
+6:	[0s / 0s],		train_loss: 4.7862
+7:	[0s / 0s],		train_loss: 4.7846
+8:	[0s / 0s],		train_loss: 4.7726
+9:	[0s / 0s],		train_loss: 4.7456
+10:	[0s / 0s],		train_loss: 4.7501
+11:	[0s / 1s],		train_loss: 4.7827
+12:	[0s / 1s],		train_loss: 4.7669
+13:	[0s / 1s],		train_loss: 4.7471
+14:	[0s / 1s],		train_loss: 4.7530
+15:	[0s / 1s],		train_loss: 4.7221
+16:	[0s / 1s],		train_loss: 4.7554
+17:	[0s / 1s],		train_loss: 4.7345
+18:	[0s / 1s],		train_loss: 4.7242
+19:	[0s / 1s],		train_loss: 4.7483
+20:	[0s / 1s],		train_loss: 4.7225
+21:	[0s / 1s],		train_loss: 4.7222
+22:	[0s / 1s],		train_loss: 4.6931
+23:	[0s / 2s],		train_loss: 4.7023
+24:	[0s / 2s],		train_loss: 4.7218
+25:	[0s / 2s],		train_loss: 4.7135
+26:	[0s / 2s],		train_loss: 4.7052
+27:	[0s / 2s],		train_loss: 4.7204
+28:	[0s / 2s],		train_loss: 4.6894
+29:	[0s / 2s],		train_loss: 4.7064
+C-index TRAIN: 0.7077853065656093
+C-index TEST : 0.6606114458836124
+Fitting Cox model...
+C-index TRAIN: 0.7016418455539127
+C-index TEST : 0.6847423599591197
+Evaluating method: imputer_bayesian
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.7318715180600398
+C-index TEST : 0.6989594926958268
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 26.0477
+1:	[0s / 0s],		train_loss: 15.3899
+2:	[0s / 0s],		train_loss: 8.1896
+3:	[0s / 0s],		train_loss: 8.2763
+4:	[0s / 0s],		train_loss: 8.1775
+5:	[0s / 0s],		train_loss: 9.9140
+6:	[0s / 0s],		train_loss: 9.2860
+7:	[0s / 0s],		train_loss: 8.5885
+8:	[0s / 0s],		train_loss: 6.9364
+9:	[0s / 0s],		train_loss: 8.8635
+10:	[0s / 0s],		train_loss: 11.8015
+11:	[0s / 0s],		train_loss: 9.8913
+12:	[0s / 0s],		train_loss: 8.2173
+13:	[0s / 0s],		train_loss: 6.9306
+14:	[0s / 0s],		train_loss: 11.2795
+C-index TRAIN: 0.6067597106153669
+C-index TEST : 0.5875818440421783
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9385
+1:	[0s / 0s],		train_loss: 4.8283
+2:	[0s / 0s],		train_loss: 4.7741
+3:	[0s / 0s],		train_loss: 4.7443
+4:	[0s / 0s],		train_loss: 4.7351
+5:	[0s / 0s],		train_loss: 4.6994
+6:	[0s / 0s],		train_loss: 4.6900
+7:	[0s / 0s],		train_loss: 4.6767
+8:	[0s / 0s],		train_loss: 4.6882
+9:	[0s / 0s],		train_loss: 4.6585
+10:	[0s / 0s],		train_loss: 4.6844
+11:	[0s / 1s],		train_loss: 4.6744
+12:	[0s / 1s],		train_loss: 4.6797
+13:	[0s / 1s],		train_loss: 4.6707
+14:	[0s / 1s],		train_loss: 4.6494
+15:	[0s / 1s],		train_loss: 4.6425
+16:	[0s / 1s],		train_loss: 4.6951
+17:	[0s / 1s],		train_loss: 4.6576
+18:	[0s / 1s],		train_loss: 4.6547
+19:	[0s / 1s],		train_loss: 4.6513
+20:	[0s / 1s],		train_loss: 4.6414
+21:	[0s / 1s],		train_loss: 4.6395
+22:	[0s / 1s],		train_loss: 4.6364
+23:	[0s / 2s],		train_loss: 4.6142
+24:	[0s / 2s],		train_loss: 4.6427
+25:	[0s / 2s],		train_loss: 4.6321
+26:	[0s / 2s],		train_loss: 4.6306
+27:	[0s / 2s],		train_loss: 4.6140
+28:	[0s / 2s],		train_loss: 4.6321
+29:	[0s / 2s],		train_loss: 4.6486
+C-index TRAIN: 0.7260872964908558
+C-index TEST : 0.7087731960951408
+Fitting Cox model...
+C-index TRAIN: 0.723321619328239
+C-index TEST : 0.7093797290617239
+[fold=1, target=90%] actual NaN%: 90.0%
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TabPFN Embeddings...
+Successfully generated embeddings with shape: (5161, 192)
+Fitting SimpleImputer (mean)...
+Fitting SimpleImputer (median)...
+Fitting SimpleImputer (constant, fill=-1)...
+Fitting KNNImputer...
+Fitting IterativeImputer (BayesianRidge, MICE-like)...
+Fitting DeepSurv Simple pilot model...
+0:	[0s / 0s],		train_loss: 21.8376,	val_loss: 8.3422
+1:	[0s / 0s],		train_loss: 7.4452,	val_loss: 8.9593
+2:	[0s / 0s],		train_loss: 6.2200,	val_loss: 7.8594
+3:	[0s / 0s],		train_loss: 5.6984,	val_loss: 8.4458
+4:	[0s / 0s],		train_loss: 5.7817,	val_loss: 7.3413
+5:	[0s / 0s],		train_loss: 5.2995,	val_loss: 7.1558
+6:	[0s / 0s],		train_loss: 5.1524,	val_loss: 7.0215
+7:	[0s / 0s],		train_loss: 5.5072,	val_loss: 7.7951
+8:	[0s / 0s],		train_loss: 5.3841,	val_loss: 6.9528
+9:	[0s / 0s],		train_loss: 5.5043,	val_loss: 8.6634
+10:	[0s / 0s],		train_loss: 6.6847,	val_loss: 7.7493
+11:	[0s / 0s],		train_loss: 5.1716,	val_loss: 6.8672
+12:	[0s / 0s],		train_loss: 5.0665,	val_loss: 7.3600
+13:	[0s / 0s],		train_loss: 5.1582,	val_loss: 6.8792
+14:	[0s / 0s],		train_loss: 5.0242,	val_loss: 7.6902
+15:	[0s / 1s],		train_loss: 7.8951,	val_loss: 10.1656
+16:	[0s / 1s],		train_loss: 6.5226,	val_loss: 7.5847
+17:	[0s / 1s],		train_loss: 5.2139,	val_loss: 6.9163
+18:	[0s / 1s],		train_loss: 5.3103,	val_loss: 7.3350
+19:	[0s / 1s],		train_loss: 5.0957,	val_loss: 7.8137
+20:	[0s / 1s],		train_loss: 5.5038,	val_loss: 6.8909
+21:	[0s / 1s],		train_loss: 4.8810,	val_loss: 6.7850
+22:	[0s / 1s],		train_loss: 4.8299,	val_loss: 6.7931
+23:	[0s / 1s],		train_loss: 4.7725,	val_loss: 6.7666
+24:	[0s / 1s],		train_loss: 4.7982,	val_loss: 6.7842
+25:	[0s / 1s],		train_loss: 4.8559,	val_loss: 6.9143
+26:	[0s / 1s],		train_loss: 4.8873,	val_loss: 6.8091
+27:	[0s / 1s],		train_loss: 6.1581,	val_loss: 10.9544
+28:	[0s / 1s],		train_loss: 8.5838,	val_loss: 9.5783
+29:	[0s / 1s],		train_loss: 8.3391,	val_loss: 10.6535
+30:	[0s / 2s],		train_loss: 6.2356,	val_loss: 7.1876
+31:	[0s / 2s],		train_loss: 4.9001,	val_loss: 6.9315
+32:	[0s / 2s],		train_loss: 6.2900,	val_loss: 10.7551
+33:	[0s / 2s],		train_loss: 6.9622,	val_loss: 8.2965
+34:	[0s / 2s],		train_loss: 5.1327,	val_loss: 6.9224
+35:	[0s / 2s],		train_loss: 4.8018,	val_loss: 6.8388
+36:	[0s / 2s],		train_loss: 4.7969,	val_loss: 6.8335
+37:	[0s / 2s],		train_loss: 4.7747,	val_loss: 6.8249
+38:	[0s / 2s],		train_loss: 4.7846,	val_loss: 6.7968
+39:	[0s / 2s],		train_loss: 4.8217,	val_loss: 6.9366
+40:	[0s / 2s],		train_loss: 4.8176,	val_loss: 6.8911
+41:	[0s / 2s],		train_loss: 4.9877,	val_loss: 6.9799
+42:	[0s / 2s],		train_loss: 4.8636,	val_loss: 6.8110
+43:	[0s / 2s],		train_loss: 5.7554,	val_loss: 8.5593
+Saved fixed_epochs=24 → nan/tabpfn/OrmoniTirodei/nan_percentage0.9/seed789/fold1/fixed_epochs_deepsurv_simple.json
+Fitting DeepSurv Vanilla pilot model...
+0:	[0s / 0s],		train_loss: 5.0889,	val_loss: 6.9260
+1:	[0s / 0s],		train_loss: 4.9642,	val_loss: 6.8558
+2:	[0s / 0s],		train_loss: 4.8938,	val_loss: 6.8225
+3:	[0s / 0s],		train_loss: 4.8991,	val_loss: 6.8220
+4:	[0s / 0s],		train_loss: 4.8858,	val_loss: 6.8026
+5:	[0s / 0s],		train_loss: 4.8570,	val_loss: 6.7817
+6:	[0s / 0s],		train_loss: 4.8572,	val_loss: 6.7724
+7:	[0s / 0s],		train_loss: 4.8581,	val_loss: 6.8096
+8:	[0s / 0s],		train_loss: 4.8381,	val_loss: 6.7699
+9:	[0s / 0s],		train_loss: 4.8318,	val_loss: 6.7669
+10:	[0s / 1s],		train_loss: 4.8433,	val_loss: 6.7719
+11:	[0s / 1s],		train_loss: 4.8300,	val_loss: 6.7612
+12:	[0s / 1s],		train_loss: 4.8269,	val_loss: 6.7721
+13:	[0s / 1s],		train_loss: 4.7958,	val_loss: 6.7478
+14:	[0s / 1s],		train_loss: 4.8225,	val_loss: 6.7726
+15:	[0s / 1s],		train_loss: 4.8059,	val_loss: 6.7744
+16:	[0s / 1s],		train_loss: 4.7816,	val_loss: 6.7671
+17:	[0s / 1s],		train_loss: 4.7955,	val_loss: 6.7339
+18:	[0s / 1s],		train_loss: 4.8074,	val_loss: 6.7496
+19:	[0s / 1s],		train_loss: 4.8119,	val_loss: 6.8058
+20:	[0s / 1s],		train_loss: 4.8309,	val_loss: 6.7563
+21:	[0s / 2s],		train_loss: 4.8177,	val_loss: 6.7324
+22:	[0s / 2s],		train_loss: 4.8194,	val_loss: 6.7564
+23:	[0s / 2s],		train_loss: 4.7994,	val_loss: 6.7432
+24:	[0s / 2s],		train_loss: 4.8048,	val_loss: 6.7503
+25:	[0s / 2s],		train_loss: 4.7861,	val_loss: 6.7528
+26:	[0s / 2s],		train_loss: 4.7876,	val_loss: 6.7758
+27:	[0s / 2s],		train_loss: 4.8032,	val_loss: 6.7333
+28:	[0s / 2s],		train_loss: 4.7767,	val_loss: 6.7469
+29:	[0s / 2s],		train_loss: 4.7814,	val_loss: 6.7849
+30:	[0s / 2s],		train_loss: 4.7799,	val_loss: 6.7375
+31:	[0s / 2s],		train_loss: 4.7879,	val_loss: 6.7406
+32:	[0s / 3s],		train_loss: 4.8033,	val_loss: 6.7373
+33:	[0s / 3s],		train_loss: 4.7785,	val_loss: 6.8324
+34:	[0s / 3s],		train_loss: 4.8064,	val_loss: 6.7666
+35:	[0s / 3s],		train_loss: 4.7883,	val_loss: 6.7731
+36:	[0s / 3s],		train_loss: 4.7703,	val_loss: 6.7271
+37:	[0s / 3s],		train_loss: 4.7853,	val_loss: 6.8145
+38:	[0s / 3s],		train_loss: 4.7664,	val_loss: 6.7433
+39:	[0s / 3s],		train_loss: 4.7875,	val_loss: 6.7506
+40:	[0s / 3s],		train_loss: 4.7760,	val_loss: 6.7358
+41:	[0s / 3s],		train_loss: 4.7828,	val_loss: 6.7390
+42:	[0s / 3s],		train_loss: 4.7806,	val_loss: 6.7369
+43:	[0s / 4s],		train_loss: 4.7708,	val_loss: 6.7373
+44:	[0s / 4s],		train_loss: 4.7873,	val_loss: 6.7717
+45:	[0s / 4s],		train_loss: 4.7772,	val_loss: 6.7316
+46:	[0s / 4s],		train_loss: 4.7709,	val_loss: 6.7312
+47:	[0s / 4s],		train_loss: 4.7740,	val_loss: 6.7373
+48:	[0s / 4s],		train_loss: 4.7745,	val_loss: 6.7331
+49:	[0s / 4s],		train_loss: 4.7687,	val_loss: 6.8042
+50:	[0s / 4s],		train_loss: 4.7679,	val_loss: 6.7246
+51:	[0s / 4s],		train_loss: 4.7827,	val_loss: 6.7324
+52:	[0s / 4s],		train_loss: 4.7660,	val_loss: 6.7429
+53:	[0s / 4s],		train_loss: 4.7669,	val_loss: 6.7426
+54:	[0s / 4s],		train_loss: 4.7832,	val_loss: 6.7504
+55:	[0s / 5s],		train_loss: 4.7679,	val_loss: 6.7762
+56:	[0s / 5s],		train_loss: 4.7598,	val_loss: 6.7668
+57:	[0s / 5s],		train_loss: 4.7538,	val_loss: 6.7506
+58:	[0s / 5s],		train_loss: 4.7590,	val_loss: 6.8518
+59:	[0s / 5s],		train_loss: 4.7767,	val_loss: 6.7275
+60:	[0s / 5s],		train_loss: 4.7677,	val_loss: 6.7264
+61:	[0s / 5s],		train_loss: 4.7471,	val_loss: 6.7867
+62:	[0s / 5s],		train_loss: 4.7648,	val_loss: 6.7844
+63:	[0s / 5s],		train_loss: 4.7417,	val_loss: 6.7317
+64:	[0s / 5s],		train_loss: 4.7627,	val_loss: 6.7328
+65:	[0s / 5s],		train_loss: 4.7599,	val_loss: 6.7248
+66:	[0s / 6s],		train_loss: 4.7679,	val_loss: 6.7899
+67:	[0s / 6s],		train_loss: 4.7997,	val_loss: 6.7571
+68:	[0s / 6s],		train_loss: 4.7784,	val_loss: 6.7527
+69:	[0s / 6s],		train_loss: 4.7863,	val_loss: 6.7258
+70:	[0s / 6s],		train_loss: 4.7924,	val_loss: 6.7480
+Saved fixed_epochs=51 → nan/tabpfn/OrmoniTirodei/nan_percentage0.9/seed789/fold1/fixed_epochs_deepsurv_vanilla.json
+Evaluating method: embeddings
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.9152753836257356
+C-index TEST : 0.5473732573549703
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 3.5922
+1:	[0s / 0s],		train_loss: 3.3311
+2:	[0s / 0s],		train_loss: 3.3084
+3:	[0s / 0s],		train_loss: 3.3019
+4:	[0s / 0s],		train_loss: 3.2949
+5:	[0s / 0s],		train_loss: 3.3109
+6:	[0s / 0s],		train_loss: 3.3201
+7:	[0s / 0s],		train_loss: 3.3060
+8:	[0s / 0s],		train_loss: 3.3049
+9:	[0s / 0s],		train_loss: 3.3010
+10:	[0s / 0s],		train_loss: 3.3055
+11:	[0s / 0s],		train_loss: 3.2908
+12:	[0s / 0s],		train_loss: 3.3040
+13:	[0s / 0s],		train_loss: 3.2847
+14:	[0s / 0s],		train_loss: 3.2952
+15:	[0s / 0s],		train_loss: 3.2908
+16:	[0s / 1s],		train_loss: 3.2957
+17:	[0s / 1s],		train_loss: 3.2879
+18:	[0s / 1s],		train_loss: 3.2851
+19:	[0s / 1s],		train_loss: 3.2908
+20:	[0s / 1s],		train_loss: 3.2919
+21:	[0s / 1s],		train_loss: 3.2970
+22:	[0s / 1s],		train_loss: 3.2942
+23:	[0s / 1s],		train_loss: 3.2802
+C-index TRAIN: 0.8966551168853175
+C-index TEST : 0.569040131253734
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 3.5037
+1:	[0s / 0s],		train_loss: 3.3480
+2:	[0s / 0s],		train_loss: 3.3163
+3:	[0s / 0s],		train_loss: 3.3321
+4:	[0s / 0s],		train_loss: 3.3247
+5:	[0s / 0s],		train_loss: 3.3220
+6:	[0s / 0s],		train_loss: 3.3223
+7:	[0s / 0s],		train_loss: 3.3110
+8:	[0s / 0s],		train_loss: 3.3028
+9:	[0s / 0s],		train_loss: 3.3120
+10:	[0s / 0s],		train_loss: 3.2911
+11:	[0s / 0s],		train_loss: 3.3059
+12:	[0s / 1s],		train_loss: 3.2921
+13:	[0s / 1s],		train_loss: 3.3122
+14:	[0s / 1s],		train_loss: 3.2961
+15:	[0s / 1s],		train_loss: 3.2863
+16:	[0s / 1s],		train_loss: 3.3048
+17:	[0s / 1s],		train_loss: 3.3059
+18:	[0s / 1s],		train_loss: 3.2827
+19:	[0s / 1s],		train_loss: 3.2845
+20:	[0s / 1s],		train_loss: 3.2837
+21:	[0s / 1s],		train_loss: 3.2925
+22:	[0s / 1s],		train_loss: 3.2779
+23:	[0s / 1s],		train_loss: 3.2836
+24:	[0s / 2s],		train_loss: 3.2854
+25:	[0s / 2s],		train_loss: 3.3003
+26:	[0s / 2s],		train_loss: 3.2941
+27:	[0s / 2s],		train_loss: 3.2933
+28:	[0s / 2s],		train_loss: 3.2726
+29:	[0s / 2s],		train_loss: 3.2853
+30:	[0s / 2s],		train_loss: 3.2911
+31:	[0s / 2s],		train_loss: 3.2859
+32:	[0s / 2s],		train_loss: 3.2870
+33:	[0s / 2s],		train_loss: 3.2936
+34:	[0s / 2s],		train_loss: 3.2862
+35:	[0s / 2s],		train_loss: 3.2847
+36:	[0s / 2s],		train_loss: 3.2919
+37:	[0s / 3s],		train_loss: 3.2727
+38:	[0s / 3s],		train_loss: 3.2809
+39:	[0s / 3s],		train_loss: 3.2920
+40:	[0s / 3s],		train_loss: 3.2729
+41:	[0s / 3s],		train_loss: 3.2988
+42:	[0s / 3s],		train_loss: 3.2805
+43:	[0s / 3s],		train_loss: 3.2657
+44:	[0s / 3s],		train_loss: 3.2905
+45:	[0s / 3s],		train_loss: 3.2709
+46:	[0s / 3s],		train_loss: 3.2790
+47:	[0s / 3s],		train_loss: 3.2726
+48:	[0s / 3s],		train_loss: 3.2778
+49:	[0s / 4s],		train_loss: 3.2712
+50:	[0s / 4s],		train_loss: 3.2737
+C-index TRAIN: 0.9030424874821383
+C-index TEST : 0.4287733174017341
+Fitting Cox model...
+C-index TRAIN: 0.8997137841387108
+C-index TEST : 0.5825506530843718
+Evaluating method: mean
+Fitting Random Survival Forest model...
+C-index TRAIN: 0.6806941737707433
+C-index TEST : 0.6308867815237927
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 8.1532
+1:	[0s / 0s],		train_loss: 10.8576
+2:	[0s / 0s],		train_loss: 6.0084
+3:	[0s / 0s],		train_loss: 5.7750
+4:	[0s / 0s],		train_loss: 5.5834
+5:	[0s / 0s],		train_loss: 5.4554
+6:	[0s / 0s],		train_loss: 5.1629
+7:	[0s / 0s],		train_loss: 5.0632
+8:	[0s / 0s],		train_loss: 4.9548
+9:	[0s / 0s],		train_loss: 4.9208
+10:	[0s / 0s],		train_loss: 4.8347
+11:	[0s / 0s],		train_loss: 4.8372
+12:	[0s / 0s],		train_loss: 4.8260
+13:	[0s / 0s],		train_loss: 4.9364
+14:	[0s / 0s],		train_loss: 4.9301
+15:	[0s / 0s],		train_loss: 4.8429
+16:	[0s / 0s],		train_loss: 4.8191
+17:	[0s / 1s],		train_loss: 4.8120
+18:	[0s / 1s],		train_loss: 4.7739
+19:	[0s / 1s],		train_loss: 4.8122
+20:	[0s / 1s],		train_loss: 4.9254
+21:	[0s / 1s],		train_loss: 5.1643
+22:	[0s / 1s],		train_loss: 6.3314
+23:	[0s / 1s],		train_loss: 6.3457
+C-index TRAIN: 0.6083258079668298
+C-index TEST : 0.5939747015099638
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.9893
+1:	[0s / 0s],		train_loss: 4.9134
+2:	[0s / 0s],		train_loss: 4.8754
+3:	[0s / 0s],		train_loss: 4.8628
+4:	[0s / 0s],		train_loss: 4.8399
+5:	[0s / 0s],		train_loss: 4.8488
+6:	[0s / 0s],		train_loss: 4.8548
+7:	[0s / 0s],		train_loss: 4.8332
+8:	[0s / 0s],		train_loss: 4.8252
+9:	[0s / 0s],		train_loss: 4.8266
+10:	[0s / 0s],		train_loss: 4.8460
+11:	[0s / 1s],		train_loss: 4.8439
+12:	[0s / 1s],		train_loss: 4.8293
+13:	[0s / 1s],		train_loss: 4.8203
+14:	[0s / 1s],		train_loss: 4.8015
+15:	[0s / 1s],		train_loss: 4.8025
+16:	[0s / 1s],		train_loss: 4.8301
+17:	[0s / 1s],		train_loss: 4.7933
+18:	[0s / 1s],		train_loss: 4.8003
+19:	[0s / 1s],		train_loss: 4.7938
+20:	[0s / 1s],		train_loss: 4.7800
+21:	[0s / 1s],		train_loss: 4.7814
+22:	[0s / 1s],		train_loss: 4.7844
+23:	[0s / 2s],		train_loss: 4.8011
+24:	[0s / 2s],		train_loss: 4.7803
+25:	[0s / 2s],		train_loss: 4.7815
+26:	[0s / 2s],		train_loss: 4.8049
+27:	[0s / 2s],		train_loss: 4.7727
+28:	[0s / 2s],		train_loss: 4.7691
+29:	[0s / 2s],		train_loss: 4.7785
+30:	[0s / 2s],		train_loss: 4.7809
+31:	[0s / 2s],		train_loss: 4.7735
+32:	[0s / 2s],		train_loss: 4.7492
+33:	[0s / 2s],		train_loss: 4.7718
+34:	[0s / 3s],		train_loss: 4.7821
+35:	[0s / 3s],		train_loss: 4.7866
+36:	[0s / 3s],		train_loss: 4.7692
+37:	[0s / 3s],		train_loss: 4.7642
+38:	[0s / 3s],		train_loss: 4.7611
+39:	[0s / 3s],		train_loss: 4.7739
+40:	[0s / 3s],		train_loss: 4.7838
+41:	[0s / 3s],		train_loss: 4.7597
+42:	[0s / 3s],		train_loss: 4.7504
+43:	[0s / 3s],		train_loss: 4.7677
+44:	[0s / 3s],		train_loss: 4.7608
+45:	[0s / 3s],		train_loss: 4.7701
+46:	[0s / 4s],		train_loss: 4.7551
+47:	[0s / 4s],		train_loss: 4.7671
+48:	[0s / 4s],		train_loss: 4.7595
+49:	[0s / 4s],		train_loss: 4.7766
+50:	[0s / 4s],		train_loss: 4.7549
+C-index TRAIN: 0.6664724907498176
+C-index TEST : 0.6218570219837873
+Fitting Cox model...
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 1530, in _newton_raphson_for_efron_model
+    inv_h_dot_g_T = spsolve(-h, g, assume_a="pos", check_finite=False)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/scipy/_lib/_util.py", line 1233, in wrapper
+    return f(*arrays, *other_args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/scipy/linalg/_basic.py", line 344, in solve
+    _solve_check(n, info, lamch, rcond)
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/scipy/linalg/_basic.py", line 43, in _solve_check
+    raise LinAlgError('Matrix is singular.')
+numpy.linalg.LinAlgError: Matrix is singular.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan_tmp.py", line 617, in <module>
+    results_by_pct = main(dataset_name, feature_event, feature_time,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan_tmp.py", line 273, in main
+    cph.fit(df_fit, duration_col='__t__', event_col='__e__')
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py", line 56, in f
+    return function(model, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 290, in fit
+    self._model = self._fit_model(
+                  ^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 610, in _fit_model
+    return self._fit_model_breslow(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 623, in _fit_model_breslow
+    model.fit(*args, **kwargs)
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py", line 56, in f
+    return function(model, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 1252, in fit
+    params_, ll_, variance_matrix_, baseline_hazard_, baseline_cumulative_hazard_, model = self._fit_model(
+                                                                                           ^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 1380, in _fit_model
+    beta_, ll_, hessian_ = self._newton_raphson_for_efron_model(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py", line 1539, in _newton_raphson_for_efron_model
+    raise exceptions.ConvergenceError(
+lifelines.exceptions.ConvergenceError: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
