@@ -12,6 +12,7 @@ import torch
 import torch.nn as nn
 import torchtuples as tt
 import optuna
+from optuna.samplers import TPESampler
 import shap
 import random
 
@@ -440,6 +441,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
 
             device = "cuda" if torch.cuda.is_available() else "cpu"
 
+            set_seed(seed=seed+fold)
             print(f"Generating {model.upper()} Embeddings...")
             train_emb, test_emb = get_embeddings(model, X_train, y_train, X_test, y_test, seed, device)
             _,         eval_emb = get_embeddings(model, X_train, y_train, X_eval, y_eval, seed, device)
@@ -453,6 +455,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
 
             # ── Tuned models ──────────────────────────────────────────────────
             if tuning:
+                set_seed(seed=seed+fold+1)
                 deepsurv_params = load_params(ckpt_dir, f"{model}_deepsurv_tuned")
                 if deepsurv_params is not None and ckpt_exists(ckpt_dir, f"{model}_deepsurv_tuned"):
                     print(f"  [ckpt] Loading {model.upper()} DeepSurv Tuned from {ckpt_dir}")
@@ -470,6 +473,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     study = optuna.create_study(
                         study_name=f"deepsurv_tuning_{model}_{fold_n}_{preprocess_type}_seed{seed}",
                         direction="maximize",
+                        sampler=TPESampler(seed=seed),
                     )
 
                     def objective_deepsurv(trial):
@@ -520,6 +524,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index test:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "deepsurv_tuned", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_tuned_test)
 
+                set_seed(seed=seed+fold+2)
                 # Tuned RSF
                 rsf_tuned_path   = ckpt_dir / f"{model}_rsf_tuned.pkl"
                 rsf_tuned_params = load_params(ckpt_dir, f"{model}_rsf_tuned")
@@ -531,6 +536,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     study_rsf = optuna.create_study(
                         study_name=f"rsf_tuning_{model}_{fold_n}_{preprocess_type}_seed{seed}",
                         direction="maximize",
+                        sampler=TPESampler(seed=seed),
                     )
 
                     def objective_rsf(trial):
@@ -566,6 +572,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index test:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "rsf_tuned", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_tuned_test)
 
+            set_seed(seed=seed+fold+3)
             # ── DeepSurv Simple (embedding) ───────────────────────────────────
             simple_path     = ckpt_dir / f"{model}_deepsurv_simple.pt"
             deepsurv_simple = CoxPH(nn.Linear(train_emb.shape[1], 1), tt.optim.Adam)
@@ -580,7 +587,8 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             print(f"C-index TRAIN: {c_train:.4f}")
             print(f"C-index TEST:  {c_test:.4f}")
             save_survival_prediction(dataset_name, model, "deepsurv_simple", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_simple_test)
-
+            
+            set_seed(seed=seed+fold+4)
             # ── DeepSurv Vanilla (embedding) ──────────────────────────────────
             vanilla_path         = ckpt_dir / f"{model}_deepsurv_vanilla.pt"
             deepsurv_vanilla_emb = CoxPH(
@@ -599,6 +607,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             print(f"C-index TEST:  {c_test:.4f}")
             save_survival_prediction(dataset_name, model, "deepsurv_vanilla", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_vanilla_test)
 
+            set_seed(seed=seed+fold+5)
             # ── RSF (embedding) ───────────────────────────────────────────────
             rsf_emb_path = ckpt_dir / f"{model}_rsf.pkl"
             rsf_emb = load_or_fit_rsf(
@@ -617,6 +626,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             print(f"C-index test:  {c_test:.4f}")
             save_survival_prediction(dataset_name, model, "rsf", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_test)
 
+            set_seed(seed=seed+fold+6)
             # ── Cox (embedding) ───────────────────────────────────────────────
             cox_emb_path = ckpt_dir / f"{model}_tab_cox.pkl"
             df_fit = pd.DataFrame(train_emb)
@@ -648,6 +658,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 X_test_f32  = np.asarray(X_test,  dtype=np.float32)
                 X_eval_f32  = np.asarray(X_eval,  dtype=np.float32)
 
+                set_seed(seed=seed+fold+7)
                 # DeepSurv Vanilla baseline
                 vanilla_base_path     = ckpt_dir / "deepsurv_vanilla_baseline.pt"
                 deepsurv_vanilla_base = CoxPH(
@@ -666,6 +677,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index TEST:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "deepsurv_vanilla_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_vanilla_base_test)
 
+                set_seed(seed=seed+fold+8)
                 # DeepSurv Simple baseline
                 simple_base_path     = ckpt_dir / "deepsurv_simple_baseline.pt"
                 deepsurv_simple_base = CoxPH(nn.Linear(X_train.shape[1], 1), tt.optim.Adam)
@@ -681,6 +693,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index TEST:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "deepsurv_simple_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_simple_base_test)
 
+                set_seed(seed=seed+fold+9)
                 # RSF baseline
                 rsf_base_path = ckpt_dir / "rsf_baseline.pkl"
                 rsf_base = load_or_fit_rsf(
@@ -699,6 +712,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index test:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "rsf_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_base_test)
 
+                set_seed(seed=seed+fold+10)
                 # Cox baseline
                 cox_base_path = ckpt_dir / f"{model}_cox.pkl"
                 if model == "tabdpt":
@@ -724,6 +738,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index test:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "cox_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, surv_test_base)
 
+            set_seed(seed=seed+fold+11)
             # ── SHAP computation ──────────────────────────────────────────────
             if compute_shap:
                 shap_cache_path = ckpt_dir / "shap_values.pkl"
