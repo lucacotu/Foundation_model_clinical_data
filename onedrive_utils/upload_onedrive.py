@@ -223,6 +223,7 @@ def carica_cartella(app, accounts, cartella_locale, cartella_remota):
     # Raccoglie tutti i file prima di avviare i worker
     tasks = []
     for root, dirs, files in os.walk(cartella_locale):
+        dirs[:] = [d for d in dirs if d not in (".venv", "src")]
         relativo = os.path.relpath(root, cartella_locale)
         if relativo == ".":
             remoto_corrente = cartella_remota
