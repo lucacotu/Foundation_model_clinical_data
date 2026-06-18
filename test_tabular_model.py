@@ -417,6 +417,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             shap_fold_values = {k: [] for k in ["deepsurv_simple", "deepsurv_vanilla", "rsf", "cox"]}
             if tuning:
                 shap_fold_values["deepsurv_tuned"] = []
+                shap_fold_values["rsf_tuned"] = []
             if preprocess_type != "NaN":
                 shap_fold_values.update({
                     "deepsurv_simple_baseline": [],
@@ -651,6 +652,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 _shap_cph_emb     = cph_emb
                 if tuning:
                     _shap_tuned_emb = deepsurv_tuned
+                    _shap_rsf_tuned_emb = rsf_tuned
 
             # ── Baseline models (raw features, skipped for NaN preprocess) ────
             if preprocess_type != "NaN":
@@ -805,6 +807,12 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         print("  [SHAP] deepsurv_tuned...")
                         sv = shap.KernelExplainer(_fn_tuned, background).shap_values(X_shap_test, nsamples=100)
                         shap_fold_values["deepsurv_tuned"].append(np.abs(sv).mean(axis=0))
+
+                        print("  [SHAP] rsf_tuned...")
+                        sv = shap.KernelExplainer(
+                            lambda X, _r=_shap_rsf_tuned_emb: _r.predict(_embed_fn(X)), background
+                        ).shap_values(X_shap_test, nsamples=100)
+                        shap_fold_values["rsf_tuned"].append(np.abs(sv).mean(axis=0))
 
                     print("  [SHAP] rsf (embedding)...")
                     sv = shap.KernelExplainer(
