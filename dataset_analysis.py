@@ -8,8 +8,10 @@ from sklearn.preprocessing import StandardScaler
 
 from sksurv.util import Surv
 from sksurv.linear_model import CoxPHSurvivalAnalysis
+from src.data_loader import load_data
+from src.preprocessing import clean_and_impute, prepare_cox_data_cv, prepare_cox_data_hurrah_cv
 
-
+'''
 # Read Excel file
 df_date = pd.read_excel("Dataset Sirbu/DataPrelievo.xlsx")
 
@@ -822,31 +824,191 @@ violations = df_value[~((df_value['SESSO'] == 0) & (df_value['SESSO0'] == 'DONNA
 print("Rows that do not satisfy the rule:")
 print(violations)
 
+'''
+"""
+analisi_dataset.py
+------------------
+Analisi esplorativa di un dataset tabellare per estrarre le informazioni
+da inserire nel capitolo "Dataset" di una tesi.
+
+Uso:
+    python analisi_dataset.py percorso/al/file.csv
+    python analisi_dataset.py percorso/al/file.csv --target nome_colonna_classe
+    python analisi_dataset.py percorso/al/file.xlsx --sep ';'
+
+Dipendenze: pandas, numpy  (opzionale: openpyxl per i file .xlsx)
+"""
+
+import argparse
+import contextlib
+import os
+import sys
 import pandas as pd
-from pathlib import Path
+import numpy as np
 
-def load_mimic_dataset(data_dir, skip_tables=None):
 
-    data_dir = Path(data_dir)
-    tables = {}
+def riga(titolo):
+    print("\n" + "=" * 70)
+    print(titolo)
+    print("=" * 70)
 
-    for file in data_dir.glob("*.csv"):
 
-        table_name = file.stem.lower()
+def panoramica(df):
+    riga("1. PANORAMICA GENERALE")
+    n_righe, n_col = df.shape
+    print(f"Numero di campioni (righe):       {n_righe:,}")
+    print(f"Numero di feature (colonne):      {n_col:,}")
+    mem = df.memory_usage(deep=True).sum() / 1024**2
+    print(f"Dimensione in memoria:            {mem:.2f} MB")
+    duplicati = df.duplicated().sum()
+    print(f"Righe duplicate:                  {duplicati:,} "
+          f"({duplicati / n_righe * 100:.2f}%)")
 
-        if skip_tables and table_name in skip_tables:
-            print(f"Skipping {table_name}")
-            continue
 
-        print(f"Loading {table_name}")
-        tables[table_name] = pd.read_csv(file)
+def tipi_e_mancanti(df):
+    riga("2. FEATURE, TIPI E VALORI MANCANTI")
+    n = len(df)
+    info = pd.DataFrame({
+        "tipo": df.dtypes.astype(str),
+        "valori_distinti": df.nunique(),
+        "mancanti": df.isna().sum(),
+    })
+    info["mancanti_%"] = (info["mancanti"] / n * 100).round(2)
+    # segnala le colonne costanti (un solo valore) -> spesso inutili
+    info["costante"] = info["valori_distinti"] <= 1
+    pd.set_option("display.max_rows", None)
+    pd.set_option("display.width", 120)
+    print(info)
+    costanti = info.index[info["costante"]].tolist()
+    if costanti:
+        print(f"\n[!] Colonne costanti (da valutare se rimuovere): {costanti}")
 
-    return tables
 
-mimic_path = "MIMIC/MIMIC/files/mimiciii/1.4"
+def statistiche_numeriche(df):
+    riga("3. STATISTICHE DESCRITTIVE (feature numeriche)")
+    num = df.select_dtypes(include=[np.number])
+    if num.empty:
+        print("Nessuna feature numerica.")
+        return
+    desc = num.describe().T  # count, mean, std, min, 25%, 50%, 75%, max
+    desc["range"] = desc["max"] - desc["min"]
+    print(desc.round(3))
 
-tables = load_mimic_dataset(
-    mimic_path,
-    skip_tables=["chartevents","labevents"]
-)
 
+def statistiche_categoriche(df, max_mostrate=8):
+    riga("4. FEATURE CATEGORICHE / TESTUALI")
+    cat = df.select_dtypes(include=["object", "string", "category", "bool"])
+    if cat.empty:
+        print("Nessuna feature categorica.")
+        return
+    for col in cat.columns:
+        distinti = df[col].nunique(dropna=True)
+        print(f"\n• {col}  ->  {distinti} valori distinti")
+        top = df[col].value_counts(dropna=False).head(max_mostrate)
+        for valore, conteggio in top.items():
+            print(f"    {str(valore)[:40]:<42} {conteggio:>8,} "
+                  f"({conteggio / len(df) * 100:5.2f}%)")
+
+
+def colonne_temporali(df):
+    """Prova a riconoscere colonne di tipo data e stamparne l'intervallo."""
+    date_cols = df.select_dtypes(include=["datetime", "datetimetz"]).columns.tolist()
+    # tentativo di parsing su colonne object con 'date'/'time' nel nome
+    for col in df.select_dtypes(include=["object", "string"]).columns:
+        if any(k in col.lower() for k in ("date", "data", "time", "anno", "year")):
+            try:
+                parsed = pd.to_datetime(df[col], errors="coerce")
+                if parsed.notna().mean() > 0.8: 
+                    date_cols.append(col)
+                    df[col] = parsed
+            except Exception:
+                pass
+    if not date_cols:
+        return
+    riga("5. INTERVALLO TEMPORALE")
+    for col in date_cols:
+        serie = pd.to_datetime(df[col], errors="coerce")
+        print(f"• {col}: da {serie.min()} a {serie.max()}")
+
+
+def distribuzione_target(df, target):
+    riga(f"6. DISTRIBUZIONE DELLA VARIABILE TARGET: '{target}'")
+    if target not in df.columns:
+        print(f"[!] La colonna '{target}' non esiste nel dataset.")
+        return
+    conteggi = df[target].value_counts(dropna=False)
+    perc = df[target].value_counts(normalize=True, dropna=False) * 100
+    tabella = pd.DataFrame({"conteggio": conteggi, "percentuale_%": perc.round(2)})
+    print(tabella)
+    if len(conteggi) > 1:
+        rapporto = conteggi.max() / conteggi.min()
+        print(f"\nNumero di classi:                 {len(conteggi)}")
+        print(f"Rapporto di sbilanciamento (max/min): {rapporto:.2f}")
+        if rapporto >= 1.5:
+            print("[!] Il dataset risulta sbilanciato: "
+                  "valuta tecniche di bilanciamento o metriche adeguate.")
+
+
+def riepilogo_per_tesi(df, target=None):
+    """Riga sintetica utile per la tabella di confronto tra dataset."""
+    riga("7. RIGA RIASSUNTIVA (per la tabella di confronto in tesi)")
+    n_righe, n_col = df.shape
+    n_num = df.select_dtypes(include=[np.number]).shape[1]
+    n_cat = n_col - n_num
+    perc_mancanti = df.isna().mean().mean() * 100
+    n_classi = df[target].nunique() if target and target in df.columns else "—"
+    print(f"Campioni: {n_righe} | Feature: {n_col} "
+          f"(num: {n_num}, cat: {n_cat}) | "
+          f"Classi: {n_classi} | "
+          f"Mancanti medi: {perc_mancanti:.2f}% | "
+          f"Duplicati: {df.duplicated().sum()}")
+
+
+DATASETS = [
+    ("OrmoniTirodei", "Total mortality", "Follow Up Data"),
+    ("HURRAH",        "STATO_AL_FU",     "FU"),
+]
+
+def load_dataset(dataset_name):
+    match dataset_name:
+        case "OrmoniTirodei":
+            print("Caricato OrmoniTirodei")
+            data = load_data(dataset_name, "Dataset Sirbu")
+            df = clean_and_impute(dataset_name, data)
+            return((data,df))
+            #df_train, df_eval = prepare_cox_data_cv(df)
+        case "HURRAH":
+            print("Caricato HURRAH")
+            data = load_data(dataset_name, "Dataset Sirbu")
+            df = clean_and_impute(dataset_name, data)
+            return((data,df))
+            #df_train, df_eval = prepare_cox_data_hurrah_cv(df)
+        case _:
+            print("Name_dataset not defined")
+            return []
+
+
+def main():
+    with open("results_dataset.txt", "w") as out_file, contextlib.redirect_stdout(out_file):
+        for data in DATASETS:
+            pre_df, df = load_dataset(data[0])
+
+            print("PRE")
+            panoramica(pre_df)
+            tipi_e_mancanti(pre_df)
+            statistiche_numeriche(pre_df)
+            statistiche_categoriche(pre_df)
+            colonne_temporali(pre_df)
+            riepilogo_per_tesi(pre_df)
+
+            print("Post")
+            panoramica(df)
+            tipi_e_mancanti(df)
+            statistiche_numeriche(df)
+            statistiche_categoriche(df)
+            colonne_temporali(df)
+            riepilogo_per_tesi(df)
+        print("Stampa completata")
+
+if __name__ == "__main__":
+    main()

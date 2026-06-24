@@ -1,0 +1,839 @@
+Caricato OrmoniTirodei
+PRE
+
+======================================================================
+1. PANORAMICA GENERALE
+======================================================================
+Numero di campioni (righe):       8,144
+Numero di feature (colonne):      85
+Dimensione in memoria:            5.37 MB
+Righe duplicate:                  77 (0.95%)
+
+======================================================================
+2. FEATURE, TIPI E VALORI MANCANTI
+======================================================================
+                                                       tipo  valori_distinti  mancanti  mancanti_%  costante
+Number                                              float64             8065        79        0.97     False
+Gender (Male = 1)                                   float64                2        79        0.97     False
+Age                                                 float64             6351        79        0.97     False
+Total cholesterol                                   float64              283       439        5.39     False
+HDL                                                 float64              107       689        8.46     False
+LDL                                                 float64              511       711        8.73     False
+Triglycerides                                       float64              422       517        6.35     False
+Glycemia                                            float64              289       493        6.05     False
+TSH                                                 float64              774        79        0.97     False
+fT3                                                 float64              431        79        0.97     False
+fT4                                                 float64              570        79        0.97     False
+Euthyroid                                           float64                2        79        0.97     False
+Subclinical primary hypothyroidism (SCH)            float64                2        79        0.97     False
+Subclinical primary hyperthyroidism\n(SCT)          float64                2        79        0.97     False
+Low T3                                              float64                2        79        0.97     False
+Ipotiroidismo                                       float64                2        79        0.97     False
+Ipertiroidismo                                      float64                2        79        0.97     False
+Angina                                              float64                2        79        0.97     False
+Previous CABG                                       float64                2        79        0.97     False
+Previous PCI                                        float64                2        79        0.97     False
+Previous Myocardial Infarction                      float64                2        79        0.97     False
+Acute Myocardial Infarction                         float64                2        79        0.97     False
+Angiography                                         float64                2        79        0.97     False
+Vessels                                             float64                6        79        0.97     False
+CAD                                                 float64                2        79        0.97     False
+Documented resting \nor exertional ischemia         float64                2        78        0.96     False
+Post-ischemic Dilated\nCardiomyopathy               float64                2        79        0.97     False
+Primary Dilated\nCardiomyopathy                     float64                2        79        0.97     False
+Normal                                              float64                2        79        0.97     False
+SindromeX                                           float64                2        79        0.97     False
+AMI                                                 float64                2        79        0.97     False
+PMI                                                 float64                2        79        0.97     False
+Aritmie                                             float64                2        79        0.97     False
+MIN                                                 float64                2        79        0.97     False
+MIO                                                 float64                2        79        0.97     False
+Miocardite                                          float64                2        79        0.97     False
+Pericardite                                         float64                2        79        0.97     False
+Endocardite                                         float64                2        79        0.97     False
+Valvulopatie                                        float64                2        79        0.97     False
+MalattiaVasoAorta                                   float64                2        79        0.97     False
+Ipertensione                                        float64                2        79        0.97     False
+CardiopatiaCongenita                                float64                1        79        0.97      True
+EmboliaPolmonare                                    float64                2        79        0.97     False
+EPA                                                 float64                2        79        0.97     False
+HR                                                  float64              132       145        1.78     False
+Weight                                              float64              113       493        6.05     False
+Height                                              float64               64       575        7.06     False
+BMI                                                 float64             1954       652        8.01     False
+Diastolic blood pressure                            float64               66       240        2.95     False
+Systolic blood pressure                             float64               98       240        2.95     False
+Smoke\nHistory of smoke                             float64                2        79        0.97     False
+Diabetes\nHistory of diabetes                       float64                2        79        0.97     False
+Hypertension\nHistory of hypertension               float64                2        79        0.97     False
+Dyslipidemia\nHystory of dyslipidemia               float64                2        79        0.97     False
+Atrial Fibrillation                                 float64                2        79        0.97     False
+WmsiBas                                             float64              124       302        3.71     False
+DimSettoIV                                          float64               25       403        4.95     False
+DimPP                                               float64               20       424        5.21     False
+fe                                                  float64               73        79        0.97     False
+vsx                                                 float64               65       789        9.69     False
+B-Blockers                                          float64                2        79        0.97     False
+Amiodarone                                          float64                2        79        0.97     False
+Calcium channel blockers                            float64                2        79        0.97     False
+Diuretics                                           float64                2        79        0.97     False
+Antiplatelet                                        float64                2        79        0.97     False
+Nitrates                                            float64                2        79        0.97     False
+ACE-inhibitors                                      float64                2        79        0.97     False
+Ipolipemizzanti                                     float64                2       206        2.53     False
+Antidiabetici                                       float64                2       210        2.58     False
+Follow Up Data                               datetime64[us]             2334        79        0.97     False
+Data of death                                datetime64[us]             1842      5737       70.44     False
+Cause of death                                          str               23      5738       70.46     False
+Collected by                                            str                8      5737       70.44     False
+Total mortality                                     float64                2        79        0.97     False
+CVD Death                                           float64                2        79        0.97     False
+Fatal MI or Sudden death                            float64                2        79        0.97     False
+UnKnown                                             float64                2        79        0.97     False
+Accident                                            float64                2        79        0.97     False
+Suicide                                             float64                2        79        0.97     False
+CABG                                         datetime64[us]              723      7318       89.86     False
+Non Fatal AMI (Follow-Up)                    datetime64[us]              303      7821       96.03     False
+Ictus                                        datetime64[us]               99      8034       98.65     False
+PCI                                          datetime64[us]             1123      6798       83.47     False
+Creatinina                                          float64              325       675        8.29     False
+Data prelievo                                datetime64[us]             3539        79        0.97     False
+
+[!] Colonne costanti (da valutare se rimuovere): ['CardiopatiaCongenita']
+
+======================================================================
+3. STATISTICHE DESCRITTIVE (feature numeriche)
+======================================================================
+                                              count      mean       std      min       25%       50%       75%       max     range
+Number                                       8065.0  4033.000  2328.309    1.000  2017.000  4033.000  6049.000  8065.000  8064.000
+Gender (Male = 1)                            8065.0     0.659     0.474    0.000     0.000     1.000     1.000     1.000     1.000
+Age                                          8065.0    68.267    13.045   13.851    60.393    69.904    77.691   100.728    86.876
+Total cholesterol                            7705.0   183.751    44.424   55.000   153.000   182.000   210.000   605.000   550.000
+HDL                                          7455.0    42.325    12.908    6.000    34.000    40.000    48.000   141.000   135.000
+LDL                                          7433.0   116.263    37.543   13.000    91.000   114.000   139.000   928.000   915.000
+Triglycerides                                7627.0   123.750    78.360    9.000    77.000   105.000   147.000   999.000   990.000
+Glycemia                                     7651.0   108.277    41.200    1.000    87.000    98.000   115.000   980.000   979.000
+TSH                                          8065.0     2.133     3.725    0.010     0.930     1.530     2.400    94.560    94.550
+fT3                                          8065.0     2.480     1.861    0.100     2.080     2.390     2.700    89.000    88.900
+fT4                                          8065.0    12.137     4.359    0.070    10.100    11.600    13.400   132.000   131.930
+Euthyroid                                    8065.0     0.705     0.456    0.000     0.000     1.000     1.000     1.000     1.000
+Subclinical primary hypothyroidism (SCH)     8065.0     0.060     0.237    0.000     0.000     0.000     0.000     1.000     1.000
+Subclinical primary hyperthyroidism\n(SCT)   8065.0     0.030     0.170    0.000     0.000     0.000     0.000     1.000     1.000
+Low T3                                       8065.0     0.170     0.376    0.000     0.000     0.000     0.000     1.000     1.000
+Ipotiroidismo                                8065.0     0.016     0.125    0.000     0.000     0.000     0.000     1.000     1.000
+Ipertiroidismo                               8065.0     0.019     0.136    0.000     0.000     0.000     0.000     1.000     1.000
+Angina                                       8065.0     0.499     0.500    0.000     0.000     0.000     1.000     1.000     1.000
+Previous CABG                                8065.0     0.082     0.275    0.000     0.000     0.000     0.000     1.000     1.000
+Previous PCI                                 8065.0     0.129     0.335    0.000     0.000     0.000     0.000     1.000     1.000
+Previous Myocardial Infarction               8065.0     0.252     0.434    0.000     0.000     0.000     1.000     1.000     1.000
+Acute Myocardial Infarction                  8065.0     0.089     0.284    0.000     0.000     0.000     0.000     1.000     1.000
+Angiography                                  8065.0     0.596     0.491    0.000     0.000     1.000     1.000     1.000     1.000
+Vessels                                      8065.0     0.774     1.097    0.000     0.000     0.000     1.000     4.000     4.000
+CAD                                          8065.0     0.539     0.498    0.000     0.000     1.000     1.000     1.000     1.000
+Documented resting \nor exertional ischemia  8066.0     0.394     0.489    0.000     0.000     0.000     1.000     1.000     1.000
+Post-ischemic Dilated\nCardiomyopathy        8065.0     0.105     0.306    0.000     0.000     0.000     0.000     1.000     1.000
+Primary Dilated\nCardiomyopathy              8065.0     0.077     0.267    0.000     0.000     0.000     0.000     1.000     1.000
+Normal                                       8065.0     0.017     0.130    0.000     0.000     0.000     0.000     1.000     1.000
+SindromeX                                    8065.0     0.002     0.048    0.000     0.000     0.000     0.000     1.000     1.000
+AMI                                          8065.0     0.089     0.284    0.000     0.000     0.000     0.000     1.000     1.000
+PMI                                          8065.0     0.279     0.449    0.000     0.000     0.000     1.000     1.000     1.000
+Aritmie                                      8065.0     0.354     0.478    0.000     0.000     0.000     1.000     1.000     1.000
+MIN                                          8065.0     0.008     0.088    0.000     0.000     0.000     0.000     1.000     1.000
+MIO                                          8065.0     0.004     0.063    0.000     0.000     0.000     0.000     1.000     1.000
+Miocardite                                   8065.0     0.004     0.064    0.000     0.000     0.000     0.000     1.000     1.000
+Pericardite                                  8065.0     0.011     0.106    0.000     0.000     0.000     0.000     1.000     1.000
+Endocardite                                  8065.0     0.002     0.048    0.000     0.000     0.000     0.000     1.000     1.000
+Valvulopatie                                 8065.0     0.157     0.364    0.000     0.000     0.000     0.000     1.000     1.000
+MalattiaVasoAorta                            8065.0     0.044     0.206    0.000     0.000     0.000     0.000     1.000     1.000
+Ipertensione                                 8065.0     0.531     0.499    0.000     0.000     1.000     1.000     1.000     1.000
+CardiopatiaCongenita                         8065.0     0.000     0.000    0.000     0.000     0.000     0.000     0.000     0.000
+EmboliaPolmonare                             8065.0     0.003     0.057    0.000     0.000     0.000     0.000     1.000     1.000
+EPA                                          8065.0     0.047     0.213    0.000     0.000     0.000     0.000     1.000     1.000
+HR                                           7999.0    73.326    19.751   29.000    60.000    70.000    80.000   280.000   251.000
+Weight                                       7651.0    76.873    14.778   34.000    67.000    76.000    86.000   160.000   126.000
+Height                                       7569.0   167.887     8.963  130.000   162.000   168.000   174.000   202.000    72.000
+BMI                                          7492.0    27.232     4.531   12.489    24.219    26.852    29.727    57.812    45.324
+Diastolic blood pressure                     7904.0    74.684    12.610   30.000    65.000    75.000    80.000   150.000   120.000
+Systolic blood pressure                      7904.0   137.086    23.748   60.000   120.000   135.000   150.000   260.000   200.000
+Smoke\nHistory of smoke                      8065.0     0.403     0.491    0.000     0.000     0.000     1.000     1.000     1.000
+Diabetes\nHistory of diabetes                8065.0     0.233     0.423    0.000     0.000     0.000     0.000     1.000     1.000
+Hypertension\nHistory of hypertension        8065.0     0.601     0.490    0.000     0.000     1.000     1.000     1.000     1.000
+Dyslipidemia\nHystory of dyslipidemia        8065.0     0.650     0.477    0.000     0.000     1.000     1.000     1.000     1.000
+Atrial Fibrillation                          8065.0     0.216     0.412    0.000     0.000     0.000     0.000     1.000     1.000
+WmsiBas                                      7842.0     1.303     0.463    1.000     1.000     1.000     1.530     2.880     1.880
+DimSettoIV                                   7741.0    11.133     1.951    5.000    10.000    11.000    12.000    35.000    30.000
+DimPP                                        7720.0    10.196     2.011    4.000     9.000    10.000    11.000    95.000    91.000
+fe                                           8065.0    51.227    12.176   10.000    45.000    55.000    60.000    84.000    74.000
+vsx                                          7355.0    51.259     7.935   21.000    46.000    50.000    55.000    95.000    74.000
+B-Blockers                                   8065.0     0.493     0.500    0.000     0.000     0.000     1.000     1.000     1.000
+Amiodarone                                   8065.0     0.056     0.230    0.000     0.000     0.000     0.000     1.000     1.000
+Calcium channel blockers                     8065.0     0.131     0.337    0.000     0.000     0.000     0.000     1.000     1.000
+Diuretics                                    8065.0     0.367     0.482    0.000     0.000     0.000     1.000     1.000     1.000
+Antiplatelet                                 8065.0     0.603     0.489    0.000     0.000     1.000     1.000     1.000     1.000
+Nitrates                                     8065.0     0.401     0.490    0.000     0.000     0.000     1.000     1.000     1.000
+ACE-inhibitors                               8065.0     0.396     0.489    0.000     0.000     0.000     1.000     1.000     1.000
+Ipolipemizzanti                              7938.0     0.443     0.497    0.000     0.000     0.000     1.000     1.000     1.000
+Antidiabetici                                7934.0     0.166     0.372    0.000     0.000     0.000     0.000     1.000     1.000
+Total mortality                              8065.0     0.298     0.458    0.000     0.000     0.000     1.000     1.000     1.000
+CVD Death                                    8065.0     0.125     0.331    0.000     0.000     0.000     0.000     1.000     1.000
+Fatal MI or Sudden death                     8065.0     0.035     0.184    0.000     0.000     0.000     0.000     1.000     1.000
+UnKnown                                      8065.0     0.031     0.173    0.000     0.000     0.000     0.000     1.000     1.000
+Accident                                     8065.0     0.001     0.029    0.000     0.000     0.000     0.000     1.000     1.000
+Suicide                                      8065.0     0.001     0.025    0.000     0.000     0.000     0.000     1.000     1.000
+Creatinina                                   7469.0     1.121     0.593    0.030     0.860     1.010     1.200    13.640    13.610
+
+======================================================================
+4. FEATURE CATEGORICHE / TESTUALI
+======================================================================
+
+• Cause of death  ->  23 valori distinti
+    nan                                           5,738 (70.46%)
+    Other non cardiac causes                        635 ( 7.80%)
+    Cancer                                          407 ( 5.00%)
+    Other cardiac causes                            401 ( 4.92%)
+    Unknown                                         248 ( 3.05%)
+    Myocardial infarction                           202 ( 2.48%)
+    Stroke                                          113 ( 1.39%)
+    Heart failure                                    94 ( 1.15%)
+
+• Collected by  ->  8 valori distinti
+    nan                                           5,737 (70.44%)
+    Relatives (Telephone interview)               1,046 (12.84%)
+    Necropsy certificate                            600 ( 7.37%)
+    Relatives (questionnaire)                       238 ( 2.92%)
+    Hospitalization                                 180 ( 2.21%)
+    Registry office                                 162 ( 1.99%)
+    Phisician                                       146 ( 1.79%)
+    Physician                                        21 ( 0.26%)
+
+======================================================================
+5. INTERVALLO TEMPORALE
+======================================================================
+• Follow Up Data: da 1982-05-09 00:00:00 a 2016-02-08 00:00:00
+• Data of death: da 1982-05-09 00:00:00 a 2016-02-08 00:00:00
+• CABG : da 1992-06-01 00:00:00 a 2014-02-10 00:00:00
+• Non Fatal AMI (Follow-Up): da 1995-11-23 00:00:00 a 2014-03-23 00:00:00
+• Ictus: da 2003-01-01 00:00:00 a 2014-02-17 00:00:00
+• PCI: da 1995-11-23 00:00:00 a 2013-10-23 00:00:00
+• Data prelievo: da 1977-02-26 00:00:00 a 2011-10-18 00:00:00
+
+======================================================================
+7. RIGA RIASSUNTIVA (per la tabella di confronto in tesi)
+======================================================================
+Campioni: 8144 | Feature: 85 (num: 76, cat: 9) | Classi: — | Mancanti medi: 8.69% | Duplicati: 77
+Post
+
+======================================================================
+1. PANORAMICA GENERALE
+======================================================================
+Numero di campioni (righe):       8,065
+Numero di feature (colonne):      88
+Dimensione in memoria:            5.51 MB
+Righe duplicate:                  0 (0.00%)
+
+======================================================================
+2. FEATURE, TIPI E VALORI MANCANTI
+======================================================================
+                                                       tipo  valori_distinti  mancanti  mancanti_%  costante
+Number                                              float64             8065         0        0.00     False
+Gender (Male = 1)                                   float64                2         0        0.00     False
+Age                                                 float64             6351         0        0.00     False
+Total cholesterol                                   float64              283       360        4.46     False
+HDL                                                 float64              107       610        7.56     False
+LDL                                                 float64              511       632        7.84     False
+Triglycerides                                       float64              422       438        5.43     False
+Glycemia                                            float64              289       414        5.13     False
+TSH                                                 float64              774         0        0.00     False
+fT3                                                 float64              431         0        0.00     False
+fT4                                                 float64              570         0        0.00     False
+Euthyroid                                           float64                2         0        0.00     False
+Subclinical primary hypothyroidism (SCH)            float64                2         0        0.00     False
+Subclinical primary hyperthyroidism\n(SCT)          float64                2         0        0.00     False
+Low T3                                              float64                2         0        0.00     False
+Ipotiroidismo                                       float64                2         0        0.00     False
+Ipertiroidismo                                      float64                2         0        0.00     False
+Angina                                              float64                2         0        0.00     False
+Previous CABG                                       float64                2         0        0.00     False
+Previous PCI                                        float64                2         0        0.00     False
+Previous Myocardial Infarction                      float64                2         0        0.00     False
+Acute Myocardial Infarction                         float64                2         0        0.00     False
+Angiography                                         float64                2         0        0.00     False
+Vessels                                             float64                6         0        0.00     False
+CAD                                                 float64                2         0        0.00     False
+Documented resting \nor exertional ischemia         float64                2         0        0.00     False
+Post-ischemic Dilated\nCardiomyopathy               float64                2         0        0.00     False
+Primary Dilated\nCardiomyopathy                     float64                2         0        0.00     False
+Normal                                              float64                2         0        0.00     False
+SindromeX                                           float64                2         0        0.00     False
+AMI                                                 float64                2         0        0.00     False
+PMI                                                 float64                2         0        0.00     False
+Aritmie                                             float64                2         0        0.00     False
+MIN                                                 float64                2         0        0.00     False
+MIO                                                 float64                2         0        0.00     False
+Miocardite                                          float64                2         0        0.00     False
+Pericardite                                         float64                2         0        0.00     False
+Endocardite                                         float64                2         0        0.00     False
+Valvulopatie                                        float64                2         0        0.00     False
+MalattiaVasoAorta                                   float64                2         0        0.00     False
+Ipertensione                                        float64                2         0        0.00     False
+EmboliaPolmonare                                    float64                2         0        0.00     False
+EPA                                                 float64                2         0        0.00     False
+HR                                                  float64              132        66        0.82     False
+Weight                                              float64              113       414        5.13     False
+Height                                              float64               64       496        6.15     False
+BMI                                                 float64             1954       573        7.10     False
+Diastolic blood pressure                            float64               66       161        2.00     False
+Systolic blood pressure                             float64               98       161        2.00     False
+Smoke\nHistory of smoke                             float64                2         0        0.00     False
+Diabetes\nHistory of diabetes                       float64                2         0        0.00     False
+Hypertension\nHistory of hypertension               float64                2         0        0.00     False
+Dyslipidemia\nHystory of dyslipidemia               float64                2         0        0.00     False
+Atrial Fibrillation                                 float64                2         0        0.00     False
+WmsiBas                                             float64              124       223        2.77     False
+DimSettoIV                                          float64               25       324        4.02     False
+DimPP                                               float64               20       345        4.28     False
+fe                                                  float64               73         0        0.00     False
+vsx                                                 float64               65       710        8.80     False
+B-Blockers                                          float64                2         0        0.00     False
+Amiodarone                                          float64                2         0        0.00     False
+Calcium channel blockers                            float64                2         0        0.00     False
+Diuretics                                           float64                2         0        0.00     False
+Antiplatelet                                        float64                2         0        0.00     False
+Nitrates                                            float64                2         0        0.00     False
+ACE-inhibitors                                      float64                2         0        0.00     False
+Ipolipemizzanti                                     float64                2       127        1.57     False
+Antidiabetici                                       float64                2       131        1.62     False
+Follow Up Data                                        int64             3886         0        0.00     False
+Data of death                                       float64             1700         0        0.00     False
+Cause of death                                          str               23      5659       70.17     False
+Collected by                                            str                8      5658       70.15     False
+Total mortality                                     float64                2         0        0.00     False
+CVD Death                                           float64                2         0        0.00     False
+Fatal MI or Sudden death                            float64                2         0        0.00     False
+UnKnown                                             float64                2         0        0.00     False
+Accident                                            float64                2         0        0.00     False
+Suicide                                             float64                2         0        0.00     False
+CABG                                                float64              299         0        0.00     False
+Non Fatal AMI (Follow-Up)                           float64              295         0        0.00     False
+Ictus                                               float64              109         0        0.00     False
+PCI                                                 float64              409         0        0.00     False
+Creatinina                                          float64              325       596        7.39     False
+Data prelievo                                datetime64[us]             3539         0        0.00     False
+CABG _event                                           int64                2         0        0.00     False
+Non Fatal AMI (Follow-Up)_event                       int64                2         0        0.00     False
+Ictus_event                                           int64                2         0        0.00     False
+PCI_event                                             int64                2         0        0.00     False
+
+======================================================================
+3. STATISTICHE DESCRITTIVE (feature numeriche)
+======================================================================
+                                              count      mean       std      min       25%       50%       75%       max     range
+Number                                       8065.0  4033.000  2328.309    1.000  2017.000  4033.000  6049.000  8065.000  8064.000
+Gender (Male = 1)                            8065.0     0.659     0.474    0.000     0.000     1.000     1.000     1.000     1.000
+Age                                          8065.0    68.267    13.045   13.851    60.393    69.904    77.691   100.728    86.876
+Total cholesterol                            7705.0   183.751    44.424   55.000   153.000   182.000   210.000   605.000   550.000
+HDL                                          7455.0    42.325    12.908    6.000    34.000    40.000    48.000   141.000   135.000
+LDL                                          7433.0   116.263    37.543   13.000    91.000   114.000   139.000   928.000   915.000
+Triglycerides                                7627.0   123.750    78.360    9.000    77.000   105.000   147.000   999.000   990.000
+Glycemia                                     7651.0   108.277    41.200    1.000    87.000    98.000   115.000   980.000   979.000
+TSH                                          8065.0     2.133     3.725    0.010     0.930     1.530     2.400    94.560    94.550
+fT3                                          8065.0     2.480     1.861    0.100     2.080     2.390     2.700    89.000    88.900
+fT4                                          8065.0    12.137     4.359    0.070    10.100    11.600    13.400   132.000   131.930
+Euthyroid                                    8065.0     0.705     0.456    0.000     0.000     1.000     1.000     1.000     1.000
+Subclinical primary hypothyroidism (SCH)     8065.0     0.060     0.237    0.000     0.000     0.000     0.000     1.000     1.000
+Subclinical primary hyperthyroidism\n(SCT)   8065.0     0.030     0.170    0.000     0.000     0.000     0.000     1.000     1.000
+Low T3                                       8065.0     0.170     0.376    0.000     0.000     0.000     0.000     1.000     1.000
+Ipotiroidismo                                8065.0     0.016     0.125    0.000     0.000     0.000     0.000     1.000     1.000
+Ipertiroidismo                               8065.0     0.019     0.136    0.000     0.000     0.000     0.000     1.000     1.000
+Angina                                       8065.0     0.499     0.500    0.000     0.000     0.000     1.000     1.000     1.000
+Previous CABG                                8065.0     0.082     0.275    0.000     0.000     0.000     0.000     1.000     1.000
+Previous PCI                                 8065.0     0.129     0.335    0.000     0.000     0.000     0.000     1.000     1.000
+Previous Myocardial Infarction               8065.0     0.252     0.434    0.000     0.000     0.000     1.000     1.000     1.000
+Acute Myocardial Infarction                  8065.0     0.089     0.284    0.000     0.000     0.000     0.000     1.000     1.000
+Angiography                                  8065.0     0.596     0.491    0.000     0.000     1.000     1.000     1.000     1.000
+Vessels                                      8065.0     0.774     1.097    0.000     0.000     0.000     1.000     4.000     4.000
+CAD                                          8065.0     0.539     0.498    0.000     0.000     1.000     1.000     1.000     1.000
+Documented resting \nor exertional ischemia  8065.0     0.394     0.489    0.000     0.000     0.000     1.000     1.000     1.000
+Post-ischemic Dilated\nCardiomyopathy        8065.0     0.105     0.306    0.000     0.000     0.000     0.000     1.000     1.000
+Primary Dilated\nCardiomyopathy              8065.0     0.077     0.267    0.000     0.000     0.000     0.000     1.000     1.000
+Normal                                       8065.0     0.017     0.130    0.000     0.000     0.000     0.000     1.000     1.000
+SindromeX                                    8065.0     0.002     0.048    0.000     0.000     0.000     0.000     1.000     1.000
+AMI                                          8065.0     0.089     0.284    0.000     0.000     0.000     0.000     1.000     1.000
+PMI                                          8065.0     0.279     0.449    0.000     0.000     0.000     1.000     1.000     1.000
+Aritmie                                      8065.0     0.354     0.478    0.000     0.000     0.000     1.000     1.000     1.000
+MIN                                          8065.0     0.008     0.088    0.000     0.000     0.000     0.000     1.000     1.000
+MIO                                          8065.0     0.004     0.063    0.000     0.000     0.000     0.000     1.000     1.000
+Miocardite                                   8065.0     0.004     0.064    0.000     0.000     0.000     0.000     1.000     1.000
+Pericardite                                  8065.0     0.011     0.106    0.000     0.000     0.000     0.000     1.000     1.000
+Endocardite                                  8065.0     0.002     0.048    0.000     0.000     0.000     0.000     1.000     1.000
+Valvulopatie                                 8065.0     0.157     0.364    0.000     0.000     0.000     0.000     1.000     1.000
+MalattiaVasoAorta                            8065.0     0.044     0.206    0.000     0.000     0.000     0.000     1.000     1.000
+Ipertensione                                 8065.0     0.531     0.499    0.000     0.000     1.000     1.000     1.000     1.000
+EmboliaPolmonare                             8065.0     0.003     0.057    0.000     0.000     0.000     0.000     1.000     1.000
+EPA                                          8065.0     0.047     0.213    0.000     0.000     0.000     0.000     1.000     1.000
+HR                                           7999.0    73.326    19.751   29.000    60.000    70.000    80.000   280.000   251.000
+Weight                                       7651.0    76.873    14.778   34.000    67.000    76.000    86.000   160.000   126.000
+Height                                       7569.0   167.887     8.963  130.000   162.000   168.000   174.000   202.000    72.000
+BMI                                          7492.0    27.232     4.531   12.489    24.219    26.852    29.727    57.812    45.324
+Diastolic blood pressure                     7904.0    74.684    12.610   30.000    65.000    75.000    80.000   150.000   120.000
+Systolic blood pressure                      7904.0   137.086    23.748   60.000   120.000   135.000   150.000   260.000   200.000
+Smoke\nHistory of smoke                      8065.0     0.403     0.491    0.000     0.000     0.000     1.000     1.000     1.000
+Diabetes\nHistory of diabetes                8065.0     0.233     0.423    0.000     0.000     0.000     0.000     1.000     1.000
+Hypertension\nHistory of hypertension        8065.0     0.601     0.490    0.000     0.000     1.000     1.000     1.000     1.000
+Dyslipidemia\nHystory of dyslipidemia        8065.0     0.650     0.477    0.000     0.000     1.000     1.000     1.000     1.000
+Atrial Fibrillation                          8065.0     0.216     0.412    0.000     0.000     0.000     0.000     1.000     1.000
+WmsiBas                                      7842.0     1.303     0.463    1.000     1.000     1.000     1.530     2.880     1.880
+DimSettoIV                                   7741.0    11.133     1.951    5.000    10.000    11.000    12.000    35.000    30.000
+DimPP                                        7720.0    10.196     2.011    4.000     9.000    10.000    11.000    95.000    91.000
+fe                                           8065.0    51.227    12.176   10.000    45.000    55.000    60.000    84.000    74.000
+vsx                                          7355.0    51.259     7.935   21.000    46.000    50.000    55.000    95.000    74.000
+B-Blockers                                   8065.0     0.493     0.500    0.000     0.000     0.000     1.000     1.000     1.000
+Amiodarone                                   8065.0     0.056     0.230    0.000     0.000     0.000     0.000     1.000     1.000
+Calcium channel blockers                     8065.0     0.131     0.337    0.000     0.000     0.000     0.000     1.000     1.000
+Diuretics                                    8065.0     0.367     0.482    0.000     0.000     0.000     1.000     1.000     1.000
+Antiplatelet                                 8065.0     0.603     0.489    0.000     0.000     1.000     1.000     1.000     1.000
+Nitrates                                     8065.0     0.401     0.490    0.000     0.000     0.000     1.000     1.000     1.000
+ACE-inhibitors                               8065.0     0.396     0.489    0.000     0.000     0.000     1.000     1.000     1.000
+Ipolipemizzanti                              7938.0     0.443     0.497    0.000     0.000     0.000     1.000     1.000     1.000
+Antidiabetici                                7934.0     0.166     0.372    0.000     0.000     0.000     0.000     1.000     1.000
+Follow Up Data                               8065.0  2369.166  1366.040    0.000  1404.000  2323.000  3428.000  7664.000  7664.000
+Data of death                                8065.0   463.967   981.010    0.000     0.000     0.000   200.000  6143.000  6143.000
+Total mortality                              8065.0     0.298     0.458    0.000     0.000     0.000     1.000     1.000     1.000
+CVD Death                                    8065.0     0.125     0.331    0.000     0.000     0.000     0.000     1.000     1.000
+Fatal MI or Sudden death                     8065.0     0.035     0.184    0.000     0.000     0.000     0.000     1.000     1.000
+UnKnown                                      8065.0     0.031     0.173    0.000     0.000     0.000     0.000     1.000     1.000
+Accident                                     8065.0     0.001     0.029    0.000     0.000     0.000     0.000     1.000     1.000
+Suicide                                      8065.0     0.001     0.025    0.000     0.000     0.000     0.000     1.000     1.000
+CABG                                         8065.0    29.186   233.168    0.000     0.000     0.000     0.000  3987.000  3987.000
+Non Fatal AMI (Follow-Up)                    8065.0    51.775   343.960    0.000     0.000     0.000     0.000  4433.000  4433.000
+Ictus                                        8065.0    25.793   255.006    0.000     0.000     0.000     0.000  4848.000  4848.000
+PCI                                          8065.0    62.313   368.335    0.000     0.000     0.000     0.000  4433.000  4433.000
+Creatinina                                   7469.0     1.121     0.593    0.030     0.860     1.010     1.200    13.640    13.610
+CABG _event                                  8065.0     0.102     0.303    0.000     0.000     0.000     0.000     1.000     1.000
+Non Fatal AMI (Follow-Up)_event              8065.0     0.040     0.196    0.000     0.000     0.000     0.000     1.000     1.000
+Ictus_event                                  8065.0     0.014     0.116    0.000     0.000     0.000     0.000     1.000     1.000
+PCI_event                                    8065.0     0.167     0.373    0.000     0.000     0.000     0.000     1.000     1.000
+
+======================================================================
+4. FEATURE CATEGORICHE / TESTUALI
+======================================================================
+
+• Cause of death  ->  23 valori distinti
+    nan                                           5,659 (70.17%)
+    Other non cardiac causes                        635 ( 7.87%)
+    Cancer                                          407 ( 5.05%)
+    Other cardiac causes                            401 ( 4.97%)
+    Unknown                                         248 ( 3.08%)
+    Myocardial infarction                           202 ( 2.50%)
+    Stroke                                          113 ( 1.40%)
+    Heart failure                                    94 ( 1.17%)
+
+• Collected by  ->  8 valori distinti
+    nan                                           5,658 (70.15%)
+    Relatives (Telephone interview)               1,046 (12.97%)
+    Necropsy certificate                            600 ( 7.44%)
+    Relatives (questionnaire)                       238 ( 2.95%)
+    Hospitalization                                 180 ( 2.23%)
+    Registry office                                 162 ( 2.01%)
+    Phisician                                       146 ( 1.81%)
+    Physician                                        21 ( 0.26%)
+
+======================================================================
+5. INTERVALLO TEMPORALE
+======================================================================
+• Data prelievo: da 1977-02-26 00:00:00 a 2011-10-18 00:00:00
+
+======================================================================
+7. RIGA RIASSUNTIVA (per la tabella di confronto in tesi)
+======================================================================
+Campioni: 8065 | Feature: 88 (num: 85, cat: 3) | Classi: — | Mancanti medi: 2.55% | Duplicati: 0
+Caricato HURRAH
+PRE
+
+======================================================================
+1. PANORAMICA GENERALE
+======================================================================
+Numero di campioni (righe):       27,078
+Numero di feature (colonne):      85
+Dimensione in memoria:            17.68 MB
+Righe duplicate:                  105 (0.39%)
+
+======================================================================
+2. FEATURE, TIPI E VALORI MANCANTI
+======================================================================
+                                   tipo  valori_distinti  mancanti  mancanti_%  costante
+SESSO                             int64                2         0        0.00     False
+SESSO0                              str                2         0        0.00     False
+ETA                             float64             4708         4        0.01     False
+FAM_IPERT                       float64                2      8140       30.06     False
+FAM_CV                          float64                2     10695       39.50     False
+DIABETE                         float64                2      1176        4.34     False
+FUMO_ATT                        float64                2      2552        9.42     False
+EXFUMO                          float64                2      5023       18.55     False
+ALCOOL                          float64                2      7564       27.93     False
+ETANOLO_G_DIE                   float64              639     19848       73.30     False
+ATT_FIS                         float64                2     13473       49.76     False
+ATT_FIS_H_SETT                  float64              816     20281       74.90     False
+SAPEVA                          float64                2      7630       28.18     False
+IRC                             float64                2      1186        4.38     False
+GOTTA                           float64                2     13028       48.11     False
+ALLOPURINOLO                    float64                2     11029       40.73     False
+PESO                            float64              895      2550        9.42     False
+ALTEZZA                         float64              120      2584        9.54     False
+BMI                             float64             6419      2624        9.69     False
+VITA                            float64              189     14209       52.47     False
+PAS                             float64              577       589        2.18     False
+PAD                             float64              350       584        2.16     False
+FC                              float64              363      4646       17.16     False
+CREATININA                      float64              507      2373        8.76     False
+AZOTEMIA                        float64              559     12925       47.73     False
+URICEMIA                        float64              461         0        0.00     False
+ALB_CAT                         float64                2     10169       37.55     False
+ALB_CREAT_MG_MMOL_3_4_34_MICRO  float64             1333     24680       91.14     False
+ALB_CREAT_MG_G_30_300_MICRO     float64             1470     24370       90.00     False
+ALBURIA_MG_24H_30_300           float64              700     25173       92.96     False
+ALBURIA_MG_DL                   float64              569     25799       95.28     False
+NORMOMICROMACRO                 float64                3     20401       75.34     False
+GLICEMIA                        float64              335      5069       18.72     False
+CT                              float64              349      1037        3.83     False
+HDL                             float64              638      4142       15.30     False
+TG                              float64              649         0        0.00     False
+HB                              float64              356      8517       31.45     False
+HT                              float64              477      6583       24.31     False
+LVH                             float64                2     26907       99.37     False
+IMT                             float64              221     23157       85.52     False
+PLACCA                          float64                2     16142       59.61     False
+INS_CARD                        float64                2      6845       25.28     False
+ACEI                            float64                2      6726       24.84     False
+SARTANI                         float64                2      9801       36.20     False
+CAA_DIID                        float64                2      2441        9.01     False
+ALTRO_CAA                       float64                2     13225       48.84     False
+BETABLOCCANTI                   float64                2      3516       12.98     False
+DIURETICI                       float64                2      3366       12.43     False
+HCTZ                            float64                2     17337       64.03     False
+INDAPAMIDE                      float64                2     17349       64.07     False
+CLORTALIDONE                    float64                2     14141       52.22     False
+DELL_ANSA                       float64                2     11211       41.40     False
+STATINA                         float64                2      1344        4.96     False
+STATO_AL_FU                     float64                2      5831       21.53     False
+NF_IMA                          float64                2      6315       23.32     False
+F_IMA                           float64                2      7146       26.39     False
+NF_CBV                          float64                2      6330       23.38     False
+F_CBV                           float64                2      7197       26.58     False
+NF_HF                           float64                2      7391       27.30     False
+F_HF                            float64                3     10145       37.47     False
+RIV_COR                         float64                2     14486       53.50     False
+MORTE_CV                        float64                2      5140       18.98     False
+IPERTESO                          int64                2         0        0.00     False
+FU                              float64              309      4245       15.68     False
+FU_NF_IMA                       float64              304      4813       17.77     False
+FU_F_IMA                        float64              259      4812       17.77     False
+FU_NF_CBV                       float64              304      4809       17.76     False
+FU_F_CBV                        float64              303      4812       17.77     False
+FU_NF_HF                        float64              259      4814       17.78     False
+FU_F_HF                         float64              308      4813       17.77     False
+PCR                             float64              498     23234       85.80     False
+VES                             float64               69     26398       97.49     False
+OMEGA_3                         float64                2     23073       85.21     False
+FIBRATI                         float64                2     22382       82.66     False
+EZETEMIBE                       float64                2     22639       83.61     False
+ACIDO_NICOTINICO                float64                1     23684       87.47      True
+RESINE                          float64                2     23684       87.47     False
+MENOPAUSA                       float64                2     23908       88.29     False
+ANNI_MENOP                      float64              377     25631       94.66     False
+IMA_BASE                        float64                1     25502       94.18      True
+CBV_BASE                        float64                1     25502       94.18      True
+FA_BASE                         float64                2     23466       86.66     False
+HF_BASE                         float64                1     25502       94.18      True
+NF_FA                           float64                2     24795       91.57     False
+FU_NF_FA                        float64               10     24803       91.60     False
+
+[!] Colonne costanti (da valutare se rimuovere): ['ACIDO_NICOTINICO', 'IMA_BASE', 'CBV_BASE', 'HF_BASE']
+
+======================================================================
+3. STATISTICHE DESCRITTIVE (feature numeriche)
+======================================================================
+                                  count     mean      std      min      25%      50%      75%        max      range
+SESSO                           27078.0    0.500    0.500    0.000    0.000    0.500    1.000      1.000      1.000
+ETA                             27074.0   56.524   15.254   18.000   46.000   56.465   69.000    100.000     82.000
+FAM_IPERT                       18938.0    0.536    0.499    0.000    0.000    1.000    1.000      1.000      1.000
+FAM_CV                          16383.0    0.384    0.486    0.000    0.000    0.000    1.000      1.000      1.000
+DIABETE                         25902.0    0.113    0.316    0.000    0.000    0.000    0.000      1.000      1.000
+FUMO_ATT                        24526.0    0.257    0.437    0.000    0.000    0.000    1.000      1.000      1.000
+EXFUMO                          22055.0    0.207    0.405    0.000    0.000    0.000    0.000      1.000      1.000
+ALCOOL                          19514.0    0.602    0.489    0.000    0.000    1.000    1.000      1.000      1.000
+ETANOLO_G_DIE                    7230.0   27.571   28.840    0.000   10.000   21.132   37.500    308.100    308.100
+ATT_FIS                         13605.0    0.534    0.499    0.000    0.000    1.000    1.000      1.000      1.000
+ATT_FIS_H_SETT                   6797.0   14.296   21.245    0.000    0.000    5.000   18.990    117.283    117.283
+SAPEVA                          19448.0    0.441    0.496    0.000    0.000    0.000    1.000      1.000      1.000
+IRC                             25892.0    0.166    0.372    0.000    0.000    0.000    0.000      1.000      1.000
+GOTTA                           14050.0    0.018    0.131    0.000    0.000    0.000    0.000      1.000      1.000
+ALLOPURINOLO                    16049.0    0.026    0.158    0.000    0.000    0.000    0.000      1.000      1.000
+PESO                            24528.0   72.332   13.910   31.800   62.300   71.600   80.500    171.000    139.200
+ALTEZZA                         24494.0  164.655    9.747  129.000  158.000  165.000  171.000    200.000     71.000
+BMI                             24454.0   26.634    4.331   13.620   23.725   26.223   29.049     58.640     45.020
+VITA                            12869.0   90.843   12.778   42.000   82.000   91.000   99.000    170.000    128.000
+PAS                             26489.0  142.173   22.812   70.000  126.667  140.000  155.000    300.000    230.000
+PAD                             26494.0   84.729   12.535   39.000   75.000   84.000   93.000    155.000    116.000
+FC                              22432.0   71.596   12.308   30.000   64.000   70.000   78.000    170.000    140.000
+CREATININA                      24705.0    0.958    0.657    0.100    0.800    0.900    1.030     65.000     64.900
+AZOTEMIA                        14153.0   36.176   15.733    0.180   28.000   34.000   41.000    345.000    344.820
+URICEMIA                        27078.0    5.058    1.422    1.000    4.100    5.000    6.000     18.100     17.100
+ALB_CAT                         16909.0    0.266    0.442    0.000    0.000    0.000    1.000      1.000      1.000
+ALB_CREAT_MG_MMOL_3_4_34_MICRO   2398.0    1.021    5.152    0.058    0.192    0.330    0.600    164.304    164.246
+ALB_CREAT_MG_G_30_300_MICRO      2708.0   38.271  340.694    0.008    1.987    4.500   17.000  10167.000  10166.992
+ALBURIA_MG_24H_30_300            1905.0  141.877  463.136    0.000    3.800    9.600   90.000   6843.000   6843.000
+ALBURIA_MG_DL                    1279.0    1.541    3.928    0.040    0.340    0.599    1.180     50.000     49.960
+NORMOMICROMACRO                  6677.0    0.197    0.471    0.000    0.000    0.000    0.000      2.000      2.000
+GLICEMIA                        22009.0   98.360   24.687   40.000   86.000   94.000  103.000    488.000    448.000
+CT                              26041.0  209.663   40.057   54.000  181.000  210.000  237.000    350.000    296.000
+HDL                             22936.0   52.884   14.849   10.000   42.000   51.000   61.000    138.000    128.000
+TG                              27078.0  126.728   76.761   20.000   78.000  108.000  152.000    931.000    911.000
+HB                              18561.0   14.271    1.437    5.250   13.400   14.300   15.200     20.200     14.950
+HT                              20495.0   42.370    3.930   15.300   40.000   42.300   45.000     63.300     48.000
+LVH                               171.0    0.281    0.451    0.000    0.000    0.000    1.000      1.000      1.000
+IMT                              3921.0    0.974    0.518    0.200    0.650    0.900    1.000      4.900      4.700
+PLACCA                          10936.0    0.229    0.420    0.000    0.000    0.000    0.000      1.000      1.000
+INS_CARD                        20233.0    0.116    0.320    0.000    0.000    0.000    0.000      1.000      1.000
+ACEI                            20352.0    0.164    0.371    0.000    0.000    0.000    0.000      1.000      1.000
+SARTANI                         17277.0    0.121    0.326    0.000    0.000    0.000    0.000      1.000      1.000
+CAA_DIID                        24637.0    0.103    0.304    0.000    0.000    0.000    0.000      1.000      1.000
+ALTRO_CAA                       13853.0    0.013    0.115    0.000    0.000    0.000    0.000      1.000      1.000
+BETABLOCCANTI                   23562.0    0.093    0.291    0.000    0.000    0.000    0.000      1.000      1.000
+DIURETICI                       23712.0    0.171    0.377    0.000    0.000    0.000    0.000      1.000      1.000
+HCTZ                             9741.0    0.094    0.291    0.000    0.000    0.000    0.000      1.000      1.000
+INDAPAMIDE                       9729.0    0.013    0.111    0.000    0.000    0.000    0.000      1.000      1.000
+CLORTALIDONE                    12937.0    0.017    0.130    0.000    0.000    0.000    0.000      1.000      1.000
+DELL_ANSA                       15867.0    0.062    0.241    0.000    0.000    0.000    0.000      1.000      1.000
+STATINA                         25734.0    0.068    0.252    0.000    0.000    0.000    0.000      1.000      1.000
+STATO_AL_FU                     21247.0    0.149    0.356    0.000    0.000    0.000    0.000      1.000      1.000
+NF_IMA                          20763.0    0.022    0.147    0.000    0.000    0.000    0.000      1.000      1.000
+F_IMA                           19932.0    0.022    0.146    0.000    0.000    0.000    0.000      1.000      1.000
+NF_CBV                          20748.0    0.019    0.137    0.000    0.000    0.000    0.000      1.000      1.000
+F_CBV                           19881.0    0.018    0.134    0.000    0.000    0.000    0.000      1.000      1.000
+NF_HF                           19687.0    0.014    0.117    0.000    0.000    0.000    0.000      1.000      1.000
+F_HF                            16933.0    0.026    0.235    0.000    0.000    0.000    0.000     23.000     23.000
+RIV_COR                         12592.0    0.014    0.116    0.000    0.000    0.000    0.000      1.000      1.000
+MORTE_CV                        21938.0    0.071    0.256    0.000    0.000    0.000    0.000      1.000      1.000
+IPERTESO                        27078.0    0.661    0.473    0.000    0.000    1.000    1.000      1.000      1.000
+FU                              22833.0  130.270   68.358    0.000   80.000  139.000  170.000    349.000    349.000
+FU_NF_IMA                       22265.0  130.166   67.965    1.000   80.000  137.000  173.000    348.000    347.000
+FU_F_IMA                        22266.0  115.617   75.145    1.000   45.000  128.000  164.000    290.000    289.000
+FU_NF_CBV                       22269.0  129.149   68.348    0.000   78.000  136.000  174.000    348.000    348.000
+FU_F_CBV                        22266.0  129.671   68.180    1.000   80.000  135.000  175.000    348.000    347.000
+FU_NF_HF                        22264.0  115.546   75.132    1.000   44.000  130.000  164.000    290.000    289.000
+FU_F_HF                         22265.0  130.122   68.174    1.000   81.000  136.000  177.000    349.000    348.000
+PCR                              3844.0    2.361   13.036    0.000    0.490    1.170    2.000    532.000    532.000
+VES                               680.0   19.391   15.962    2.000    8.000   16.000   24.000     98.000     96.000
+OMEGA_3                          4005.0    0.056    0.229    0.000    0.000    0.000    0.000      1.000      1.000
+FIBRATI                          4696.0    0.009    0.094    0.000    0.000    0.000    0.000      1.000      1.000
+EZETEMIBE                        4439.0    0.024    0.153    0.000    0.000    0.000    0.000      1.000      1.000
+ACIDO_NICOTINICO                 3394.0    0.000    0.000    0.000    0.000    0.000    0.000      0.000      0.000
+RESINE                           3394.0    0.001    0.038    0.000    0.000    0.000    0.000      1.000      1.000
+MENOPAUSA                        3170.0    0.461    0.499    0.000    0.000    0.000    1.000      1.000      1.000
+ANNI_MENOP                       1447.0   16.832   12.141    0.000    6.615   17.000   25.000     58.000     58.000
+IMA_BASE                         1576.0    0.000    0.000    0.000    0.000    0.000    0.000      0.000      0.000
+CBV_BASE                         1576.0    0.000    0.000    0.000    0.000    0.000    0.000      0.000      0.000
+FA_BASE                          3612.0    0.031    0.174    0.000    0.000    0.000    0.000      1.000      1.000
+HF_BASE                          1576.0    0.000    0.000    0.000    0.000    0.000    0.000      0.000      0.000
+NF_FA                            2283.0    0.019    0.138    0.000    0.000    0.000    0.000      1.000      1.000
+FU_NF_FA                         2275.0    0.050    0.482    0.000    0.000    0.000    0.000      9.000      9.000
+
+======================================================================
+4. FEATURE CATEGORICHE / TESTUALI
+======================================================================
+
+• SESSO0  ->  2 valori distinti
+    UOMO                                         13,539 (50.00%)
+    DONNA                                        13,539 (50.00%)
+
+======================================================================
+7. RIGA RIASSUNTIVA (per la tabella di confronto in tesi)
+======================================================================
+Campioni: 27078 | Feature: 85 (num: 84, cat: 1) | Classi: — | Mancanti medi: 41.77% | Duplicati: 105
+Post
+
+======================================================================
+1. PANORAMICA GENERALE
+======================================================================
+Numero di campioni (righe):       21,198
+Numero di feature (colonne):      77
+Dimensione in memoria:            12.61 MB
+Righe duplicate:                  13 (0.06%)
+
+======================================================================
+2. FEATURE, TIPI E VALORI MANCANTI
+======================================================================
+                     tipo  valori_distinti  mancanti  mancanti_%  costante
+SESSO               int64                2         0        0.00     False
+ETA               float64             3593         2        0.01     False
+FAM_IPERT         float64                2      5694       26.86     False
+FAM_CV            float64                2      8217       38.76     False
+DIABETE           float64                2        45        0.21     False
+FUMO_ATT          float64                2       748        3.53     False
+EXFUMO            float64                2      4179       19.71     False
+ALCOOL            float64                2      4246       20.03     False
+ETANOLO_G_DIE     float64              468     14639       69.06     False
+ATT_FIS           float64                2      9531       44.96     False
+ATT_FIS_H_SETT    float64              816     14406       67.96     False
+IRC               float64                2       984        4.64     False
+GOTTA             float64                2      9081       42.84     False
+ALLOPURINOLO      float64                2      8884       41.91     False
+PESO              float64              863       128        0.60     False
+ALTEZZA           float64              119       152        0.72     False
+BMI               float64             5899       181        0.85     False
+VITA              float64              184     10961       51.71     False
+PAS               float64              527       294        1.39     False
+PAD               float64              317       294        1.39     False
+FC                float64              357      2905       13.70     False
+CREATININA        float64              390      1172        5.53     False
+AZOTEMIA          float64              472     11193       52.80     False
+URICEMIA          float64              417         0        0.00     False
+ALB_CAT           float64                2     18690       88.17     False
+NORMOMICROMACRO   float64                3     16291       76.85     False
+GLICEMIA          float64              327      3305       15.59     False
+CT                float64              334       556        2.62     False
+HDL               float64              610      2881       13.59     False
+TG                float64              628         0        0.00     False
+HB                float64              249      7636       36.02     False
+HT                float64              321      5391       25.43     False
+IMT               float64              113     20038       94.53     False
+PLACCA            float64                2     14082       66.43     False
+INS_CARD          float64                2      4863       22.94     False
+ACEI              float64                2      5446       25.69     False
+SARTANI           float64                2      8380       39.53     False
+CAA_DIID          float64                2      1167        5.51     False
+ALTRO_CAA         float64                2     11124       52.48     False
+BETABLOCCANTI     float64                2      2248       10.60     False
+DIURETICI         float64                2      2152       10.15     False
+HCTZ              float64                2     14859       70.10     False
+INDAPAMIDE        float64                2     14864       70.12     False
+CLORTALIDONE      float64                2     11667       55.04     False
+DELL_ANSA         float64                2      9702       45.77     False
+STATINA           float64                2      1106        5.22     False
+STATO_AL_FU       float64                2         0        0.00     False
+NF_IMA            float64                2       612        2.89     False
+F_IMA             float64                2      1282        6.05     False
+NF_CBV            float64                2       610        2.88     False
+F_CBV             float64                2      1332        6.28     False
+NF_HF             float64                2      1526        7.20     False
+F_HF              float64                3      4279       20.19     False
+RIV_COR           float64                2      8625       40.69     False
+MORTE_CV          float64                2         5        0.02     False
+IPERTESO            int64                2         0        0.00     False
+FU                float64              307         0        0.00     False
+FU_NF_IMA         float64              303       453        2.14     False
+FU_F_IMA          float64              257       451        2.13     False
+FU_NF_CBV         float64              303       449        2.12     False
+FU_F_CBV          float64              302       451        2.13     False
+FU_NF_HF          float64              257       453        2.14     False
+FU_F_HF           float64              307       451        2.13     False
+PCR               float64              430     18305       86.35     False
+OMEGA_3           float64                2     17943       84.64     False
+FIBRATI           float64                2     17942       84.64     False
+EZETEMIBE         float64                2     17844       84.18     False
+ACIDO_NICOTINICO  float64                1     18294       86.30      True
+RESINE            float64                2     18294       86.30     False
+MENOPAUSA         float64                3      9747       45.98     False
+ANNI_MENOP        float64              372      9758       46.03     False
+IMA_BASE          float64                1     19622       92.57      True
+CBV_BASE          float64                1     19622       92.57      True
+FA_BASE           float64                2     18861       88.98     False
+HF_BASE           float64                1     19622       92.57      True
+NF_FA             float64                2     19260       90.86     False
+FU_NF_FA          float64               10     19267       90.89     False
+
+[!] Colonne costanti (da valutare se rimuovere): ['ACIDO_NICOTINICO', 'IMA_BASE', 'CBV_BASE', 'HF_BASE']
+
+======================================================================
+3. STATISTICHE DESCRITTIVE (feature numeriche)
+======================================================================
+                    count     mean     std     min      25%      50%      75%      max    range
+SESSO             21198.0    0.489   0.500    0.00    0.000    0.000    1.000    1.000    1.000
+ETA               21196.0   56.410  14.891   18.00   46.000   56.433   68.830  100.000   82.000
+FAM_IPERT         15504.0    0.540   0.498    0.00    0.000    1.000    1.000    1.000    1.000
+FAM_CV            12981.0    0.428   0.495    0.00    0.000    0.000    1.000    1.000    1.000
+DIABETE           21153.0    0.100   0.300    0.00    0.000    0.000    0.000    1.000    1.000
+FUMO_ATT          20450.0    0.249   0.432    0.00    0.000    0.000    0.000    1.000    1.000
+EXFUMO            17019.0    0.212   0.408    0.00    0.000    0.000    0.000    1.000    1.000
+ALCOOL            16952.0    0.633   0.482    0.00    0.000    1.000    1.000    1.000    1.000
+ETANOLO_G_DIE      6559.0   27.719  28.935    0.00   10.000   21.132   37.500  308.100  308.100
+ATT_FIS           11667.0    0.559   0.497    0.00    0.000    1.000    1.000    1.000    1.000
+ATT_FIS_H_SETT     6792.0   14.303  21.251    0.00    0.000    5.000   19.040  117.283  117.283
+IRC               20214.0    0.174   0.379    0.00    0.000    0.000    0.000    1.000    1.000
+GOTTA             12117.0    0.011   0.102    0.00    0.000    0.000    0.000    1.000    1.000
+ALLOPURINOLO      12314.0    0.011   0.104    0.00    0.000    0.000    0.000    1.000    1.000
+PESO              21070.0   72.186  13.839   31.80   62.000   71.100   80.000  152.000  120.200
+ALTEZZA           21046.0  164.639   9.796  129.00  158.000  165.000  171.000  200.000   71.000
+BMI               21017.0   26.583   4.286   13.62   23.712   26.175   29.013   58.640   45.020
+VITA              10237.0   89.832  12.601   42.00   81.000   90.000   98.000  170.000  128.000
+PAS               20904.0  143.100  23.733   70.00  126.000  140.000  158.000  300.000  230.000
+PAD               20904.0   85.461  12.841   39.00   76.000   85.000   94.000  155.000  116.000
+FC                18293.0   72.088  12.485   30.00   64.000   72.000   80.000  168.000  138.000
+CREATININA        20026.0    0.929   0.244    0.10    0.800    0.900    1.013    9.700    9.600
+AZOTEMIA          10005.0   33.364  10.102    4.50   26.900   32.600   39.000  218.000  213.500
+URICEMIA          21198.0    5.014   1.410    1.00    4.000    4.900    5.900   14.200   13.200
+ALB_CAT            2508.0    0.046   0.210    0.00    0.000    0.000    0.000    1.000    1.000
+NORMOMICROMACRO    4907.0    0.110   0.340    0.00    0.000    0.000    0.000    2.000    2.000
+GLICEMIA          17893.0   98.475  24.816   40.00   86.000   94.000  103.000  488.000  448.000
+CT                20642.0  212.695  39.484   55.00  185.000  213.000  241.000  350.000  295.000
+HDL               18317.0   52.882  14.901   10.00   42.000   51.000   61.600  138.000  128.000
+TG                21198.0  127.900  79.013   20.00   77.000  108.000  154.000  900.000  880.000
+HB                13562.0   14.403   1.413    5.25   13.500   14.500   15.400   20.200   14.950
+HT                15807.0   42.660   3.898   15.50   40.000   42.800   45.200   63.300   47.800
+IMT                1160.0    1.207   0.715    0.20    0.850    1.000    1.300    4.900    4.700
+PLACCA             7116.0    0.198   0.399    0.00    0.000    0.000    0.000    1.000    1.000
+INS_CARD          16335.0    0.134   0.340    0.00    0.000    0.000    0.000    1.000    1.000
+ACEI              15752.0    0.149   0.356    0.00    0.000    0.000    0.000    1.000    1.000
+SARTANI           12818.0    0.075   0.263    0.00    0.000    0.000    0.000    1.000    1.000
+CAA_DIID          20031.0    0.076   0.265    0.00    0.000    0.000    0.000    1.000    1.000
+ALTRO_CAA         10074.0    0.008   0.089    0.00    0.000    0.000    0.000    1.000    1.000
+BETABLOCCANTI     18950.0    0.085   0.278    0.00    0.000    0.000    0.000    1.000    1.000
+DIURETICI         19046.0    0.151   0.358    0.00    0.000    0.000    0.000    1.000    1.000
+HCTZ               6339.0    0.075   0.264    0.00    0.000    0.000    0.000    1.000    1.000
+INDAPAMIDE         6334.0    0.012   0.109    0.00    0.000    0.000    0.000    1.000    1.000
+CLORTALIDONE       9531.0    0.020   0.141    0.00    0.000    0.000    0.000    1.000    1.000
+DELL_ANSA         11496.0    0.041   0.198    0.00    0.000    0.000    0.000    1.000    1.000
+STATINA           20092.0    0.042   0.201    0.00    0.000    0.000    0.000    1.000    1.000
+STATO_AL_FU       21198.0    0.148   0.356    0.00    0.000    0.000    0.000    1.000    1.000
+NF_IMA            20586.0    0.021   0.144    0.00    0.000    0.000    0.000    1.000    1.000
+F_IMA             19916.0    0.022   0.145    0.00    0.000    0.000    0.000    1.000    1.000
+NF_CBV            20588.0    0.019   0.137    0.00    0.000    0.000    0.000    1.000    1.000
+F_CBV             19866.0    0.018   0.134    0.00    0.000    0.000    0.000    1.000    1.000
+NF_HF             19672.0    0.014   0.117    0.00    0.000    0.000    0.000    1.000    1.000
+F_HF              16919.0    0.026   0.235    0.00    0.000    0.000    0.000   23.000   23.000
+RIV_COR           12573.0    0.013   0.113    0.00    0.000    0.000    0.000    1.000    1.000
+MORTE_CV          21193.0    0.071   0.256    0.00    0.000    0.000    0.000    1.000    1.000
+IPERTESO          21198.0    0.654   0.476    0.00    0.000    1.000    1.000    1.000    1.000
+FU                21198.0  127.210  67.083    0.00   81.000  137.000  168.000  349.000  349.000
+FU_NF_IMA         20745.0  128.832  65.380    1.00   85.000  137.000  170.000  348.000  347.000
+FU_F_IMA          20747.0  113.223  72.926    1.00   37.000  127.000  161.000  290.000  289.000
+FU_NF_CBV         20749.0  127.741  65.785    0.00   82.000  135.000  170.000  348.000  348.000
+FU_F_CBV          20747.0  128.303  65.607    1.00   84.000  135.000  170.000  348.000  347.000
+FU_NF_HF          20745.0  113.146  72.910    1.00   36.000  129.000  161.000  290.000  289.000
+FU_F_HF           20747.0  128.783  65.610    1.00   85.000  135.000  170.000  349.000  348.000
+PCR                2893.0    1.833   5.135    0.00    0.740    1.320    1.980  217.130  217.130
+OMEGA_3            3255.0    0.044   0.205    0.00    0.000    0.000    0.000    1.000    1.000
+FIBRATI            3256.0    0.006   0.074    0.00    0.000    0.000    0.000    1.000    1.000
+EZETEMIBE          3354.0    0.018   0.131    0.00    0.000    0.000    0.000    1.000    1.000
+ACIDO_NICOTINICO   2904.0    0.000   0.000    0.00    0.000    0.000    0.000    0.000    0.000
+RESINE             2904.0    0.002   0.041    0.00    0.000    0.000    0.000    1.000    1.000
+MENOPAUSA         11451.0   -0.852   0.483   -1.00   -1.000   -1.000   -1.000    1.000    2.000
+ANNI_MENOP        11440.0    0.036   4.964   -1.00   -1.000   -1.000   -1.000   58.000   59.000
+IMA_BASE           1576.0    0.000   0.000    0.00    0.000    0.000    0.000    0.000    0.000
+CBV_BASE           1576.0    0.000   0.000    0.00    0.000    0.000    0.000    0.000    0.000
+FA_BASE            2337.0    0.015   0.123    0.00    0.000    0.000    0.000    1.000    1.000
+HF_BASE            1576.0    0.000   0.000    0.00    0.000    0.000    0.000    0.000    0.000
+NF_FA              1938.0    0.016   0.125    0.00    0.000    0.000    0.000    1.000    1.000
+FU_NF_FA           1931.0    0.045   0.485    0.00    0.000    0.000    0.000    9.000    9.000
+
+======================================================================
+4. FEATURE CATEGORICHE / TESTUALI
+======================================================================
+Nessuna feature categorica.
+
+======================================================================
+7. RIGA RIASSUNTIVA (per la tabella di confronto in tesi)
+======================================================================
+Campioni: 21198 | Feature: 77 (num: 77, cat: 0) | Classi: — | Mancanti medi: 33.68% | Duplicati: 13
+Stampa completata
