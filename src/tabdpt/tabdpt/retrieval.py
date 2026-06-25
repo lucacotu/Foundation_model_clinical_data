@@ -20,7 +20,7 @@ class FAISS:
             raise NotImplementedError(f"Unsupported metric: {metric}")
 
         self.index = NearestNeighbors(metric=sk_metric, algorithm="auto")
-        self.index.fit(X)
+        self.index.fit(np.nan_to_num(X, nan=0.0))
 
     def get_knn_indices(self, queries: np.ndarray | torch.Tensor, k: int) -> np.ndarray:
         if isinstance(queries, torch.Tensor):
@@ -28,5 +28,5 @@ class FAISS:
         queries = np.ascontiguousarray(queries, dtype=np.float32)
         assert isinstance(k, int)
 
-        _, indices = self.index.kneighbors(queries, n_neighbors=k)
+        _, indices = self.index.kneighbors(np.nan_to_num(queries, nan=0.0), n_neighbors=k)
         return indices
