@@ -145,6 +145,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
             path_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold + 1, f_model)
             device   = "cuda" if torch.cuda.is_available() else "cpu"
 
+            set_seed(seed + fold)
             if f_model == "tabpfn":
                 print("Generating TabPFN Embeddings...")
                 train_embeddings, test_embeddings = get_tabpfn_embeddings(
@@ -194,6 +195,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 fixed_epochs_simple = load_fixed_epochs(path_dir, "deepsurv_simple")
             else:
                 try:
+                    set_seed(seed + fold + 1)
                     print("Fitting DeepSurv Simple pilot model...")
                     pilot    = create_deepsurv_simple(X_train_mean.shape[1])
                     callback = create_callbacks("pilot_simple")
@@ -211,6 +213,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 fixed_epochs_vanilla = load_fixed_epochs(path_dir, "deepsurv_vanilla")
             else:
                 try:
+                    set_seed(seed + fold + 2)
                     print("Fitting DeepSurv Vanilla pilot model...")
                     pilot    = create_deepsurv_vanilla(X_train_mean.shape[1])
                     callback = create_callbacks("pilot_vanilla")
@@ -229,6 +232,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 print(f"Evaluating method: {method}")
 
                 # RSF
+                set_seed(seed + fold + 3)
                 try:
                     model_file = "rsf.pt"
                     if ckpt_exists(method_dir, model_file):
@@ -254,6 +258,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 all_results[percentage_nan]["test_rsf"][method].append(c_test)
 
                 # DeepSurv Simple
+                set_seed(seed + fold + 4)
                 try:
                     deepsurv_simple = create_deepsurv_simple(X_train_m.shape[1])
                     fit_or_load_deepsurv(deepsurv_simple, method_dir, "deepsurv_simple.pt",
@@ -267,6 +272,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 all_results[percentage_nan]["test_deepsurv_simple"][method].append(c_test)
 
                 # DeepSurv Vanilla
+                set_seed(seed + fold + 5)
                 try:
                     deepsurv_vanilla = create_deepsurv_vanilla(X_train_m.shape[1])
                     fit_or_load_deepsurv(deepsurv_vanilla, method_dir, "deepsurv_vanilla.pt",
@@ -280,6 +286,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 all_results[percentage_nan]["test_deepsurv_vanilla"][method].append(c_test)
 
                 # Cox
+                set_seed(seed + fold + 6)
                 try:
                     model_file = "cox.pt"
                     if ckpt_exists(method_dir, model_file):
