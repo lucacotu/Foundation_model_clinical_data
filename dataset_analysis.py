@@ -975,12 +975,46 @@ def load_dataset(dataset_name):
             print("Caricato OrmoniTirodei")
             data = load_data(dataset_name, "Dataset Sirbu")
             df = clean_and_impute(dataset_name, data)
+            columns_to_drop = [
+                "Data of death",
+                "Fatal MI or Sudden death",  
+                "UnKnown", 
+                "Accident",
+                "Suicide",
+                "Number",
+                "CVD Death",
+                "Data prelievo",
+                "Cause of death", 
+                "Collected by"
+                ]
+
+            df = df.drop(columns=columns_to_drop)
+
             return((data,df))
             #df_train, df_eval = prepare_cox_data_cv(df)
         case "HURRAH":
             print("Caricato HURRAH")
             data = load_data(dataset_name, "Dataset Sirbu")
             df = clean_and_impute(dataset_name, data)
+
+            columns_to_drop = [
+                    "NF_IMA",
+                    "F_IMA",
+                    "NF_CBV",
+                    "F_CBV",
+                    "NF_HF",
+                    "F_HF",
+                    "RIV_COR",
+                    "MORTE_CV",
+                    "FU_NF_IMA",
+                    "FU_F_IMA",
+                    "FU_NF_CBV",
+                    "FU_F_CBV",
+                    "FU_NF_HF",
+                    "FU_F_HF"
+            ]
+            df = df.drop(columns=columns_to_drop)
+            
             return((data,df))
             #df_train, df_eval = prepare_cox_data_hurrah_cv(df)
         case _:

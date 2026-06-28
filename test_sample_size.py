@@ -288,47 +288,55 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
 # ─── Model helpers ──────────────────────────────────────────────────────────
 
 def _fit_deepsurv_simple(X_tr, t_tr, y_tr, X_te, t_te, y_te, X_ev, t_ev, y_ev, ckpt_path: Path):
-    in_f = X_tr.shape[1]
-    net  = nn.Linear(in_f, 1)
-    m    = CoxPH(net, tt.optim.Adam)
-    m.optimizer.set_lr(0.01)
+    try:
+        in_f = X_tr.shape[1]
+        net  = nn.Linear(in_f, 1)
+        m    = CoxPH(net, tt.optim.Adam)
+        m.optimizer.set_lr(0.01)
 
-    if ckpt_path.exists():
-        load_net_state(m.net, ckpt_path, device=m.device, model=m)
-    else:
-        cb = [tt.callbacks.EarlyStopping(
-            patience=20, min_delta=1e-4, checkpoint_model=True,
-            file_path=str(ckpt_path.with_suffix('.tmp.pt')), load_best=True,
-        )]
-        m.fit(X_tr, (t_tr, np.asarray(y_tr)), 256, 100, cb,
-              val_data=(X_ev, (t_ev, np.asarray(y_ev))), verbose=False)
-        m.compute_baseline_hazards()
-        save_net_state(m.net, ckpt_path,
-                       baseline_hazards=m.baseline_hazards_,
-                       baseline_cumulative_hazards=m.baseline_cumulative_hazards_)
-    return _eval_deepsurv(m, X_tr, t_tr, y_tr, X_te, t_te, y_te)
+        if ckpt_path.exists():
+            load_net_state(m.net, ckpt_path, device=m.device, model=m)
+        else:
+            cb = [tt.callbacks.EarlyStopping(
+                patience=20, min_delta=1e-4, checkpoint_model=True,
+                file_path=str(ckpt_path.with_suffix('.tmp.pt')), load_best=True,
+            )]
+            m.fit(X_tr, (t_tr, np.asarray(y_tr)), 256, 100, cb,
+                  val_data=(X_ev, (t_ev, np.asarray(y_ev))), verbose=False)
+            m.compute_baseline_hazards()
+            save_net_state(m.net, ckpt_path,
+                           baseline_hazards=m.baseline_hazards_,
+                           baseline_cumulative_hazards=m.baseline_cumulative_hazards_)
+        return _eval_deepsurv(m, X_tr, t_tr, y_tr, X_te, t_te, y_te)
+    except Exception as e:
+        print(f"    DeepSurv-simple fit failed: {e}")
+        return np.nan, np.nan
 
 
 def _fit_deepsurv_vanilla(X_tr, t_tr, y_tr, X_te, t_te, y_te, X_ev, t_ev, y_ev, ckpt_path: Path):
-    in_f = X_tr.shape[1]
-    net  = tt.practical.MLPVanilla(in_f, [32, 32], 1, batch_norm=True, dropout=0.1)
-    m    = CoxPH(net, tt.optim.Adam)
-    m.optimizer.set_lr(0.01)
+    try:
+        in_f = X_tr.shape[1]
+        net  = tt.practical.MLPVanilla(in_f, [32, 32], 1, batch_norm=True, dropout=0.1)
+        m    = CoxPH(net, tt.optim.Adam)
+        m.optimizer.set_lr(0.01)
 
-    if ckpt_path.exists():
-        load_net_state(m.net, ckpt_path, device=m.device, model=m)
-    else:
-        cb = [tt.callbacks.EarlyStopping(
-            patience=20, min_delta=1e-4, checkpoint_model=True,
-            file_path=str(ckpt_path.with_suffix('.tmp.pt')), load_best=True,
-        )]
-        m.fit(X_tr, (t_tr, np.asarray(y_tr)), 256, 100, cb,
-              val_data=(X_ev, (t_ev, np.asarray(y_ev))), verbose=False)
-        m.compute_baseline_hazards()
-        save_net_state(m.net, ckpt_path,
-                       baseline_hazards=m.baseline_hazards_,
-                       baseline_cumulative_hazards=m.baseline_cumulative_hazards_)
-    return _eval_deepsurv(m, X_tr, t_tr, y_tr, X_te, t_te, y_te)
+        if ckpt_path.exists():
+            load_net_state(m.net, ckpt_path, device=m.device, model=m)
+        else:
+            cb = [tt.callbacks.EarlyStopping(
+                patience=20, min_delta=1e-4, checkpoint_model=True,
+                file_path=str(ckpt_path.with_suffix('.tmp.pt')), load_best=True,
+            )]
+            m.fit(X_tr, (t_tr, np.asarray(y_tr)), 256, 100, cb,
+                  val_data=(X_ev, (t_ev, np.asarray(y_ev))), verbose=False)
+            m.compute_baseline_hazards()
+            save_net_state(m.net, ckpt_path,
+                           baseline_hazards=m.baseline_hazards_,
+                           baseline_cumulative_hazards=m.baseline_cumulative_hazards_)
+        return _eval_deepsurv(m, X_tr, t_tr, y_tr, X_te, t_te, y_te)
+    except Exception as e:
+        print(f"    DeepSurv-vanilla fit failed: {e}")
+        return np.nan, np.nan
 
 
 def _eval_deepsurv(m, X_tr, t_tr, y_tr, X_te, t_te, y_te):
@@ -340,27 +348,31 @@ def _eval_deepsurv(m, X_tr, t_tr, y_tr, X_te, t_te, y_te):
 
 
 def _fit_rsf(X_tr, y_tr_struct, t_tr, y_tr, X_te, y_te_struct, t_te, y_te, ckpt_path: Path, seed: int):
-    if ckpt_path.exists():
-        rsf = load(ckpt_path)
-    else:
-        rsf = RandomSurvivalForest(
-            n_estimators=100, min_samples_split=10, min_samples_leaf=15,
-            n_jobs=-1, random_state=seed,
-        )
-        rsf.fit(X_tr, y_tr_struct)
-        dump(rsf, ckpt_path)
+    try:
+        if ckpt_path.exists():
+            rsf = load(ckpt_path)
+        else:
+            rsf = RandomSurvivalForest(
+                n_estimators=100, min_samples_split=10, min_samples_leaf=15,
+                n_jobs=-1, random_state=seed,
+            )
+            rsf.fit(X_tr, y_tr_struct)
+            dump(rsf, ckpt_path)
 
-    def _surv_df(rsf, X):
-        fns = rsf.predict_survival_function(X)
-        tp  = fns[0].x
-        mat = np.vstack([f(tp) for f in fns]).T
-        return pd.DataFrame(mat, index=tp)
+        def _surv_df(rsf, X):
+            fns = rsf.predict_survival_function(X)
+            tp  = fns[0].x
+            mat = np.vstack([f(tp) for f in fns]).T
+            return pd.DataFrame(mat, index=tp)
 
-    s_te = _surv_df(rsf, X_te)
-    s_tr = _surv_df(rsf, X_tr)
-    ev_te = EvalSurv(s_te, t_te, np.asarray(y_te), censor_surv='km')
-    ev_tr = EvalSurv(s_tr, t_tr, np.asarray(y_tr), censor_surv='km')
-    return ev_tr.concordance_td(), ev_te.concordance_td()
+        s_te = _surv_df(rsf, X_te)
+        s_tr = _surv_df(rsf, X_tr)
+        ev_te = EvalSurv(s_te, t_te, np.asarray(y_te), censor_surv='km')
+        ev_tr = EvalSurv(s_tr, t_tr, np.asarray(y_tr), censor_surv='km')
+        return ev_tr.concordance_td(), ev_te.concordance_td()
+    except Exception as e:
+        print(f"    RSF fit failed: {e}")
+        return np.nan, np.nan
 
 
 def _fit_cox(X_tr, t_tr, y_tr, X_te, t_te, y_te, ckpt_path: Path):

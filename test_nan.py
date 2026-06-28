@@ -79,7 +79,7 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
         X[np.isnan(X)]           = -1
         X_eval[np.isnan(X_eval)] = -1
 
-    folds = get_or_create_folds(X, dataset_name=dataset_name, seed=seed, n_splits=2,
+    folds = get_or_create_folds(X, dataset_name=dataset_name, seed=seed, n_splits=5,
                                  base_path="tmp/splits/")
 
     imputation_methods = ["embeddings", "mean", "median", "constant", "knn", "imputer_bayesian"]
@@ -193,27 +193,35 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 print("Loading epochs value...")
                 fixed_epochs_simple = load_fixed_epochs(path_dir, "deepsurv_simple")
             else:
-                print("Fitting DeepSurv Simple pilot model...")
-                pilot    = create_deepsurv_simple(X_train_mean.shape[1])
-                callback = create_callbacks("pilot_simple")
-                pilot.fit(X_train_mean, (t_train, np.asarray(y_train)), 256, 100, callback,
-                          val_data=(X_eval_mean, (t_eval, np.asarray(y_eval))), verbose=True)
-                log = pilot.log.to_pandas()
-                fixed_epochs_simple = len(log) - callback[0]._iter_since_best
-                save_fixed_epochs(path_dir, "deepsurv_simple", fixed_epochs_simple)
+                try:
+                    print("Fitting DeepSurv Simple pilot model...")
+                    pilot    = create_deepsurv_simple(X_train_mean.shape[1])
+                    callback = create_callbacks("pilot_simple")
+                    pilot.fit(X_train_mean, (t_train, np.asarray(y_train)), 256, 100, callback,
+                              val_data=(X_eval_mean, (t_eval, np.asarray(y_eval))), verbose=True)
+                    log = pilot.log.to_pandas()
+                    fixed_epochs_simple = len(log) - callback[0]._iter_since_best
+                    save_fixed_epochs(path_dir, "deepsurv_simple", fixed_epochs_simple)
+                except Exception as e:
+                    print(f"    DeepSurv-simple pilot failed: {e}. Using default 50 epochs.")
+                    fixed_epochs_simple = 50
 
             if ckpt_exists(path_dir, "fixed_epochs_deepsurv_vanilla.json"):
                 print("Loading epochs value...")
                 fixed_epochs_vanilla = load_fixed_epochs(path_dir, "deepsurv_vanilla")
             else:
-                print("Fitting DeepSurv Vanilla pilot model...")
-                pilot    = create_deepsurv_vanilla(X_train_mean.shape[1])
-                callback = create_callbacks("pilot_vanilla")
-                pilot.fit(X_train_mean, (t_train, np.asarray(y_train)), 256, 100, callback,
-                          val_data=(X_eval_mean, (t_eval, np.asarray(y_eval))), verbose=True)
-                log = pilot.log.to_pandas()
-                fixed_epochs_vanilla = len(log) - callback[0]._iter_since_best
-                save_fixed_epochs(path_dir, "deepsurv_vanilla", fixed_epochs_vanilla)
+                try:
+                    print("Fitting DeepSurv Vanilla pilot model...")
+                    pilot    = create_deepsurv_vanilla(X_train_mean.shape[1])
+                    callback = create_callbacks("pilot_vanilla")
+                    pilot.fit(X_train_mean, (t_train, np.asarray(y_train)), 256, 100, callback,
+                              val_data=(X_eval_mean, (t_eval, np.asarray(y_eval))), verbose=True)
+                    log = pilot.log.to_pandas()
+                    fixed_epochs_vanilla = len(log) - callback[0]._iter_since_best
+                    save_fixed_epochs(path_dir, "deepsurv_vanilla", fixed_epochs_vanilla)
+                except Exception as e:
+                    print(f"    DeepSurv-vanilla pilot failed: {e}. Using default 50 epochs.")
+                    fixed_epochs_vanilla = 50
 
             for method, (X_train_m, X_test_m, X_eval_m) in zip(imputation_methods, sets):
                 method_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold + 1,
@@ -221,66 +229,83 @@ def main(dataset_name, feature_event, feature_time, seed, percentages, f_model):
                 print(f"Evaluating method: {method}")
 
                 # RSF
-                model_file = "rsf.pt"
-                if ckpt_exists(method_dir, model_file):
-                    print("Loading Random Survival Forest...")
-                    rsf = load(os.path.join(method_dir, model_file))
-                else:
-                    print("Fitting Random Survival Forest model...")
-                    rsf = create_rsf_model(seed)
-                    rsf.fit(X_train_m, y_train_structured)
-                    dump(rsf, os.path.join(method_dir, model_file))
+                try:
+                    model_file = "rsf.pt"
+                    if ckpt_exists(method_dir, model_file):
+                        print("Loading Random Survival Forest...")
+                        rsf = load(os.path.join(method_dir, model_file))
+                    else:
+                        print("Fitting Random Survival Forest model...")
+                        rsf = create_rsf_model(seed)
+                        rsf.fit(X_train_m, y_train_structured)
+                        dump(rsf, os.path.join(method_dir, model_file))
 
-                surv_train = rsf_surv_to_df(rsf.predict_survival_function(X_train_m))
-                surv_test  = rsf_surv_to_df(rsf.predict_survival_function(X_test_m))
-                ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
-                ev_test  = EvalSurv(surv_test,  t_test,  np.asarray(y_test),  censor_surv='km')
-                c_train, c_test = ev_train.concordance_td(), ev_test.concordance_td()
+                    surv_train = rsf_surv_to_df(rsf.predict_survival_function(X_train_m))
+                    surv_test  = rsf_surv_to_df(rsf.predict_survival_function(X_test_m))
+                    ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
+                    ev_test  = EvalSurv(surv_test,  t_test,  np.asarray(y_test),  censor_surv='km')
+                    c_train, c_test = ev_train.concordance_td(), ev_test.concordance_td()
+                    print("C-index TRAIN:", c_train)
+                    print("C-index TEST :", c_test)
+                except Exception as e:
+                    print(f"    RSF fit failed: {e}")
+                    c_train, c_test = np.nan, np.nan
                 all_results[percentage_nan]["train_rsf"][method].append(c_train)
                 all_results[percentage_nan]["test_rsf"][method].append(c_test)
-                print("C-index TRAIN:", c_train)
-                print("C-index TEST :", c_test)
 
                 # DeepSurv Simple
-                deepsurv_simple = create_deepsurv_simple(X_train_m.shape[1])
-                fit_or_load_deepsurv(deepsurv_simple, method_dir, "deepsurv_simple.pt",
-                                     X_train_m, t_train, y_train, fixed_epochs_simple)
-                c_train, c_test = eval_surv_concordance(
-                    deepsurv_simple, X_train_m, X_test_m, t_train, t_test, y_train, y_test)
+                try:
+                    deepsurv_simple = create_deepsurv_simple(X_train_m.shape[1])
+                    fit_or_load_deepsurv(deepsurv_simple, method_dir, "deepsurv_simple.pt",
+                                         X_train_m, t_train, y_train, fixed_epochs_simple)
+                    c_train, c_test = eval_surv_concordance(
+                        deepsurv_simple, X_train_m, X_test_m, t_train, t_test, y_train, y_test)
+                except Exception as e:
+                    print(f"    DeepSurv-simple fit failed: {e}")
+                    c_train, c_test = np.nan, np.nan
                 all_results[percentage_nan]["train_deepsurv_simple"][method].append(c_train)
                 all_results[percentage_nan]["test_deepsurv_simple"][method].append(c_test)
 
                 # DeepSurv Vanilla
-                deepsurv_vanilla = create_deepsurv_vanilla(X_train_m.shape[1])
-                fit_or_load_deepsurv(deepsurv_vanilla, method_dir, "deepsurv_vanilla.pt",
-                                     X_train_m, t_train, y_train, fixed_epochs_vanilla)
-                c_train, c_test = eval_surv_concordance(
-                    deepsurv_vanilla, X_train_m, X_test_m, t_train, t_test, y_train, y_test)
+                try:
+                    deepsurv_vanilla = create_deepsurv_vanilla(X_train_m.shape[1])
+                    fit_or_load_deepsurv(deepsurv_vanilla, method_dir, "deepsurv_vanilla.pt",
+                                         X_train_m, t_train, y_train, fixed_epochs_vanilla)
+                    c_train, c_test = eval_surv_concordance(
+                        deepsurv_vanilla, X_train_m, X_test_m, t_train, t_test, y_train, y_test)
+                except Exception as e:
+                    print(f"    DeepSurv-vanilla fit failed: {e}")
+                    c_train, c_test = np.nan, np.nan
                 all_results[percentage_nan]["train_deepsurv_vanilla"][method].append(c_train)
                 all_results[percentage_nan]["test_deepsurv_vanilla"][method].append(c_test)
 
                 # Cox
-                model_file = "cox.pt"
-                if ckpt_exists(method_dir, model_file):
-                    print("Loading Cox model...")
-                    cph = load(os.path.join(method_dir, model_file))
-                else:
-                    print("Fitting Cox model...")
-                    cph    = create_cox()
-                    df_fit = pd.DataFrame(X_train_m)
-                    df_fit['__t__'] = t_train
-                    df_fit['__e__'] = np.asarray(y_train)
-                    cph.fit(df_fit, duration_col='__t__', event_col='__e__')
-                    dump(cph, os.path.join(method_dir, model_file))
+                try:
+                    model_file = "cox.pt"
+                    if ckpt_exists(method_dir, model_file):
+                        print("Loading Cox model...")
+                        cph = load(os.path.join(method_dir, model_file))
+                    else:
+                        print("Fitting Cox model...")
+                        cph    = create_cox()
+                        df_fit = pd.DataFrame(X_train_m)
+                        df_fit['__t__'] = t_train
+                        df_fit['__e__'] = np.asarray(y_train)
+                        cph.fit(df_fit, duration_col='__t__', event_col='__e__')
+                        dump(cph, os.path.join(method_dir, model_file))
 
-                surv_test  = cph.predict_survival_function(X_test_m)
-                surv_train = cph.predict_survival_function(X_train_m)
-                ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
-                ev_test  = EvalSurv(surv_test,  t_test,  np.asarray(y_test),  censor_surv='km')
-                all_results[percentage_nan]["train_cox"][method].append(ev_train.concordance_td())
-                all_results[percentage_nan]["test_cox"][method].append(ev_test.concordance_td())
-                print("C-index TRAIN:", ev_train.concordance_td())
-                print("C-index TEST :", ev_test.concordance_td())
+                    surv_test  = cph.predict_survival_function(X_test_m)
+                    surv_train = cph.predict_survival_function(X_train_m)
+                    ev_train = EvalSurv(surv_train, t_train, np.asarray(y_train), censor_surv='km')
+                    ev_test  = EvalSurv(surv_test,  t_test,  np.asarray(y_test),  censor_surv='km')
+                    c_train, c_test = ev_train.concordance_td(), ev_test.concordance_td()
+                    print("C-index TRAIN:", c_train)
+                    print("C-index TEST :", c_test)
+                except Exception as e:
+                    print(f"    Cox fit failed: {e}")
+                    c_train, c_test = np.nan, np.nan
+                all_results[percentage_nan]["train_cox"][method].append(c_train)
+                all_results[percentage_nan]["test_cox"][method].append(c_test)
 
     # Return in the same format as process_results expects after flattening
     return {
@@ -540,25 +565,37 @@ def process_results(results):
         }
         for model_name, (train_dict, test_dict) in models.items():
             for method in train_dict:
-                train_vals = np.array(train_dict[method])
-                test_vals  = np.array(test_dict[method])
+                train_vals = np.array(train_dict[method], dtype=float)
+                test_vals  = np.array(test_dict[method], dtype=float)
+                n_train = np.sum(~np.isnan(train_vals))
+                n_test  = np.sum(~np.isnan(test_vals))
+                if n_train == 0 or n_test == 0:
+                    print(f"  WARNING: all folds are NaN for {model_name}/{method}")
+                elif n_train < len(train_vals):
+                    print(f"  WARNING: {len(train_vals)-n_train} NaN fold(s) excluded from train mean for {model_name}/{method}")
+                if n_test > 0 and n_test < len(test_vals):
+                    print(f"  WARNING: {len(test_vals)-n_test} NaN fold(s) excluded from test mean for {model_name}/{method}")
                 rows.append({
                     "seed":       seed,
                     "nan_ratio":  nan_ratio,
                     "model":      model_name,
                     "method":     method,
-                    "train_mean": train_vals.mean(),
-                    "train_std":  train_vals.std(),
-                    "test_mean":  test_vals.mean(),
-                    "test_std":   test_vals.std(),
+                    "train_mean": np.nanmean(train_vals) if n_train > 0 else np.nan,
+                    "train_std":  np.nanstd(train_vals)  if n_train > 0 else np.nan,
+                    "test_mean":  np.nanmean(test_vals)  if n_test  > 0 else np.nan,
+                    "test_std":   np.nanstd(test_vals)   if n_test  > 0 else np.nan,
                 })
     return pd.DataFrame(rows)
 
 
 def print_stats(label, values):
-    arr = np.array(values)
-    print(f"  {label:10s} → mean: {arr.mean():.4f} | std: {arr.std():.4f} | "
-          f"min: {arr.min():.4f} | max: {arr.max():.4f}")
+    arr = np.array(values, dtype=float)
+    valid = arr[~np.isnan(arr)]
+    if len(valid) == 0:
+        print(f"  {label:10s} → nan")
+    else:
+        print(f"  {label:10s} → mean: {valid.mean():.4f} | std: {valid.std():.4f} | "
+              f"min: {valid.min():.4f} | max: {valid.max():.4f}")
 
 
 # ── output tee ────────────────────────────────────────────────────────────────
