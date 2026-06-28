@@ -362,9 +362,13 @@ def _fit_rsf(X_tr, y_tr_struct, t_tr, y_tr, X_te, y_te_struct, t_te, y_te, ckpt_
             rsf = load(ckpt_path)
         else:
             rsf = RandomSurvivalForest(
-                n_estimators=100, min_samples_split=10, min_samples_leaf=15,
-                n_jobs=-1, random_state=seed,
-            )
+                n_estimators=300, 
+                max_depth=10, 
+                min_samples_split=15, 
+                min_samples_leaf=10, 
+                max_features="log2", 
+                n_jobs=-1, 
+                random_state=seed),
             rsf.fit(X_tr, y_tr_struct)
             dump(rsf, ckpt_path)
 
