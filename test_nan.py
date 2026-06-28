@@ -504,11 +504,14 @@ def load_fixed_epochs(path_dir, deepsurv_type):
 
 def create_rsf_model(seed):
     return RandomSurvivalForest(
-        n_estimators=100, max_depth=3,
-        min_samples_split=2, min_samples_leaf=1,
-        max_features="sqrt", n_jobs=-1,
-        random_state=seed,
-    )
+                n_estimators=300, 
+                max_depth=10, 
+                min_samples_split=15, 
+                min_samples_leaf=10, 
+                max_features="log2", 
+                n_jobs=-1, 
+                random_state=seed
+                )
 
 
 def create_deepsurv_vanilla(in_features):

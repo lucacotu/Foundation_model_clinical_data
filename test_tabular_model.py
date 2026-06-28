@@ -700,7 +700,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 rsf_base_path = ckpt_dir / "rsf_baseline.pkl"
                 rsf_base = load_or_fit_rsf(
                     rsf_base_path,
-                    RandomSurvivalForest(n_estimators=100, min_samples_split=10, min_samples_leaf=15, n_jobs=-1, random_state=seed),
+                    RandomSurvivalForest(n_estimators=300, max_depth=10, min_samples_split=15, min_samples_leaf=10, max_features="log2", n_jobs=-1, random_state=seed),
                     np.asarray(X_train), y_train_structured,
                     label="RSF baseline",
                 )
