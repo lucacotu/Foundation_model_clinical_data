@@ -162,6 +162,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
 
                 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+                set_seed(seed + fold)
                 if model == "tabpfn":
                     train_emb, test_emb = get_tabpfn_embeddings(X_train, y_train, X_test, y_test, seed)
                     _, eval_emb = get_tabpfn_embeddings(X_train, y_train, X_eval_arr, y_eval_arr, seed)
@@ -189,6 +190,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                 ckpt_dir = get_ckpt_dir(dataset_name, preprocess_type, seed, fold + 1, model, actual_n)
 
                 # ── Foundation model + DeepSurv Simple ───────────────────
+                set_seed(seed + fold + 1)
                 c_tr, c_te = _fit_deepsurv_simple(
                     train_emb, t_train, y_train, test_emb, t_test, y_test,
                     eval_emb, t_eval, y_eval_arr,
@@ -199,6 +201,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                 print(f"  [{model}+DS-simple]  train={c_tr:.4f}  test={c_te:.4f}")
 
                 # ── Foundation model + DeepSurv Vanilla ──────────────────
+                set_seed(seed + fold + 2)
                 c_tr, c_te = _fit_deepsurv_vanilla(
                     train_emb, t_train, y_train, test_emb, t_test, y_test,
                     eval_emb, t_eval, y_eval_arr,
@@ -209,6 +212,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                 print(f"  [{model}+DS-vanilla] train={c_tr:.4f}  test={c_te:.4f}")
 
                 # ── Foundation model + RSF ────────────────────────────────
+                set_seed(seed + fold + 3)
                 c_tr, c_te = _fit_rsf(
                     train_emb, y_train_struct, t_train, y_train,
                     test_emb,  y_test_struct,  t_test,  y_test,
@@ -219,6 +223,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                 print(f"  [{model}+RSF]        train={c_tr:.4f}  test={c_te:.4f}")
 
                 # ── Foundation model + Cox ────────────────────────────────
+                set_seed(seed + fold + 4)
                 c_tr, c_te = _fit_cox(
                     train_emb, t_train, y_train, test_emb, t_test, y_test,
                     ckpt_dir / f"{model}_cox.pkl",
@@ -238,6 +243,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                         X_te_raw = np.asarray(X_test,  dtype=np.float32)
                         X_ev_raw = np.asarray(X_eval_arr, dtype=np.float32)
 
+                    set_seed(seed + fold + 5)
                     c_tr, c_te = _fit_deepsurv_simple(
                         X_tr_raw, t_train, y_train, X_te_raw, t_test, y_test,
                         X_ev_raw, t_eval, y_eval_arr,
@@ -247,6 +253,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                     scores['test_deepsurv_simple'].append(c_te)
                     print(f"  [DS-simple]         train={c_tr:.4f}  test={c_te:.4f}")
 
+                    set_seed(seed + fold + 6)
                     c_tr, c_te = _fit_deepsurv_vanilla(
                         X_tr_raw, t_train, y_train, X_te_raw, t_test, y_test,
                         X_ev_raw, t_eval, y_eval_arr,
@@ -256,6 +263,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                     scores['test_deepsurv_vanilla'].append(c_te)
                     print(f"  [DS-vanilla]        train={c_tr:.4f}  test={c_te:.4f}")
 
+                    set_seed(seed + fold + 7)
                     c_tr, c_te = _fit_rsf(
                         X_tr_raw, y_train_struct, t_train, y_train,
                         X_te_raw, y_test_struct,  t_test,  y_test,
@@ -272,6 +280,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, sample_sizes=No
                         X_cox_tr = X_train
                         X_cox_te = X_test
 
+                    set_seed(seed + fold + 8)
                     c_tr, c_te = _fit_cox(
                         X_cox_tr, t_train, y_train, X_cox_te, t_test, y_test,
                         ckpt_dir / "cox_baseline.pkl",
