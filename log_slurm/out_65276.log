@@ -1,0 +1,24 @@
+ENV CHECKPOINT PATH: 
+ENV CHECKPOINT PATH: 
+STARTED  model=tabdpt  seed=789  tuning=True  shap=False
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed789.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 955, in <module>
+    results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 448, in main
+    _,         eval_emb = get_embeddings(model, X_train, y_train, X_eval, y_eval, seed, device)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 216, in get_embeddings
+    return get_tabdpt_embeddings(X_train, y_train, X_query, device=device)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/__init__.py", line 36, in get_tabdpt_embeddings
+    print("ENV CHECKPOINT PATH:", checkpoint_path, file=sys.stderr)
+OSError: [Errno 28] No space left on device

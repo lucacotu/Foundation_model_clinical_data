@@ -1,0 +1,20 @@
+STARTED
+
+============================================================
+Dataset: OrmoniTirodei
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+Loading NaN ordering from tmp/masks/OrmoniTirodei_tabicl_seed42_fold0_eval.npy
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan.py", line 664, in <module>
+    results_by_pct = main(dataset_name, feature_event, feature_time,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan.py", line 106, in main
+    eval_ordering = get_or_create_nan_ordering(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan.py", line 350, in get_or_create_nan_ordering
+    return np.load(path)
+           ^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py", line 463, in load
+    raise EOFError("No data left in file")
+EOFError: No data left in file

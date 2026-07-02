@@ -1,0 +1,53 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+STARTED  model=tabdpt  seed=42  tuning=True  shap=False
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed42.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1
+C-index train: 0.8147
+C-index test:  0.7622
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1
+C-index train: 0.9081
+C-index test:  0.7579
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.7744
+C-index TEST:  0.7707
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8249
+C-index TEST:  0.7572
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1/tabdpt_rsf.pkl
+C-index train: 0.9187
+C-index test:  0.7583
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1/tabdpt_tab_cox.pkl
+C-index train: 0.8166
+C-index test:  0.7592
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8067
+C-index TEST:  0.7901
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed42/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7873
+C-index TEST:  0.7799
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 955, in <module>
+    results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 701, in main
+    rsf_base = load_or_fit_rsf(
+               ^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 165, in load_or_fit_rsf
+    dump(rsf, ckpt_path)
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/joblib/numpy_pickle.py", line 599, in dump
+    with open(filename, "wb") as f:
+         ^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device

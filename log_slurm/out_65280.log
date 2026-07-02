@@ -1,0 +1,175 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torchtuples/tupletree.py:146: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(data)
+STARTED
+
+============================================================
+Dataset: OrmoniTirodei
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed456.pkl
+Generating NaN ordering → tmp/masks/OrmoniTirodei_tabdpt_seed456_fold0_eval.npy
+Generating NaN ordering → tmp/masks/OrmoniTirodei_tabdpt_seed456_fold1_train.npy
+Generating NaN ordering → tmp/masks/OrmoniTirodei_tabdpt_seed456_fold1_test.npy
+[fold=1, target=10%] actual NaN%: 10.0%
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TabDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+Fitting SimpleImputer (mean)...
+Fitting SimpleImputer (median)...
+Fitting SimpleImputer (constant, fill=-1)...
+Fitting KNNImputer...
+Fitting IterativeImputer (BayesianRidge, MICE-like)...
+Fitting DeepSurv Simple pilot model...
+0:	[0s / 0s],		train_loss: 148.0024,	val_loss: 33.1183
+1:	[0s / 0s],		train_loss: 19.2552,	val_loss: 15.9794
+2:	[0s / 0s],		train_loss: 10.9117,	val_loss: 12.6620
+3:	[0s / 0s],		train_loss: 9.1060,	val_loss: 10.4195
+4:	[0s / 0s],		train_loss: 7.5885,	val_loss: 9.6970
+5:	[0s / 0s],		train_loss: 6.9137,	val_loss: 8.5698
+6:	[0s / 0s],		train_loss: 6.4940,	val_loss: 8.3943
+7:	[0s / 0s],		train_loss: 6.1146,	val_loss: 7.7339
+8:	[0s / 0s],		train_loss: 5.6413,	val_loss: 7.7130
+9:	[0s / 0s],		train_loss: 5.4293,	val_loss: 7.6394
+10:	[0s / 0s],		train_loss: 5.4951,	val_loss: 7.3642
+11:	[0s / 0s],		train_loss: 5.5075,	val_loss: 7.4011
+12:	[0s / 0s],		train_loss: 5.9702,	val_loss: 9.2718
+13:	[0s / 0s],		train_loss: 6.6790,	val_loss: 8.0711
+14:	[0s / 0s],		train_loss: 5.6031,	val_loss: 7.1138
+15:	[0s / 0s],		train_loss: 5.3565,	val_loss: 7.9053
+16:	[0s / 0s],		train_loss: 5.6626,	val_loss: 8.2429
+17:	[0s / 0s],		train_loss: 5.4372,	val_loss: 8.3179
+18:	[0s / 0s],		train_loss: 5.3311,	val_loss: 7.2992
+19:	[0s / 1s],		train_loss: 4.8400,	val_loss: 6.6267
+20:	[0s / 1s],		train_loss: 4.8762,	val_loss: 6.8995
+21:	[0s / 1s],		train_loss: 4.7710,	val_loss: 6.8614
+22:	[0s / 1s],		train_loss: 4.6820,	val_loss: 6.6029
+23:	[0s / 1s],		train_loss: 4.9876,	val_loss: 7.1390
+24:	[0s / 1s],		train_loss: 4.6938,	val_loss: 6.9164
+25:	[0s / 1s],		train_loss: 7.2702,	val_loss: 12.0680
+26:	[0s / 1s],		train_loss: 11.0914,	val_loss: 14.2217
+27:	[0s / 1s],		train_loss: 10.4567,	val_loss: 12.3183
+28:	[0s / 1s],		train_loss: 8.3744,	val_loss: 9.1506
+29:	[0s / 1s],		train_loss: 6.4951,	val_loss: 7.9240
+30:	[0s / 1s],		train_loss: 6.1299,	val_loss: 7.9845
+31:	[0s / 1s],		train_loss: 5.8468,	val_loss: 8.8710
+32:	[0s / 1s],		train_loss: 5.2823,	val_loss: 6.6577
+33:	[0s / 1s],		train_loss: 4.7923,	val_loss: 7.2138
+34:	[0s / 1s],		train_loss: 5.3825,	val_loss: 8.2184
+35:	[0s / 1s],		train_loss: 5.3099,	val_loss: 8.9781
+36:	[0s / 1s],		train_loss: 4.8233,	val_loss: 6.8546
+37:	[0s / 1s],		train_loss: 4.9274,	val_loss: 10.2170
+38:	[0s / 1s],		train_loss: 6.7552,	val_loss: 11.4312
+39:	[0s / 1s],		train_loss: 7.0528,	val_loss: 11.5888
+40:	[0s / 1s],		train_loss: 8.2122,	val_loss: 10.0892
+41:	[0s / 1s],		train_loss: 6.2949,	val_loss: 9.3762
+42:	[0s / 1s],		train_loss: 5.9173,	val_loss: 9.6934
+Saved fixed_epochs=23 → nan/tabdpt/OrmoniTirodei/nan_percentage0.1/seed456/fold1/fixed_epochs_deepsurv_simple.json
+Fitting DeepSurv Vanilla pilot model...
+0:	[0s / 0s],		train_loss: 4.7569,	val_loss: 6.4895
+1:	[0s / 0s],		train_loss: 4.5397,	val_loss: 6.3660
+2:	[0s / 0s],		train_loss: 4.5150,	val_loss: 6.3757
+3:	[0s / 0s],		train_loss: 4.4903,	val_loss: 6.3228
+4:	[0s / 0s],		train_loss: 4.4768,	val_loss: 6.3336
+5:	[0s / 0s],		train_loss: 4.4349,	val_loss: 6.3380
+6:	[0s / 0s],		train_loss: 4.4326,	val_loss: 6.3074
+7:	[0s / 0s],		train_loss: 4.4674,	val_loss: 6.3216
+8:	[0s / 0s],		train_loss: 4.4469,	val_loss: 6.2959
+9:	[0s / 0s],		train_loss: 4.4313,	val_loss: 6.2973
+10:	[0s / 0s],		train_loss: 4.4299,	val_loss: 6.3105
+11:	[0s / 0s],		train_loss: 4.4095,	val_loss: 6.3023
+12:	[0s / 0s],		train_loss: 4.3872,	val_loss: 6.3286
+13:	[0s / 0s],		train_loss: 4.4112,	val_loss: 6.3218
+14:	[0s / 0s],		train_loss: 4.3827,	val_loss: 6.3225
+15:	[0s / 0s],		train_loss: 4.3892,	val_loss: 6.3070
+16:	[0s / 0s],		train_loss: 4.3871,	val_loss: 6.2853
+17:	[0s / 0s],		train_loss: 4.3849,	val_loss: 6.3040
+18:	[0s / 0s],		train_loss: 4.3693,	val_loss: 6.3377
+19:	[0s / 1s],		train_loss: 4.3877,	val_loss: 6.3025
+20:	[0s / 1s],		train_loss: 4.3678,	val_loss: 6.3021
+21:	[0s / 1s],		train_loss: 4.3854,	val_loss: 6.2892
+22:	[0s / 1s],		train_loss: 4.3930,	val_loss: 6.3076
+23:	[0s / 1s],		train_loss: 4.4050,	val_loss: 6.3047
+24:	[0s / 1s],		train_loss: 4.3604,	val_loss: 6.3194
+25:	[0s / 1s],		train_loss: 4.3700,	val_loss: 6.3312
+26:	[0s / 1s],		train_loss: 4.3738,	val_loss: 6.3309
+27:	[0s / 1s],		train_loss: 4.3648,	val_loss: 6.3076
+28:	[0s / 1s],		train_loss: 4.3750,	val_loss: 6.3129
+29:	[0s / 1s],		train_loss: 4.3633,	val_loss: 6.3199
+30:	[0s / 1s],		train_loss: 4.3554,	val_loss: 6.2970
+31:	[0s / 1s],		train_loss: 4.3455,	val_loss: 6.3724
+32:	[0s / 1s],		train_loss: 4.3360,	val_loss: 6.3062
+33:	[0s / 1s],		train_loss: 4.3355,	val_loss: 6.3338
+34:	[0s / 1s],		train_loss: 4.3377,	val_loss: 6.3164
+35:	[0s / 1s],		train_loss: 4.3501,	val_loss: 6.3033
+36:	[0s / 1s],		train_loss: 4.3356,	val_loss: 6.3059
+Saved fixed_epochs=17 → nan/tabdpt/OrmoniTirodei/nan_percentage0.1/seed456/fold1/fixed_epochs_deepsurv_vanilla.json
+Evaluating method: embeddings
+Fitting Random Survival Forest model...
+    RSF fit failed: [Errno 28] No space left on device
+Fitting deepsurv_simple.pt...
+0:	[0s / 0s],		train_loss: 6.5972
+1:	[0s / 0s],		train_loss: 5.1224
+2:	[0s / 0s],		train_loss: 4.6429
+3:	[0s / 0s],		train_loss: 4.6272
+4:	[0s / 0s],		train_loss: 4.4860
+5:	[0s / 0s],		train_loss: 4.4264
+6:	[0s / 0s],		train_loss: 4.5182
+7:	[0s / 0s],		train_loss: 4.4988
+8:	[0s / 0s],		train_loss: 4.4940
+9:	[0s / 0s],		train_loss: 4.5317
+10:	[0s / 0s],		train_loss: 4.4581
+11:	[0s / 0s],		train_loss: 4.6035
+12:	[0s / 0s],		train_loss: 4.7163
+13:	[0s / 0s],		train_loss: 4.8043
+14:	[0s / 0s],		train_loss: 4.6534
+15:	[0s / 0s],		train_loss: 4.4746
+16:	[0s / 0s],		train_loss: 4.4826
+17:	[0s / 0s],		train_loss: 4.3503
+18:	[0s / 0s],		train_loss: 4.4417
+19:	[0s / 0s],		train_loss: 4.4085
+20:	[0s / 0s],		train_loss: 4.4067
+21:	[0s / 0s],		train_loss: 4.4297
+22:	[0s / 0s],		train_loss: 4.5707
+C-index TRAIN: 0.7853294488417082
+C-index TEST : 0.7313578105717655
+Fitting deepsurv_vanilla.pt...
+0:	[0s / 0s],		train_loss: 4.5968
+1:	[0s / 0s],		train_loss: 4.4307
+2:	[0s / 0s],		train_loss: 4.4029
+3:	[0s / 0s],		train_loss: 4.3609
+4:	[0s / 0s],		train_loss: 4.3627
+5:	[0s / 0s],		train_loss: 4.3385
+6:	[0s / 0s],		train_loss: 4.3049
+7:	[0s / 0s],		train_loss: 4.2886
+8:	[0s / 0s],		train_loss: 4.2848
+9:	[0s / 0s],		train_loss: 4.2920
+10:	[0s / 0s],		train_loss: 4.2592
+11:	[0s / 0s],		train_loss: 4.2321
+12:	[0s / 0s],		train_loss: 4.1843
+13:	[0s / 0s],		train_loss: 4.2122
+14:	[0s / 0s],		train_loss: 4.2101
+15:	[0s / 0s],		train_loss: 4.1582
+16:	[0s / 0s],		train_loss: 4.1582
+C-index TRAIN: 0.8515904813031464
+C-index TEST : 0.7287198721661113
+Fitting Cox model...
+    Cox fit failed: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan.py", line 664, in <module>
+    results_by_pct = main(dataset_name, feature_event, feature_time,
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan.py", line 230, in main
+    method_dir = get_ckpt_dir(dataset_name, seed, percentage_nan, fold + 1,
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_nan.py", line 455, in get_ckpt_dir
+    p.mkdir(parents=True, exist_ok=True)
+  File "/home/students/luca.cotugno/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/pathlib.py", line 1311, in mkdir
+    os.mkdir(self, mode)
+OSError: [Errno 28] No space left on device: 'nan/tabdpt/OrmoniTirodei/nan_percentage0.1/seed456/fold1/mean'

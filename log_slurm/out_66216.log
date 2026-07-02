@@ -1,0 +1,1917 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torchtuples/tupletree.py:146: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(data)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Subclinical primary hyperthyroidism\n(SCT)', 'Ipertiroidismo', 'Normal', 'SindromeX', 'MIN', 'MIO', 'Miocardite', 'Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column CABG  have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'CABG '].var())
+>>> print(df.loc[~events, 'CABG '].var())
+
+A very low variance means that the column CABG  completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipotiroidismo', 'MIN', 'MIO', 'Miocardite', 'EPA', 'Ictus', 'Ictus_event'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ipertiroidismo has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MIN', 'MIO', 'Endocardite', 'EmboliaPolmonare'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column Ipotiroidismo have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'Ipotiroidismo'].var())
+>>> print(df.loc[~events, 'Ipotiroidismo'].var())
+
+A very low variance means that the column Ipotiroidismo completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column SindromeX has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Miocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipertiroidismo', 'SindromeX', 'MIO', 'Miocardite', 'Pericardite', 'Endocardite', 'EmboliaPolmonare', 'Ictus', 'Ictus_event'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column AMI have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'AMI'].var())
+>>> print(df.loc[~events, 'AMI'].var())
+
+A very low variance means that the column AMI completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Endocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Miocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MIO'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:496: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:498: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MENOPAUSA', 'ANNI_MENOP'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column IMT have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'IMT'].var())
+>>> print(df.loc[~events, 'IMT'].var())
+
+A very low variance means that the column IMT completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column IMA_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column CBV_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column HF_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+Model:        tabpfn
+Seed:         77
+Sample sizes: [100, 500, 1000, 2500, 5000, 10000, 15000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8871  test=0.7015
+  [tabpfn+DS-vanilla] train=0.8992  test=0.6940
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9348  test=0.7058
+  [DS-simple]         train=0.7688  test=0.6335
+  [DS-vanilla]        train=0.7837  test=0.6323
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8724  test=0.7334
+  [tabpfn+DS-vanilla] train=0.8877  test=0.7320
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9392  test=0.7061
+  [DS-simple]         train=0.7116  test=0.6509
+  [DS-vanilla]        train=0.6793  test=0.6839
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9366  test=0.7010
+  [tabpfn+DS-vanilla] train=0.9402  test=0.7340
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9513  test=0.5053
+  [DS-simple]         train=0.8206  test=0.6747
+  [DS-vanilla]        train=0.7643  test=0.6275
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9013  test=0.6905
+  [tabpfn+DS-vanilla] train=0.8971  test=0.6918
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9383  test=0.7194
+  [DS-simple]         train=0.7053  test=0.6520
+  [DS-vanilla]        train=0.8569  test=0.6453
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8787  test=0.7108
+  [tabpfn+DS-vanilla] train=0.8867  test=0.7104
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9467  test=0.5024
+  [DS-simple]         train=0.5600  test=0.5359
+  [DS-vanilla]        train=0.6916  test=0.5949
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9029  test=0.7618
+  [tabpfn+DS-vanilla] train=0.9172  test=0.7666
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9220  test=0.7579
+  [DS-simple]         train=0.8022  test=0.7310
+  [DS-vanilla]        train=0.7953  test=0.7364
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9082  test=0.7835
+  [tabpfn+DS-vanilla] train=0.9064  test=0.7842
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9194  test=0.6720
+  [DS-simple]         train=0.7853  test=0.7713
+  [DS-vanilla]        train=0.8077  test=0.7683
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7991  test=0.7915
+  Fold 3: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9145  test=0.7848
+  [tabpfn+DS-vanilla] train=0.9001  test=0.7820
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9345  test=0.6820
+  [DS-simple]         train=0.8064  test=0.7657
+  [DS-vanilla]        train=0.7905  test=0.7534
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9199  test=0.7560
+  [tabpfn+DS-vanilla] train=0.9176  test=0.7551
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9282  test=0.7390
+  [DS-simple]         train=0.7985  test=0.7385
+  [DS-vanilla]        train=0.7306  test=0.6812
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9134  test=0.7823
+  [tabpfn+DS-vanilla] train=0.9169  test=0.7793
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9285  test=0.7530
+  [DS-simple]         train=0.8411  test=0.7647
+  [DS-vanilla]        train=0.8268  test=0.7371
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9045  test=0.7770
+  [tabpfn+DS-vanilla] train=0.9139  test=0.7670
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9173  test=0.7616
+  [DS-simple]         train=0.8099  test=0.7629
+  [DS-vanilla]        train=0.8002  test=0.7606
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8205  test=0.7754
+  Fold 2: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9119  test=0.7893
+  [tabpfn+DS-vanilla] train=0.9174  test=0.7965
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9271  test=0.7986
+  [DS-simple]         train=0.8089  test=0.7930
+  [DS-vanilla]        train=0.8010  test=0.7871
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8174  test=0.7966
+  Fold 3: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9158  test=0.7911
+  [tabpfn+DS-vanilla] train=0.9209  test=0.7967
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9303  test=0.7536
+  [DS-simple]         train=0.8113  test=0.7551
+  [DS-vanilla]        train=0.8222  test=0.7744
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8286  test=0.7964
+  Fold 4: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9164  test=0.7631
+  [tabpfn+DS-vanilla] train=0.9266  test=0.7668
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9241  test=0.7713
+  [DS-simple]         train=0.7952  test=0.7611
+  [DS-vanilla]        train=0.6891  test=0.6546
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8112  test=0.7661
+  Fold 5: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9265  test=0.7900
+  [tabpfn+DS-vanilla] train=0.9207  test=0.7886
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9265  test=0.7890
+  [DS-simple]         train=0.8309  test=0.7780
+  [DS-vanilla]        train=0.8367  test=0.7681
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8343  test=0.7871
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9212  test=0.7717
+  [tabpfn+DS-vanilla] train=0.8921  test=0.7714
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9189  test=0.7658
+  [DS-simple]         train=0.8059  test=0.7814
+  [DS-vanilla]        train=0.8039  test=0.7672
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8065  test=0.7824
+  Fold 2: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9077  test=0.8005
+  [tabpfn+DS-vanilla] train=0.9080  test=0.7930
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9179  test=0.8016
+  [DS-simple]         train=0.7908  test=0.7820
+  [DS-vanilla]        train=0.8006  test=0.8028
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8049  test=0.8018
+  Fold 3: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9066  test=0.8032
+  [tabpfn+DS-vanilla] train=0.9099  test=0.8027
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9202  test=0.7937
+  [DS-simple]         train=0.7881  test=0.7840
+  [DS-vanilla]        train=0.8031  test=0.7939
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8040  test=0.8044
+  Fold 4: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9059  test=0.7817
+  [tabpfn+DS-vanilla] train=0.9216  test=0.7833
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9220  test=0.7814
+  [DS-simple]         train=0.8069  test=0.7670
+  [DS-vanilla]        train=0.8159  test=0.7722
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8100  test=0.7768
+  Fold 5: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9180  test=0.7855
+  [tabpfn+DS-vanilla] train=0.9146  test=0.7811
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9172  test=0.7825
+  [DS-simple]         train=0.8043  test=0.7812
+  [DS-vanilla]        train=0.8057  test=0.7751
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8054  test=0.7891
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9013  test=0.7796
+  [tabpfn+DS-vanilla] train=0.9155  test=0.7667
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9178  test=0.7346
+  [DS-simple]         train=0.7919  test=0.7726
+  [DS-vanilla]        train=0.8135  test=0.7786
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8032  test=0.7844
+  Fold 2: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8935  test=0.8037
+  [tabpfn+DS-vanilla] train=0.9140  test=0.8023
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9169  test=0.8061
+  [DS-simple]         train=0.7882  test=0.7953
+  [DS-vanilla]        train=0.8002  test=0.8071
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7976  test=0.8059
+  Fold 3: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8987  test=0.8018
+  [tabpfn+DS-vanilla] train=0.9098  test=0.8083
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9161  test=0.8020
+  [DS-simple]         train=0.7928  test=0.7963
+  [DS-vanilla]        train=0.8043  test=0.7983
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7991  test=0.8062
+  Fold 4: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9055  test=0.7814
+  [tabpfn+DS-vanilla] train=0.9226  test=0.7786
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9213  test=0.7816
+  [DS-simple]         train=0.7907  test=0.7748
+  [DS-vanilla]        train=0.8115  test=0.7730
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8048  test=0.7797
+  Fold 5: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.8955  test=0.7867
+  [tabpfn+DS-vanilla] train=0.9142  test=0.7766
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9167  test=0.7844
+  [DS-simple]         train=0.7875  test=0.7701
+  [DS-vanilla]        train=0.8111  test=0.7904
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8021  test=0.7922
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.8922  test=0.7800
+  [tabpfn+DS-vanilla] train=0.9189  test=0.7310
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9180  test=0.7512
+  [DS-simple]         train=0.7976  test=0.7753
+  [DS-vanilla]        train=0.8126  test=0.7848
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8025  test=0.7858
+  Fold 2: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.9182  test=0.8060
+  [tabpfn+DS-vanilla] train=0.9149  test=0.7995
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9168  test=0.8056
+  [DS-simple]         train=0.7763  test=0.7936
+  [DS-vanilla]        train=0.8069  test=0.8088
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7980  test=0.8055
+  Fold 3: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9023  test=0.8024
+  [tabpfn+DS-vanilla] train=0.9130  test=0.8061
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9156  test=0.7718
+  [DS-simple]         train=0.7898  test=0.7957
+  [DS-vanilla]        train=0.8069  test=0.7994
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7982  test=0.8060
+  Fold 4: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9219  test=0.7839
+  [tabpfn+DS-vanilla] train=0.9189  test=0.7712
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9207  test=0.7812
+  [DS-simple]         train=0.7919  test=0.7679
+  [DS-vanilla]        train=0.8113  test=0.7763
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8041  test=0.7792
+  Fold 5: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.8943  test=0.7888
+  [tabpfn+DS-vanilla] train=0.9159  test=0.7883
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9162  test=0.7687
+  [DS-simple]         train=0.7943  test=0.7829
+  [DS-vanilla]        train=0.8010  test=0.7930
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8009  test=0.7926
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8977  test=0.7265
+  [tabpfn+DS-vanilla] train=0.9000  test=0.7241
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9288  test=0.3482
+  Fold 2: train=100, test=1291
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8894  test=0.7732
+  [tabpfn+DS-vanilla] train=0.8966  test=0.7484
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9417  test=0.3896
+  Fold 3: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9397  test=0.7292
+  [tabpfn+DS-vanilla] train=0.9411  test=0.7332
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9641  test=0.5001
+  Fold 4: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9069  test=0.7023
+  [tabpfn+DS-vanilla] train=0.9060  test=0.7002
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9490  test=0.6655
+  Fold 5: train=100, test=1290
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.8829  test=0.7121
+  [tabpfn+DS-vanilla] train=0.8930  test=0.7052
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9450  test=0.3495
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9021  test=0.7558
+  [tabpfn+DS-vanilla] train=0.9050  test=0.7599
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9193  test=0.7615
+  Fold 2: train=500, test=1291
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.8984  test=0.7847
+  [tabpfn+DS-vanilla] train=0.9041  test=0.7874
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9194  test=0.7489
+  Fold 3: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9155  test=0.7865
+  [tabpfn+DS-vanilla] train=0.9164  test=0.7882
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9318  test=0.7229
+  Fold 4: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9131  test=0.7499
+  [tabpfn+DS-vanilla] train=0.9230  test=0.7540
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9320  test=0.7486
+  Fold 5: train=500, test=1290
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9163  test=0.7792
+  [tabpfn+DS-vanilla] train=0.9208  test=0.7833
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9291  test=0.7580
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.8987  test=0.7744
+  [tabpfn+DS-vanilla] train=0.9138  test=0.7671
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9172  test=0.7552
+  Fold 2: train=1000, test=1291
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9111  test=0.7914
+  [tabpfn+DS-vanilla] train=0.9143  test=0.7953
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9271  test=0.7960
+  Fold 3: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9162  test=0.7949
+  [tabpfn+DS-vanilla] train=0.9221  test=0.7994
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9289  test=0.6819
+  Fold 4: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9164  test=0.7658
+  [tabpfn+DS-vanilla] train=0.9221  test=0.7638
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9268  test=0.7621
+  Fold 5: train=1000, test=1290
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9108  test=0.7853
+  [tabpfn+DS-vanilla] train=0.9229  test=0.7941
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9290  test=0.7948
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9063  test=0.7821
+  [tabpfn+DS-vanilla] train=0.9148  test=0.7755
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9192  test=0.7735
+  Fold 2: train=2500, test=1291
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9070  test=0.8024
+  [tabpfn+DS-vanilla] train=0.9064  test=0.7967
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9168  test=0.8034
+  Fold 3: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9042  test=0.8012
+  [tabpfn+DS-vanilla] train=0.9100  test=0.8032
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9228  test=0.7862
+  Fold 4: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.8991  test=0.7769
+  [tabpfn+DS-vanilla] train=0.9198  test=0.7687
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9236  test=0.7716
+  Fold 5: train=2500, test=1290
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9029  test=0.7787
+  [tabpfn+DS-vanilla] train=0.9211  test=0.7805
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9222  test=0.7611
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9210  test=0.7873
+  [tabpfn+DS-vanilla] train=0.9164  test=0.7811
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9199  test=0.7815
+  Fold 2: train=5000, test=1291
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9195  test=0.8069
+  [tabpfn+DS-vanilla] train=0.9128  test=0.8039
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9179  test=0.8081
+  Fold 3: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9202  test=0.8038
+  [tabpfn+DS-vanilla] train=0.9172  test=0.7929
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9193  test=0.7799
+  Fold 4: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9266  test=0.7800
+  [tabpfn+DS-vanilla] train=0.9242  test=0.7804
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9230  test=0.7796
+  Fold 5: train=5000, test=1290
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9186  test=0.7946
+  [tabpfn+DS-vanilla] train=0.9160  test=0.7800
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9189  test=0.7926
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.9222  test=0.7900
+  [tabpfn+DS-vanilla] train=0.9189  test=0.7725
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9200  test=0.7855
+  Fold 2: train=5161, test=1291
+  Embedding shape: (5161, 192)
+  [tabpfn+DS-simple]  train=0.9207  test=0.8105
+  [tabpfn+DS-vanilla] train=0.9147  test=0.8023
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9178  test=0.8100
+  Fold 3: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9220  test=0.8063
+  [tabpfn+DS-vanilla] train=0.9170  test=0.8105
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9193  test=0.8021
+  Fold 4: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9233  test=0.7794
+  [tabpfn+DS-vanilla] train=0.9180  test=0.7704
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9229  test=0.7770
+  Fold 5: train=5162, test=1290
+  Embedding shape: (5162, 192)
+  [tabpfn+DS-simple]  train=0.9194  test=0.7968
+  [tabpfn+DS-vanilla] train=0.9160  test=0.7855
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9188  test=0.7932
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+Data saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed77_data.txt
+
+Dataset: OrmoniTirodei | Model: tabpfn | Seed: 77
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.8952 | std: 0.0229 | min: 0.8724 | max: 0.9366
+    TEST  tabpfn+DS-simple            → mean: 0.7075 | std: 0.0145 | min: 0.6905 | max: 0.7334
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9022 | std: 0.0196 | min: 0.8867 | max: 0.9402
+    TEST  tabpfn+DS-vanilla           → mean: 0.7124 | std: 0.0180 | min: 0.6918 | max: 0.7340
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9421 | std: 0.0060 | min: 0.9348 | max: 0.9513
+    TEST  tabpfn+Cox                  → mean: 0.6278 | std: 0.1013 | min: 0.5024 | max: 0.7194
+    TRAIN DS-simple (base)            → mean: 0.7133 | std: 0.0873 | min: 0.5600 | max: 0.8206
+    TEST  DS-simple (base)            → mean: 0.6294 | std: 0.0486 | min: 0.5359 | max: 0.6747
+    TRAIN DS-vanilla (base)           → mean: 0.7551 | std: 0.0649 | min: 0.6793 | max: 0.8569
+    TEST  DS-vanilla (base)           → mean: 0.6368 | std: 0.0288 | min: 0.5949 | max: 0.6839
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → no valid scores
+    TEST  Cox (base)                  → no valid scores
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9118 | std: 0.0058 | min: 0.9029 | max: 0.9199
+    TEST  tabpfn+DS-simple            → mean: 0.7737 | std: 0.0123 | min: 0.7560 | max: 0.7848
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9116 | std: 0.0071 | min: 0.9001 | max: 0.9176
+    TEST  tabpfn+DS-vanilla           → mean: 0.7734 | std: 0.0110 | min: 0.7551 | max: 0.7842
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9265 | std: 0.0053 | min: 0.9194 | max: 0.9345
+    TEST  tabpfn+Cox                  → mean: 0.7208 | std: 0.0364 | min: 0.6720 | max: 0.7579
+    TRAIN DS-simple (base)            → mean: 0.8067 | std: 0.0186 | min: 0.7853 | max: 0.8411
+    TEST  DS-simple (base)            → mean: 0.7543 | std: 0.0162 | min: 0.7310 | max: 0.7713
+    TRAIN DS-vanilla (base)           → mean: 0.7902 | std: 0.0323 | min: 0.7306 | max: 0.8268
+    TEST  DS-vanilla (base)           → mean: 0.7353 | std: 0.0295 | min: 0.6812 | max: 0.7683
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.7991 | std: 0.0000 | min: 0.7991 | max: 0.7991
+    TEST  Cox (base)                  → mean: 0.7915 | std: 0.0000 | min: 0.7915 | max: 0.7915
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9150 | std: 0.0071 | min: 0.9045 | max: 0.9265
+    TEST  tabpfn+DS-simple            → mean: 0.7821 | std: 0.0108 | min: 0.7631 | max: 0.7911
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9199 | std: 0.0042 | min: 0.9139 | max: 0.9266
+    TEST  tabpfn+DS-vanilla           → mean: 0.7831 | std: 0.0136 | min: 0.7668 | max: 0.7967
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9250 | std: 0.0043 | min: 0.9173 | max: 0.9303
+    TEST  tabpfn+Cox                  → mean: 0.7748 | std: 0.0168 | min: 0.7536 | max: 0.7986
+    TRAIN DS-simple (base)            → mean: 0.8113 | std: 0.0114 | min: 0.7952 | max: 0.8309
+    TEST  DS-simple (base)            → mean: 0.7700 | std: 0.0138 | min: 0.7551 | max: 0.7930
+    TRAIN DS-vanilla (base)           → mean: 0.7899 | std: 0.0522 | min: 0.6891 | max: 0.8367
+    TEST  DS-vanilla (base)           → mean: 0.7490 | std: 0.0480 | min: 0.6546 | max: 0.7871
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8224 | std: 0.0082 | min: 0.8112 | max: 0.8343
+    TEST  Cox (base)                  → mean: 0.7843 | std: 0.0120 | min: 0.7661 | max: 0.7966
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9119 | std: 0.0064 | min: 0.9059 | max: 0.9212
+    TEST  tabpfn+DS-simple            → mean: 0.7885 | std: 0.0118 | min: 0.7717 | max: 0.8032
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9093 | std: 0.0098 | min: 0.8921 | max: 0.9216
+    TEST  tabpfn+DS-vanilla           → mean: 0.7863 | std: 0.0107 | min: 0.7714 | max: 0.8027
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9192 | std: 0.0017 | min: 0.9172 | max: 0.9220
+    TEST  tabpfn+Cox                  → mean: 0.7850 | std: 0.0122 | min: 0.7658 | max: 0.8016
+    TRAIN DS-simple (base)            → mean: 0.7992 | std: 0.0080 | min: 0.7881 | max: 0.8069
+    TEST  DS-simple (base)            → mean: 0.7791 | std: 0.0061 | min: 0.7670 | max: 0.7840
+    TRAIN DS-vanilla (base)           → mean: 0.8059 | std: 0.0053 | min: 0.8006 | max: 0.8159
+    TEST  DS-vanilla (base)           → mean: 0.7822 | std: 0.0137 | min: 0.7672 | max: 0.8028
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8061 | std: 0.0021 | min: 0.8040 | max: 0.8100
+    TEST  Cox (base)                  → mean: 0.7909 | std: 0.0107 | min: 0.7768 | max: 0.8044
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.8989 | std: 0.0043 | min: 0.8935 | max: 0.9055
+    TEST  tabpfn+DS-simple            → mean: 0.7906 | std: 0.0102 | min: 0.7796 | max: 0.8037
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9152 | std: 0.0041 | min: 0.9098 | max: 0.9226
+    TEST  tabpfn+DS-vanilla           → mean: 0.7865 | std: 0.0160 | min: 0.7667 | max: 0.8083
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9178 | std: 0.0018 | min: 0.9161 | max: 0.9213
+    TEST  tabpfn+Cox                  → mean: 0.7818 | std: 0.0254 | min: 0.7346 | max: 0.8061
+    TRAIN DS-simple (base)            → mean: 0.7902 | std: 0.0020 | min: 0.7875 | max: 0.7928
+    TEST  DS-simple (base)            → mean: 0.7818 | std: 0.0115 | min: 0.7701 | max: 0.7963
+    TRAIN DS-vanilla (base)           → mean: 0.8081 | std: 0.0050 | min: 0.8002 | max: 0.8135
+    TEST  DS-vanilla (base)           → mean: 0.7895 | std: 0.0125 | min: 0.7730 | max: 0.8071
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8014 | std: 0.0026 | min: 0.7976 | max: 0.8048
+    TEST  Cox (base)                  → mean: 0.7937 | std: 0.0109 | min: 0.7797 | max: 0.8062
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabpfn+DS-simple            → mean: 0.9058 | std: 0.0122 | min: 0.8922 | max: 0.9219
+    TEST  tabpfn+DS-simple            → mean: 0.7922 | std: 0.0102 | min: 0.7800 | max: 0.8060
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9163 | std: 0.0023 | min: 0.9130 | max: 0.9189
+    TEST  tabpfn+DS-vanilla           → mean: 0.7792 | std: 0.0269 | min: 0.7310 | max: 0.8061
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9175 | std: 0.0018 | min: 0.9156 | max: 0.9207
+    TEST  tabpfn+Cox                  → mean: 0.7757 | std: 0.0178 | min: 0.7512 | max: 0.8056
+    TRAIN DS-simple (base)            → mean: 0.7900 | std: 0.0073 | min: 0.7763 | max: 0.7976
+    TEST  DS-simple (base)            → mean: 0.7831 | std: 0.0106 | min: 0.7679 | max: 0.7957
+    TRAIN DS-vanilla (base)           → mean: 0.8077 | std: 0.0041 | min: 0.8010 | max: 0.8126
+    TEST  DS-vanilla (base)           → mean: 0.7925 | std: 0.0112 | min: 0.7763 | max: 0.8088
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8007 | std: 0.0024 | min: 0.7980 | max: 0.8041
+    TEST  Cox (base)                  → mean: 0.7938 | std: 0.0106 | min: 0.7792 | max: 0.8060
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9033 | std: 0.0199 | min: 0.8829 | max: 0.9397
+    TEST  tabpfn+DS-simple            → mean: 0.7286 | std: 0.0243 | min: 0.7023 | max: 0.7732
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9073 | std: 0.0174 | min: 0.8930 | max: 0.9411
+    TEST  tabpfn+DS-vanilla           → mean: 0.7222 | std: 0.0178 | min: 0.7002 | max: 0.7484
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9457 | std: 0.0114 | min: 0.9288 | max: 0.9641
+    TEST  tabpfn+Cox                  → mean: 0.4506 | std: 0.1209 | min: 0.3482 | max: 0.6655
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9091 | std: 0.0074 | min: 0.8984 | max: 0.9163
+    TEST  tabpfn+DS-simple            → mean: 0.7712 | std: 0.0153 | min: 0.7499 | max: 0.7865
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9138 | std: 0.0079 | min: 0.9041 | max: 0.9230
+    TEST  tabpfn+DS-vanilla           → mean: 0.7746 | std: 0.0146 | min: 0.7540 | max: 0.7882
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9263 | std: 0.0058 | min: 0.9193 | max: 0.9320
+    TEST  tabpfn+Cox                  → mean: 0.7480 | std: 0.0135 | min: 0.7229 | max: 0.7615
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9106 | std: 0.0065 | min: 0.8987 | max: 0.9164
+    TEST  tabpfn+DS-simple            → mean: 0.7824 | std: 0.0108 | min: 0.7658 | max: 0.7949
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9191 | std: 0.0041 | min: 0.9138 | max: 0.9229
+    TEST  tabpfn+DS-vanilla           → mean: 0.7839 | std: 0.0152 | min: 0.7638 | max: 0.7994
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9258 | std: 0.0044 | min: 0.9172 | max: 0.9290
+    TEST  tabpfn+Cox                  → mean: 0.7580 | std: 0.0415 | min: 0.6819 | max: 0.7960
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9039 | std: 0.0028 | min: 0.8991 | max: 0.9070
+    TEST  tabpfn+DS-simple            → mean: 0.7883 | std: 0.0112 | min: 0.7769 | max: 0.8024
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9144 | std: 0.0056 | min: 0.9064 | max: 0.9211
+    TEST  tabpfn+DS-vanilla           → mean: 0.7849 | std: 0.0130 | min: 0.7687 | max: 0.8032
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9209 | std: 0.0025 | min: 0.9168 | max: 0.9236
+    TEST  tabpfn+Cox                  → mean: 0.7792 | std: 0.0145 | min: 0.7611 | max: 0.8034
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.9212 | std: 0.0028 | min: 0.9186 | max: 0.9266
+    TEST  tabpfn+DS-simple            → mean: 0.7945 | std: 0.0100 | min: 0.7800 | max: 0.8069
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9173 | std: 0.0037 | min: 0.9128 | max: 0.9242
+    TEST  tabpfn+DS-vanilla           → mean: 0.7876 | std: 0.0095 | min: 0.7800 | max: 0.8039
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9198 | std: 0.0017 | min: 0.9179 | max: 0.9230
+    TEST  tabpfn+Cox                  → mean: 0.7883 | std: 0.0110 | min: 0.7796 | max: 0.8081
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabpfn+DS-simple            → mean: 0.9215 | std: 0.0013 | min: 0.9194 | max: 0.9233
+    TEST  tabpfn+DS-simple            → mean: 0.7966 | std: 0.0112 | min: 0.7794 | max: 0.8105
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9169 | std: 0.0015 | min: 0.9147 | max: 0.9189
+    TEST  tabpfn+DS-vanilla           → mean: 0.7882 | std: 0.0159 | min: 0.7704 | max: 0.8105
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9197 | std: 0.0017 | min: 0.9178 | max: 0.9229
+    TEST  tabpfn+Cox                  → mean: 0.7935 | std: 0.0117 | min: 0.7770 | max: 0.8100
+Text summary saved → results/OrmoniTirodei/tabpfn/results_samplesize_OrmoniTirodei_tabpfn_seed77.txt
+
+######################################################################
+Dataset: HURRAH
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9682  test=0.7841
+  [tabpfn+DS-vanilla] train=0.9691  test=0.7730
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9764  test=0.7863
+  [DS-simple]         train=0.8457  test=0.7010
+  [DS-vanilla]        train=0.8721  test=0.6881
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9038  test=0.7395
+  Fold 2: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9457  test=0.7476
+  [tabpfn+DS-vanilla] train=0.9662  test=0.7576
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9745  test=0.7082
+  [DS-simple]         train=0.9029  test=0.7733
+  [DS-vanilla]        train=0.8225  test=0.6943
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9518  test=0.7713
+  [tabpfn+DS-vanilla] train=0.9688  test=0.7971
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9858  test=0.6121
+  [DS-simple]         train=0.8515  test=0.7243
+  [DS-vanilla]        train=0.7881  test=0.6396
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9404  test=0.7529
+  Fold 4: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9396  test=0.7365
+  [tabpfn+DS-vanilla] train=0.9433  test=0.7370
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9898  test=0.6007
+  [DS-simple]         train=0.8218  test=0.7616
+  [DS-vanilla]        train=0.8538  test=0.6351
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9462  test=0.7341
+  Fold 5: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9652  test=0.7220
+  [tabpfn+DS-vanilla] train=0.9744  test=0.7198
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9826  test=0.5085
+  [DS-simple]         train=0.9264  test=0.6713
+  [DS-vanilla]        train=0.8282  test=0.6470
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9458  test=0.7150
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9547  test=0.8234
+  [tabpfn+DS-vanilla] train=0.9573  test=0.8240
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9692  test=0.3352
+  [DS-simple]         train=0.8849  test=0.8133
+  [DS-vanilla]        train=0.8859  test=0.7951
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8764  test=0.8084
+  Fold 2: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9584  test=0.8236
+  [tabpfn+DS-vanilla] train=0.9583  test=0.8200
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9727  test=0.7823
+  [DS-simple]         train=0.8610  test=0.8160
+  [DS-vanilla]        train=0.8303  test=0.7210
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8622  test=0.8047
+  Fold 3: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9524  test=0.7987
+  [tabpfn+DS-vanilla] train=0.9635  test=0.7959
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9659  test=0.8014
+  [DS-simple]         train=0.8459  test=0.7872
+  [DS-vanilla]        train=0.8441  test=0.7270
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8324  test=0.7933
+  Fold 4: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9573  test=0.8072
+  [tabpfn+DS-vanilla] train=0.9577  test=0.8075
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9743  test=0.7426
+  [DS-simple]         train=0.8713  test=0.8109
+  [DS-vanilla]        train=0.8485  test=0.7669
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8692  test=0.8034
+  Fold 5: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9514  test=0.8097
+  [tabpfn+DS-vanilla] train=0.9658  test=0.8200
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9672  test=0.8214
+  [DS-simple]         train=0.8906  test=0.8052
+  [DS-vanilla]        train=0.8845  test=0.7998
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8879  test=0.8124
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9574  test=0.8376
+  [tabpfn+DS-vanilla] train=0.9611  test=0.8375
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9673  test=0.7428
+  [DS-simple]         train=0.8633  test=0.8354
+  [DS-vanilla]        train=0.8535  test=0.8046
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8490  test=0.8245
+  Fold 2: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9510  test=0.8290
+  [tabpfn+DS-vanilla] train=0.9519  test=0.8228
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9618  test=0.7345
+  [DS-simple]         train=0.8647  test=0.8288
+  [DS-vanilla]        train=0.8785  test=0.8082
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8548  test=0.8183
+  Fold 3: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9508  test=0.8136
+  [tabpfn+DS-vanilla] train=0.9637  test=0.8181
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9652  test=0.8171
+  [DS-simple]         train=0.8447  test=0.8089
+  [DS-vanilla]        train=0.8620  test=0.7886
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8290  test=0.8034
+  Fold 4: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9540  test=0.8167
+  [tabpfn+DS-vanilla] train=0.9543  test=0.8160
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9664  test=0.6686
+  [DS-simple]         train=0.8469  test=0.8179
+  [DS-vanilla]        train=0.8600  test=0.7937
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8483  test=0.8132
+  Fold 5: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9577  test=0.8278
+  [tabpfn+DS-vanilla] train=0.9636  test=0.7913
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9671  test=0.7300
+  [DS-simple]         train=0.8641  test=0.8197
+  [DS-vanilla]        train=0.8577  test=0.8139
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8663  test=0.8257
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9528  test=0.8395
+  [tabpfn+DS-vanilla] train=0.9545  test=0.8189
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9634  test=0.8026
+  [DS-simple]         train=0.8531  test=0.8357
+  [DS-vanilla]        train=0.8495  test=0.8166
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8390  test=0.8262
+  Fold 2: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9508  test=0.8347
+  [tabpfn+DS-vanilla] train=0.9511  test=0.8321
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9594  test=0.8152
+  [DS-simple]         train=0.8503  test=0.8346
+  [DS-vanilla]        train=0.8336  test=0.8125
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8437  test=0.8208
+  Fold 3: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9509  test=0.8377
+  [tabpfn+DS-vanilla] train=0.9559  test=0.8302
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9586  test=0.8340
+  [DS-simple]         train=0.8540  test=0.8240
+  [DS-vanilla]        train=0.8681  test=0.8128
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8360  test=0.8150
+  Fold 4: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9547  test=0.8298
+  [tabpfn+DS-vanilla] train=0.9561  test=0.8042
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9640  test=0.8252
+  [DS-simple]         train=0.8482  test=0.8285
+  [DS-vanilla]        train=0.8660  test=0.8228
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8350  test=0.8221
+  Fold 5: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9531  test=0.8453
+  [tabpfn+DS-vanilla] train=0.9571  test=0.8303
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9634  test=0.8397
+  [DS-simple]         train=0.8476  test=0.8356
+  [DS-vanilla]        train=0.8689  test=0.8364
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8471  test=0.8327
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9509  test=0.8420
+  [tabpfn+DS-vanilla] train=0.9533  test=0.8250
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9555  test=0.8265
+  [DS-simple]         train=0.8424  test=0.8345
+  [DS-vanilla]        train=0.8576  test=0.8385
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8334  test=0.8251
+  Fold 2: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9504  test=0.8448
+  [tabpfn+DS-vanilla] train=0.9492  test=0.8350
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9562  test=0.8395
+  [DS-simple]         train=0.8408  test=0.8316
+  [DS-vanilla]        train=0.8683  test=0.8410
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8337  test=0.8259
+  Fold 3: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9517  test=0.8357
+  [tabpfn+DS-vanilla] train=0.9569  test=0.8343
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9614  test=0.8354
+  [DS-simple]         train=0.8415  test=0.8266
+  [DS-vanilla]        train=0.8635  test=0.8269
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8327  test=0.8127
+  Fold 4: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9512  test=0.8372
+  [tabpfn+DS-vanilla] train=0.9621  test=0.8341
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9642  test=0.8349
+  [DS-simple]         train=0.8393  test=0.8242
+  [DS-vanilla]        train=0.8541  test=0.8283
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8321  test=0.8242
+  Fold 5: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9624  test=0.8439
+  [tabpfn+DS-vanilla] train=0.9531  test=0.8334
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9583  test=0.8414/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:496: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:498: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+
+  [DS-simple]         train=0.8464  test=0.8350
+  [DS-vanilla]        train=0.8731  test=0.8494
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8366  test=0.8324
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9602  test=0.8443
+  [tabpfn+DS-vanilla] train=0.9524  test=0.8338
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9556  test=0.8424
+  [DS-simple]         train=0.8293  test=0.8244
+  [DS-vanilla]        train=0.8360  test=0.8345
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8272  test=0.8238
+  Fold 2: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.4760  test=0.3912
+  [tabpfn+DS-vanilla] train=0.9530  test=0.8509
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9560  test=0.8472
+  [DS-simple]         train=0.8375  test=0.8374
+  [DS-vanilla]        train=0.8123  test=0.8135
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8306  test=0.8286
+  Fold 3: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9618  test=0.8425
+  [tabpfn+DS-vanilla] train=0.9552  test=0.8227
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9577  test=0.8352
+  [DS-simple]         train=0.8309  test=0.8193
+  [DS-vanilla]        train=0.8187  test=0.8025
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8305  test=0.8170
+  Fold 4: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9589  test=0.8367
+  [tabpfn+DS-vanilla] train=0.9535  test=0.8139
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9567  test=0.8356
+  [DS-simple]         train=0.4857  test=0.4759
+  [DS-vanilla]        train=0.8192  test=0.8108
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8250  test=0.8236
+  Fold 5: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9578  test=0.8485
+  [tabpfn+DS-vanilla] train=0.5278  test=0.8190
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9577  test=0.8483
+  [DS-simple]         train=0.8105  test=0.8135
+  [DS-vanilla]        train=0.8173  test=0.8184
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8263  test=0.8361
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9606  test=0.8499
+  [tabpfn+DS-vanilla] train=0.9534  test=0.8024
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9561  test=0.8474
+  [DS-simple]         train=0.8350  test=0.8325
+  [DS-vanilla]        train=0.7659  test=0.7639
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8281  test=0.8244
+  Fold 2: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9615  test=0.8473
+  [tabpfn+DS-vanilla] train=0.9536  test=0.8172
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9584  test=0.8471
+  [DS-simple]         train=0.8332  test=0.8344
+  [DS-vanilla]        train=0.8581  test=0.8463
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8272  test=0.8290
+  Fold 3: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9627  test=0.8447
+  [tabpfn+DS-vanilla] train=0.9574  test=0.8355
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9571  test=0.8355
+  [DS-simple]         train=0.8390  test=0.8245
+  [DS-vanilla]        train=0.8594  test=0.8390
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8301  test=0.8166
+  Fold 4: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9581  test=0.8400
+  [tabpfn+DS-vanilla] train=0.9577  test=0.8384
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9578  test=0.8383
+  [DS-simple]         train=0.8382  test=0.8215
+  [DS-vanilla]        train=0.8630  test=0.8390
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8288  test=0.8247
+  Fold 5: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9581  test=0.8459
+  [tabpfn+DS-vanilla] train=0.9531  test=0.8471
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9569  test=0.8477
+  [DS-simple]         train=0.8308  test=0.8301
+  [DS-vanilla]        train=0.8634  test=0.8533
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8271  test=0.8344
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9428  test=0.7539
+  [tabpfn+DS-vanilla] train=0.9319  test=0.7480
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9710  test=0.4061
+  Fold 2: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9310  test=0.7378
+  [tabpfn+DS-vanilla] train=0.9476  test=0.7415
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9840  test=0.5947
+  Fold 3: train=100, test=3392
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9565  test=0.7797
+  [tabpfn+DS-vanilla] train=0.9565  test=0.7793
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9820  test=0.6717
+  Fold 4: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9360  test=0.7564
+  [tabpfn+DS-vanilla] train=0.9353  test=0.7560
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9789  test=0.5575
+  Fold 5: train=100, test=3391
+  Embedding shape: (100, 192)
+  [tabpfn+DS-simple]  train=0.9601  test=0.7152
+  [tabpfn+DS-vanilla] train=0.9652  test=0.7106
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9836  test=0.4019
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9547  test=0.8162
+  [tabpfn+DS-vanilla] train=0.9559  test=0.8127
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9762  test=0.6164
+  Fold 2: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9502  test=0.8111
+  [tabpfn+DS-vanilla] train=0.9577  test=0.8052
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9663  test=0.7030
+  Fold 3: train=500, test=3392
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9534  test=0.7979
+  [tabpfn+DS-vanilla] train=0.9637  test=0.7869
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9667  test=0.7444
+  Fold 4: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9558  test=0.8036
+  [tabpfn+DS-vanilla] train=0.9558  test=0.7951
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9713  test=0.6342
+  Fold 5: train=500, test=3391
+  Embedding shape: (500, 192)
+  [tabpfn+DS-simple]  train=0.9535  test=0.8047
+  [tabpfn+DS-vanilla] train=0.9617  test=0.8124
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9682  test=0.8163
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9581  test=0.8213
+  [tabpfn+DS-vanilla] train=0.9588  test=0.8221
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9682  test=0.4190
+  Fold 2: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9525  test=0.8225
+  [tabpfn+DS-vanilla] train=0.9529  test=0.8206
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9597  test=0.8192
+  Fold 3: train=1000, test=3392
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9527  test=0.8127
+  [tabpfn+DS-vanilla] train=0.9580  test=0.8113
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9616  test=0.8069
+  Fold 4: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9514  test=0.8076
+  [tabpfn+DS-vanilla] train=0.9596  test=0.8026
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9681  test=0.7133
+  Fold 5: train=1000, test=3391
+  Embedding shape: (1000, 192)
+  [tabpfn+DS-simple]  train=0.9554  test=0.8202
+  [tabpfn+DS-vanilla] train=0.9609  test=0.8183
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9663  test=0.8202
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9523  test=0.8371
+  [tabpfn+DS-vanilla] train=0.9517  test=0.8185
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9550  test=0.8237
+  Fold 2: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9501  test=0.8295
+  [tabpfn+DS-vanilla] train=0.9488  test=0.8233
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9620  test=0.6708
+  Fold 3: train=2500, test=3392
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9586  test=0.8281
+  [tabpfn+DS-vanilla] train=0.9538  test=0.8223
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9555  test=0.8234
+  Fold 4: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9522  test=0.8272
+  [tabpfn+DS-vanilla] train=0.9556  test=0.8001
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9611  test=0.7875
+  Fold 5: train=2500, test=3391
+  Embedding shape: (2500, 192)
+  [tabpfn+DS-simple]  train=0.9498  test=0.8335
+  [tabpfn+DS-vanilla] train=0.9577  test=0.8199
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9488  test=0.8070
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9507  test=0.8394
+  [tabpfn+DS-vanilla] train=0.9629  test=0.7702
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9593  test=0.8319
+  Fold 2: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9609  test=0.8364
+  [tabpfn+DS-vanilla] train=0.9579  test=0.8363
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9578  test=0.8377
+  Fold 3: train=5000, test=3392
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9524  test=0.8325
+  [tabpfn+DS-vanilla] train=0.9595  test=0.8228
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9613  test=0.8322
+  Fold 4: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9485  test=0.8322
+  [tabpfn+DS-vanilla] train=0.9533  test=0.7950
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9575  test=0.8064
+  Fold 5: train=5000, test=3391
+  Embedding shape: (5000, 192)
+  [tabpfn+DS-simple]  train=0.9639  test=0.8452
+  [tabpfn+DS-vanilla] train=0.9537  test=0.8361
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9582  test=0.8420
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9572  test=0.8300
+  [tabpfn+DS-vanilla] train=0.9573  test=0.8129
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9549  test=0.8320
+  Fold 2: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.4188  test=0.4120
+  [tabpfn+DS-vanilla] train=0.9512  test=0.6656
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9550  test=0.8409
+  Fold 3: train=10000, test=3392
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9603  test=0.8335
+  [tabpfn+DS-vanilla] train=0.9569  test=0.8351
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9579  test=0.8309
+  Fold 4: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9593  test=0.8254
+  [tabpfn+DS-vanilla] train=0.9565  test=0.8360
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9567  test=0.8309
+  Fold 5: train=10000, test=3391
+  Embedding shape: (10000, 192)
+  [tabpfn+DS-simple]  train=0.9575  test=0.8380
+  [tabpfn+DS-vanilla] train=0.4531  test=0.8034
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9562  test=0.8413
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9585  test=0.8348
+  [tabpfn+DS-vanilla] train=0.9551  test=0.7432
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9558  test=0.8351
+  Fold 2: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9564  test=0.8370
+  [tabpfn+DS-vanilla] train=0.9535  test=0.8372
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9548  test=0.8403
+  Fold 3: train=13566, test=3392
+  Embedding shape: (13566, 192)
+  [tabpfn+DS-simple]  train=0.9589  test=0.8320
+  [tabpfn+DS-vanilla] train=0.9557  test=0.8054
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9551  test=0.8344
+  Fold 4: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9592  test=0.8309
+  [tabpfn+DS-vanilla] train=0.9579  test=0.6862
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9574  test=0.8338
+  Fold 5: train=13567, test=3391
+  Embedding shape: (13567, 192)
+  [tabpfn+DS-simple]  train=0.9582  test=0.8382
+  [tabpfn+DS-vanilla] train=0.9533  test=0.8347
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabpfn+RSF]        train=nan  test=nan
+  [tabpfn+Cox]        train=0.9552  test=0.8449
+
+Data saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed77_data.txt
+
+Dataset: HURRAH | Model: tabpfn | Seed: 77
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9541 | std: 0.0110 | min: 0.9396 | max: 0.9682
+    TEST  tabpfn+DS-simple            → mean: 0.7523 | std: 0.0226 | min: 0.7220 | max: 0.7841
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9644 | std: 0.0109 | min: 0.9433 | max: 0.9744
+    TEST  tabpfn+DS-vanilla           → mean: 0.7569 | std: 0.0270 | min: 0.7198 | max: 0.7971
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9818 | std: 0.0057 | min: 0.9745 | max: 0.9898
+    TEST  tabpfn+Cox                  → mean: 0.6432 | std: 0.0955 | min: 0.5085 | max: 0.7863
+    TRAIN DS-simple (base)            → mean: 0.8697 | std: 0.0388 | min: 0.8218 | max: 0.9264
+    TEST  DS-simple (base)            → mean: 0.7263 | std: 0.0377 | min: 0.6713 | max: 0.7733
+    TRAIN DS-vanilla (base)           → mean: 0.8329 | std: 0.0287 | min: 0.7881 | max: 0.8721
+    TEST  DS-vanilla (base)           → mean: 0.6608 | std: 0.0252 | min: 0.6351 | max: 0.6943
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.9340 | std: 0.0176 | min: 0.9038 | max: 0.9462
+    TEST  Cox (base)                  → mean: 0.7354 | std: 0.0136 | min: 0.7150 | max: 0.7529
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9548 | std: 0.0027 | min: 0.9514 | max: 0.9584
+    TEST  tabpfn+DS-simple            → mean: 0.8125 | std: 0.0097 | min: 0.7987 | max: 0.8236
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9605 | std: 0.0035 | min: 0.9573 | max: 0.9658
+    TEST  tabpfn+DS-vanilla           → mean: 0.8135 | std: 0.0104 | min: 0.7959 | max: 0.8240
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9699 | std: 0.0032 | min: 0.9659 | max: 0.9743
+    TEST  tabpfn+Cox                  → mean: 0.6966 | std: 0.1826 | min: 0.3352 | max: 0.8214
+    TRAIN DS-simple (base)            → mean: 0.8707 | std: 0.0162 | min: 0.8459 | max: 0.8906
+    TEST  DS-simple (base)            → mean: 0.8065 | std: 0.0103 | min: 0.7872 | max: 0.8160
+    TRAIN DS-vanilla (base)           → mean: 0.8587 | std: 0.0225 | min: 0.8303 | max: 0.8859
+    TEST  DS-vanilla (base)           → mean: 0.7620 | std: 0.0330 | min: 0.7210 | max: 0.7998
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8656 | std: 0.0187 | min: 0.8324 | max: 0.8879
+    TEST  Cox (base)                  → mean: 0.8044 | std: 0.0064 | min: 0.7933 | max: 0.8124
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9542 | std: 0.0030 | min: 0.9508 | max: 0.9577
+    TEST  tabpfn+DS-simple            → mean: 0.8250 | std: 0.0087 | min: 0.8136 | max: 0.8376
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9589 | std: 0.0049 | min: 0.9519 | max: 0.9637
+    TEST  tabpfn+DS-vanilla           → mean: 0.8171 | std: 0.0149 | min: 0.7913 | max: 0.8375
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9655 | std: 0.0020 | min: 0.9618 | max: 0.9673
+    TEST  tabpfn+Cox                  → mean: 0.7386 | std: 0.0473 | min: 0.6686 | max: 0.8171
+    TRAIN DS-simple (base)            → mean: 0.8567 | std: 0.0090 | min: 0.8447 | max: 0.8647
+    TEST  DS-simple (base)            → mean: 0.8221 | std: 0.0091 | min: 0.8089 | max: 0.8354
+    TRAIN DS-vanilla (base)           → mean: 0.8623 | std: 0.0085 | min: 0.8535 | max: 0.8785
+    TEST  DS-vanilla (base)           → mean: 0.8018 | std: 0.0093 | min: 0.7886 | max: 0.8139
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8495 | std: 0.0121 | min: 0.8290 | max: 0.8663
+    TEST  Cox (base)                  → mean: 0.8170 | std: 0.0082 | min: 0.8034 | max: 0.8257
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9525 | std: 0.0015 | min: 0.9508 | max: 0.9547
+    TEST  tabpfn+DS-simple            → mean: 0.8374 | std: 0.0051 | min: 0.8298 | max: 0.8453
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9549 | std: 0.0021 | min: 0.9511 | max: 0.9571
+    TEST  tabpfn+DS-vanilla           → mean: 0.8231 | std: 0.0106 | min: 0.8042 | max: 0.8321
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9618 | std: 0.0023 | min: 0.9586 | max: 0.9640
+    TEST  tabpfn+Cox                  → mean: 0.8233 | std: 0.0133 | min: 0.8026 | max: 0.8397
+    TRAIN DS-simple (base)            → mean: 0.8507 | std: 0.0026 | min: 0.8476 | max: 0.8540
+    TEST  DS-simple (base)            → mean: 0.8317 | std: 0.0047 | min: 0.8240 | max: 0.8357
+    TRAIN DS-vanilla (base)           → mean: 0.8572 | std: 0.0138 | min: 0.8336 | max: 0.8689
+    TEST  DS-vanilla (base)           → mean: 0.8202 | std: 0.0089 | min: 0.8125 | max: 0.8364
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8402 | std: 0.0046 | min: 0.8350 | max: 0.8471
+    TEST  Cox (base)                  → mean: 0.8234 | std: 0.0059 | min: 0.8150 | max: 0.8327
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.9533 | std: 0.0045 | min: 0.9504 | max: 0.9624
+    TEST  tabpfn+DS-simple            → mean: 0.8407 | std: 0.0036 | min: 0.8357 | max: 0.8448
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9549 | std: 0.0043 | min: 0.9492 | max: 0.9621
+    TEST  tabpfn+DS-vanilla           → mean: 0.8323 | std: 0.0037 | min: 0.8250 | max: 0.8350
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9591 | std: 0.0033 | min: 0.9555 | max: 0.9642
+    TEST  tabpfn+Cox                  → mean: 0.8355 | std: 0.0051 | min: 0.8265 | max: 0.8414
+    TRAIN DS-simple (base)            → mean: 0.8421 | std: 0.0024 | min: 0.8393 | max: 0.8464
+    TEST  DS-simple (base)            → mean: 0.8304 | std: 0.0043 | min: 0.8242 | max: 0.8350
+    TRAIN DS-vanilla (base)           → mean: 0.8633 | std: 0.0069 | min: 0.8541 | max: 0.8731
+    TEST  DS-vanilla (base)           → mean: 0.8368 | std: 0.0084 | min: 0.8269 | max: 0.8494
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8337 | std: 0.0015 | min: 0.8321 | max: 0.8366
+    TEST  Cox (base)                  → mean: 0.8241 | std: 0.0064 | min: 0.8127 | max: 0.8324
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabpfn+DS-simple            → mean: 0.8629 | std: 0.1935 | min: 0.4760 | max: 0.9618
+    TEST  tabpfn+DS-simple            → mean: 0.7526 | std: 0.1808 | min: 0.3912 | max: 0.8485
+    TRAIN tabpfn+DS-vanilla           → mean: 0.8684 | std: 0.1703 | min: 0.5278 | max: 0.9552
+    TEST  tabpfn+DS-vanilla           → mean: 0.8281 | std: 0.0132 | min: 0.8139 | max: 0.8509
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9568 | std: 0.0009 | min: 0.9556 | max: 0.9577
+    TEST  tabpfn+Cox                  → mean: 0.8417 | std: 0.0055 | min: 0.8352 | max: 0.8483
+    TRAIN DS-simple (base)            → mean: 0.7588 | std: 0.1368 | min: 0.4857 | max: 0.8375
+    TEST  DS-simple (base)            → mean: 0.7541 | std: 0.1393 | min: 0.4759 | max: 0.8374
+    TRAIN DS-vanilla (base)           → mean: 0.8207 | std: 0.0080 | min: 0.8123 | max: 0.8360
+    TEST  DS-vanilla (base)           → mean: 0.8159 | std: 0.0106 | min: 0.8025 | max: 0.8345
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8279 | std: 0.0023 | min: 0.8250 | max: 0.8306
+    TEST  Cox (base)                  → mean: 0.8258 | std: 0.0063 | min: 0.8170 | max: 0.8361
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabpfn+DS-simple            → mean: 0.9602 | std: 0.0018 | min: 0.9581 | max: 0.9627
+    TEST  tabpfn+DS-simple            → mean: 0.8456 | std: 0.0033 | min: 0.8400 | max: 0.8499
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9550 | std: 0.0021 | min: 0.9531 | max: 0.9577
+    TEST  tabpfn+DS-vanilla           → mean: 0.8281 | std: 0.0161 | min: 0.8024 | max: 0.8471
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9573 | std: 0.0008 | min: 0.9561 | max: 0.9584
+    TEST  tabpfn+Cox                  → mean: 0.8432 | std: 0.0052 | min: 0.8355 | max: 0.8477
+    TRAIN DS-simple (base)            → mean: 0.8353 | std: 0.0031 | min: 0.8308 | max: 0.8390
+    TEST  DS-simple (base)            → mean: 0.8286 | std: 0.0048 | min: 0.8215 | max: 0.8344
+    TRAIN DS-vanilla (base)           → mean: 0.8420 | std: 0.0381 | min: 0.7659 | max: 0.8634
+    TEST  DS-vanilla (base)           → mean: 0.8283 | std: 0.0326 | min: 0.7639 | max: 0.8533
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8283 | std: 0.0011 | min: 0.8271 | max: 0.8301
+    TEST  Cox (base)                  → mean: 0.8258 | std: 0.0059 | min: 0.8166 | max: 0.8344
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabpfn+DS-simple            → mean: 0.9453 | std: 0.0113 | min: 0.9310 | max: 0.9601
+    TEST  tabpfn+DS-simple            → mean: 0.7486 | std: 0.0214 | min: 0.7152 | max: 0.7797
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9473 | std: 0.0125 | min: 0.9319 | max: 0.9652
+    TEST  tabpfn+DS-vanilla           → mean: 0.7471 | std: 0.0223 | min: 0.7106 | max: 0.7793
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9799 | std: 0.0048 | min: 0.9710 | max: 0.9840
+    TEST  tabpfn+Cox                  → mean: 0.5264 | std: 0.1065 | min: 0.4019 | max: 0.6717
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabpfn+DS-simple            → mean: 0.9535 | std: 0.0019 | min: 0.9502 | max: 0.9558
+    TEST  tabpfn+DS-simple            → mean: 0.8067 | std: 0.0063 | min: 0.7979 | max: 0.8162
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9590 | std: 0.0032 | min: 0.9558 | max: 0.9637
+    TEST  tabpfn+DS-vanilla           → mean: 0.8025 | std: 0.0101 | min: 0.7869 | max: 0.8127
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9697 | std: 0.0037 | min: 0.9663 | max: 0.9762
+    TEST  tabpfn+Cox                  → mean: 0.7029 | std: 0.0732 | min: 0.6164 | max: 0.8163
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabpfn+DS-simple            → mean: 0.9540 | std: 0.0024 | min: 0.9514 | max: 0.9581
+    TEST  tabpfn+DS-simple            → mean: 0.8168 | std: 0.0057 | min: 0.8076 | max: 0.8225
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9580 | std: 0.0028 | min: 0.9529 | max: 0.9609
+    TEST  tabpfn+DS-vanilla           → mean: 0.8150 | std: 0.0072 | min: 0.8026 | max: 0.8221
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9648 | std: 0.0035 | min: 0.9597 | max: 0.9682
+    TEST  tabpfn+Cox                  → mean: 0.7157 | std: 0.1536 | min: 0.4190 | max: 0.8202
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabpfn+DS-simple            → mean: 0.9526 | std: 0.0032 | min: 0.9498 | max: 0.9586
+    TEST  tabpfn+DS-simple            → mean: 0.8311 | std: 0.0037 | min: 0.8272 | max: 0.8371
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9535 | std: 0.0031 | min: 0.9488 | max: 0.9577
+    TEST  tabpfn+DS-vanilla           → mean: 0.8168 | std: 0.0085 | min: 0.8001 | max: 0.8233
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9565 | std: 0.0048 | min: 0.9488 | max: 0.9620
+    TEST  tabpfn+Cox                  → mean: 0.7825 | std: 0.0574 | min: 0.6708 | max: 0.8237
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabpfn+DS-simple            → mean: 0.9553 | std: 0.0060 | min: 0.9485 | max: 0.9639
+    TEST  tabpfn+DS-simple            → mean: 0.8372 | std: 0.0048 | min: 0.8322 | max: 0.8452
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9574 | std: 0.0036 | min: 0.9533 | max: 0.9629
+    TEST  tabpfn+DS-vanilla           → mean: 0.8121 | std: 0.0258 | min: 0.7702 | max: 0.8363
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9588 | std: 0.0014 | min: 0.9575 | max: 0.9613
+    TEST  tabpfn+Cox                  → mean: 0.8301 | std: 0.0124 | min: 0.8064 | max: 0.8420
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabpfn+DS-simple            → mean: 0.8506 | std: 0.2159 | min: 0.4188 | max: 0.9603
+    TEST  tabpfn+DS-simple            → mean: 0.7478 | std: 0.1679 | min: 0.4120 | max: 0.8380
+    TRAIN tabpfn+DS-vanilla           → mean: 0.8550 | std: 0.2010 | min: 0.4531 | max: 0.9573
+    TEST  tabpfn+DS-vanilla           → mean: 0.7906 | std: 0.0637 | min: 0.6656 | max: 0.8360
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9561 | std: 0.0011 | min: 0.9549 | max: 0.9579
+    TEST  tabpfn+Cox                  → mean: 0.8352 | std: 0.0048 | min: 0.8309 | max: 0.8413
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabpfn+DS-simple            → mean: 0.9582 | std: 0.0010 | min: 0.9564 | max: 0.9592
+    TEST  tabpfn+DS-simple            → mean: 0.8346 | std: 0.0028 | min: 0.8309 | max: 0.8382
+    TRAIN tabpfn+DS-vanilla           → mean: 0.9551 | std: 0.0017 | min: 0.9533 | max: 0.9579
+    TEST  tabpfn+DS-vanilla           → mean: 0.7813 | std: 0.0584 | min: 0.6862 | max: 0.8372
+    TRAIN tabpfn+RSF                  → no valid scores
+    TEST  tabpfn+RSF                  → no valid scores
+    TRAIN tabpfn+Cox                  → mean: 0.9556 | std: 0.0009 | min: 0.9548 | max: 0.9574
+    TEST  tabpfn+Cox                  → mean: 0.8377 | std: 0.0043 | min: 0.8338 | max: 0.8449
+Text summary saved → results/HURRAH/tabpfn/results_samplesize_HURRAH_tabpfn_seed77.txt

@@ -12,11 +12,11 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 # ============================================================
 
 # Cartella LOCALE che vuoi caricare (percorso assoluto o relativo)
-CARTELLA_LOCALE = "../../Foundation_model_clinical_data"
+CARTELLA_LOCALE = "../../Foundation_model_clinical_data/checkpoints_samplesize"
 
 # Cartella REMOTA su OneDrive dove caricare i file
 # Esempio: "Tesi" oppure "Documenti/Tesi/Capitoli"
-CARTELLA_REMOTA = "Tesi/Foundation_model_clinical_data"
+CARTELLA_REMOTA = "Tesi/Foundation_model_clinical_data/checkpoints_samplesize"
 
 # Worker paralleli per l'upload (aumenta con cautela: troppi possono causare rate limiting)
 MAX_WORKERS = 4

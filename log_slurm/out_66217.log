@@ -1,0 +1,3249 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabicl/embedding.py:142: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  y_t = torch.from_numpy(y_ctx).long().unsqueeze(0).to(self.device)    # (1, ctx_size)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Subclinical primary hyperthyroidism\n(SCT)', 'Ipertiroidismo', 'Normal', 'SindromeX', 'MIN', 'MIO', 'Miocardite', 'Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column CABG  have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'CABG '].var())
+>>> print(df.loc[~events, 'CABG '].var())
+
+A very low variance means that the column CABG  completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipotiroidismo', 'MIN', 'MIO', 'Miocardite', 'EPA', 'Ictus', 'Ictus_event'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Ipertiroidismo has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MIN', 'MIO', 'Endocardite', 'EmboliaPolmonare'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column Ipotiroidismo have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'Ipotiroidismo'].var())
+>>> print(df.loc[~events, 'Ipotiroidismo'].var())
+
+A very low variance means that the column Ipotiroidismo completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column SindromeX has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Miocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Ipertiroidismo', 'SindromeX', 'MIO', 'Miocardite', 'Pericardite', 'Endocardite', 'EmboliaPolmonare', 'Ictus', 'Ictus_event'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column AMI have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'AMI'].var())
+>>> print(df.loc[~events, 'AMI'].var())
+
+A very low variance means that the column AMI completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Normal has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column MIN has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column Endocardite has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Miocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MIO'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['Endocardite'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column SindromeX have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'SindromeX'].var())
+>>> print(df.loc[~events, 'SindromeX'].var())
+
+A very low variance means that the column SindromeX completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['SindromeX'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column EmboliaPolmonare have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'EmboliaPolmonare'].var())
+>>> print(df.loc[~events, 'EmboliaPolmonare'].var())
+
+A very low variance means that the column EmboliaPolmonare completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:496: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:498: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+Model:        tabicl
+Seed:         77
+Sample sizes: [100, 500, 1000, 2500, 5000, 10000, 15000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8644  test=0.6175
+  [tabicl+DS-vanilla] train=0.9364  test=0.6318
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9947  test=0.6034
+  [DS-simple]         train=0.7688  test=0.6335
+  [DS-vanilla]        train=0.7837  test=0.6323
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8873  test=0.5970
+  [tabicl+DS-vanilla] train=0.8669  test=0.5972
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9983  test=0.5302
+  [DS-simple]         train=0.7116  test=0.6509
+  [DS-vanilla]        train=0.6793  test=0.6839
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8901  test=0.5885
+  [tabicl+DS-vanilla] train=0.8821  test=0.5253
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9969  test=0.6075
+  [DS-simple]         train=0.8206  test=0.6747
+  [DS-vanilla]        train=0.7643  test=0.6275
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8601  test=0.5523
+  [tabicl+DS-vanilla] train=0.9504  test=0.6589
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9977  test=0.6503
+  [DS-simple]         train=0.7053  test=0.6520
+  [DS-vanilla]        train=0.8569  test=0.6453
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8657  test=0.5891
+  [tabicl+DS-vanilla] train=0.8905  test=0.5176
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9962  test=0.6064
+  [DS-simple]         train=0.5600  test=0.5359
+  [DS-vanilla]        train=0.6916  test=0.5949
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9032  test=0.7220
+  [tabicl+DS-vanilla] train=0.9057  test=0.7210
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9561  test=0.6354
+  [DS-simple]         train=0.8022  test=0.7310
+  [DS-vanilla]        train=0.7953  test=0.7364
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.8829  test=0.6758
+  [tabicl+DS-vanilla] train=0.9152  test=0.7098
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9462  test=0.6678
+  [DS-simple]         train=0.7853  test=0.7713
+  [DS-vanilla]        train=0.8077  test=0.7683
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7991  test=0.7915
+  Fold 3: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9032  test=0.7024
+  [tabicl+DS-vanilla] train=0.9486  test=0.6798
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9631  test=0.6648
+  [DS-simple]         train=0.8064  test=0.7657
+  [DS-vanilla]        train=0.7905  test=0.7534
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9091  test=0.6990
+  [tabicl+DS-vanilla] train=0.9349  test=0.7036
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9640  test=0.6353
+  [DS-simple]         train=0.7985  test=0.7385
+  [DS-vanilla]        train=0.7306  test=0.6812
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 5: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9148  test=0.7125
+  [tabicl+DS-vanilla] train=0.9472  test=0.7174
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9609  test=0.6785
+  [DS-simple]         train=0.8411  test=0.7647
+  [DS-vanilla]        train=0.8268  test=0.7371
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.8968  test=0.7313
+  [tabicl+DS-vanilla] train=0.9214  test=0.7384
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9393  test=0.6762
+  [DS-simple]         train=0.8099  test=0.7629
+  [DS-vanilla]        train=0.8002  test=0.7606
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8205  test=0.7754
+  Fold 2: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.8799  test=0.6863
+  [tabicl+DS-vanilla] train=0.9235  test=0.7224
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9448  test=0.6563
+  [DS-simple]         train=0.8089  test=0.7930
+  [DS-vanilla]        train=0.8010  test=0.7871
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8174  test=0.7966
+  Fold 3: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.8948  test=0.7368
+  [tabicl+DS-vanilla] train=0.9361  test=0.7542
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9474  test=0.6999
+  [DS-simple]         train=0.8113  test=0.7551
+  [DS-vanilla]        train=0.8222  test=0.7744
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8286  test=0.7964
+  Fold 4: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9038  test=0.7134
+  [tabicl+DS-vanilla] train=0.9244  test=0.7088
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9440  test=0.6851
+  [DS-simple]         train=0.7952  test=0.7611
+  [DS-vanilla]        train=0.6891  test=0.6546
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8112  test=0.7661
+  Fold 5: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9035  test=0.7118
+  [tabicl+DS-vanilla] train=0.9301  test=0.7292
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9500  test=0.7034
+  [DS-simple]         train=0.8309  test=0.7780
+  [DS-vanilla]        train=0.8367  test=0.7681
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8343  test=0.7871
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9053  test=0.7373
+  [tabicl+DS-vanilla] train=0.9170  test=0.7397
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9302  test=0.7251
+  [DS-simple]         train=0.8059  test=0.7814
+  [DS-vanilla]        train=0.8039  test=0.7672
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8065  test=0.7824
+  Fold 2: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9284  test=0.7231
+  [tabicl+DS-vanilla] train=0.9189  test=0.7370
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9311  test=0.7232
+  [DS-simple]         train=0.7908  test=0.7820
+  [DS-vanilla]        train=0.8006  test=0.8028
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8049  test=0.8018
+  Fold 3: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9262  test=0.7184
+  [tabicl+DS-vanilla] train=0.9239  test=0.7683
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9318  test=0.7370
+  [DS-simple]         train=0.7881  test=0.7840
+  [DS-vanilla]        train=0.8031  test=0.7939
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8040  test=0.8044
+  Fold 4: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9297  test=0.6892
+  [tabicl+DS-vanilla] train=0.9227  test=0.7327
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9322  test=0.6900
+  [DS-simple]         train=0.8069  test=0.7670
+  [DS-vanilla]        train=0.8159  test=0.7722
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8100  test=0.7768
+  Fold 5: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9342  test=0.6940
+  [tabicl+DS-vanilla] train=0.9220  test=0.7348
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9351  test=0.7172
+  [DS-simple]         train=0.8043  test=0.7812
+  [DS-vanilla]        train=0.8057  test=0.7751
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8054  test=0.7891
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9244  test=0.7403
+  [tabicl+DS-vanilla] train=0.9256  test=0.7479
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9276  test=0.7537
+  [DS-simple]         train=0.7919  test=0.7726
+  [DS-vanilla]        train=0.8135  test=0.7786
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8032  test=0.7844
+  Fold 2: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9264  test=0.7343
+  [tabicl+DS-vanilla] train=0.9234  test=0.7539
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9276  test=0.7324
+  [DS-simple]         train=0.7882  test=0.7953
+  [DS-vanilla]        train=0.8002  test=0.8071
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7976  test=0.8059
+  Fold 3: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9202  test=0.7332
+  [tabicl+DS-vanilla] train=0.9211  test=0.7708
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9260  test=0.7624
+  [DS-simple]         train=0.7928  test=0.7963
+  [DS-vanilla]        train=0.8043  test=0.7983
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7991  test=0.8062
+  Fold 4: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9246  test=0.7271
+  [tabicl+DS-vanilla] train=0.9190  test=0.7488
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9288  test=0.7340
+  [DS-simple]         train=0.7907  test=0.7748
+  [DS-vanilla]        train=0.8115  test=0.7730
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8048  test=0.7797
+  Fold 5: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9187  test=0.7256
+  [tabicl+DS-vanilla] train=0.9215  test=0.7406
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9270  test=0.7283
+  [DS-simple]         train=0.7875  test=0.7701
+  [DS-vanilla]        train=0.8111  test=0.7904
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8021  test=0.7922
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9180  test=0.7345
+  [tabicl+DS-vanilla] train=0.9196  test=0.7551
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9278  test=0.7556
+  [DS-simple]         train=0.7976  test=0.7753
+  [DS-vanilla]        train=0.8126  test=0.7848
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8025  test=0.7858
+  Fold 2: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9189  test=0.7247
+  [tabicl+DS-vanilla] train=0.9178  test=0.7529
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9274  test=0.7330
+  [DS-simple]         train=0.7763  test=0.7936
+  [DS-vanilla]        train=0.8069  test=0.8088
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7980  test=0.8055
+  Fold 3: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9221  test=0.7393
+  [tabicl+DS-vanilla] train=0.9242  test=0.7756
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9262  test=0.7621
+  [DS-simple]         train=0.7898  test=0.7957
+  [DS-vanilla]        train=0.8069  test=0.7994
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.7982  test=0.8060
+  Fold 4: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9290  test=0.7144
+  [tabicl+DS-vanilla] train=0.9245  test=0.7461
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9289  test=0.7343
+  [DS-simple]         train=0.7919  test=0.7679
+  [DS-vanilla]        train=0.8113  test=0.7763
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8041  test=0.7792
+  Fold 5: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9264  test=0.7118
+  [tabicl+DS-vanilla] train=0.9208  test=0.7340
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9259  test=0.7305
+  [DS-simple]         train=0.7943  test=0.7829
+  [DS-vanilla]        train=0.8010  test=0.7930
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8009  test=0.7926
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8670  test=0.6518
+  [tabicl+DS-vanilla] train=0.8553  test=0.6246
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9932  test=0.6485
+  Fold 2: train=100, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8652  test=0.5932
+  [tabicl+DS-vanilla] train=0.8643  test=0.6119
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9940  test=0.4997
+  Fold 3: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8689  test=0.5631
+  [tabicl+DS-vanilla] train=0.8658  test=0.5658
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9929  test=0.5863
+  Fold 4: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8793  test=0.5977
+  [tabicl+DS-vanilla] train=0.9383  test=0.6465
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9977  test=0.6195
+  Fold 5: train=100, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.8804  test=0.6203
+  [tabicl+DS-vanilla] train=0.8951  test=0.6374
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9924  test=0.5938
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9049  test=0.7181
+  [tabicl+DS-vanilla] train=0.9534  test=0.6924
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9574  test=0.5996
+  Fold 2: train=500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.8944  test=0.6949
+  [tabicl+DS-vanilla] train=0.9242  test=0.6802
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9439  test=0.6674
+  Fold 3: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9062  test=0.6984
+  [tabicl+DS-vanilla] train=0.9237  test=0.6606
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9596  test=0.6514
+  Fold 4: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9136  test=0.7078
+  [tabicl+DS-vanilla] train=0.9267  test=0.7061
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9601  test=0.6446
+  Fold 5: train=500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9195  test=0.7133
+  [tabicl+DS-vanilla] train=0.9468  test=0.7187
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9623  test=0.6875
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9335  test=0.7180
+  [tabicl+DS-vanilla] train=0.9153  test=0.7371
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9379  test=0.7004
+  Fold 2: train=1000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.8851  test=0.7087
+  [tabicl+DS-vanilla] train=0.9189  test=0.7408
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9399  test=0.7009
+  Fold 3: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9049  test=0.7345
+  [tabicl+DS-vanilla] train=0.9327  test=0.7553
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9461  test=0.7129
+  Fold 4: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9149  test=0.7167
+  [tabicl+DS-vanilla] train=0.9302  test=0.7113
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9429  test=0.7159
+  Fold 5: train=1000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9427  test=0.7165
+  [tabicl+DS-vanilla] train=0.9410  test=0.7225
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9496  test=0.7037
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9060  test=0.7245
+  [tabicl+DS-vanilla] train=0.9188  test=0.7314
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9306  test=0.7050
+  Fold 2: train=2500, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9260  test=0.7291
+  [tabicl+DS-vanilla] train=0.9202  test=0.7427
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9267  test=0.7356
+  Fold 3: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9293  test=0.7505
+  [tabicl+DS-vanilla] train=0.9273  test=0.7608
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9315  test=0.7587
+  Fold 4: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.8839  test=0.7227
+  [tabicl+DS-vanilla] train=0.9206  test=0.7308
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9304  test=0.6962
+  Fold 5: train=2500, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9279  test=0.6982
+  [tabicl+DS-vanilla] train=0.9196  test=0.7378
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9329  test=0.7079
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9227  test=0.7258
+  [tabicl+DS-vanilla] train=0.9187  test=0.7540
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9254  test=0.7456
+  Fold 2: train=5000, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9207  test=0.7366
+  [tabicl+DS-vanilla] train=0.9207  test=0.7470
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9242  test=0.7428
+  Fold 3: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9249  test=0.7540
+  [tabicl+DS-vanilla] train=0.9189  test=0.7806
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9248  test=0.7624
+  Fold 4: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9269  test=0.7117
+  [tabicl+DS-vanilla] train=0.9222  test=0.7376
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9274  test=0.7382
+  Fold 5: train=5000, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9205  test=0.7251
+  [tabicl+DS-vanilla] train=0.9179  test=0.7318
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9249  test=0.7353
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9199  test=0.7385
+  [tabicl+DS-vanilla] train=0.9212  test=0.7409
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9257  test=0.7460
+  Fold 2: train=5161, test=1291
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5161, 512)
+  [tabicl+DS-simple]  train=0.9208  test=0.7612
+  [tabicl+DS-vanilla] train=0.9169  test=0.7579
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9240  test=0.7433
+  Fold 3: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9200  test=0.7516
+  [tabicl+DS-vanilla] train=0.9185  test=0.7790
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9245  test=0.7599
+  Fold 4: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9265  test=0.7185
+  [tabicl+DS-vanilla] train=0.9204  test=0.7197
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9273  test=0.7392
+  Fold 5: train=5162, test=1290
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5162, 512)
+  [tabicl+DS-simple]  train=0.9187  test=0.7367
+  [tabicl+DS-vanilla] train=0.9214  test=0.7476
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9243  test=0.7347
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+Data saved → results/OrmoniTirodei/tabicl/results_samplesize_OrmoniTirodei_tabicl_seed77_data.txt
+
+Dataset: OrmoniTirodei | Model: tabicl | Seed: 77
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabicl+DS-simple            → mean: 0.8735 | std: 0.0126 | min: 0.8601 | max: 0.8901
+    TEST  tabicl+DS-simple            → mean: 0.5889 | std: 0.0211 | min: 0.5523 | max: 0.6175
+    TRAIN tabicl+DS-vanilla           → mean: 0.9053 | std: 0.0324 | min: 0.8669 | max: 0.9504
+    TEST  tabicl+DS-vanilla           → mean: 0.5862 | std: 0.0564 | min: 0.5176 | max: 0.6589
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9968 | std: 0.0012 | min: 0.9947 | max: 0.9983
+    TEST  tabicl+Cox                  → mean: 0.5996 | std: 0.0388 | min: 0.5302 | max: 0.6503
+    TRAIN DS-simple (base)            → mean: 0.7133 | std: 0.0873 | min: 0.5600 | max: 0.8206
+    TEST  DS-simple (base)            → mean: 0.6294 | std: 0.0486 | min: 0.5359 | max: 0.6747
+    TRAIN DS-vanilla (base)           → mean: 0.7551 | std: 0.0649 | min: 0.6793 | max: 0.8569
+    TEST  DS-vanilla (base)           → mean: 0.6368 | std: 0.0288 | min: 0.5949 | max: 0.6839
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → no valid scores
+    TEST  Cox (base)                  → no valid scores
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabicl+DS-simple            → mean: 0.9027 | std: 0.0108 | min: 0.8829 | max: 0.9148
+    TEST  tabicl+DS-simple            → mean: 0.7024 | std: 0.0155 | min: 0.6758 | max: 0.7220
+    TRAIN tabicl+DS-vanilla           → mean: 0.9303 | std: 0.0172 | min: 0.9057 | max: 0.9486
+    TEST  tabicl+DS-vanilla           → mean: 0.7063 | std: 0.0146 | min: 0.6798 | max: 0.7210
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9581 | std: 0.0065 | min: 0.9462 | max: 0.9640
+    TEST  tabicl+Cox                  → mean: 0.6564 | std: 0.0177 | min: 0.6353 | max: 0.6785
+    TRAIN DS-simple (base)            → mean: 0.8067 | std: 0.0186 | min: 0.7853 | max: 0.8411
+    TEST  DS-simple (base)            → mean: 0.7543 | std: 0.0162 | min: 0.7310 | max: 0.7713
+    TRAIN DS-vanilla (base)           → mean: 0.7902 | std: 0.0323 | min: 0.7306 | max: 0.8268/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) ['MENOPAUSA', 'ANNI_MENOP'] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column IMT have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, 'IMT'].var())
+>>> print(df.loc[~events, 'IMT'].var())
+
+A very low variance means that the column IMT completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column IMA_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column CBV_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1163: ConvergenceWarning: Column HF_BASE has high sample correlation with the duration column. This may harm convergence. This could be a form of 'complete separation'.     See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:990: ConvergenceWarning: Your dataset has more variables than samples. Even with a penalizer (which you must use), convergence is not guaranteed.
+
+  warnings.warn(warning_text, ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/fitters/coxph_fitter.py:1614: ConvergenceWarning: Newton-Raphson failed to converge sufficiently. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-model
+  warnings.warn(
+
+    TEST  DS-vanilla (base)           → mean: 0.7353 | std: 0.0295 | min: 0.6812 | max: 0.7683
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.7991 | std: 0.0000 | min: 0.7991 | max: 0.7991
+    TEST  Cox (base)                  → mean: 0.7915 | std: 0.0000 | min: 0.7915 | max: 0.7915
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabicl+DS-simple            → mean: 0.8958 | std: 0.0087 | min: 0.8799 | max: 0.9038
+    TEST  tabicl+DS-simple            → mean: 0.7159 | std: 0.0177 | min: 0.6863 | max: 0.7368
+    TRAIN tabicl+DS-vanilla           → mean: 0.9271 | std: 0.0054 | min: 0.9214 | max: 0.9361
+    TEST  tabicl+DS-vanilla           → mean: 0.7306 | std: 0.0152 | min: 0.7088 | max: 0.7542
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9451 | std: 0.0036 | min: 0.9393 | max: 0.9500
+    TEST  tabicl+Cox                  → mean: 0.6842 | std: 0.0171 | min: 0.6563 | max: 0.7034
+    TRAIN DS-simple (base)            → mean: 0.8113 | std: 0.0114 | min: 0.7952 | max: 0.8309
+    TEST  DS-simple (base)            → mean: 0.7700 | std: 0.0138 | min: 0.7551 | max: 0.7930
+    TRAIN DS-vanilla (base)           → mean: 0.7899 | std: 0.0522 | min: 0.6891 | max: 0.8367
+    TEST  DS-vanilla (base)           → mean: 0.7490 | std: 0.0480 | min: 0.6546 | max: 0.7871
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8224 | std: 0.0082 | min: 0.8112 | max: 0.8343
+    TEST  Cox (base)                  → mean: 0.7843 | std: 0.0120 | min: 0.7661 | max: 0.7966
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabicl+DS-simple            → mean: 0.9248 | std: 0.0101 | min: 0.9053 | max: 0.9342
+    TEST  tabicl+DS-simple            → mean: 0.7124 | std: 0.0181 | min: 0.6892 | max: 0.7373
+    TRAIN tabicl+DS-vanilla           → mean: 0.9209 | std: 0.0026 | min: 0.9170 | max: 0.9239
+    TEST  tabicl+DS-vanilla           → mean: 0.7425 | std: 0.0131 | min: 0.7327 | max: 0.7683
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9321 | std: 0.0016 | min: 0.9302 | max: 0.9351
+    TEST  tabicl+Cox                  → mean: 0.7185 | std: 0.0156 | min: 0.6900 | max: 0.7370
+    TRAIN DS-simple (base)            → mean: 0.7992 | std: 0.0080 | min: 0.7881 | max: 0.8069
+    TEST  DS-simple (base)            → mean: 0.7791 | std: 0.0061 | min: 0.7670 | max: 0.7840
+    TRAIN DS-vanilla (base)           → mean: 0.8059 | std: 0.0053 | min: 0.8006 | max: 0.8159
+    TEST  DS-vanilla (base)           → mean: 0.7822 | std: 0.0137 | min: 0.7672 | max: 0.8028
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8061 | std: 0.0021 | min: 0.8040 | max: 0.8100
+    TEST  Cox (base)                  → mean: 0.7909 | std: 0.0107 | min: 0.7768 | max: 0.8044
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabicl+DS-simple            → mean: 0.9229 | std: 0.0029 | min: 0.9187 | max: 0.9264
+    TEST  tabicl+DS-simple            → mean: 0.7321 | std: 0.0053 | min: 0.7256 | max: 0.7403
+    TRAIN tabicl+DS-vanilla           → mean: 0.9221 | std: 0.0022 | min: 0.9190 | max: 0.9256
+    TEST  tabicl+DS-vanilla           → mean: 0.7524 | std: 0.0101 | min: 0.7406 | max: 0.7708
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9274 | std: 0.0009 | min: 0.9260 | max: 0.9288
+    TEST  tabicl+Cox                  → mean: 0.7422 | std: 0.0134 | min: 0.7283 | max: 0.7624
+    TRAIN DS-simple (base)            → mean: 0.7902 | std: 0.0020 | min: 0.7875 | max: 0.7928
+    TEST  DS-simple (base)            → mean: 0.7818 | std: 0.0115 | min: 0.7701 | max: 0.7963
+    TRAIN DS-vanilla (base)           → mean: 0.8081 | std: 0.0050 | min: 0.8002 | max: 0.8135
+    TEST  DS-vanilla (base)           → mean: 0.7895 | std: 0.0125 | min: 0.7730 | max: 0.8071
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8014 | std: 0.0026 | min: 0.7976 | max: 0.8048
+    TEST  Cox (base)                  → mean: 0.7937 | std: 0.0109 | min: 0.7797 | max: 0.8062
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabicl+DS-simple            → mean: 0.9229 | std: 0.0042 | min: 0.9180 | max: 0.9290
+    TEST  tabicl+DS-simple            → mean: 0.7250 | std: 0.0108 | min: 0.7118 | max: 0.7393
+    TRAIN tabicl+DS-vanilla           → mean: 0.9214 | std: 0.0026 | min: 0.9178 | max: 0.9245
+    TEST  tabicl+DS-vanilla           → mean: 0.7527 | std: 0.0136 | min: 0.7340 | max: 0.7756
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9273 | std: 0.0011 | min: 0.9259 | max: 0.9289
+    TEST  tabicl+Cox                  → mean: 0.7431 | std: 0.0131 | min: 0.7305 | max: 0.7621
+    TRAIN DS-simple (base)            → mean: 0.7900 | std: 0.0073 | min: 0.7763 | max: 0.7976
+    TEST  DS-simple (base)            → mean: 0.7831 | std: 0.0106 | min: 0.7679 | max: 0.7957
+    TRAIN DS-vanilla (base)           → mean: 0.8077 | std: 0.0041 | min: 0.8010 | max: 0.8126
+    TEST  DS-vanilla (base)           → mean: 0.7925 | std: 0.0112 | min: 0.7763 | max: 0.8088
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8007 | std: 0.0024 | min: 0.7980 | max: 0.8041
+    TEST  Cox (base)                  → mean: 0.7938 | std: 0.0106 | min: 0.7792 | max: 0.8060
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabicl+DS-simple            → mean: 0.8722 | std: 0.0064 | min: 0.8652 | max: 0.8804
+    TEST  tabicl+DS-simple            → mean: 0.6052 | std: 0.0296 | min: 0.5631 | max: 0.6518
+    TRAIN tabicl+DS-vanilla           → mean: 0.8837 | std: 0.0304 | min: 0.8553 | max: 0.9383
+    TEST  tabicl+DS-vanilla           → mean: 0.6172 | std: 0.0283 | min: 0.5658 | max: 0.6465
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9940 | std: 0.0019 | min: 0.9924 | max: 0.9977
+    TEST  tabicl+Cox                  → mean: 0.5895 | std: 0.0500 | min: 0.4997 | max: 0.6485
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabicl+DS-simple            → mean: 0.9077 | std: 0.0085 | min: 0.8944 | max: 0.9195
+    TEST  tabicl+DS-simple            → mean: 0.7065 | std: 0.0087 | min: 0.6949 | max: 0.7181
+    TRAIN tabicl+DS-vanilla           → mean: 0.9350 | std: 0.0126 | min: 0.9237 | max: 0.9534
+    TEST  tabicl+DS-vanilla           → mean: 0.6916 | std: 0.0202 | min: 0.6606 | max: 0.7187
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9566 | std: 0.0066 | min: 0.9439 | max: 0.9623
+    TEST  tabicl+Cox                  → mean: 0.6501 | std: 0.0293 | min: 0.5996 | max: 0.6875
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabicl+DS-simple            → mean: 0.9162 | std: 0.0205 | min: 0.8851 | max: 0.9427
+    TEST  tabicl+DS-simple            → mean: 0.7189 | std: 0.0085 | min: 0.7087 | max: 0.7345
+    TRAIN tabicl+DS-vanilla           → mean: 0.9276 | std: 0.0094 | min: 0.9153 | max: 0.9410
+    TEST  tabicl+DS-vanilla           → mean: 0.7334 | std: 0.0152 | min: 0.7113 | max: 0.7553
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9433 | std: 0.0042 | min: 0.9379 | max: 0.9496
+    TEST  tabicl+Cox                  → mean: 0.7068 | std: 0.0064 | min: 0.7004 | max: 0.7159
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabicl+DS-simple            → mean: 0.9146 | std: 0.0175 | min: 0.8839 | max: 0.9293
+    TEST  tabicl+DS-simple            → mean: 0.7250 | std: 0.0167 | min: 0.6982 | max: 0.7505
+    TRAIN tabicl+DS-vanilla           → mean: 0.9213 | std: 0.0031 | min: 0.9188 | max: 0.9273
+    TEST  tabicl+DS-vanilla           → mean: 0.7407 | std: 0.0110 | min: 0.7308 | max: 0.7608
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9304 | std: 0.0021 | min: 0.9267 | max: 0.9329
+    TEST  tabicl+Cox                  → mean: 0.7207 | std: 0.0231 | min: 0.6962 | max: 0.7587
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabicl+DS-simple            → mean: 0.9231 | std: 0.0025 | min: 0.9205 | max: 0.9269
+    TEST  tabicl+DS-simple            → mean: 0.7307 | std: 0.0141 | min: 0.7117 | max: 0.7540
+    TRAIN tabicl+DS-vanilla           → mean: 0.9197 | std: 0.0015 | min: 0.9179 | max: 0.9222
+    TEST  tabicl+DS-vanilla           → mean: 0.7502 | std: 0.0170 | min: 0.7318 | max: 0.7806
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9253 | std: 0.0011 | min: 0.9242 | max: 0.9274
+    TEST  tabicl+Cox                  → mean: 0.7449 | std: 0.0094 | min: 0.7353 | max: 0.7624
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabicl+DS-simple            → mean: 0.9212 | std: 0.0028 | min: 0.9187 | max: 0.9265
+    TEST  tabicl+DS-simple            → mean: 0.7413 | std: 0.0145 | min: 0.7185 | max: 0.7612
+    TRAIN tabicl+DS-vanilla           → mean: 0.9197 | std: 0.0017 | min: 0.9169 | max: 0.9214
+    TEST  tabicl+DS-vanilla           → mean: 0.7490 | std: 0.0195 | min: 0.7197 | max: 0.7790
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9251 | std: 0.0012 | min: 0.9240 | max: 0.9273
+    TEST  tabicl+Cox                  → mean: 0.7446 | std: 0.0085 | min: 0.7347 | max: 0.7599
+Text summary saved → results/OrmoniTirodei/tabicl/results_samplesize_OrmoniTirodei_tabicl_seed77.txt
+
+######################################################################
+Dataset: HURRAH
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9374  test=0.6351
+  [tabicl+DS-vanilla] train=0.9637  test=0.6529
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=1.0000  test=0.5169
+  [DS-simple]         train=0.8457  test=0.7010
+  [DS-vanilla]        train=0.8721  test=0.6881
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9038  test=0.7395
+  Fold 2: train=100, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9355  test=0.6640
+  [tabicl+DS-vanilla] train=0.9336  test=0.6376
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9994  test=0.6140
+  [DS-simple]         train=0.9029  test=0.7733
+  [DS-vanilla]        train=0.8225  test=0.6943
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=100, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9404  test=0.6993
+  [tabicl+DS-vanilla] train=0.9423  test=0.6775
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.5695  test=0.3490
+  [DS-simple]         train=0.8515  test=0.7243
+  [DS-vanilla]        train=0.7881  test=0.6396
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9404  test=0.7529
+  Fold 4: train=100, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9411  test=0.5852
+  [tabicl+DS-vanilla] train=0.9229  test=0.6139
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9978  test=0.5780
+  [DS-simple]         train=0.8218  test=0.7616
+  [DS-vanilla]        train=0.8538  test=0.6351
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9462  test=0.7341
+  Fold 5: train=100, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9571  test=0.6708
+  [tabicl+DS-vanilla] train=0.9632  test=0.6759
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9448  test=0.6728
+  [DS-simple]         train=0.9264  test=0.6713
+  [DS-vanilla]        train=0.8282  test=0.6470
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.9458  test=0.7150
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9638  test=0.7361
+  [tabicl+DS-vanilla] train=0.9625  test=0.7351
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.8579  test=0.6843
+  [DS-simple]         train=0.8849  test=0.8133
+  [DS-vanilla]        train=0.8859  test=0.7951
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8764  test=0.8084
+  Fold 2: train=500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9466  test=0.7290
+  [tabicl+DS-vanilla] train=0.9480  test=0.7042
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9848  test=0.6419
+  [DS-simple]         train=0.8610  test=0.8160
+  [DS-vanilla]        train=0.8303  test=0.7210
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8622  test=0.8047
+  Fold 3: train=500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9507  test=0.7155
+  [tabicl+DS-vanilla] train=0.9531  test=0.6961
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9835  test=0.6547
+  [DS-simple]         train=0.8459  test=0.7872
+  [DS-vanilla]        train=0.8441  test=0.7270
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8324  test=0.7933
+  Fold 4: train=500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9489  test=0.7580
+  [tabicl+DS-vanilla] train=0.9531  test=0.7525
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9867  test=0.6591
+  [DS-simple]         train=0.8713  test=0.8109
+  [DS-vanilla]        train=0.8485  test=0.7669
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8692  test=0.8034
+  Fold 5: train=500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9620  test=0.7535
+  [tabicl+DS-vanilla] train=0.9566  test=0.7558
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9816  test=0.7473
+  [DS-simple]         train=0.8906  test=0.8052
+  [DS-vanilla]        train=0.8845  test=0.7998
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8879  test=0.8124
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9598  test=0.7378
+  [tabicl+DS-vanilla] train=0.9519  test=0.7530
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9053  test=0.6690
+  [DS-simple]         train=0.8633  test=0.8354
+  [DS-vanilla]        train=0.8535  test=0.8046
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8490  test=0.8245
+  Fold 2: train=1000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9496  test=0.7554
+  [tabicl+DS-vanilla] train=0.9721  test=0.6432
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9776  test=0.6935
+  [DS-simple]         train=0.8647  test=0.8288
+  [DS-vanilla]        train=0.8785  test=0.8082
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8548  test=0.8183
+  Fold 3: train=1000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9479  test=0.7300
+  [tabicl+DS-vanilla] train=0.9626  test=0.7522
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9769  test=0.7312
+  [DS-simple]         train=0.8447  test=0.8089
+  [DS-vanilla]        train=0.8620  test=0.7886
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8290  test=0.8034
+  Fold 4: train=1000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9487  test=0.7516
+  [tabicl+DS-vanilla] train=0.9629  test=0.7503
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9771  test=0.6811
+  [DS-simple]         train=0.8469  test=0.8179
+  [DS-vanilla]        train=0.8600  test=0.7937
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8483  test=0.8132
+  Fold 5: train=1000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9538  test=0.7721
+  [tabicl+DS-vanilla] train=0.9705  test=0.7771
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.8447  test=0.7189
+  [DS-simple]         train=0.8641  test=0.8197
+  [DS-vanilla]        train=0.8577  test=0.8139
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8663  test=0.8257
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9543  test=0.7838
+  [tabicl+DS-vanilla] train=0.9721  test=0.7467
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9719  test=0.7443
+  [DS-simple]         train=0.8531  test=0.8357
+  [DS-vanilla]        train=0.8495  test=0.8166
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8390  test=0.8262
+  Fold 2: train=2500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9666  test=0.7950
+  [tabicl+DS-vanilla] train=0.9574  test=0.7335
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9697  test=0.7532
+  [DS-simple]         train=0.8503  test=0.8346
+  [DS-vanilla]        train=0.8336  test=0.8125
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8437  test=0.8208
+  Fold 3: train=2500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9556  test=0.7805
+  [tabicl+DS-vanilla] train=0.9640  test=0.7675
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9692  test=0.7489
+  [DS-simple]         train=0.8540  test=0.8240
+  [DS-vanilla]        train=0.8681  test=0.8128
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8360  test=0.8150
+  Fold 4: train=2500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9630  test=0.7917
+  [tabicl+DS-vanilla] train=0.9629  test=0.7732
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9724  test=0.7321
+  [DS-simple]         train=0.8482  test=0.8285
+  [DS-vanilla]        train=0.8660  test=0.8228
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8350  test=0.8221
+  Fold 5: train=2500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9614  test=0.7959
+  [tabicl+DS-vanilla] train=0.9704  test=0.7849
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9732  test=0.7239
+  [DS-simple]         train=0.8476  test=0.8356
+  [DS-vanilla]        train=0.8689  test=0.8364
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8471  test=0.8327
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9617  test=0.7891
+  [tabicl+DS-vanilla] train=0.9611  test=0.7985
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9681  test=0.7740
+  [DS-simple]         train=0.8424  test=0.8345
+  [DS-vanilla]        train=0.8576  test=0.8385
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8334  test=0.8251
+  Fold 2: train=5000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9623  test=0.7992
+  [tabicl+DS-vanilla] train=0.9660  test=0.7829
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9676  test=0.7499
+  [DS-simple]         train=0.8408  test=0.8316
+  [DS-vanilla]        train=0.8683  test=0.8410
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8337  test=0.8259
+  Fold 3: train=5000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9593  test=0.7720
+  [tabicl+DS-vanilla] train=0.9641  test=0.7714
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9670  test=0.7712
+  [DS-simple]         train=0.8415  test=0.8266
+  [DS-vanilla]        train=0.8635  test=0.8269
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8327  test=0.8127
+  Fold 4: train=5000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9640  test=0.7774
+  [tabicl+DS-vanilla] train=0.9581  test=0.7619
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9672  test=0.7544
+  [DS-simple]         train=0.8393  test=0.8242
+  [DS-vanilla]        train=0.8541  test=0.8283
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8321  test=0.8242
+  Fold 5: train=5000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9667  test=0.7959
+  [tabicl+DS-vanilla] train=0.9545  test=0.7931
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9666  test=0.7614
+  [DS-simple]         train=0.8464  test=0.8350
+  [DS-vanilla]        train=0.8731  test=0.8494
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8366  test=0.8324
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9574  test=0.7513
+  [tabicl+DS-vanilla] train=0.9600  test=0.7185
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9643  test=0.7705
+  [DS-simple]         train=0.8293  test=0.8244
+  [DS-vanilla]        train=0.8360  test=0.8345
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8272  test=0.8238
+  Fold 2: train=10000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9606  test=0.8030
+  [tabicl+DS-vanilla] train=0.9637  test=0.7513
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9649  test=0.7745
+  [DS-simple]         train=0.8375  test=0.8374
+  [DS-vanilla]        train=0.8123  test=0.8135
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8306  test=0.8286
+  Fold 3: train=10000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9616  test=0.7894
+  [tabicl+DS-vanilla] train=0.9633  test=0.7740
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9645  test=0.7704
+  [DS-simple]         train=0.8309  test=0.8193
+  [DS-vanilla]        train=0.8187  test=0.8025
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8305  test=0.8170
+  Fold 4: train=10000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9638  test=0.7835
+  [tabicl+DS-vanilla] train=0.9603  test=0.7881
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9652  test=0.7623
+  [DS-simple]         train=0.4857  test=0.4759
+  [DS-vanilla]        train=0.8192  test=0.8108
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8250  test=0.8236
+  Fold 5: train=10000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9648  test=0.7688
+  [tabicl+DS-vanilla] train=0.9596  test=0.7131
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9647  test=0.7559
+  [DS-simple]         train=0.8105  test=0.8135
+  [DS-vanilla]        train=0.8173  test=0.8184
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8263  test=0.8361
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13566, 512)
+  [tabicl+DS-simple]  train=0.9578  test=0.8010
+  [tabicl+DS-vanilla] train=0.9640  test=0.7849
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9641  test=0.7701
+  [DS-simple]         train=0.8350  test=0.8325
+  [DS-vanilla]        train=0.7659  test=0.7639
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8281  test=0.8244
+  Fold 2: train=13566, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13566, 512)
+  [tabicl+DS-simple]  train=0.9617  test=0.8100
+  [tabicl+DS-vanilla] train=0.9636  test=0.7741
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9637  test=0.7752
+  [DS-simple]         train=0.8332  test=0.8344
+  [DS-vanilla]        train=0.8581  test=0.8463
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8272  test=0.8290
+  Fold 3: train=13566, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13566, 512)
+  [tabicl+DS-simple]  train=0.9580  test=0.7732
+  [tabicl+DS-vanilla] train=0.9648  test=0.7783
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9644  test=0.7777
+  [DS-simple]         train=0.8390  test=0.8245
+  [DS-vanilla]        train=0.8594  test=0.8390
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8301  test=0.8166
+  Fold 4: train=13567, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13567, 512)
+  [tabicl+DS-simple]  train=0.9628  test=0.7980
+  [tabicl+DS-vanilla] train=0.9628  test=0.7394
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9645  test=0.7591
+  [DS-simple]         train=0.8382  test=0.8215
+  [DS-vanilla]        train=0.8630  test=0.8390
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8288  test=0.8247
+  Fold 5: train=13567, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13567, 512)
+  [tabicl+DS-simple]  train=0.9642  test=0.7761
+  [tabicl+DS-vanilla] train=0.9625  test=0.7870
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9649  test=0.7654
+  [DS-simple]         train=0.8308  test=0.8301
+  [DS-vanilla]        train=0.8634  test=0.8533
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [RSF]               train=nan  test=nan
+  [Cox]               train=0.8271  test=0.8344
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed77.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9283  test=0.6475
+  [tabicl+DS-vanilla] train=0.9583  test=0.6292
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9955  test=0.5813
+  Fold 2: train=100, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9310  test=0.6962
+  [tabicl+DS-vanilla] train=0.9508  test=0.6782
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9994  test=0.5682
+  Fold 3: train=100, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9366  test=0.6615
+  [tabicl+DS-vanilla] train=0.9574  test=0.6754
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9659  test=0.6337
+  Fold 4: train=100, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9265  test=0.6370
+  [tabicl+DS-vanilla] train=0.9353  test=0.6138
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9331  test=0.6225
+  Fold 5: train=100, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (100, 512)
+  [tabicl+DS-simple]  train=0.9663  test=0.6890
+  [tabicl+DS-vanilla] train=0.9734  test=0.6510
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.7904  test=0.5748
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9625  test=0.7475
+  [tabicl+DS-vanilla] train=0.9706  test=0.7432
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9885  test=0.6450
+  Fold 2: train=500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9475  test=0.7435
+  [tabicl+DS-vanilla] train=0.9791  test=0.7103
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9844  test=0.6551
+  Fold 3: train=500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9491  test=0.7219
+  [tabicl+DS-vanilla] train=0.9753  test=0.6868
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9849  test=0.6561
+  Fold 4: train=500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9455  test=0.7446
+  [tabicl+DS-vanilla] train=0.9748  test=0.7429
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9876  test=0.5828
+  Fold 5: train=500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (500, 512)
+  [tabicl+DS-simple]  train=0.9589  test=0.7503
+  [tabicl+DS-vanilla] train=0.9640  test=0.7467
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9811  test=0.7099
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9605  test=0.7353
+  [tabicl+DS-vanilla] train=0.9587  test=0.7460
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9789  test=0.7353
+  Fold 2: train=1000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9541  test=0.7465
+  [tabicl+DS-vanilla] train=0.9637  test=0.7191
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9783  test=0.6986
+  Fold 3: train=1000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9521  test=0.7441
+  [tabicl+DS-vanilla] train=0.9673  test=0.7391
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9737  test=0.7017
+  Fold 4: train=1000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9500  test=0.7645
+  [tabicl+DS-vanilla] train=0.9559  test=0.7559
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9766  test=0.6834
+  Fold 5: train=1000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (1000, 512)
+  [tabicl+DS-simple]  train=0.9552  test=0.7624
+  [tabicl+DS-vanilla] train=0.9674  test=0.7663
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9782  test=0.7388
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9564  test=0.7846/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:496: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:498: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+
+  [tabicl+DS-vanilla] train=0.9665  test=0.7703
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9715  test=0.7360
+  Fold 2: train=2500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9591  test=0.7744
+  [tabicl+DS-vanilla] train=0.9716  test=0.7583
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9705  test=0.7181
+  Fold 3: train=2500, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9554  test=0.7857
+  [tabicl+DS-vanilla] train=0.9608  test=0.7052
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9666  test=0.7278
+  Fold 4: train=2500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9680  test=0.7539
+  [tabicl+DS-vanilla] train=0.9672  test=0.7388
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9711  test=0.7177
+  Fold 5: train=2500, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (2500, 512)
+  [tabicl+DS-simple]  train=0.9611  test=0.7910
+  [tabicl+DS-vanilla] train=0.9668  test=0.7653
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9731  test=0.7360
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9607  test=0.8078
+  [tabicl+DS-vanilla] train=0.9666  test=0.7653
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9676  test=0.7414
+  Fold 2: train=5000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9650  test=0.7931
+  [tabicl+DS-vanilla] train=0.9570  test=0.7882
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9669  test=0.7097
+  Fold 3: train=5000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9613  test=0.7713
+  [tabicl+DS-vanilla] train=0.9533  test=0.7928
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9654  test=0.7425
+  Fold 4: train=5000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9651  test=0.7774
+  [tabicl+DS-vanilla] train=0.9647  test=0.7601
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9664  test=0.7288
+  Fold 5: train=5000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (5000, 512)
+  [tabicl+DS-simple]  train=0.9665  test=0.7890
+  [tabicl+DS-vanilla] train=0.9659  test=0.7903
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9661  test=0.7411
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9598  test=0.7686
+  [tabicl+DS-vanilla] train=0.9582  test=0.7564
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9642  test=0.7307
+  Fold 2: train=10000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9611  test=0.7275
+  [tabicl+DS-vanilla] train=0.9631  test=0.7754
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9643  test=0.7242
+  Fold 3: train=10000, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9596  test=0.7636
+  [tabicl+DS-vanilla] train=0.9603  test=0.7299
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9631  test=0.7473
+  Fold 4: train=10000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9582  test=0.7811
+  [tabicl+DS-vanilla] train=0.9626  test=0.7558
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9644  test=0.7416
+  Fold 5: train=10000, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (10000, 512)
+  [tabicl+DS-simple]  train=0.9630  test=0.7929
+  [tabicl+DS-vanilla] train=0.9605  test=0.7701
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9648  test=0.7326
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13566, 512)
+  [tabicl+DS-simple]  train=0.9644  test=0.7563
+  [tabicl+DS-vanilla] train=0.9618  test=0.7803
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9631  test=0.7470
+  Fold 2: train=13566, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13566, 512)
+  [tabicl+DS-simple]  train=0.9642  test=0.7570
+  [tabicl+DS-vanilla] train=0.9610  test=0.7380
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9633  test=0.7371
+  Fold 3: train=13566, test=3392
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13566, 512)
+  [tabicl+DS-simple]  train=0.9621  test=0.7650
+  [tabicl+DS-vanilla] train=0.9608  test=0.7666
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9630  test=0.7398
+  Fold 4: train=13567, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13567, 512)
+  [tabicl+DS-simple]  train=0.9618  test=0.7667
+  [tabicl+DS-vanilla] train=0.9645  test=0.7774
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9635  test=0.7324
+  Fold 5: train=13567, test=3391
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+Warming up TabICL model (triggering checkpoint load)...
+ARRIVATO QUI 1
+Loading TabICL model checkpoint 'tabicl-classifier-v1.1-0506.ckpt'...
+ARRIVATO QUI
+Performing dummy prediction to ensure model is loaded...
+  Embedding shape: (13567, 512)
+  [tabicl+DS-simple]  train=0.9601  test=0.7788
+  [tabicl+DS-vanilla] train=0.9615  test=0.7773
+    RSF fit failed: 'tuple' object has no attribute 'fit'
+  [tabicl+RSF]        train=nan  test=nan
+  [tabicl+Cox]        train=0.9638  test=0.7435
+
+Data saved → results/HURRAH/tabicl/results_samplesize_HURRAH_tabicl_seed77_data.txt
+
+Dataset: HURRAH | Model: tabicl | Seed: 77
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabicl+DS-simple            → mean: 0.9423 | std: 0.0077 | min: 0.9355 | max: 0.9571
+    TEST  tabicl+DS-simple            → mean: 0.6509 | std: 0.0387 | min: 0.5852 | max: 0.6993
+    TRAIN tabicl+DS-vanilla           → mean: 0.9451 | std: 0.0162 | min: 0.9229 | max: 0.9637
+    TEST  tabicl+DS-vanilla           → mean: 0.6516 | std: 0.0240 | min: 0.6139 | max: 0.6775
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9023 | std: 0.1677 | min: 0.5695 | max: 1.0000
+    TEST  tabicl+Cox                  → mean: 0.5461 | std: 0.1108 | min: 0.3490 | max: 0.6728
+    TRAIN DS-simple (base)            → mean: 0.8697 | std: 0.0388 | min: 0.8218 | max: 0.9264
+    TEST  DS-simple (base)            → mean: 0.7263 | std: 0.0377 | min: 0.6713 | max: 0.7733
+    TRAIN DS-vanilla (base)           → mean: 0.8329 | std: 0.0287 | min: 0.7881 | max: 0.8721
+    TEST  DS-vanilla (base)           → mean: 0.6608 | std: 0.0252 | min: 0.6351 | max: 0.6943
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.9340 | std: 0.0176 | min: 0.9038 | max: 0.9462
+    TEST  Cox (base)                  → mean: 0.7354 | std: 0.0136 | min: 0.7150 | max: 0.7529
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabicl+DS-simple            → mean: 0.9544 | std: 0.0071 | min: 0.9466 | max: 0.9638
+    TEST  tabicl+DS-simple            → mean: 0.7384 | std: 0.0157 | min: 0.7155 | max: 0.7580
+    TRAIN tabicl+DS-vanilla           → mean: 0.9547 | std: 0.0048 | min: 0.9480 | max: 0.9625
+    TEST  tabicl+DS-vanilla           → mean: 0.7287 | std: 0.0245 | min: 0.6961 | max: 0.7558
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9589 | std: 0.0505 | min: 0.8579 | max: 0.9867
+    TEST  tabicl+Cox                  → mean: 0.6775 | std: 0.0375 | min: 0.6419 | max: 0.7473
+    TRAIN DS-simple (base)            → mean: 0.8707 | std: 0.0162 | min: 0.8459 | max: 0.8906
+    TEST  DS-simple (base)            → mean: 0.8065 | std: 0.0103 | min: 0.7872 | max: 0.8160
+    TRAIN DS-vanilla (base)           → mean: 0.8587 | std: 0.0225 | min: 0.8303 | max: 0.8859
+    TEST  DS-vanilla (base)           → mean: 0.7620 | std: 0.0330 | min: 0.7210 | max: 0.7998
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8656 | std: 0.0187 | min: 0.8324 | max: 0.8879
+    TEST  Cox (base)                  → mean: 0.8044 | std: 0.0064 | min: 0.7933 | max: 0.8124
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabicl+DS-simple            → mean: 0.9519 | std: 0.0044 | min: 0.9479 | max: 0.9598
+    TEST  tabicl+DS-simple            → mean: 0.7494 | std: 0.0146 | min: 0.7300 | max: 0.7721
+    TRAIN tabicl+DS-vanilla           → mean: 0.9640 | std: 0.0072 | min: 0.9519 | max: 0.9721
+    TEST  tabicl+DS-vanilla           → mean: 0.7352 | std: 0.0470 | min: 0.6432 | max: 0.7771
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9363 | std: 0.0536 | min: 0.8447 | max: 0.9776
+    TEST  tabicl+Cox                  → mean: 0.6988 | std: 0.0232 | min: 0.6690 | max: 0.7312
+    TRAIN DS-simple (base)            → mean: 0.8567 | std: 0.0090 | min: 0.8447 | max: 0.8647
+    TEST  DS-simple (base)            → mean: 0.8221 | std: 0.0091 | min: 0.8089 | max: 0.8354
+    TRAIN DS-vanilla (base)           → mean: 0.8623 | std: 0.0085 | min: 0.8535 | max: 0.8785
+    TEST  DS-vanilla (base)           → mean: 0.8018 | std: 0.0093 | min: 0.7886 | max: 0.8139
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8495 | std: 0.0121 | min: 0.8290 | max: 0.8663
+    TEST  Cox (base)                  → mean: 0.8170 | std: 0.0082 | min: 0.8034 | max: 0.8257
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabicl+DS-simple            → mean: 0.9602 | std: 0.0046 | min: 0.9543 | max: 0.9666
+    TEST  tabicl+DS-simple            → mean: 0.7894 | std: 0.0062 | min: 0.7805 | max: 0.7959
+    TRAIN tabicl+DS-vanilla           → mean: 0.9654 | std: 0.0053 | min: 0.9574 | max: 0.9721
+    TEST  tabicl+DS-vanilla           → mean: 0.7612 | std: 0.0185 | min: 0.7335 | max: 0.7849
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9713 | std: 0.0015 | min: 0.9692 | max: 0.9732
+    TEST  tabicl+Cox                  → mean: 0.7405 | std: 0.0109 | min: 0.7239 | max: 0.7532
+    TRAIN DS-simple (base)            → mean: 0.8507 | std: 0.0026 | min: 0.8476 | max: 0.8540
+    TEST  DS-simple (base)            → mean: 0.8317 | std: 0.0047 | min: 0.8240 | max: 0.8357
+    TRAIN DS-vanilla (base)           → mean: 0.8572 | std: 0.0138 | min: 0.8336 | max: 0.8689
+    TEST  DS-vanilla (base)           → mean: 0.8202 | std: 0.0089 | min: 0.8125 | max: 0.8364
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8402 | std: 0.0046 | min: 0.8350 | max: 0.8471
+    TEST  Cox (base)                  → mean: 0.8234 | std: 0.0059 | min: 0.8150 | max: 0.8327
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabicl+DS-simple            → mean: 0.9628 | std: 0.0025 | min: 0.9593 | max: 0.9667
+    TEST  tabicl+DS-simple            → mean: 0.7867 | std: 0.0105 | min: 0.7720 | max: 0.7992
+    TRAIN tabicl+DS-vanilla           → mean: 0.9608 | std: 0.0041 | min: 0.9545 | max: 0.9660
+    TEST  tabicl+DS-vanilla           → mean: 0.7816 | std: 0.0135 | min: 0.7619 | max: 0.7985
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9673 | std: 0.0005 | min: 0.9666 | max: 0.9681
+    TEST  tabicl+Cox                  → mean: 0.7622 | std: 0.0093 | min: 0.7499 | max: 0.7740
+    TRAIN DS-simple (base)            → mean: 0.8421 | std: 0.0024 | min: 0.8393 | max: 0.8464
+    TEST  DS-simple (base)            → mean: 0.8304 | std: 0.0043 | min: 0.8242 | max: 0.8350
+    TRAIN DS-vanilla (base)           → mean: 0.8633 | std: 0.0069 | min: 0.8541 | max: 0.8731
+    TEST  DS-vanilla (base)           → mean: 0.8368 | std: 0.0084 | min: 0.8269 | max: 0.8494
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8337 | std: 0.0015 | min: 0.8321 | max: 0.8366
+    TEST  Cox (base)                  → mean: 0.8241 | std: 0.0064 | min: 0.8127 | max: 0.8324
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabicl+DS-simple            → mean: 0.9616 | std: 0.0026 | min: 0.9574 | max: 0.9648
+    TEST  tabicl+DS-simple            → mean: 0.7792 | std: 0.0178 | min: 0.7513 | max: 0.8030
+    TRAIN tabicl+DS-vanilla           → mean: 0.9614 | std: 0.0018 | min: 0.9596 | max: 0.9637
+    TEST  tabicl+DS-vanilla           → mean: 0.7490 | std: 0.0296 | min: 0.7131 | max: 0.7881
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9647 | std: 0.0003 | min: 0.9643 | max: 0.9652
+    TEST  tabicl+Cox                  → mean: 0.7667 | std: 0.0067 | min: 0.7559 | max: 0.7745
+    TRAIN DS-simple (base)            → mean: 0.7588 | std: 0.1368 | min: 0.4857 | max: 0.8375
+    TEST  DS-simple (base)            → mean: 0.7541 | std: 0.1393 | min: 0.4759 | max: 0.8374
+    TRAIN DS-vanilla (base)           → mean: 0.8207 | std: 0.0080 | min: 0.8123 | max: 0.8360
+    TEST  DS-vanilla (base)           → mean: 0.8159 | std: 0.0106 | min: 0.8025 | max: 0.8345
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8279 | std: 0.0023 | min: 0.8250 | max: 0.8306
+    TEST  Cox (base)                  → mean: 0.8258 | std: 0.0063 | min: 0.8170 | max: 0.8361
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabicl+DS-simple            → mean: 0.9609 | std: 0.0026 | min: 0.9578 | max: 0.9642
+    TEST  tabicl+DS-simple            → mean: 0.7917 | std: 0.0145 | min: 0.7732 | max: 0.8100
+    TRAIN tabicl+DS-vanilla           → mean: 0.9635 | std: 0.0009 | min: 0.9625 | max: 0.9648
+    TEST  tabicl+DS-vanilla           → mean: 0.7727 | std: 0.0173 | min: 0.7394 | max: 0.7870
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9643 | std: 0.0004 | min: 0.9637 | max: 0.9649
+    TEST  tabicl+Cox                  → mean: 0.7695 | std: 0.0067 | min: 0.7591 | max: 0.7777
+    TRAIN DS-simple (base)            → mean: 0.8353 | std: 0.0031 | min: 0.8308 | max: 0.8390
+    TEST  DS-simple (base)            → mean: 0.8286 | std: 0.0048 | min: 0.8215 | max: 0.8344
+    TRAIN DS-vanilla (base)           → mean: 0.8420 | std: 0.0381 | min: 0.7659 | max: 0.8634
+    TEST  DS-vanilla (base)           → mean: 0.8283 | std: 0.0326 | min: 0.7639 | max: 0.8533
+    TRAIN RSF (base)                  → no valid scores
+    TEST  RSF (base)                  → no valid scores
+    TRAIN Cox (base)                  → mean: 0.8283 | std: 0.0011 | min: 0.8271 | max: 0.8301
+    TEST  Cox (base)                  → mean: 0.8258 | std: 0.0059 | min: 0.8166 | max: 0.8344
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    100  |  actual mean: 100
+    TRAIN tabicl+DS-simple            → mean: 0.9378 | std: 0.0147 | min: 0.9265 | max: 0.9663
+    TEST  tabicl+DS-simple            → mean: 0.6662 | std: 0.0230 | min: 0.6370 | max: 0.6962
+    TRAIN tabicl+DS-vanilla           → mean: 0.9550 | std: 0.0123 | min: 0.9353 | max: 0.9734
+    TEST  tabicl+DS-vanilla           → mean: 0.6495 | std: 0.0252 | min: 0.6138 | max: 0.6782
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9368 | std: 0.0770 | min: 0.7904 | max: 0.9994
+    TEST  tabicl+Cox                  → mean: 0.5961 | std: 0.0267 | min: 0.5682 | max: 0.6337
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabicl+DS-simple            → mean: 0.9527 | std: 0.0067 | min: 0.9455 | max: 0.9625
+    TEST  tabicl+DS-simple            → mean: 0.7416 | std: 0.0101 | min: 0.7219 | max: 0.7503
+    TRAIN tabicl+DS-vanilla           → mean: 0.9728 | std: 0.0051 | min: 0.9640 | max: 0.9791
+    TEST  tabicl+DS-vanilla           → mean: 0.7260 | std: 0.0236 | min: 0.6868 | max: 0.7467
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9853 | std: 0.0026 | min: 0.9811 | max: 0.9885
+    TEST  tabicl+Cox                  → mean: 0.6498 | std: 0.0405 | min: 0.5828 | max: 0.7099
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabicl+DS-simple            → mean: 0.9544 | std: 0.0035 | min: 0.9500 | max: 0.9605
+    TEST  tabicl+DS-simple            → mean: 0.7505 | std: 0.0112 | min: 0.7353 | max: 0.7645
+    TRAIN tabicl+DS-vanilla           → mean: 0.9626 | std: 0.0046 | min: 0.9559 | max: 0.9674
+    TEST  tabicl+DS-vanilla           → mean: 0.7453 | std: 0.0160 | min: 0.7191 | max: 0.7663
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9771 | std: 0.0019 | min: 0.9737 | max: 0.9789
+    TEST  tabicl+Cox                  → mean: 0.7116 | std: 0.0217 | min: 0.6834 | max: 0.7388
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabicl+DS-simple            → mean: 0.9600 | std: 0.0045 | min: 0.9554 | max: 0.9680
+    TEST  tabicl+DS-simple            → mean: 0.7779 | std: 0.0132 | min: 0.7539 | max: 0.7910
+    TRAIN tabicl+DS-vanilla           → mean: 0.9666 | std: 0.0035 | min: 0.9608 | max: 0.9716
+    TEST  tabicl+DS-vanilla           → mean: 0.7476 | std: 0.0237 | min: 0.7052 | max: 0.7703
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9706 | std: 0.0022 | min: 0.9666 | max: 0.9731
+    TEST  tabicl+Cox                  → mean: 0.7271 | std: 0.0081 | min: 0.7177 | max: 0.7360
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabicl+DS-simple            → mean: 0.9637 | std: 0.0023 | min: 0.9607 | max: 0.9665
+    TEST  tabicl+DS-simple            → mean: 0.7877 | std: 0.0127 | min: 0.7713 | max: 0.8078
+    TRAIN tabicl+DS-vanilla           → mean: 0.9615 | std: 0.0053 | min: 0.9533 | max: 0.9666
+    TEST  tabicl+DS-vanilla           → mean: 0.7793 | std: 0.0138 | min: 0.7601 | max: 0.7928
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9665 | std: 0.0008 | min: 0.9654 | max: 0.9676
+    TEST  tabicl+Cox                  → mean: 0.7327 | std: 0.0125 | min: 0.7097 | max: 0.7425
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabicl+DS-simple            → mean: 0.9603 | std: 0.0016 | min: 0.9582 | max: 0.9630
+    TEST  tabicl+DS-simple            → mean: 0.7668 | std: 0.0221 | min: 0.7275 | max: 0.7929
+    TRAIN tabicl+DS-vanilla           → mean: 0.9609 | std: 0.0018 | min: 0.9582 | max: 0.9631
+    TEST  tabicl+DS-vanilla           → mean: 0.7575 | std: 0.0158 | min: 0.7299 | max: 0.7754
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9642 | std: 0.0005 | min: 0.9631 | max: 0.9648
+    TEST  tabicl+Cox                  → mean: 0.7353 | std: 0.0082 | min: 0.7242 | max: 0.7473
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabicl+DS-simple            → mean: 0.9625 | std: 0.0016 | min: 0.9601 | max: 0.9644
+    TEST  tabicl+DS-simple            → mean: 0.7648 | std: 0.0082 | min: 0.7563 | max: 0.7788
+    TRAIN tabicl+DS-vanilla           → mean: 0.9619 | std: 0.0014 | min: 0.9608 | max: 0.9645
+    TEST  tabicl+DS-vanilla           → mean: 0.7679 | std: 0.0157 | min: 0.7380 | max: 0.7803
+    TRAIN tabicl+RSF                  → no valid scores
+    TEST  tabicl+RSF                  → no valid scores
+    TRAIN tabicl+Cox                  → mean: 0.9634 | std: 0.0003 | min: 0.9630 | max: 0.9638
+    TEST  tabicl+Cox                  → mean: 0.7399 | std: 0.0051 | min: 0.7324 | max: 0.7470
+Text summary saved → results/HURRAH/tabicl/results_samplesize_HURRAH_tabicl_seed77.txt

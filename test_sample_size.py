@@ -368,7 +368,7 @@ def _fit_rsf(X_tr, y_tr_struct, t_tr, y_tr, X_te, y_te_struct, t_te, y_te, ckpt_
                 min_samples_leaf=10, 
                 max_features="log2", 
                 n_jobs=-1, 
-                random_state=seed),
+                random_state=seed)
             rsf.fit(X_tr, y_tr_struct)
             dump(rsf, ckpt_path)
 

@@ -6,110 +6,110 @@ Preprocess: -1
 ------------------------------------------------------------
 
   Sample size (requested):    100  |  actual mean: 100
-    TRAIN tabicl+DS-simple            → mean: 0.8975 | std: 0.0243 | min: 0.8601 | max: 0.9288
-    TEST  tabicl+DS-simple            → mean: 0.6440 | std: 0.0416 | min: 0.5739 | max: 0.7039
-    TRAIN tabicl+DS-vanilla           → mean: 0.9253 | std: 0.0235 | min: 0.8947 | max: 0.9507
-    TEST  tabicl+DS-vanilla           → mean: 0.6460 | std: 0.0478 | min: 0.5606 | max: 0.6952
-    TRAIN tabicl+RSF                  → mean: 0.9495 | std: 0.0028 | min: 0.9467 | max: 0.9532
-    TEST  tabicl+RSF                  → mean: 0.6315 | std: 0.0165 | min: 0.6019 | max: 0.6458
-    TRAIN tabicl+Cox                  → mean: 0.9676 | std: 0.0398 | min: 0.9027 | max: 0.9990
-    TEST  tabicl+Cox                  → mean: 0.6051 | std: 0.0391 | min: 0.5523 | max: 0.6678
-    TRAIN DS-simple (base)            → mean: 0.6483 | std: 0.0490 | min: 0.5765 | max: 0.7148
-    TEST  DS-simple (base)            → mean: 0.6052 | std: 0.0532 | min: 0.5545 | max: 0.7052
-    TRAIN DS-vanilla (base)           → mean: 0.7404 | std: 0.1185 | min: 0.5314 | max: 0.8505
-    TEST  DS-vanilla (base)           → mean: 0.6239 | std: 0.0375 | min: 0.5725 | max: 0.6840
-    TRAIN RSF (base)                  → mean: 0.9389 | std: 0.0154 | min: 0.9137 | max: 0.9582
-    TEST  RSF (base)                  → mean: 0.7098 | std: 0.0169 | min: 0.6910 | max: 0.7383
+    TRAIN tabicl+DS-simple            → mean: 0.9045 | std: 0.0211 | min: 0.8795 | max: 0.9369
+    TEST  tabicl+DS-simple            → mean: 0.6637 | std: 0.0188 | min: 0.6421 | max: 0.6962
+    TRAIN tabicl+DS-vanilla           → mean: 0.9038 | std: 0.0264 | min: 0.8717 | max: 0.9507
+    TEST  tabicl+DS-vanilla           → mean: 0.6220 | std: 0.0373 | min: 0.5562 | max: 0.6612
+    TRAIN tabicl+RSF                  → mean: 0.9774 | std: 0.0047 | min: 0.9713 | max: 0.9844
+    TEST  tabicl+RSF                  → mean: 0.6530 | std: 0.0185 | min: 0.6200 | max: 0.6749
+    TRAIN tabicl+Cox                  → mean: 0.9668 | std: 0.0644 | min: 0.8379 | max: 1.0000
+    TEST  tabicl+Cox                  → mean: 0.6054 | std: 0.0436 | min: 0.5529 | max: 0.6777
+    TRAIN DS-simple (base)            → mean: 0.7843 | std: 0.0758 | min: 0.6706 | max: 0.8944
+    TEST  DS-simple (base)            → mean: 0.6468 | std: 0.0128 | min: 0.6333 | max: 0.6710
+    TRAIN DS-vanilla (base)           → mean: 0.7035 | std: 0.0973 | min: 0.5909 | max: 0.8394
+    TEST  DS-vanilla (base)           → mean: 0.5970 | std: 0.0538 | min: 0.5367 | max: 0.6673
+    TRAIN RSF (base)                  → mean: 0.9684 | std: 0.0152 | min: 0.9487 | max: 0.9881
+    TEST  RSF (base)                  → mean: 0.7170 | std: 0.0211 | min: 0.6894 | max: 0.7535
     TRAIN Cox (base)                  → no valid scores
     TEST  Cox (base)                  → no valid scores
 
   Sample size (requested):    500  |  actual mean: 500
-    TRAIN tabicl+DS-simple            → mean: 0.8992 | std: 0.0182 | min: 0.8698 | max: 0.9209
-    TEST  tabicl+DS-simple            → mean: 0.7059 | std: 0.0217 | min: 0.6690 | max: 0.7328
-    TRAIN tabicl+DS-vanilla           → mean: 0.9378 | std: 0.0115 | min: 0.9186 | max: 0.9510
-    TEST  tabicl+DS-vanilla           → mean: 0.7133 | std: 0.0124 | min: 0.6914 | max: 0.7264
-    TRAIN tabicl+RSF                  → mean: 0.9650 | std: 0.0027 | min: 0.9613 | max: 0.9692
-    TEST  tabicl+RSF                  → mean: 0.6967 | std: 0.0265 | min: 0.6512 | max: 0.7282
-    TRAIN tabicl+Cox                  → mean: 0.9607 | std: 0.0035 | min: 0.9572 | max: 0.9668
-    TEST  tabicl+Cox                  → mean: 0.6697 | std: 0.0391 | min: 0.5999 | max: 0.7183
-    TRAIN DS-simple (base)            → mean: 0.8121 | std: 0.0118 | min: 0.7897 | max: 0.8220
-    TEST  DS-simple (base)            → mean: 0.7634 | std: 0.0112 | min: 0.7431 | max: 0.7747
-    TRAIN DS-vanilla (base)           → mean: 0.8325 | std: 0.0097 | min: 0.8232 | max: 0.8501
-    TEST  DS-vanilla (base)           → mean: 0.7520 | std: 0.0102 | min: 0.7367 | max: 0.7621
-    TRAIN RSF (base)                  → mean: 0.9159 | std: 0.0098 | min: 0.9063 | max: 0.9335
-    TEST  RSF (base)                  → mean: 0.7761 | std: 0.0035 | min: 0.7699 | max: 0.7802
+    TRAIN tabicl+DS-simple            → mean: 0.9037 | std: 0.0112 | min: 0.8909 | max: 0.9205
+    TEST  tabicl+DS-simple            → mean: 0.7036 | std: 0.0230 | min: 0.6620 | max: 0.7275
+    TRAIN tabicl+DS-vanilla           → mean: 0.9266 | std: 0.0124 | min: 0.9113 | max: 0.9420
+    TEST  tabicl+DS-vanilla           → mean: 0.6974 | std: 0.0200 | min: 0.6660 | max: 0.7262
+    TRAIN tabicl+RSF                  → mean: 0.9778 | std: 0.0023 | min: 0.9733 | max: 0.9796
+    TEST  tabicl+RSF                  → mean: 0.6993 | std: 0.0196 | min: 0.6726 | max: 0.7286
+    TRAIN tabicl+Cox                  → mean: 0.9607 | std: 0.0036 | min: 0.9572 | max: 0.9670
+    TEST  tabicl+Cox                  → mean: 0.6696 | std: 0.0394 | min: 0.5993 | max: 0.7186
+    TRAIN DS-simple (base)            → mean: 0.8103 | std: 0.0128 | min: 0.7977 | max: 0.8280
+    TEST  DS-simple (base)            → mean: 0.7599 | std: 0.0107 | min: 0.7450 | max: 0.7745
+    TRAIN DS-vanilla (base)           → mean: 0.8253 | std: 0.0159 | min: 0.7970 | max: 0.8410
+    TEST  DS-vanilla (base)           → mean: 0.7435 | std: 0.0132 | min: 0.7269 | max: 0.7638
+    TRAIN RSF (base)                  → mean: 0.9456 | std: 0.0087 | min: 0.9379 | max: 0.9607
+    TEST  RSF (base)                  → mean: 0.7754 | std: 0.0077 | min: 0.7620 | max: 0.7855
     TRAIN Cox (base)                  → mean: 0.8305 | std: 0.0112 | min: 0.8161 | max: 0.8435
     TEST  Cox (base)                  → mean: 0.7755 | std: 0.0081 | min: 0.7653 | max: 0.7851
 
   Sample size (requested):   1000  |  actual mean: 1000
-    TRAIN tabicl+DS-simple            → mean: 0.9007 | std: 0.0129 | min: 0.8887 | max: 0.9259
-    TEST  tabicl+DS-simple            → mean: 0.7060 | std: 0.0194 | min: 0.6757 | max: 0.7305
-    TRAIN tabicl+DS-vanilla           → mean: 0.9234 | std: 0.0105 | min: 0.9066 | max: 0.9379
-    TEST  tabicl+DS-vanilla           → mean: 0.7296 | std: 0.0107 | min: 0.7145 | max: 0.7468
-    TRAIN tabicl+RSF                  → mean: 0.9667 | std: 0.0035 | min: 0.9630 | max: 0.9732
-    TEST  tabicl+RSF                  → mean: 0.7208 | std: 0.0210 | min: 0.6957 | max: 0.7513
-    TRAIN tabicl+Cox                  → mean: 0.9439 | std: 0.0042 | min: 0.9401 | max: 0.9507
-    TEST  tabicl+Cox                  → mean: 0.7045 | std: 0.0367 | min: 0.6402 | max: 0.7367
-    TRAIN DS-simple (base)            → mean: 0.8083 | std: 0.0086 | min: 0.7955 | max: 0.8187
-    TEST  DS-simple (base)            → mean: 0.7817 | std: 0.0122 | min: 0.7618 | max: 0.7952
-    TRAIN DS-vanilla (base)           → mean: 0.8030 | std: 0.0179 | min: 0.7791 | max: 0.8235
-    TEST  DS-vanilla (base)           → mean: 0.7673 | std: 0.0189 | min: 0.7340 | max: 0.7869
-    TRAIN RSF (base)                  → mean: 0.9165 | std: 0.0027 | min: 0.9118 | max: 0.9192
-    TEST  RSF (base)                  → mean: 0.7841 | std: 0.0090 | min: 0.7709 | max: 0.7963
+    TRAIN tabicl+DS-simple            → mean: 0.9083 | std: 0.0154 | min: 0.8867 | max: 0.9332
+    TEST  tabicl+DS-simple            → mean: 0.7208 | std: 0.0214 | min: 0.6828 | max: 0.7457
+    TRAIN tabicl+DS-vanilla           → mean: 0.9208 | std: 0.0107 | min: 0.9040 | max: 0.9368
+    TEST  tabicl+DS-vanilla           → mean: 0.7178 | std: 0.0125 | min: 0.6966 | max: 0.7355
+    TRAIN tabicl+RSF                  → mean: 0.9781 | std: 0.0038 | min: 0.9746 | max: 0.9850
+    TEST  tabicl+RSF                  → mean: 0.7205 | std: 0.0170 | min: 0.7011 | max: 0.7464
+    TRAIN tabicl+Cox                  → mean: 0.9439 | std: 0.0041 | min: 0.9400 | max: 0.9506
+    TEST  tabicl+Cox                  → mean: 0.7048 | std: 0.0366 | min: 0.6410 | max: 0.7373
+    TRAIN DS-simple (base)            → mean: 0.8063 | std: 0.0105 | min: 0.7891 | max: 0.8166
+    TEST  DS-simple (base)            → mean: 0.7793 | std: 0.0087 | min: 0.7655 | max: 0.7913
+    TRAIN DS-vanilla (base)           → mean: 0.8099 | std: 0.0093 | min: 0.7985 | max: 0.8256
+    TEST  DS-vanilla (base)           → mean: 0.7643 | std: 0.0124 | min: 0.7491 | max: 0.7778
+    TRAIN RSF (base)                  → mean: 0.9404 | std: 0.0033 | min: 0.9352 | max: 0.9449
+    TEST  RSF (base)                  → mean: 0.7868 | std: 0.0066 | min: 0.7772 | max: 0.7967
     TRAIN Cox (base)                  → mean: 0.8107 | std: 0.0077 | min: 0.8002 | max: 0.8193
     TEST  Cox (base)                  → mean: 0.7841 | std: 0.0077 | min: 0.7745 | max: 0.7961
 
   Sample size (requested):   2500  |  actual mean: 2500
-    TRAIN tabicl+DS-simple            → mean: 0.9315 | std: 0.0038 | min: 0.9268 | max: 0.9363
-    TEST  tabicl+DS-simple            → mean: 0.7244 | std: 0.0094 | min: 0.7122 | max: 0.7411
-    TRAIN tabicl+DS-vanilla           → mean: 0.9253 | std: 0.0045 | min: 0.9194 | max: 0.9322
-    TEST  tabicl+DS-vanilla           → mean: 0.7453 | std: 0.0102 | min: 0.7261 | max: 0.7550
-    TRAIN tabicl+RSF                  → mean: 0.9627 | std: 0.0019 | min: 0.9593 | max: 0.9647
-    TEST  tabicl+RSF                  → mean: 0.7286 | std: 0.0105 | min: 0.7165 | max: 0.7478
-    TRAIN tabicl+Cox                  → mean: 0.9331 | std: 0.0026 | min: 0.9301 | max: 0.9363
-    TEST  tabicl+Cox                  → mean: 0.7310 | std: 0.0125 | min: 0.7098 | max: 0.7477
-    TRAIN DS-simple (base)            → mean: 0.7956 | std: 0.0067 | min: 0.7866 | max: 0.8049
-    TEST  DS-simple (base)            → mean: 0.7821 | std: 0.0148 | min: 0.7548 | max: 0.7995
-    TRAIN DS-vanilla (base)           → mean: 0.8092 | std: 0.0104 | min: 0.7938 | max: 0.8260
-    TEST  DS-vanilla (base)           → mean: 0.7856 | std: 0.0059 | min: 0.7774 | max: 0.7917
-    TRAIN RSF (base)                  → mean: 0.9111 | std: 0.0021 | min: 0.9075 | max: 0.9141
-    TEST  RSF (base)                  → mean: 0.7902 | std: 0.0069 | min: 0.7816 | max: 0.8014
+    TRAIN tabicl+DS-simple            → mean: 0.9280 | std: 0.0044 | min: 0.9194 | max: 0.9316
+    TEST  tabicl+DS-simple            → mean: 0.7198 | std: 0.0139 | min: 0.6925 | max: 0.7315
+    TRAIN tabicl+DS-vanilla           → mean: 0.9239 | std: 0.0027 | min: 0.9199 | max: 0.9277
+    TEST  tabicl+DS-vanilla           → mean: 0.7418 | std: 0.0081 | min: 0.7284 | max: 0.7536
+    TRAIN tabicl+RSF                  → mean: 0.9711 | std: 0.0015 | min: 0.9682 | max: 0.9727
+    TEST  tabicl+RSF                  → mean: 0.7348 | std: 0.0080 | min: 0.7278 | max: 0.7500
+    TRAIN tabicl+Cox                  → mean: 0.9331 | std: 0.0026 | min: 0.9301 | max: 0.9364
+    TEST  tabicl+Cox                  → mean: 0.7310 | std: 0.0128 | min: 0.7093 | max: 0.7479
+    TRAIN DS-simple (base)            → mean: 0.7941 | std: 0.0075 | min: 0.7837 | max: 0.8030
+    TEST  DS-simple (base)            → mean: 0.7814 | std: 0.0091 | min: 0.7635 | max: 0.7887
+    TRAIN DS-vanilla (base)           → mean: 0.8136 | std: 0.0079 | min: 0.7986 | max: 0.8197
+    TEST  DS-vanilla (base)           → mean: 0.7842 | std: 0.0066 | min: 0.7723 | max: 0.7909
+    TRAIN RSF (base)                  → mean: 0.9201 | std: 0.0032 | min: 0.9155 | max: 0.9249
+    TEST  RSF (base)                  → mean: 0.7934 | std: 0.0065 | min: 0.7831 | max: 0.8033
     TRAIN Cox (base)                  → mean: 0.8045 | std: 0.0066 | min: 0.7950 | max: 0.8106
     TEST  Cox (base)                  → mean: 0.7918 | std: 0.0054 | min: 0.7854 | max: 0.7999
 
   Sample size (requested):   5000  |  actual mean: 5000
-    TRAIN tabicl+DS-simple            → mean: 0.9244 | std: 0.0020 | min: 0.9214 | max: 0.9267
-    TEST  tabicl+DS-simple            → mean: 0.7365 | std: 0.0117 | min: 0.7229 | max: 0.7542
-    TRAIN tabicl+DS-vanilla           → mean: 0.9211 | std: 0.0020 | min: 0.9184 | max: 0.9240
-    TEST  tabicl+DS-vanilla           → mean: 0.7477 | std: 0.0102 | min: 0.7334 | max: 0.7635
-    TRAIN tabicl+RSF                  → mean: 0.9632 | std: 0.0007 | min: 0.9621 | max: 0.9640
-    TEST  tabicl+RSF                  → mean: 0.7352 | std: 0.0137 | min: 0.7137 | max: 0.7516
-    TRAIN tabicl+Cox                  → mean: 0.9271 | std: 0.0009 | min: 0.9258 | max: 0.9285
-    TEST  tabicl+Cox                  → mean: 0.7446 | std: 0.0097 | min: 0.7316 | max: 0.7564
-    TRAIN DS-simple (base)            → mean: 0.7886 | std: 0.0086 | min: 0.7773 | max: 0.7987
-    TEST  DS-simple (base)            → mean: 0.7829 | std: 0.0076 | min: 0.7680 | max: 0.7891
-    TRAIN DS-vanilla (base)           → mean: 0.8088 | std: 0.0086 | min: 0.7948 | max: 0.8193
-    TEST  DS-vanilla (base)           → mean: 0.7897 | std: 0.0079 | min: 0.7795 | max: 0.7990
-    TRAIN RSF (base)                  → mean: 0.9085 | std: 0.0014 | min: 0.9064 | max: 0.9107
-    TEST  RSF (base)                  → mean: 0.7987 | std: 0.0070 | min: 0.7883 | max: 0.8104
+    TRAIN tabicl+DS-simple            → mean: 0.9219 | std: 0.0024 | min: 0.9188 | max: 0.9257
+    TEST  tabicl+DS-simple            → mean: 0.7320 | std: 0.0108 | min: 0.7120 | max: 0.7422
+    TRAIN tabicl+DS-vanilla           → mean: 0.9218 | std: 0.0025 | min: 0.9171 | max: 0.9241
+    TEST  tabicl+DS-vanilla           → mean: 0.7483 | std: 0.0105 | min: 0.7278 | max: 0.7566
+    TRAIN tabicl+RSF                  → mean: 0.9657 | std: 0.0010 | min: 0.9640 | max: 0.9668
+    TEST  tabicl+RSF                  → mean: 0.7374 | std: 0.0133 | min: 0.7173 | max: 0.7536
+    TRAIN tabicl+Cox                  → mean: 0.9271 | std: 0.0010 | min: 0.9258 | max: 0.9285
+    TEST  tabicl+Cox                  → mean: 0.7447 | std: 0.0097 | min: 0.7318 | max: 0.7565
+    TRAIN DS-simple (base)            → mean: 0.7824 | std: 0.0107 | min: 0.7648 | max: 0.7980
+    TEST  DS-simple (base)            → mean: 0.7773 | std: 0.0065 | min: 0.7717 | max: 0.7897
+    TRAIN DS-vanilla (base)           → mean: 0.8023 | std: 0.0074 | min: 0.7905 | max: 0.8126
+    TEST  DS-vanilla (base)           → mean: 0.7892 | std: 0.0054 | min: 0.7825 | max: 0.7967
+    TRAIN RSF (base)                  → mean: 0.9025 | std: 0.0013 | min: 0.9009 | max: 0.9046
+    TEST  RSF (base)                  → mean: 0.7967 | std: 0.0085 | min: 0.7864 | max: 0.8120
     TRAIN Cox (base)                  → mean: 0.8007 | std: 0.0020 | min: 0.7976 | max: 0.8034
     TEST  Cox (base)                  → mean: 0.7931 | std: 0.0063 | min: 0.7837 | max: 0.8024
 
   Sample size (requested):  10000  |  actual mean: 5161
-    TRAIN tabicl+DS-simple            → mean: 0.9227 | std: 0.0027 | min: 0.9200 | max: 0.9272
-    TEST  tabicl+DS-simple            → mean: 0.7394 | std: 0.0076 | min: 0.7290 | max: 0.7518
-    TRAIN tabicl+DS-vanilla           → mean: 0.9205 | std: 0.0028 | min: 0.9165 | max: 0.9240
-    TEST  tabicl+DS-vanilla           → mean: 0.7498 | std: 0.0120 | min: 0.7395 | max: 0.7693
-    TRAIN tabicl+RSF                  → mean: 0.9633 | std: 0.0006 | min: 0.9627 | max: 0.9644
-    TEST  tabicl+RSF                  → mean: 0.7353 | std: 0.0116 | min: 0.7174 | max: 0.7514
+    TRAIN tabicl+DS-simple            → mean: 0.9243 | std: 0.0013 | min: 0.9224 | max: 0.9260
+    TEST  tabicl+DS-simple            → mean: 0.7325 | std: 0.0120 | min: 0.7103 | max: 0.7467
+    TRAIN tabicl+DS-vanilla           → mean: 0.9210 | std: 0.0022 | min: 0.9173 | max: 0.9239
+    TEST  tabicl+DS-vanilla           → mean: 0.7430 | std: 0.0168 | min: 0.7169 | max: 0.7633
+    TRAIN tabicl+RSF                  → mean: 0.9653 | std: 0.0006 | min: 0.9646 | max: 0.9662
+    TEST  tabicl+RSF                  → mean: 0.7396 | std: 0.0105 | min: 0.7215 | max: 0.7494
     TRAIN tabicl+Cox                  → mean: 0.9273 | std: 0.0010 | min: 0.9260 | max: 0.9290
-    TEST  tabicl+Cox                  → mean: 0.7454 | std: 0.0080 | min: 0.7352 | max: 0.7545
-    TRAIN DS-simple (base)            → mean: 0.7844 | std: 0.0085 | min: 0.7730 | max: 0.7974
-    TEST  DS-simple (base)            → mean: 0.7753 | std: 0.0139 | min: 0.7575 | max: 0.8001
-    TRAIN DS-vanilla (base)           → mean: 0.8044 | std: 0.0060 | min: 0.7959 | max: 0.8106
-    TEST  DS-vanilla (base)           → mean: 0.7906 | std: 0.0036 | min: 0.7847 | max: 0.7949
-    TRAIN RSF (base)                  → mean: 0.9083 | std: 0.0012 | min: 0.9068 | max: 0.9103
-    TEST  RSF (base)                  → mean: 0.7938 | std: 0.0073 | min: 0.7860 | max: 0.8077
+    TEST  tabicl+Cox                  → mean: 0.7454 | std: 0.0079 | min: 0.7354 | max: 0.7541
+    TRAIN DS-simple (base)            → mean: 0.7841 | std: 0.0078 | min: 0.7725 | max: 0.7941
+    TEST  DS-simple (base)            → mean: 0.7797 | std: 0.0110 | min: 0.7607 | max: 0.7951
+    TRAIN DS-vanilla (base)           → mean: 0.8041 | std: 0.0027 | min: 0.8010 | max: 0.8079
+    TEST  DS-vanilla (base)           → mean: 0.7919 | std: 0.0060 | min: 0.7824 | max: 0.7996
+    TRAIN RSF (base)                  → mean: 0.9020 | std: 0.0018 | min: 0.8992 | max: 0.9048
+    TEST  RSF (base)                  → mean: 0.7976 | std: 0.0067 | min: 0.7898 | max: 0.8099
     TRAIN Cox (base)                  → mean: 0.8006 | std: 0.0017 | min: 0.7983 | max: 0.8033
     TEST  Cox (base)                  → mean: 0.7932 | std: 0.0062 | min: 0.7838 | max: 0.8027
 
@@ -117,61 +117,61 @@ Preprocess: NaN
 ------------------------------------------------------------
 
   Sample size (requested):    100  |  actual mean: 100
-    TRAIN tabicl+DS-simple            → mean: 0.9006 | std: 0.0126 | min: 0.8911 | max: 0.9238
-    TEST  tabicl+DS-simple            → mean: 0.6467 | std: 0.0302 | min: 0.5987 | max: 0.6811
-    TRAIN tabicl+DS-vanilla           → mean: 0.9272 | std: 0.0219 | min: 0.9062 | max: 0.9684
-    TEST  tabicl+DS-vanilla           → mean: 0.6555 | std: 0.0261 | min: 0.6035 | max: 0.6716
-    TRAIN tabicl+RSF                  → mean: 0.9460 | std: 0.0080 | min: 0.9332 | max: 0.9580
-    TEST  tabicl+RSF                  → mean: 0.6348 | std: 0.0389 | min: 0.5834 | max: 0.6831
-    TRAIN tabicl+Cox                  → mean: 0.9972 | std: 0.0020 | min: 0.9947 | max: 1.0000
-    TEST  tabicl+Cox                  → mean: 0.5934 | std: 0.0653 | min: 0.4695 | max: 0.6545
+    TRAIN tabicl+DS-simple            → mean: 0.8969 | std: 0.0143 | min: 0.8715 | max: 0.9119
+    TEST  tabicl+DS-simple            → mean: 0.6560 | std: 0.0160 | min: 0.6391 | max: 0.6836
+    TRAIN tabicl+DS-vanilla           → mean: 0.9294 | std: 0.0451 | min: 0.8656 | max: 0.9759
+    TEST  tabicl+DS-vanilla           → mean: 0.6385 | std: 0.0212 | min: 0.6059 | max: 0.6721
+    TRAIN tabicl+RSF                  → mean: 0.9787 | std: 0.0069 | min: 0.9651 | max: 0.9846
+    TEST  tabicl+RSF                  → mean: 0.6470 | std: 0.0380 | min: 0.5959 | max: 0.6920
+    TRAIN tabicl+Cox                  → mean: 0.9973 | std: 0.0019 | min: 0.9951 | max: 1.0000
+    TEST  tabicl+Cox                  → mean: 0.5933 | std: 0.0657 | min: 0.4687 | max: 0.6548
 
   Sample size (requested):    500  |  actual mean: 500
-    TRAIN tabicl+DS-simple            → mean: 0.9064 | std: 0.0150 | min: 0.8840 | max: 0.9302
-    TEST  tabicl+DS-simple            → mean: 0.7072 | std: 0.0116 | min: 0.6906 | max: 0.7203
-    TRAIN tabicl+DS-vanilla           → mean: 0.9242 | std: 0.0165 | min: 0.8981 | max: 0.9495
-    TEST  tabicl+DS-vanilla           → mean: 0.6937 | std: 0.0272 | min: 0.6432 | max: 0.7144
-    TRAIN tabicl+RSF                  → mean: 0.9621 | std: 0.0025 | min: 0.9585 | max: 0.9643
-    TEST  tabicl+RSF                  → mean: 0.7007 | std: 0.0182 | min: 0.6780 | max: 0.7222
-    TRAIN tabicl+Cox                  → mean: 0.9575 | std: 0.0055 | min: 0.9479 | max: 0.9642
-    TEST  tabicl+Cox                  → mean: 0.6524 | std: 0.0563 | min: 0.5547 | max: 0.7120
+    TRAIN tabicl+DS-simple            → mean: 0.9078 | std: 0.0122 | min: 0.8918 | max: 0.9289
+    TEST  tabicl+DS-simple            → mean: 0.7117 | std: 0.0085 | min: 0.7000 | max: 0.7234
+    TRAIN tabicl+DS-vanilla           → mean: 0.9188 | std: 0.0186 | min: 0.8863 | max: 0.9360
+    TEST  tabicl+DS-vanilla           → mean: 0.6967 | std: 0.0214 | min: 0.6604 | max: 0.7187
+    TRAIN tabicl+RSF                  → mean: 0.9756 | std: 0.0020 | min: 0.9739 | max: 0.9795
+    TEST  tabicl+RSF                  → mean: 0.7053 | std: 0.0165 | min: 0.6864 | max: 0.7322
+    TRAIN tabicl+Cox                  → mean: 0.9574 | std: 0.0055 | min: 0.9478 | max: 0.9640
+    TEST  tabicl+Cox                  → mean: 0.6522 | std: 0.0561 | min: 0.5549 | max: 0.7115
 
   Sample size (requested):   1000  |  actual mean: 1000
-    TRAIN tabicl+DS-simple            → mean: 0.9237 | std: 0.0198 | min: 0.8949 | max: 0.9446
-    TEST  tabicl+DS-simple            → mean: 0.7178 | std: 0.0106 | min: 0.7054 | max: 0.7301
-    TRAIN tabicl+DS-vanilla           → mean: 0.9258 | std: 0.0039 | min: 0.9206 | max: 0.9318
-    TEST  tabicl+DS-vanilla           → mean: 0.7306 | std: 0.0065 | min: 0.7203 | max: 0.7403
-    TRAIN tabicl+RSF                  → mean: 0.9642 | std: 0.0030 | min: 0.9611 | max: 0.9691
-    TEST  tabicl+RSF                  → mean: 0.7171 | std: 0.0173 | min: 0.6978 | max: 0.7409
-    TRAIN tabicl+Cox                  → mean: 0.9426 | std: 0.0026 | min: 0.9391 | max: 0.9464
-    TEST  tabicl+Cox                  → mean: 0.6993 | std: 0.0322 | min: 0.6472 | max: 0.7328
+    TRAIN tabicl+DS-simple            → mean: 0.9207 | std: 0.0163 | min: 0.8923 | max: 0.9403
+    TEST  tabicl+DS-simple            → mean: 0.7241 | std: 0.0109 | min: 0.7119 | max: 0.7430
+    TRAIN tabicl+DS-vanilla           → mean: 0.9239 | std: 0.0067 | min: 0.9146 | max: 0.9307
+    TEST  tabicl+DS-vanilla           → mean: 0.7298 | std: 0.0096 | min: 0.7186 | max: 0.7469
+    TRAIN tabicl+RSF                  → mean: 0.9766 | std: 0.0043 | min: 0.9714 | max: 0.9828
+    TEST  tabicl+RSF                  → mean: 0.7245 | std: 0.0114 | min: 0.7115 | max: 0.7397
+    TRAIN tabicl+Cox                  → mean: 0.9425 | std: 0.0026 | min: 0.9389 | max: 0.9464
+    TEST  tabicl+Cox                  → mean: 0.6996 | std: 0.0316 | min: 0.6480 | max: 0.7322
 
   Sample size (requested):   2500  |  actual mean: 2500
-    TRAIN tabicl+DS-simple            → mean: 0.9268 | std: 0.0034 | min: 0.9228 | max: 0.9315
-    TEST  tabicl+DS-simple            → mean: 0.7207 | std: 0.0194 | min: 0.6969 | max: 0.7561
-    TRAIN tabicl+DS-vanilla           → mean: 0.9179 | std: 0.0042 | min: 0.9098 | max: 0.9220
-    TEST  tabicl+DS-vanilla           → mean: 0.7454 | std: 0.0147 | min: 0.7245 | max: 0.7604
-    TRAIN tabicl+RSF                  → mean: 0.9623 | std: 0.0019 | min: 0.9590 | max: 0.9644
-    TEST  tabicl+RSF                  → mean: 0.7371 | std: 0.0125 | min: 0.7224 | max: 0.7578
+    TRAIN tabicl+DS-simple            → mean: 0.9248 | std: 0.0057 | min: 0.9147 | max: 0.9309
+    TEST  tabicl+DS-simple            → mean: 0.7170 | std: 0.0116 | min: 0.7039 | max: 0.7373
+    TRAIN tabicl+DS-vanilla           → mean: 0.9212 | std: 0.0043 | min: 0.9136 | max: 0.9267
+    TEST  tabicl+DS-vanilla           → mean: 0.7397 | std: 0.0144 | min: 0.7208 | max: 0.7638
+    TRAIN tabicl+RSF                  → mean: 0.9701 | std: 0.0019 | min: 0.9669 | max: 0.9726
+    TEST  tabicl+RSF                  → mean: 0.7388 | std: 0.0142 | min: 0.7215 | max: 0.7601
     TRAIN tabicl+Cox                  → mean: 0.9303 | std: 0.0020 | min: 0.9274 | max: 0.9327
-    TEST  tabicl+Cox                  → mean: 0.7214 | std: 0.0185 | min: 0.7097 | max: 0.7581
+    TEST  tabicl+Cox                  → mean: 0.7214 | std: 0.0187 | min: 0.7088 | max: 0.7583
 
   Sample size (requested):   5000  |  actual mean: 5000
-    TRAIN tabicl+DS-simple            → mean: 0.9213 | std: 0.0039 | min: 0.9149 | max: 0.9261
-    TEST  tabicl+DS-simple            → mean: 0.7357 | std: 0.0071 | min: 0.7255 | max: 0.7442
-    TRAIN tabicl+DS-vanilla           → mean: 0.9201 | std: 0.0025 | min: 0.9165 | max: 0.9231
-    TEST  tabicl+DS-vanilla           → mean: 0.7485 | std: 0.0117 | min: 0.7340 | max: 0.7658
-    TRAIN tabicl+RSF                  → mean: 0.9622 | std: 0.0008 | min: 0.9611 | max: 0.9633
-    TEST  tabicl+RSF                  → mean: 0.7439 | std: 0.0127 | min: 0.7311 | max: 0.7679
-    TRAIN tabicl+Cox                  → mean: 0.9252 | std: 0.0008 | min: 0.9240 | max: 0.9265
-    TEST  tabicl+Cox                  → mean: 0.7435 | std: 0.0100 | min: 0.7309 | max: 0.7604
+    TRAIN tabicl+DS-simple            → mean: 0.9218 | std: 0.0034 | min: 0.9165 | max: 0.9255
+    TEST  tabicl+DS-simple            → mean: 0.7403 | std: 0.0130 | min: 0.7233 | max: 0.7596
+    TRAIN tabicl+DS-vanilla           → mean: 0.9191 | std: 0.0024 | min: 0.9145 | max: 0.9214
+    TEST  tabicl+DS-vanilla           → mean: 0.7529 | std: 0.0107 | min: 0.7440 | max: 0.7721
+    TRAIN tabicl+RSF                  → mean: 0.9641 | std: 0.0009 | min: 0.9630 | max: 0.9652
+    TEST  tabicl+RSF                  → mean: 0.7492 | std: 0.0135 | min: 0.7355 | max: 0.7750
+    TRAIN tabicl+Cox                  → mean: 0.9252 | std: 0.0009 | min: 0.9239 | max: 0.9265
+    TEST  tabicl+Cox                  → mean: 0.7436 | std: 0.0100 | min: 0.7313 | max: 0.7606
 
   Sample size (requested):  10000  |  actual mean: 5161
-    TRAIN tabicl+DS-simple            → mean: 0.9216 | std: 0.0011 | min: 0.9198 | max: 0.9228
-    TEST  tabicl+DS-simple            → mean: 0.7341 | std: 0.0108 | min: 0.7205 | max: 0.7531
-    TRAIN tabicl+DS-vanilla           → mean: 0.9184 | std: 0.0038 | min: 0.9127 | max: 0.9227
-    TEST  tabicl+DS-vanilla           → mean: 0.7504 | std: 0.0062 | min: 0.7401 | max: 0.7593
-    TRAIN tabicl+RSF                  → mean: 0.9623 | std: 0.0007 | min: 0.9613 | max: 0.9631
-    TEST  tabicl+RSF                  → mean: 0.7449 | std: 0.0112 | min: 0.7366 | max: 0.7667
+    TRAIN tabicl+DS-simple            → mean: 0.9225 | std: 0.0014 | min: 0.9204 | max: 0.9247
+    TEST  tabicl+DS-simple            → mean: 0.7391 | std: 0.0087 | min: 0.7287 | max: 0.7539
+    TRAIN tabicl+DS-vanilla           → mean: 0.9193 | std: 0.0015 | min: 0.9171 | max: 0.9216
+    TEST  tabicl+DS-vanilla           → mean: 0.7403 | std: 0.0165 | min: 0.7107 | max: 0.7587
+    TRAIN tabicl+RSF                  → mean: 0.9636 | std: 0.0010 | min: 0.9625 | max: 0.9652
+    TEST  tabicl+RSF                  → mean: 0.7487 | std: 0.0098 | min: 0.7384 | max: 0.7667
     TRAIN tabicl+Cox                  → mean: 0.9252 | std: 0.0009 | min: 0.9240 | max: 0.9267
-    TEST  tabicl+Cox                  → mean: 0.7450 | std: 0.0083 | min: 0.7376 | max: 0.7604
+    TEST  tabicl+Cox                  → mean: 0.7452 | std: 0.0083 | min: 0.7376 | max: 0.7606

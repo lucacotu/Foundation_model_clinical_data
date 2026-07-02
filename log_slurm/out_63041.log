@@ -1,0 +1,2626 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torchtuples/tupletree.py:146: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  return torch.from_numpy(data)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+STARTED  model=tabdpt  seed=789  tuning=False  shap=False
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed789.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+0:	[1s / 1s],		train_loss: 5.4318,	val_loss: 6.7794
+1:	[0s / 2s],		train_loss: 4.6949,	val_loss: 6.5748
+2:	[0s / 2s],		train_loss: 4.6275,	val_loss: 6.9562
+3:	[0s / 2s],		train_loss: 4.6614,	val_loss: 6.6772
+4:	[0s / 2s],		train_loss: 4.4671,	val_loss: 6.6119
+5:	[0s / 2s],		train_loss: 4.6402,	val_loss: 7.1065
+6:	[0s / 2s],		train_loss: 5.1413,	val_loss: 6.6070
+7:	[0s / 2s],		train_loss: 4.5552,	val_loss: 6.6511
+8:	[0s / 2s],		train_loss: 4.5680,	val_loss: 6.8810
+9:	[0s / 2s],		train_loss: 4.4871,	val_loss: 6.5293
+10:	[0s / 2s],		train_loss: 4.4460,	val_loss: 6.7957
+11:	[0s / 2s],		train_loss: 4.5304,	val_loss: 6.7213
+12:	[0s / 2s],		train_loss: 4.5484,	val_loss: 6.6360
+13:	[0s / 2s],		train_loss: 4.4565,	val_loss: 6.7077
+14:	[0s / 2s],		train_loss: 4.4513,	val_loss: 6.7321
+15:	[0s / 2s],		train_loss: 4.6289,	val_loss: 6.7715
+16:	[0s / 2s],		train_loss: 4.7601,	val_loss: 6.7453
+17:	[0s / 2s],		train_loss: 4.5512,	val_loss: 7.0578
+18:	[0s / 2s],		train_loss: 4.5586,	val_loss: 6.8068
+19:	[0s / 2s],		train_loss: 4.4076,	val_loss: 6.6371
+20:	[0s / 2s],		train_loss: 4.3559,	val_loss: 6.7100
+21:	[0s / 2s],		train_loss: 4.5373,	val_loss: 6.6951
+22:	[0s / 2s],		train_loss: 4.3979,	val_loss: 6.6579
+23:	[0s / 2s],		train_loss: 4.5322,	val_loss: 6.6723
+24:	[0s / 2s],		train_loss: 4.4560,	val_loss: 6.6169
+25:	[0s / 2s],		train_loss: 4.4244,	val_loss: 6.9272
+26:	[0s / 2s],		train_loss: 4.4808,	val_loss: 6.9078
+27:	[0s / 2s],		train_loss: 4.5317,	val_loss: 6.7132
+28:	[0s / 2s],		train_loss: 4.4121,	val_loss: 6.6625
+29:	[0s / 2s],		train_loss: 4.4042,	val_loss: 6.6516
+C-index TRAIN: 0.8006
+C-index TEST:  0.7279
+0:	[0s / 0s],		train_loss: 4.5309,	val_loss: 6.4337
+1:	[0s / 0s],		train_loss: 4.4130,	val_loss: 6.4267
+2:	[0s / 0s],		train_loss: 4.3578,	val_loss: 6.4120
+3:	[0s / 0s],		train_loss: 4.3317,	val_loss: 6.3441
+4:	[0s / 0s],		train_loss: 4.3203,	val_loss: 6.3520
+5:	[0s / 0s],		train_loss: 4.3124,	val_loss: 6.3464
+6:	[0s / 0s],		train_loss: 4.2934,	val_loss: 6.3815
+7:	[0s / 0s],		train_loss: 4.2773,	val_loss: 6.3699
+8:	[0s / 0s],		train_loss: 4.2564,	val_loss: 6.3607
+9:	[0s / 0s],		train_loss: 4.2373,	val_loss: 6.3516
+10:	[0s / 0s],		train_loss: 4.2262,	val_loss: 6.4037
+11:	[0s / 0s],		train_loss: 4.2085,	val_loss: 6.3817
+12:	[0s / 0s],		train_loss: 4.2101,	val_loss: 6.4256
+13:	[0s / 0s],		train_loss: 4.2137,	val_loss: 6.4645
+14:	[0s / 0s],		train_loss: 4.1800,	val_loss: 6.5743
+15:	[0s / 1s],		train_loss: 4.1962,	val_loss: 6.4385
+16:	[0s / 1s],		train_loss: 4.1770,	val_loss: 6.4523
+17:	[0s / 1s],		train_loss: 4.1926,	val_loss: 6.4978
+18:	[0s / 1s],		train_loss: 4.1937,	val_loss: 6.5386
+19:	[0s / 1s],		train_loss: 4.1448,	val_loss: 6.4281
+20:	[0s / 1s],		train_loss: 4.1143,	val_loss: 6.5904
+21:	[0s / 1s],		train_loss: 4.1161,	val_loss: 6.4639
+22:	[0s / 1s],		train_loss: 4.0963,	val_loss: 6.5948
+23:	[0s / 1s],		train_loss: 4.0654,	val_loss: 6.5527
+C-index TRAIN: 0.8127
+C-index TEST:  0.7693
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold1/tabdpt_rsf.pkl
+C-index train: 0.9201
+C-index test:  0.7637
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold1/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8133
+C-index test:  0.7690
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold1/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.8184,	val_loss: 6.5626
+1:	[0s / 0s],		train_loss: 4.5941,	val_loss: 7.8798
+2:	[0s / 0s],		train_loss: 4.5066,	val_loss: 37.8229
+3:	[0s / 0s],		train_loss: 4.4836,	val_loss: 78.1843
+4:	[0s / 0s],		train_loss: 4.4806,	val_loss: 147.7659
+5:	[0s / 0s],		train_loss: 4.4562,	val_loss: 135.1374
+6:	[0s / 0s],		train_loss: 4.4313,	val_loss: 164.8431
+7:	[0s / 0s],		train_loss: 4.4327,	val_loss: 113.4375
+8:	[0s / 0s],		train_loss: 4.4429,	val_loss: 113.1773
+9:	[0s / 0s],		train_loss: 4.4261,	val_loss: 6.3261
+10:	[0s / 0s],		train_loss: 4.3933,	val_loss: 6.2969
+11:	[0s / 0s],		train_loss: 4.4126,	val_loss: 33.7501
+12:	[0s / 0s],		train_loss: 4.3634,	val_loss: 35.0071
+13:	[0s / 0s],		train_loss: 4.4155,	val_loss: 6.3122
+14:	[0s / 0s],		train_loss: 4.4088,	val_loss: 55.7130
+15:	[0s / 0s],		train_loss: 4.3635,	val_loss: 112.9318
+16:	[0s / 0s],		train_loss: 4.3780,	val_loss: 6.3129
+17:	[0s / 0s],		train_loss: 4.3615,	val_loss: 6.2791
+18:	[0s / 0s],		train_loss: 4.3588,	val_loss: 6.2852
+19:	[0s / 0s],		train_loss: 4.3600,	val_loss: 6.3030
+20:	[0s / 1s],		train_loss: 4.3662,	val_loss: 6.3225
+21:	[0s / 1s],		train_loss: 4.3464,	val_loss: 6.3074
+22:	[0s / 1s],		train_loss: 4.3310,	val_loss: 6.3164
+23:	[0s / 1s],		train_loss: 4.3512,	val_loss: 6.2951
+24:	[0s / 1s],		train_loss: 4.3345,	val_loss: 6.3283
+25:	[0s / 1s],		train_loss: 4.3354,	val_loss: 6.3241
+26:	[0s / 1s],		train_loss: 4.3567,	val_loss: 6.3210
+27:	[0s / 1s],		train_loss: 4.3374,	val_loss: 6.3142
+28:	[0s / 1s],		train_loss: 4.3052,	val_loss: 6.3524
+29:	[0s / 1s],		train_loss: 4.3613,	val_loss: 6.3144
+30:	[0s / 1s],		train_loss: 4.3399,	val_loss: 6.3272
+31:	[0s / 1s],		train_loss: 4.3297,	val_loss: 6.2925
+32:	[0s / 1s],		train_loss: 4.3206,	val_loss: 6.2662
+33:	[0s / 1s],		train_loss: 4.3420,	val_loss: 6.2750
+34:	[0s / 1s],		train_loss: 4.3119,	val_loss: 6.4532
+35:	[0s / 1s],		train_loss: 4.3184,	val_loss: 6.6340
+36:	[0s / 1s],		train_loss: 4.3371,	val_loss: 11.0889
+37:	[0s / 1s],		train_loss: 4.3774,	val_loss: 9.1122
+38:	[0s / 1s],		train_loss: 4.3321,	val_loss: 15.1968
+39:	[0s / 1s],		train_loss: 4.3119,	val_loss: 6.5680
+40:	[0s / 2s],		train_loss: 4.3232,	val_loss: 23.5781
+41:	[0s / 2s],		train_loss: 4.3390,	val_loss: 6.5057
+42:	[0s / 2s],		train_loss: 4.3189,	val_loss: 6.5819
+43:	[0s / 2s],		train_loss: 4.3047,	val_loss: 6.6111
+44:	[0s / 2s],		train_loss: 4.3426,	val_loss: 19.3867
+45:	[0s / 2s],		train_loss: 4.3684,	val_loss: 33.8665
+46:	[0s / 2s],		train_loss: 4.3065,	val_loss: 9.3163
+47:	[0s / 2s],		train_loss: 4.3187,	val_loss: 86.4946
+48:	[0s / 2s],		train_loss: 4.2943,	val_loss: 88.4791
+49:	[0s / 2s],		train_loss: 4.3200,	val_loss: 222.9159
+50:	[0s / 2s],		train_loss: 4.3135,	val_loss: 230.1980
+51:	[0s / 2s],		train_loss: 4.3124,	val_loss: 263.3120
+52:	[0s / 2s],		train_loss: 4.3015,	val_loss: 279.2718
+C-index TRAIN: 0.8095
+C-index TEST:  0.7926
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold1/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 19.9917,	val_loss: 17.8343
+1:	[0s / 0s],		train_loss: 9.4437,	val_loss: 12.7669
+2:	[0s / 0s],		train_loss: 7.7767,	val_loss: 9.9738
+3:	[0s / 0s],		train_loss: 7.8440,	val_loss: 9.3205
+4:	[0s / 0s],		train_loss: 6.6171,	val_loss: 8.0461
+5:	[0s / 0s],		train_loss: 6.7253,	val_loss: 9.2520
+6:	[0s / 0s],		train_loss: 7.1952,	val_loss: 8.6561
+7:	[0s / 0s],		train_loss: 6.1694,	val_loss: 7.6825
+8:	[0s / 0s],		train_loss: 5.0852,	val_loss: 7.0248
+9:	[0s / 0s],		train_loss: 4.8912,	val_loss: 7.3609
+10:	[0s / 0s],		train_loss: 4.9971,	val_loss: 6.7789
+11:	[0s / 0s],		train_loss: 4.5732,	val_loss: 6.4786
+12:	[0s / 0s],		train_loss: 4.6036,	val_loss: 7.0386
+13:	[0s / 0s],		train_loss: 5.2249,	val_loss: 7.6530
+14:	[0s / 0s],		train_loss: 6.1522,	val_loss: 8.8163
+15:	[0s / 0s],		train_loss: 6.4094,	val_loss: 9.3393
+16:	[0s / 0s],		train_loss: 6.2247,	val_loss: 8.4679
+17:	[0s / 0s],		train_loss: 6.4362,	val_loss: 9.4057
+18:	[0s / 0s],		train_loss: 8.3905,	val_loss: 11.1509
+19:	[0s / 0s],		train_loss: 8.6035,	val_loss: 10.6366
+20:	[0s / 0s],		train_loss: 6.7062,	val_loss: 8.3850
+21:	[0s / 0s],		train_loss: 5.2600,	val_loss: 6.9107
+22:	[0s / 0s],		train_loss: 5.0017,	val_loss: 8.8806
+23:	[0s / 0s],		train_loss: 5.8697,	val_loss: 8.6207
+24:	[0s / 0s],		train_loss: 5.6956,	val_loss: 8.2031
+25:	[0s / 0s],		train_loss: 6.8385,	val_loss: 13.8371
+26:	[0s / 0s],		train_loss: 10.5562,	val_loss: 14.5754
+27:	[0s / 0s],		train_loss: 9.7152,	val_loss: 13.3119
+28:	[0s / 0s],		train_loss: 8.0640,	val_loss: 9.8601
+29:	[0s / 1s],		train_loss: 6.2607,	val_loss: 7.7342
+30:	[0s / 1s],		train_loss: 5.1442,	val_loss: 9.4734
+31:	[0s / 1s],		train_loss: 6.8753,	val_loss: 11.7073
+C-index TRAIN: 0.7893
+C-index TEST:  0.7821
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold1/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold1/rsf_baseline.pkl
+C-index train: 0.9077
+C-index test:  0.7904
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold1/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8016
+C-index test:  0.7899
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold1/cox.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+0:	[0s / 0s],		train_loss: 5.3857,	val_loss: 6.7158
+1:	[0s / 0s],		train_loss: 4.7703,	val_loss: 7.3143
+2:	[0s / 0s],		train_loss: 4.7187,	val_loss: 6.5835
+3:	[0s / 0s],		train_loss: 4.4818,	val_loss: 6.6142
+4:	[0s / 0s],		train_loss: 4.5716,	val_loss: 6.5891
+5:	[0s / 0s],		train_loss: 5.0967,	val_loss: 6.7636
+6:	[0s / 0s],		train_loss: 4.5024,	val_loss: 6.7792
+7:	[0s / 0s],		train_loss: 4.4443,	val_loss: 6.5479
+8:	[0s / 0s],		train_loss: 4.3696,	val_loss: 6.6702
+9:	[0s / 0s],		train_loss: 4.4260,	val_loss: 6.5869
+10:	[0s / 0s],		train_loss: 4.4375,	val_loss: 6.7581
+11:	[0s / 0s],		train_loss: 4.4873,	val_loss: 6.8345
+12:	[0s / 0s],		train_loss: 4.5509,	val_loss: 6.7570
+13:	[0s / 0s],		train_loss: 4.7305,	val_loss: 6.8590
+14:	[0s / 0s],		train_loss: 5.2057,	val_loss: 6.9704
+15:	[0s / 0s],		train_loss: 4.7410,	val_loss: 6.8362
+16:	[0s / 0s],		train_loss: 4.4942,	val_loss: 6.8722
+17:	[0s / 0s],		train_loss: 4.4689,	val_loss: 6.9986
+18:	[0s / 0s],		train_loss: 4.5516,	val_loss: 6.7061
+19:	[0s / 0s],		train_loss: 4.5472,	val_loss: 6.7896
+20:	[0s / 0s],		train_loss: 4.3836,	val_loss: 6.8345
+21:	[0s / 0s],		train_loss: 4.4072,	val_loss: 6.6511
+22:	[0s / 0s],		train_loss: 4.5509,	val_loss: 6.8163
+23:	[0s / 1s],		train_loss: 4.5161,	val_loss: 6.8018
+24:	[0s / 1s],		train_loss: 4.4333,	val_loss: 6.8609
+25:	[0s / 1s],		train_loss: 4.3757,	val_loss: 6.7456
+26:	[0s / 1s],		train_loss: 4.3520,	val_loss: 6.7772
+27:	[0s / 1s],		train_loss: 4.4313,	val_loss: 6.7774
+C-index TRAIN: 0.8068
+C-index TEST:  0.7551
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5874,	val_loss: 6.3790
+1:	[0s / 0s],		train_loss: 4.4212,	val_loss: 6.3584
+2:	[0s / 0s],		train_loss: 4.3872,	val_loss: 6.3420
+3:	[0s / 0s],		train_loss: 4.3357,	val_loss: 6.4112
+4:	[0s / 0s],		train_loss: 4.3434,	val_loss: 6.3624
+5:	[0s / 0s],		train_loss: 4.3221,	val_loss: 6.3666
+6:	[0s / 0s],		train_loss: 4.3311,	val_loss: 6.3262
+7:	[0s / 0s],		train_loss: 4.3034,	val_loss: 6.3939
+8:	[0s / 0s],		train_loss: 4.3152,	val_loss: 6.3526
+9:	[0s / 0s],		train_loss: 4.3054,	val_loss: 6.3581
+10:	[0s / 0s],		train_loss: 4.2835,	val_loss: 6.3605
+11:	[0s / 0s],		train_loss: 4.2665,	val_loss: 6.3889
+12:	[0s / 0s],		train_loss: 4.2494,	val_loss: 6.3900
+13:	[0s / 0s],		train_loss: 4.2396,	val_loss: 6.4006
+14:	[0s / 0s],		train_loss: 4.2082,	val_loss: 6.4573
+15:	[0s / 0s],		train_loss: 4.2099,	val_loss: 6.5036
+16:	[0s / 0s],		train_loss: 4.1942,	val_loss: 6.4528
+17:	[0s / 0s],		train_loss: 4.1926,	val_loss: 6.4192
+18:	[0s / 0s],		train_loss: 4.1738,	val_loss: 6.5267
+19:	[0s / 1s],		train_loss: 4.1655,	val_loss: 6.5264
+20:	[0s / 1s],		train_loss: 4.1236,	val_loss: 6.5118
+21:	[0s / 1s],		train_loss: 4.1266,	val_loss: 6.4267
+22:	[0s / 1s],		train_loss: 4.1297,	val_loss: 6.5687
+23:	[0s / 1s],		train_loss: 4.1508,	val_loss: 6.5274
+24:	[0s / 1s],		train_loss: 4.1386,	val_loss: 6.5362
+25:	[0s / 1s],		train_loss: 4.0806,	val_loss: 6.5298
+26:	[0s / 1s],		train_loss: 4.1016,	val_loss: 6.5129
+C-index TRAIN: 0.8126
+C-index TEST:  0.7758
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold2/tabdpt_rsf.pkl
+C-index train: 0.9178
+C-index test:  0.7676
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8120
+C-index test:  0.7697
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.8026,	val_loss: 6.6604
+1:	[0s / 0s],		train_loss: 4.5987,	val_loss: 6.4544
+2:	[0s / 0s],		train_loss: 4.5250,	val_loss: 6.3443
+3:	[0s / 0s],		train_loss: 4.4588,	val_loss: 6.3247
+4:	[0s / 0s],		train_loss: 4.4534,	val_loss: 6.3388
+5:	[0s / 0s],		train_loss: 4.4441,	val_loss: 6.3245
+6:	[0s / 0s],		train_loss: 4.4455,	val_loss: 6.2950
+7:	[0s / 0s],		train_loss: 4.4387,	val_loss: 6.2859
+8:	[0s / 0s],		train_loss: 4.4295,	val_loss: 6.2942
+9:	[0s / 0s],		train_loss: 4.3813,	val_loss: 6.2807
+10:	[0s / 0s],		train_loss: 4.4034,	val_loss: 6.2758
+11:	[0s / 0s],		train_loss: 4.3705,	val_loss: 6.2791
+12:	[0s / 0s],		train_loss: 4.4016,	val_loss: 6.2702
+13:	[0s / 0s],		train_loss: 4.3622,	val_loss: 6.2691
+14:	[0s / 0s],		train_loss: 4.3765,	val_loss: 6.2946
+15:	[0s / 0s],		train_loss: 4.3573,	val_loss: 6.2653
+16:	[0s / 0s],		train_loss: 4.3735,	val_loss: 6.2621
+17:	[0s / 0s],		train_loss: 4.3703,	val_loss: 6.2655
+18:	[0s / 0s],		train_loss: 4.3830,	val_loss: 6.2627
+19:	[0s / 1s],		train_loss: 4.3630,	val_loss: 6.2939
+20:	[0s / 1s],		train_loss: 4.3570,	val_loss: 6.2750
+21:	[0s / 1s],		train_loss: 4.3691,	val_loss: 6.2726
+22:	[0s / 1s],		train_loss: 4.3650,	val_loss: 6.2869
+23:	[0s / 1s],		train_loss: 4.3701,	val_loss: 6.2773
+24:	[0s / 1s],		train_loss: 4.3798,	val_loss: 6.2765
+25:	[0s / 1s],		train_loss: 4.3828,	val_loss: 6.2653
+26:	[0s / 1s],		train_loss: 4.3270,	val_loss: 6.2830
+27:	[0s / 1s],		train_loss: 4.3493,	val_loss: 6.2779
+28:	[0s / 1s],		train_loss: 4.3652,	val_loss: 6.3068
+29:	[0s / 1s],		train_loss: 4.3656,	val_loss: 6.2836
+30:	[0s / 1s],		train_loss: 4.3371,	val_loss: 6.2683
+31:	[0s / 1s],		train_loss: 4.3716,	val_loss: 6.2939
+32:	[0s / 1s],		train_loss: 4.3697,	val_loss: 6.2640
+33:	[0s / 1s],		train_loss: 4.3443,	val_loss: 6.2553
+34:	[0s / 1s],		train_loss: 4.3460,	val_loss: 6.2757
+35:	[0s / 1s],		train_loss: 4.3249,	val_loss: 6.2765
+36:	[0s / 1s],		train_loss: 4.3229,	val_loss: 6.3215
+37:	[0s / 1s],		train_loss: 4.3563,	val_loss: 6.3264
+38:	[0s / 1s],		train_loss: 4.3591,	val_loss: 6.2827
+39:	[0s / 1s],		train_loss: 4.3394,	val_loss: 6.2721
+40:	[0s / 1s],		train_loss: 4.3465,	val_loss: 6.2655
+41:	[0s / 2s],		train_loss: 4.3425,	val_loss: 6.2790
+42:	[0s / 2s],		train_loss: 4.3191,	val_loss: 6.2754
+43:	[0s / 2s],		train_loss: 4.3379,	val_loss: 6.2718
+44:	[0s / 2s],		train_loss: 4.3110,	val_loss: 6.2860
+45:	[0s / 2s],		train_loss: 4.3413,	val_loss: 6.2974
+46:	[0s / 2s],		train_loss: 4.3288,	val_loss: 6.2762
+47:	[0s / 2s],		train_loss: 4.3169,	val_loss: 6.2797
+48:	[0s / 2s],		train_loss: 4.3290,	val_loss: 6.3020
+49:	[0s / 2s],		train_loss: 4.3314,	val_loss: 6.2928
+50:	[0s / 2s],		train_loss: 4.3434,	val_loss: 6.2773
+51:	[0s / 2s],		train_loss: 4.3397,	val_loss: 6.3041
+52:	[0s / 2s],		train_loss: 4.3124,	val_loss: 6.2672
+53:	[0s / 2s],		train_loss: 4.3416,	val_loss: 6.2711
+C-index TRAIN: 0.8046
+C-index TEST:  0.7956
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 97.7740,	val_loss: 22.9191
+1:	[0s / 0s],		train_loss: 14.0801,	val_loss: 14.3642
+2:	[0s / 0s],		train_loss: 8.9300,	val_loss: 12.6614
+3:	[0s / 0s],		train_loss: 7.3113,	val_loss: 9.2038
+4:	[0s / 0s],		train_loss: 6.4575,	val_loss: 8.9497
+5:	[0s / 0s],		train_loss: 7.1633,	val_loss: 8.6683
+6:	[0s / 0s],		train_loss: 6.3366,	val_loss: 7.7002
+7:	[0s / 0s],		train_loss: 5.1611,	val_loss: 7.0554
+8:	[0s / 0s],		train_loss: 5.1883,	val_loss: 7.6763
+9:	[0s / 0s],		train_loss: 5.2858,	val_loss: 6.9883
+10:	[0s / 0s],		train_loss: 4.6566,	val_loss: 6.5601
+11:	[0s / 0s],		train_loss: 4.8354,	val_loss: 6.8635
+12:	[0s / 0s],		train_loss: 4.5975,	val_loss: 6.4412
+13:	[0s / 0s],		train_loss: 4.5635,	val_loss: 6.4597
+14:	[0s / 0s],		train_loss: 4.4275,	val_loss: 6.3820
+15:	[0s / 0s],		train_loss: 4.5373,	val_loss: 6.4465
+16:	[0s / 0s],		train_loss: 4.7617,	val_loss: 7.4216
+17:	[0s / 0s],		train_loss: 5.5546,	val_loss: 7.9091
+18:	[0s / 0s],		train_loss: 6.3932,	val_loss: 9.5984
+19:	[0s / 0s],		train_loss: 7.2447,	val_loss: 8.4403
+20:	[0s / 0s],		train_loss: 5.9294,	val_loss: 9.6612
+21:	[0s / 0s],		train_loss: 8.8694,	val_loss: 11.2052
+22:	[0s / 0s],		train_loss: 7.7244,	val_loss: 10.5693
+23:	[0s / 0s],		train_loss: 7.4363,	val_loss: 10.2248
+24:	[0s / 0s],		train_loss: 8.2334,	val_loss: 10.2348
+25:	[0s / 0s],		train_loss: 7.0013,	val_loss: 9.1951
+26:	[0s / 0s],		train_loss: 7.4370,	val_loss: 10.0832
+27:	[0s / 0s],		train_loss: 6.5817,	val_loss: 8.6669
+28:	[0s / 0s],		train_loss: 5.9573,	val_loss: 8.3945
+29:	[0s / 0s],		train_loss: 5.6390,	val_loss: 7.9166
+30:	[0s / 1s],		train_loss: 5.6906,	val_loss: 7.9694
+31:	[0s / 1s],		train_loss: 7.0332,	val_loss: 9.7528
+32:	[0s / 1s],		train_loss: 6.4816,	val_loss: 9.5649
+33:	[0s / 1s],		train_loss: 7.9923,	val_loss: 11.8711
+34:	[0s / 1s],		train_loss: 7.8557,	val_loss: 10.1738
+C-index TRAIN: 0.7912
+C-index TEST:  0.7917
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold2/rsf_baseline.pkl
+C-index train: 0.9079
+C-index test:  0.7860
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.7995
+C-index test:  0.7954
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold2/cox.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+0:	[0s / 0s],		train_loss: 5.2990,	val_loss: 6.8823
+1:	[0s / 0s],		train_loss: 4.7956,	val_loss: 6.5524
+2:	[0s / 0s],		train_loss: 4.4723,	val_loss: 6.5149
+3:	[0s / 0s],		train_loss: 4.4501,	val_loss: 6.5254
+4:	[0s / 0s],		train_loss: 4.4195,	val_loss: 6.5072
+5:	[0s / 0s],		train_loss: 4.5110,	val_loss: 6.6299
+6:	[0s / 0s],		train_loss: 4.6305,	val_loss: 6.9967
+7:	[0s / 0s],		train_loss: 4.6927,	val_loss: 6.6156
+8:	[0s / 0s],		train_loss: 4.5623,	val_loss: 6.7283
+9:	[0s / 0s],		train_loss: 4.4349,	val_loss: 6.6603
+10:	[0s / 0s],		train_loss: 4.4585,	val_loss: 6.7060
+11:	[0s / 0s],		train_loss: 4.4494,	val_loss: 6.6240
+12:	[0s / 0s],		train_loss: 4.4780,	val_loss: 6.6072
+13:	[0s / 0s],		train_loss: 4.4770,	val_loss: 6.6363
+14:	[0s / 0s],		train_loss: 4.5455,	val_loss: 6.7346
+15:	[0s / 0s],		train_loss: 4.5509,	val_loss: 6.6896
+16:	[0s / 0s],		train_loss: 4.6242,	val_loss: 6.8416
+17:	[0s / 0s],		train_loss: 4.3771,	val_loss: 6.6522
+18:	[0s / 0s],		train_loss: 4.4194,	val_loss: 6.7382
+19:	[0s / 0s],		train_loss: 4.4976,	val_loss: 7.1209
+20:	[0s / 0s],		train_loss: 4.7508,	val_loss: 6.9570
+21:	[0s / 0s],		train_loss: 4.4771,	val_loss: 6.6009
+22:	[0s / 0s],		train_loss: 4.6133,	val_loss: 6.6113
+23:	[0s / 0s],		train_loss: 4.5291,	val_loss: 6.8686
+24:	[0s / 0s],		train_loss: 4.3930,	val_loss: 6.7107
+C-index TRAIN: 0.7894
+C-index TEST:  0.7483
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.6058,	val_loss: 6.3695
+1:	[0s / 0s],		train_loss: 4.4345,	val_loss: 6.3501
+2:	[0s / 0s],		train_loss: 4.3807,	val_loss: 6.3629
+3:	[0s / 0s],		train_loss: 4.3341,	val_loss: 6.3447
+4:	[0s / 0s],		train_loss: 4.3678,	val_loss: 6.3638
+5:	[0s / 0s],		train_loss: 4.3613,	val_loss: 6.3296
+6:	[0s / 0s],		train_loss: 4.3278,	val_loss: 6.3351
+7:	[0s / 0s],		train_loss: 4.3118,	val_loss: 6.3516
+8:	[0s / 0s],		train_loss: 4.3286,	val_loss: 6.3403
+9:	[0s / 0s],		train_loss: 4.3018,	val_loss: 6.3914
+10:	[0s / 0s],		train_loss: 4.2593,	val_loss: 6.3905
+11:	[0s / 0s],		train_loss: 4.2674,	val_loss: 6.4316
+12:	[0s / 0s],		train_loss: 4.2528,	val_loss: 6.3796
+13:	[0s / 0s],		train_loss: 4.2137,	val_loss: 6.3897
+14:	[0s / 0s],		train_loss: 4.2016,	val_loss: 6.3784
+15:	[0s / 0s],		train_loss: 4.2196,	val_loss: 6.3669
+16:	[0s / 0s],		train_loss: 4.1668,	val_loss: 6.3960
+17:	[0s / 0s],		train_loss: 4.2951,	val_loss: 6.3888
+18:	[0s / 1s],		train_loss: 4.2091,	val_loss: 6.3754
+19:	[0s / 1s],		train_loss: 4.2122,	val_loss: 6.4048
+20:	[0s / 1s],		train_loss: 4.1565,	val_loss: 6.3788
+21:	[0s / 1s],		train_loss: 4.1691,	val_loss: 6.3781
+22:	[0s / 1s],		train_loss: 4.1333,	val_loss: 6.4249
+23:	[0s / 1s],		train_loss: 4.0849,	val_loss: 6.3838
+24:	[0s / 1s],		train_loss: 4.1125,	val_loss: 6.4842
+25:	[0s / 1s],		train_loss: 4.0960,	val_loss: 6.4656
+C-index TRAIN: 0.8082
+C-index TEST:  0.7731
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold3/tabdpt_rsf.pkl
+C-index train: 0.9212
+C-index test:  0.7650
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8117
+C-index test:  0.7733
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.7646,	val_loss: 6.5166
+1:	[0s / 0s],		train_loss: 4.5775,	val_loss: 6.4059
+2:	[0s / 0s],		train_loss: 4.5023,	val_loss: 6.3636
+3:	[0s / 0s],		train_loss: 4.4752,	val_loss: 6.3230
+4:	[0s / 0s],		train_loss: 4.4285,	val_loss: 6.3497
+5:	[0s / 0s],		train_loss: 4.4473,	val_loss: 6.3211
+6:	[0s / 0s],		train_loss: 4.4576,	val_loss: 6.3169
+7:	[0s / 0s],		train_loss: 4.4416,	val_loss: 6.3063
+8:	[0s / 0s],		train_loss: 4.3867,	val_loss: 6.3555
+9:	[0s / 0s],		train_loss: 4.4261,	val_loss: 6.3215
+10:	[0s / 0s],		train_loss: 4.3960,	val_loss: 6.3065
+11:	[0s / 0s],		train_loss: 4.3744,	val_loss: 6.2962
+12:	[0s / 0s],		train_loss: 4.3688,	val_loss: 6.3063
+13:	[0s / 0s],		train_loss: 4.3563,	val_loss: 6.2940
+14:	[0s / 0s],		train_loss: 4.3612,	val_loss: 6.3065
+15:	[0s / 0s],		train_loss: 4.3697,	val_loss: 6.3033
+16:	[0s / 0s],		train_loss: 4.3674,	val_loss: 6.3114
+17:	[0s / 0s],		train_loss: 4.3701,	val_loss: 6.2807
+18:	[0s / 0s],		train_loss: 4.3297,	val_loss: 6.2973
+19:	[0s / 0s],		train_loss: 4.3451,	val_loss: 6.2740
+20:	[0s / 1s],		train_loss: 4.3207,	val_loss: 6.2554
+21:	[0s / 1s],		train_loss: 4.3188,	val_loss: 6.2876
+22:	[0s / 1s],		train_loss: 4.3337,	val_loss: 6.2755
+23:	[0s / 1s],		train_loss: 4.3215,	val_loss: 6.2797
+24:	[0s / 1s],		train_loss: 4.3691,	val_loss: 6.2848
+25:	[0s / 1s],		train_loss: 4.3195,	val_loss: 6.2486
+26:	[0s / 1s],		train_loss: 4.2995,	val_loss: 6.2548
+27:	[0s / 1s],		train_loss: 4.3354,	val_loss: 6.2680
+28:	[0s / 1s],		train_loss: 4.3244,	val_loss: 6.2673
+29:	[0s / 1s],		train_loss: 4.3324,	val_loss: 6.2751
+30:	[0s / 1s],		train_loss: 4.3174,	val_loss: 6.2938
+31:	[0s / 1s],		train_loss: 4.2933,	val_loss: 6.2688
+32:	[0s / 1s],		train_loss: 4.3032,	val_loss: 6.2786
+33:	[0s / 1s],		train_loss: 4.3175,	val_loss: 6.2918
+34:	[0s / 1s],		train_loss: 4.3298,	val_loss: 6.2633
+35:	[0s / 1s],		train_loss: 4.3580,	val_loss: 6.2596
+36:	[0s / 1s],		train_loss: 4.3356,	val_loss: 6.2765
+37:	[0s / 1s],		train_loss: 4.3153,	val_loss: 6.2950
+38:	[0s / 1s],		train_loss: 4.3078,	val_loss: 6.2672
+39:	[0s / 1s],		train_loss: 4.2951,	val_loss: 6.2857
+40:	[0s / 1s],		train_loss: 4.3041,	val_loss: 6.2725
+41:	[0s / 2s],		train_loss: 4.3192,	val_loss: 6.2642
+42:	[0s / 2s],		train_loss: 4.2661,	val_loss: 6.2879
+43:	[0s / 2s],		train_loss: 4.3061,	val_loss: 6.2524
+44:	[0s / 2s],		train_loss: 4.2794,	val_loss: 6.3109
+45:	[0s / 2s],		train_loss: 4.3032,	val_loss: 6.2652
+C-index TRAIN: 0.8085
+C-index TEST:  0.7849
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 44.8479,	val_loss: 15.9387
+1:	[0s / 0s],		train_loss: 11.8297,	val_loss: 12.8226
+2:	[0s / 0s],		train_loss: 9.0763,	val_loss: 10.9771
+3:	[0s / 0s],		train_loss: 8.0397,	val_loss: 10.5944
+4:	[0s / 0s],		train_loss: 7.8612,	val_loss: 8.7743
+5:	[0s / 0s],		train_loss: 6.2279,	val_loss: 8.2616
+6:	[0s / 0s],		train_loss: 6.3546,	val_loss: 9.5891
+7:	[0s / 0s],		train_loss: 6.9595,	val_loss: 9.2638
+8:	[0s / 0s],		train_loss: 6.3773,	val_loss: 9.1313
+9:	[0s / 0s],		train_loss: 6.1373,	val_loss: 7.7048
+10:	[0s / 0s],		train_loss: 6.0933,	val_loss: 8.3260
+11:	[0s / 0s],		train_loss: 5.9455,	val_loss: 6.9895
+12:	[0s / 0s],		train_loss: 4.5557,	val_loss: 6.7685
+13:	[0s / 0s],		train_loss: 6.3283,	val_loss: 9.9302
+14:	[0s / 0s],		train_loss: 6.9285,	val_loss: 9.6653
+15:	[0s / 0s],		train_loss: 7.0636,	val_loss: 8.9417
+16:	[0s / 0s],		train_loss: 6.1350,	val_loss: 8.5813
+17:	[0s / 0s],		train_loss: 5.5876,	val_loss: 7.2934
+18:	[0s / 0s],		train_loss: 5.1086,	val_loss: 6.6173
+19:	[0s / 0s],		train_loss: 4.5474,	val_loss: 6.4141
+20:	[0s / 0s],		train_loss: 4.9281,	val_loss: 7.4266
+21:	[0s / 0s],		train_loss: 5.2496,	val_loss: 7.1350
+22:	[0s / 0s],		train_loss: 5.3649,	val_loss: 7.8915
+23:	[0s / 0s],		train_loss: 5.4109,	val_loss: 7.6242
+24:	[0s / 0s],		train_loss: 5.4595,	val_loss: 8.5050
+25:	[0s / 0s],		train_loss: 7.3175,	val_loss: 10.3758
+26:	[0s / 0s],		train_loss: 7.8502,	val_loss: 9.1925
+27:	[0s / 1s],		train_loss: 6.1352,	val_loss: 9.5407
+28:	[0s / 1s],		train_loss: 5.2149,	val_loss: 6.8965
+29:	[0s / 1s],		train_loss: 4.5319,	val_loss: 6.4836
+30:	[0s / 1s],		train_loss: 4.5858,	val_loss: 8.1269
+31:	[0s / 1s],		train_loss: 7.0294,	val_loss: 10.4866
+32:	[0s / 1s],		train_loss: 9.1528,	val_loss: 12.3028
+33:	[0s / 1s],		train_loss: 9.7191,	val_loss: 11.4413
+34:	[0s / 1s],		train_loss: 7.8331,	val_loss: 9.7112
+35:	[0s / 1s],		train_loss: 7.2950,	val_loss: 10.2862
+36:	[0s / 1s],		train_loss: 7.4182,	val_loss: 8.6596
+37:	[0s / 1s],		train_loss: 5.7790,	val_loss: 6.8790
+38:	[0s / 1s],		train_loss: 4.7119,	val_loss: 6.7572
+39:	[0s / 1s],		train_loss: 4.6458,	val_loss: 6.8054
+C-index TRAIN: 0.7870
+C-index TEST:  0.7773
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold3/rsf_baseline.pkl
+C-index train: 0.9068
+C-index test:  0.7919
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8004
+C-index test:  0.7942
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold3/cox.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+0:	[0s / 0s],		train_loss: 5.6927,	val_loss: 6.5911
+1:	[0s / 0s],		train_loss: 4.7351,	val_loss: 6.5719
+2:	[0s / 0s],		train_loss: 4.5419,	val_loss: 6.6712
+3:	[0s / 0s],		train_loss: 4.4982,	val_loss: 6.6152
+4:	[0s / 0s],		train_loss: 4.5797,	val_loss: 6.4985
+5:	[0s / 0s],		train_loss: 4.5030,	val_loss: 6.7419
+6:	[0s / 0s],		train_loss: 4.4587,	val_loss: 6.7119
+7:	[0s / 0s],		train_loss: 4.5409,	val_loss: 6.8476
+8:	[0s / 0s],		train_loss: 5.1850,	val_loss: 6.6825
+9:	[0s / 0s],		train_loss: 4.7743,	val_loss: 6.8607
+10:	[0s / 0s],		train_loss: 4.5617,	val_loss: 6.6948
+11:	[0s / 0s],		train_loss: 4.4587,	val_loss: 6.6841
+12:	[0s / 0s],		train_loss: 4.7139,	val_loss: 6.4722
+13:	[0s / 0s],		train_loss: 4.5367,	val_loss: 6.6491
+14:	[0s / 0s],		train_loss: 4.7700,	val_loss: 6.8683
+15:	[0s / 0s],		train_loss: 4.7705,	val_loss: 6.6531
+16:	[0s / 0s],		train_loss: 4.6256,	val_loss: 6.5775
+17:	[0s / 0s],		train_loss: 4.4653,	val_loss: 6.5794
+18:	[0s / 0s],		train_loss: 4.4525,	val_loss: 6.6398
+19:	[0s / 0s],		train_loss: 4.4053,	val_loss: 6.5669
+20:	[0s / 0s],		train_loss: 4.4684,	val_loss: 6.7613
+21:	[0s / 0s],		train_loss: 4.5089,	val_loss: 6.6439
+22:	[0s / 0s],		train_loss: 4.4624,	val_loss: 6.7455
+23:	[0s / 0s],		train_loss: 4.6113,	val_loss: 6.6941
+24:	[0s / 0s],		train_loss: 4.5107,	val_loss: 6.6424
+25:	[0s / 0s],		train_loss: 4.3615,	val_loss: 6.7884
+26:	[0s / 0s],		train_loss: 4.4922,	val_loss: 6.5906
+27:	[0s / 1s],		train_loss: 4.3841,	val_loss: 6.5774
+28:	[0s / 1s],		train_loss: 4.3966,	val_loss: 6.6152
+29:	[0s / 1s],		train_loss: 4.4526,	val_loss: 6.7827
+30:	[0s / 1s],		train_loss: 4.5912,	val_loss: 6.8031
+31:	[0s / 1s],		train_loss: 4.5670,	val_loss: 6.6665
+32:	[0s / 1s],		train_loss: 4.4387,	val_loss: 6.6139
+C-index TRAIN: 0.7701
+C-index TEST:  0.7547
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5839,	val_loss: 6.4145
+1:	[0s / 0s],		train_loss: 4.4211,	val_loss: 6.4108
+2:	[0s / 0s],		train_loss: 4.3910,	val_loss: 6.3931
+3:	[0s / 0s],		train_loss: 4.3833,	val_loss: 6.4471
+4:	[0s / 0s],		train_loss: 4.3333,	val_loss: 6.3592
+5:	[0s / 0s],		train_loss: 4.2895,	val_loss: 6.3834
+6:	[0s / 0s],		train_loss: 4.3149,	val_loss: 6.3818
+7:	[0s / 0s],		train_loss: 4.2826,	val_loss: 6.4372
+8:	[0s / 0s],		train_loss: 4.2829,	val_loss: 6.4551
+9:	[0s / 0s],		train_loss: 4.2513,	val_loss: 6.4262
+10:	[0s / 0s],		train_loss: 4.2402,	val_loss: 6.4159
+11:	[0s / 0s],		train_loss: 4.2328,	val_loss: 6.4168
+12:	[0s / 0s],		train_loss: 4.2347,	val_loss: 6.4498
+13:	[0s / 0s],		train_loss: 4.2085,	val_loss: 6.4705
+14:	[0s / 0s],		train_loss: 4.1781,	val_loss: 6.5006
+15:	[0s / 0s],		train_loss: 4.1986,	val_loss: 6.4175
+16:	[0s / 0s],		train_loss: 4.1978,	val_loss: 6.4580
+17:	[0s / 0s],		train_loss: 4.1755,	val_loss: 6.5598
+18:	[0s / 0s],		train_loss: 4.1568,	val_loss: 6.4894
+19:	[0s / 1s],		train_loss: 4.1358,	val_loss: 6.5980
+20:	[0s / 1s],		train_loss: 4.1448,	val_loss: 6.5482
+21:	[0s / 1s],		train_loss: 4.1060,	val_loss: 6.4320
+22:	[0s / 1s],		train_loss: 4.1171,	val_loss: 6.5789
+23:	[0s / 1s],		train_loss: 4.1343,	val_loss: 6.5025
+24:	[0s / 1s],		train_loss: 4.1147,	val_loss: 6.6076
+C-index TRAIN: 0.8145
+C-index TEST:  0.7877
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold4/tabdpt_rsf.pkl
+C-index train: 0.9240
+C-index test:  0.7795
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8109
+C-index test:  0.7869
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.7807,	val_loss: 6.5635
+1:	[0s / 0s],		train_loss: 4.5605,	val_loss: 6.3732
+2:	[0s / 0s],		train_loss: 4.5068,	val_loss: 6.3661
+3:	[0s / 0s],		train_loss: 4.4698,	val_loss: 6.3414
+4:	[0s / 0s],		train_loss: 4.4588,	val_loss: 6.3107
+5:	[0s / 0s],		train_loss: 4.4323,	val_loss: 6.3112
+6:	[0s / 0s],		train_loss: 4.4160,	val_loss: 6.3189
+7:	[0s / 0s],		train_loss: 4.4267,	val_loss: 6.3082
+8:	[0s / 0s],		train_loss: 4.4361,	val_loss: 6.2844
+9:	[0s / 0s],		train_loss: 4.4025,	val_loss: 6.2856
+10:	[0s / 0s],		train_loss: 4.3776,	val_loss: 6.2847
+11:	[0s / 0s],		train_loss: 4.4196,	val_loss: 6.2893
+12:	[0s / 0s],		train_loss: 4.4099,	val_loss: 6.2834
+13:	[0s / 0s],		train_loss: 4.3998,	val_loss: 6.2563
+14:	[0s / 0s],		train_loss: 4.3961,	val_loss: 6.2973
+15:	[0s / 0s],		train_loss: 4.4085,	val_loss: 6.2814
+16:	[0s / 0s],		train_loss: 4.3594,	val_loss: 6.2895
+17:	[0s / 0s],		train_loss: 4.3902,	val_loss: 6.2616
+18:	[0s / 0s],		train_loss: 4.3691,	val_loss: 6.2800
+19:	[0s / 0s],		train_loss: 4.3762,	val_loss: 6.2706
+20:	[0s / 1s],		train_loss: 4.3597,	val_loss: 6.2944
+21:	[0s / 1s],		train_loss: 4.3465,	val_loss: 6.2760
+22:	[0s / 1s],		train_loss: 4.3735,	val_loss: 6.2602
+23:	[0s / 1s],		train_loss: 4.3987,	val_loss: 6.2737
+24:	[0s / 1s],		train_loss: 4.3768,	val_loss: 6.2708
+25:	[0s / 1s],		train_loss: 4.3768,	val_loss: 6.2681
+26:	[0s / 1s],		train_loss: 4.3660,	val_loss: 6.2738
+27:	[0s / 1s],		train_loss: 4.3506,	val_loss: 6.2590
+28:	[0s / 1s],		train_loss: 4.3457,	val_loss: 6.2562
+29:	[0s / 1s],		train_loss: 4.3407,	val_loss: 6.2525
+30:	[0s / 1s],		train_loss: 4.3545,	val_loss: 6.2743
+31:	[0s / 1s],		train_loss: 4.3473,	val_loss: 6.2790
+32:	[0s / 1s],		train_loss: 4.3602,	val_loss: 6.2465
+33:	[0s / 1s],		train_loss: 4.3502,	val_loss: 6.2479
+34:	[0s / 1s],		train_loss: 4.3391,	val_loss: 6.2576
+35:	[0s / 1s],		train_loss: 4.3648,	val_loss: 6.2536
+36:	[0s / 1s],		train_loss: 4.3475,	val_loss: 6.2698
+37:	[0s / 1s],		train_loss: 4.3727,	val_loss: 6.2643
+38:	[0s / 1s],		train_loss: 4.3239,	val_loss: 6.2445
+39:	[0s / 1s],		train_loss: 4.3420,	val_loss: 6.2763
+40:	[0s / 1s],		train_loss: 4.3342,	val_loss: 6.2551
+41:	[0s / 2s],		train_loss: 4.3187,	val_loss: 6.2545
+42:	[0s / 2s],		train_loss: 4.3247,	val_loss: 6.2595
+43:	[0s / 2s],		train_loss: 4.3200,	val_loss: 6.2625
+44:	[0s / 2s],		train_loss: 4.3706,	val_loss: 6.2680
+45:	[0s / 2s],		train_loss: 4.3519,	val_loss: 6.2487
+46:	[0s / 2s],		train_loss: 4.3449,	val_loss: 6.2671
+47:	[0s / 2s],		train_loss: 4.3405,	val_loss: 6.2784
+48:	[0s / 2s],		train_loss: 4.3291,	val_loss: 6.2920
+49:	[0s / 2s],		train_loss: 4.3461,	val_loss: 6.2832
+50:	[0s / 2s],		train_loss: 4.3328,	val_loss: 6.2665
+51:	[0s / 2s],		train_loss: 4.3292,	val_loss: 6.2661
+52:	[0s / 2s],		train_loss: 4.3501,	val_loss: 6.2870
+53:	[0s / 2s],		train_loss: 4.3411,	val_loss: 6.2758
+54:	[0s / 2s],		train_loss: 4.3356,	val_loss: 6.2737
+55:	[0s / 2s],		train_loss: 4.3020,	val_loss: 6.3104
+56:	[0s / 2s],		train_loss: 4.3186,	val_loss: 6.3113
+57:	[0s / 2s],		train_loss: 4.3567,	val_loss: 6.3466
+58:	[0s / 2s],		train_loss: 4.3024,	val_loss: 6.3000
+C-index TRAIN: 0.8065
+C-index TEST:  0.8018
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 35.8324,	val_loss: 19.5402
+1:	[0s / 0s],		train_loss: 13.9598,	val_loss: 13.4933
+2:	[0s / 0s],		train_loss: 11.2812,	val_loss: 12.3427
+3:	[0s / 0s],		train_loss: 9.1174,	val_loss: 9.9934
+4:	[0s / 0s],		train_loss: 6.6848,	val_loss: 7.7196
+5:	[0s / 0s],		train_loss: 6.2833,	val_loss: 9.5931
+6:	[0s / 0s],		train_loss: 6.7126,	val_loss: 8.8429
+7:	[0s / 0s],		train_loss: 6.0594,	val_loss: 8.0921
+8:	[0s / 0s],		train_loss: 5.3954,	val_loss: 7.3946
+9:	[0s / 0s],		train_loss: 4.9703,	val_loss: 6.5391
+10:	[0s / 0s],		train_loss: 4.7113,	val_loss: 6.5544
+11:	[0s / 0s],		train_loss: 5.8126,	val_loss: 9.2769
+12:	[0s / 0s],		train_loss: 7.2417,	val_loss: 9.5538
+13:	[0s / 0s],		train_loss: 6.8592,	val_loss: 8.1789
+14:	[0s / 0s],		train_loss: 5.8562,	val_loss: 8.1521
+15:	[0s / 0s],		train_loss: 5.9682,	val_loss: 7.1195
+16:	[0s / 0s],		train_loss: 5.7990,	val_loss: 9.8477
+17:	[0s / 0s],		train_loss: 7.8747,	val_loss: 9.1955
+18:	[0s / 0s],		train_loss: 6.5563,	val_loss: 8.2215
+19:	[0s / 0s],		train_loss: 5.5919,	val_loss: 7.8780
+20:	[0s / 0s],		train_loss: 5.4012,	val_loss: 7.2427
+21:	[0s / 0s],		train_loss: 5.4655,	val_loss: 8.1337
+22:	[0s / 0s],		train_loss: 5.9778,	val_loss: 7.1861
+23:	[0s / 0s],		train_loss: 4.9224,	val_loss: 7.0043
+24:	[0s / 0s],		train_loss: 5.3153,	val_loss: 8.9626
+25:	[0s / 0s],		train_loss: 6.6221,	val_loss: 9.0889
+26:	[0s / 0s],		train_loss: 6.1405,	val_loss: 8.4478
+27:	[0s / 0s],		train_loss: 5.7972,	val_loss: 7.3507
+28:	[0s / 0s],		train_loss: 5.8268,	val_loss: 9.1913
+29:	[0s / 0s],		train_loss: 6.3302,	val_loss: 9.7573
+C-index TRAIN: 0.7839
+C-index TEST:  0.7870
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold4/rsf_baseline.pkl
+C-index train: 0.9091
+C-index test:  0.8077
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.7983
+C-index test:  0.8027
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold4/cox.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+0:	[0s / 0s],		train_loss: 5.5558,	val_loss: 6.8118
+1:	[0s / 0s],		train_loss: 4.6725,	val_loss: 6.5543
+2:	[0s / 0s],		train_loss: 4.5062,	val_loss: 6.6505
+3:	[0s / 0s],		train_loss: 4.5284,	val_loss: 6.6194
+4:	[0s / 0s],		train_loss: 4.5808,	val_loss: 7.1742
+5:	[0s / 0s],		train_loss: 4.5709,	val_loss: 6.6182
+6:	[0s / 0s],		train_loss: 4.4569,	val_loss: 6.4935
+7:	[0s / 0s],		train_loss: 4.4654,	val_loss: 6.6149
+8:	[0s / 0s],		train_loss: 4.4607,	val_loss: 6.7043
+9:	[0s / 0s],		train_loss: 4.6612,	val_loss: 6.5135
+10:	[0s / 0s],		train_loss: 4.4588,	val_loss: 6.7781
+11:	[0s / 0s],		train_loss: 4.5328,	val_loss: 6.8913
+12:	[0s / 0s],		train_loss: 4.9527,	val_loss: 7.4432
+13:	[0s / 0s],		train_loss: 4.8901,	val_loss: 6.8414
+14:	[0s / 0s],		train_loss: 5.1232,	val_loss: 6.8658
+15:	[0s / 0s],		train_loss: 4.6020,	val_loss: 6.6664
+16:	[0s / 0s],		train_loss: 4.5558,	val_loss: 6.8551
+17:	[0s / 0s],		train_loss: 4.4813,	val_loss: 6.9343
+18:	[0s / 0s],		train_loss: 4.8630,	val_loss: 6.7619
+19:	[0s / 0s],		train_loss: 4.4977,	val_loss: 6.7475
+20:	[0s / 0s],		train_loss: 4.8127,	val_loss: 6.7695
+21:	[0s / 0s],		train_loss: 4.4591,	val_loss: 6.7456
+22:	[0s / 0s],		train_loss: 4.5411,	val_loss: 6.7082
+23:	[0s / 0s],		train_loss: 4.4459,	val_loss: 6.7807
+24:	[0s / 0s],		train_loss: 4.5104,	val_loss: 6.6567
+25:	[0s / 0s],		train_loss: 4.4293,	val_loss: 6.8393
+26:	[0s / 0s],		train_loss: 4.4006,	val_loss: 6.9639
+C-index TRAIN: 0.8023
+C-index TEST:  0.7610
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5635,	val_loss: 6.3677
+1:	[0s / 0s],		train_loss: 4.4104,	val_loss: 6.3674
+2:	[0s / 0s],		train_loss: 4.3603,	val_loss: 6.4193
+3:	[0s / 0s],		train_loss: 4.3947,	val_loss: 6.4900
+4:	[0s / 0s],		train_loss: 4.3454,	val_loss: 6.4659
+5:	[0s / 0s],		train_loss: 4.3478,	val_loss: 6.4574
+6:	[0s / 0s],		train_loss: 4.3006,	val_loss: 6.4204
+7:	[0s / 0s],		train_loss: 4.3081,	val_loss: 6.4359
+8:	[0s / 0s],		train_loss: 4.2887,	val_loss: 6.4691
+9:	[0s / 0s],		train_loss: 4.2746,	val_loss: 6.4367
+10:	[0s / 0s],		train_loss: 4.2481,	val_loss: 6.4246
+11:	[0s / 0s],		train_loss: 4.2485,	val_loss: 6.4900
+12:	[0s / 0s],		train_loss: 4.2454,	val_loss: 6.6125
+13:	[0s / 0s],		train_loss: 4.2381,	val_loss: 6.5648
+14:	[0s / 0s],		train_loss: 4.1999,	val_loss: 6.5396
+15:	[0s / 0s],		train_loss: 4.1870,	val_loss: 6.6887
+16:	[0s / 0s],		train_loss: 4.2022,	val_loss: 6.5673
+17:	[0s / 0s],		train_loss: 4.1764,	val_loss: 6.6701
+18:	[0s / 1s],		train_loss: 4.1448,	val_loss: 6.5802
+19:	[0s / 1s],		train_loss: 4.1391,	val_loss: 6.6297
+20:	[0s / 1s],		train_loss: 4.1359,	val_loss: 6.6566
+21:	[0s / 1s],		train_loss: 4.1574,	val_loss: 6.8537
+C-index TRAIN: 0.7949
+C-index TEST:  0.7782
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold5/tabdpt_rsf.pkl
+C-index train: 0.9218
+C-index test:  0.7670
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8144
+C-index test:  0.7640
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.8023,	val_loss: 6.5919
+1:	[0s / 0s],		train_loss: 4.6476,	val_loss: 6.4358
+2:	[0s / 0s],		train_loss: 4.5225,	val_loss: 6.3734
+3:	[0s / 0s],		train_loss: 4.4742,	val_loss: 6.3353
+4:	[0s / 0s],		train_loss: 4.4449,	val_loss: 6.3153
+5:	[0s / 0s],		train_loss: 4.4394,	val_loss: 6.3520
+6:	[0s / 0s],		train_loss: 4.4117,	val_loss: 6.3421
+7:	[0s / 0s],		train_loss: 4.4326,	val_loss: 6.3146
+8:	[0s / 0s],		train_loss: 4.4242,	val_loss: 6.2912
+9:	[0s / 0s],		train_loss: 4.3884,	val_loss: 6.2810
+10:	[0s / 0s],		train_loss: 4.4206,	val_loss: 6.2784
+11:	[0s / 0s],		train_loss: 4.3951,	val_loss: 6.2700
+12:	[0s / 0s],		train_loss: 4.3563,	val_loss: 6.2679
+13:	[0s / 0s],		train_loss: 4.3696,	val_loss: 6.2955
+14:	[0s / 0s],		train_loss: 4.3824,	val_loss: 6.3128
+15:	[0s / 0s],		train_loss: 4.3655,	val_loss: 6.2718
+16:	[0s / 0s],		train_loss: 4.3559,	val_loss: 6.2714
+17:	[0s / 0s],		train_loss: 4.3784,	val_loss: 6.3215
+18:	[0s / 0s],		train_loss: 4.3464,	val_loss: 6.2872
+19:	[0s / 1s],		train_loss: 4.3668,	val_loss: 6.2654
+20:	[0s / 1s],		train_loss: 4.3534,	val_loss: 6.2737
+21:	[0s / 1s],		train_loss: 4.3571,	val_loss: 6.2758
+22:	[0s / 1s],		train_loss: 4.3324,	val_loss: 6.2741
+23:	[0s / 1s],		train_loss: 4.3608,	val_loss: 6.2728
+24:	[0s / 1s],		train_loss: 4.3550,	val_loss: 6.3017
+25:	[0s / 1s],		train_loss: 4.3371,	val_loss: 6.2726
+26:	[0s / 1s],		train_loss: 4.3430,	val_loss: 6.2862
+27:	[0s / 1s],		train_loss: 4.3446,	val_loss: 6.2824
+28:	[0s / 1s],		train_loss: 4.3454,	val_loss: 6.2984
+29:	[0s / 1s],		train_loss: 4.3351,	val_loss: 6.2792
+30:	[0s / 1s],		train_loss: 4.3506,	val_loss: 6.2825
+31:	[0s / 1s],		train_loss: 4.3112,	val_loss: 6.2720
+32:	[0s / 1s],		train_loss: 4.3036,	val_loss: 6.2814
+33:	[0s / 1s],		train_loss: 4.3190,	val_loss: 6.2770
+34:	[0s / 1s],		train_loss: 4.3596,	val_loss: 6.2766
+35:	[0s / 1s],		train_loss: 4.3400,	val_loss: 6.3147
+36:	[0s / 1s],		train_loss: 4.3319,	val_loss: 6.2780
+37:	[0s / 1s],		train_loss: 4.3322,	val_loss: 6.2940
+38:	[0s / 1s],		train_loss: 4.3298,	val_loss: 6.3132
+39:	[0s / 1s],		train_loss: 4.3475,	val_loss: 6.2720
+C-index TRAIN: 0.8063
+C-index TEST:  0.7816
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 156.8015,	val_loss: 44.1208
+1:	[0s / 0s],		train_loss: 19.1862,	val_loss: 16.4639
+2:	[0s / 0s],		train_loss: 9.9000,	val_loss: 11.3698
+3:	[0s / 0s],		train_loss: 7.3491,	val_loss: 9.8183
+4:	[0s / 0s],		train_loss: 6.3516,	val_loss: 9.0785
+5:	[0s / 0s],		train_loss: 6.2023,	val_loss: 9.1642
+6:	[0s / 0s],		train_loss: 6.1836,	val_loss: 8.5761
+7:	[0s / 0s],		train_loss: 5.5946,	val_loss: 7.6708
+8:	[0s / 0s],		train_loss: 4.9811,	val_loss: 7.3071
+9:	[0s / 0s],		train_loss: 5.5536,	val_loss: 7.7232
+10:	[0s / 0s],		train_loss: 5.1690,	val_loss: 6.9654
+11:	[0s / 0s],		train_loss: 4.6866,	val_loss: 6.7911
+12:	[0s / 0s],		train_loss: 4.7155,	val_loss: 6.5606
+13:	[0s / 0s],		train_loss: 4.6638,	val_loss: 6.6468
+14:	[0s / 0s],		train_loss: 4.5376,	val_loss: 6.5413
+15:	[0s / 0s],		train_loss: 5.5890,	val_loss: 7.6295
+16:	[0s / 0s],		train_loss: 5.4902,	val_loss: 6.7399
+17:	[0s / 0s],		train_loss: 4.7267,	val_loss: 6.9766
+18:	[0s / 0s],		train_loss: 4.6793,	val_loss: 6.4634
+19:	[0s / 0s],		train_loss: 4.6047,	val_loss: 7.0756
+20:	[0s / 0s],		train_loss: 5.5760,	val_loss: 8.2991
+21:	[0s / 0s],		train_loss: 6.5957,	val_loss: 8.3858
+22:	[0s / 0s],		train_loss: 5.8949,	val_loss: 11.4997
+23:	[0s / 0s],		train_loss: 6.0758,	val_loss: 7.9019
+24:	[0s / 0s],		train_loss: 5.9825,	val_loss: 7.1587
+25:	[0s / 0s],		train_loss: 5.0503,	val_loss: 7.7228
+26:	[0s / 0s],		train_loss: 5.4020,	val_loss: 7.3441
+27:	[0s / 0s],		train_loss: 5.2254,	val_loss: 6.8270
+28:	[0s / 0s],		train_loss: 5.9235,	val_loss: 8.7527
+29:	[0s / 1s],		train_loss: 5.6990,	val_loss: 9.0027
+30:	[0s / 1s],		train_loss: 6.1343,	val_loss: 7.8970
+31:	[0s / 1s],		train_loss: 5.7191,	val_loss: 6.9705
+32:	[0s / 1s],		train_loss: 4.8703,	val_loss: 6.9445
+33:	[0s / 1s],		train_loss: 4.7449,	val_loss: 7.3301
+34:	[0s / 1s],		train_loss: 5.7331,	val_loss: 8.3469
+35:	[0s / 1s],		train_loss: 6.1964,	val_loss: 8.6216
+36:	[0s / 1s],		train_loss: 5.7659,	val_loss: 8.3188
+37:	[0s / 1s],		train_loss: 5.5610,	val_loss: 7.5297
+38:	[0s / 1s],		train_loss: 5.1402,	val_loss: 7.1731
+C-index TRAIN: 0.7956
+C-index TEST:  0.7686
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/OrmoniTirodei/-1/seed789/fold5/rsf_baseline.pkl
+C-index train: 0.9103
+C-index test:  0.7930
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8033
+C-index test:  0.7838
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/-1/seed789/fold5/cox.pkl
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/OrmoniTirodei_seed789.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+0:	[0s / 0s],		train_loss: 5.4259,	val_loss: 7.1402
+1:	[0s / 0s],		train_loss: 4.8048,	val_loss: 6.8661
+2:	[0s / 0s],		train_loss: 4.6491,	val_loss: 6.7514
+3:	[0s / 0s],		train_loss: 4.5780,	val_loss: 6.9242
+4:	[0s / 0s],		train_loss: 4.6494,	val_loss: 6.5391
+5:	[0s / 0s],		train_loss: 4.7146,	val_loss: 6.6167
+6:	[0s / 0s],		train_loss: 4.5119,	val_loss: 6.6020
+7:	[0s / 0s],		train_loss: 4.5498,	val_loss: 6.5434
+8:	[0s / 0s],		train_loss: 4.3889,	val_loss: 6.8284
+9:	[0s / 0s],		train_loss: 4.4607,	val_loss: 6.6057
+10:	[0s / 0s],		train_loss: 4.3567,	val_loss: 6.7686
+11:	[0s / 0s],		train_loss: 4.3780,	val_loss: 6.5880
+12:	[0s / 0s],		train_loss: 4.4587,	val_loss: 6.6539
+13:	[0s / 0s],		train_loss: 4.5210,	val_loss: 6.6026
+14:	[0s / 0s],		train_loss: 4.3516,	val_loss: 6.5156
+15:	[0s / 0s],		train_loss: 4.3690,	val_loss: 6.5703
+16:	[0s / 0s],		train_loss: 4.3047,	val_loss: 6.5353
+17:	[0s / 0s],		train_loss: 4.4980,	val_loss: 7.2034
+18:	[0s / 0s],		train_loss: 5.0541,	val_loss: 7.1982
+19:	[0s / 0s],		train_loss: 5.0090,	val_loss: 6.9375
+20:	[0s / 0s],		train_loss: 4.9479,	val_loss: 6.8790
+21:	[0s / 0s],		train_loss: 4.5428,	val_loss: 6.6724
+22:	[0s / 0s],		train_loss: 4.4974,	val_loss: 6.6304
+23:	[0s / 0s],		train_loss: 4.4501,	val_loss: 6.6395
+24:	[0s / 0s],		train_loss: 4.3798,	val_loss: 6.6025
+25:	[0s / 0s],		train_loss: 4.4903,	val_loss: 6.8782
+26:	[0s / 0s],		train_loss: 4.3626,	val_loss: 6.9544
+27:	[0s / 0s],		train_loss: 4.5581,	val_loss: 6.5832
+28:	[0s / 1s],		train_loss: 4.4138,	val_loss: 6.6020
+29:	[0s / 1s],		train_loss: 4.4089,	val_loss: 6.7908
+30:	[0s / 1s],		train_loss: 4.3641,	val_loss: 6.7534
+31:	[0s / 1s],		train_loss: 4.4714,	val_loss: 6.7418
+32:	[0s / 1s],		train_loss: 4.4750,	val_loss: 6.8883
+33:	[0s / 1s],		train_loss: 4.5832,	val_loss: 6.9898
+34:	[0s / 1s],		train_loss: 4.4257,	val_loss: 6.7772
+C-index TRAIN: 0.8078
+C-index TEST:  0.7561
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold1/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.6143,	val_loss: 6.3572
+1:	[0s / 0s],		train_loss: 4.4178,	val_loss: 6.4058
+2:	[0s / 0s],		train_loss: 4.3617,	val_loss: 6.4700
+3:	[0s / 0s],		train_loss: 4.3355,	val_loss: 6.3857
+4:	[0s / 0s],		train_loss: 4.3112,	val_loss: 6.3639
+5:	[0s / 0s],		train_loss: 4.2936,	val_loss: 6.3477
+6:	[0s / 0s],		train_loss: 4.3100,	val_loss: 6.3838
+7:	[0s / 0s],		train_loss: 4.2719,	val_loss: 6.3732
+8:	[0s / 0s],		train_loss: 4.2426,	val_loss: 6.3730
+9:	[0s / 0s],		train_loss: 4.2316,	val_loss: 6.3827
+10:	[0s / 0s],		train_loss: 4.2504,	val_loss: 6.4025
+11:	[0s / 0s],		train_loss: 4.2040,	val_loss: 6.4173
+12:	[0s / 0s],		train_loss: 4.2239,	val_loss: 6.4307
+13:	[0s / 0s],		train_loss: 4.2311,	val_loss: 6.4500
+14:	[0s / 0s],		train_loss: 4.1970,	val_loss: 6.5249
+15:	[0s / 1s],		train_loss: 4.1907,	val_loss: 6.4508
+16:	[0s / 1s],		train_loss: 4.1829,	val_loss: 6.4795
+17:	[0s / 1s],		train_loss: 4.2031,	val_loss: 6.4388
+18:	[0s / 1s],		train_loss: 4.2105,	val_loss: 6.4799
+19:	[0s / 1s],		train_loss: 4.1631,	val_loss: 6.4403
+20:	[0s / 1s],		train_loss: 4.1235,	val_loss: 6.5909
+21:	[0s / 1s],		train_loss: 4.1367,	val_loss: 6.4413
+22:	[0s / 1s],		train_loss: 4.1189,	val_loss: 6.5201
+23:	[0s / 1s],		train_loss: 4.1195,	val_loss: 6.4272
+24:	[0s / 1s],		train_loss: 4.1089,	val_loss: 6.5671
+25:	[0s / 1s],		train_loss: 4.1280,	val_loss: 6.5159
+C-index TRAIN: 0.8168
+C-index TEST:  0.7788
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold1/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/NaN/seed789/fold1/tabdpt_rsf.pkl
+C-index train: 0.9198
+C-index test:  0.7680
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold1/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8161
+C-index test:  0.7733
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold1/tabdpt_cox.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+0:	[0s / 0s],		train_loss: 5.3678,	val_loss: 6.6291
+1:	[0s / 0s],		train_loss: 4.8147,	val_loss: 6.8645
+2:	[0s / 0s],		train_loss: 4.6365,	val_loss: 6.6187
+3:	[0s / 0s],		train_loss: 4.4500,	val_loss: 6.5404
+4:	[0s / 0s],		train_loss: 4.4635,	val_loss: 6.6627
+5:	[0s / 0s],		train_loss: 4.8266,	val_loss: 6.7579
+6:	[0s / 0s],		train_loss: 4.4980,	val_loss: 6.6964
+7:	[0s / 0s],		train_loss: 4.4512,	val_loss: 6.5805
+8:	[0s / 0s],		train_loss: 4.4054,	val_loss: 6.5717
+9:	[0s / 0s],		train_loss: 4.3629,	val_loss: 6.5069
+10:	[0s / 0s],		train_loss: 4.3641,	val_loss: 6.6641
+11:	[0s / 0s],		train_loss: 4.4552,	val_loss: 6.7815
+12:	[0s / 0s],		train_loss: 4.5469,	val_loss: 6.6572
+13:	[0s / 0s],		train_loss: 4.5726,	val_loss: 6.7148
+14:	[0s / 0s],		train_loss: 4.8286,	val_loss: 6.6630
+15:	[0s / 0s],		train_loss: 4.3902,	val_loss: 6.7480
+16:	[0s / 0s],		train_loss: 4.3611,	val_loss: 6.5914
+17:	[0s / 0s],		train_loss: 4.3450,	val_loss: 6.5835
+18:	[0s / 0s],		train_loss: 4.5680,	val_loss: 6.5739
+19:	[0s / 0s],		train_loss: 4.4197,	val_loss: 6.8308
+20:	[0s / 0s],		train_loss: 4.3707,	val_loss: 6.8906
+21:	[0s / 0s],		train_loss: 4.5285,	val_loss: 6.7475
+22:	[0s / 0s],		train_loss: 4.6023,	val_loss: 6.6616
+23:	[0s / 0s],		train_loss: 4.5198,	val_loss: 6.7273
+24:	[0s / 0s],		train_loss: 4.4697,	val_loss: 6.7457
+25:	[0s / 0s],		train_loss: 4.3397,	val_loss: 6.6669
+26:	[0s / 1s],		train_loss: 4.3382,	val_loss: 6.7023
+27:	[0s / 1s],		train_loss: 4.2974,	val_loss: 6.6598
+28:	[0s / 1s],		train_loss: 4.2958,	val_loss: 6.7718
+29:	[0s / 1s],		train_loss: 4.4079,	val_loss: 6.8034
+C-index TRAIN: 0.8084
+C-index TEST:  0.7651
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold2/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5418,	val_loss: 6.3435
+1:	[0s / 0s],		train_loss: 4.3803,	val_loss: 6.3604
+2:	[0s / 0s],		train_loss: 4.3575,	val_loss: 6.3354
+3:	[0s / 0s],		train_loss: 4.3037,	val_loss: 6.3694
+4:	[0s / 0s],		train_loss: 4.3073,	val_loss: 6.3305
+5:	[0s / 0s],		train_loss: 4.2863,	val_loss: 6.3290
+6:	[0s / 0s],		train_loss: 4.2837,	val_loss: 6.3175
+7:	[0s / 0s],		train_loss: 4.2671,	val_loss: 6.3660
+8:	[0s / 0s],		train_loss: 4.2556,	val_loss: 6.3571
+9:	[0s / 0s],		train_loss: 4.2574,	val_loss: 6.3357
+10:	[0s / 0s],		train_loss: 4.2634,	val_loss: 6.3722
+11:	[0s / 0s],		train_loss: 4.2373,	val_loss: 6.3656
+12:	[0s / 0s],		train_loss: 4.1871,	val_loss: 6.4180
+13:	[0s / 0s],		train_loss: 4.2226,	val_loss: 6.4331
+14:	[0s / 0s],		train_loss: 4.2595,	val_loss: 6.3919
+15:	[0s / 0s],		train_loss: 4.1983,	val_loss: 6.4604
+16:	[0s / 0s],		train_loss: 4.1932,	val_loss: 6.4374
+17:	[0s / 1s],		train_loss: 4.1663,	val_loss: 6.3903
+18:	[0s / 1s],		train_loss: 4.1662,	val_loss: 6.4344
+19:	[0s / 1s],		train_loss: 4.1693,	val_loss: 6.4976
+20:	[0s / 1s],		train_loss: 4.1316,	val_loss: 6.4896
+21:	[0s / 1s],		train_loss: 4.1149,	val_loss: 6.4309
+22:	[0s / 1s],		train_loss: 4.1356,	val_loss: 6.4099
+23:	[0s / 1s],		train_loss: 4.1070,	val_loss: 6.5469
+24:	[0s / 1s],		train_loss: 4.0888,	val_loss: 6.5095
+25:	[0s / 1s],		train_loss: 4.0730,	val_loss: 6.6244
+26:	[0s / 1s],		train_loss: 4.0854,	val_loss: 6.6017
+C-index TRAIN: 0.8200
+C-index TEST:  0.7736
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold2/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/NaN/seed789/fold2/tabdpt_rsf.pkl
+C-index train: 0.9201
+C-index test:  0.7632
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold2/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8170
+C-index test:  0.7647
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold2/tabdpt_cox.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+0:	[0s / 0s],		train_loss: 5.2300,	val_loss: 6.6999
+1:	[0s / 0s],		train_loss: 4.6583,	val_loss: 6.6643
+2:	[0s / 0s],		train_loss: 4.5873,	val_loss: 6.5985
+3:	[0s / 0s],		train_loss: 4.4596,	val_loss: 6.5124
+4:	[0s / 0s],		train_loss: 4.4487,	val_loss: 6.5169
+5:	[0s / 0s],		train_loss: 4.4895,	val_loss: 6.6283
+6:	[0s / 0s],		train_loss: 4.4350,	val_loss: 6.6223
+7:	[0s / 0s],		train_loss: 4.5402,	val_loss: 6.5841
+8:	[0s / 0s],		train_loss: 4.4342,	val_loss: 6.4706
+9:	[0s / 0s],		train_loss: 4.3575,	val_loss: 6.5378
+10:	[0s / 0s],		train_loss: 4.3953,	val_loss: 6.5318
+11:	[0s / 0s],		train_loss: 4.4548,	val_loss: 6.5624
+12:	[0s / 0s],		train_loss: 4.4223,	val_loss: 6.8547
+13:	[0s / 0s],		train_loss: 4.6858,	val_loss: 7.1590
+14:	[0s / 0s],		train_loss: 5.0140,	val_loss: 6.8509
+15:	[0s / 0s],		train_loss: 4.8064,	val_loss: 7.0058
+16:	[0s / 0s],		train_loss: 4.7506,	val_loss: 7.0764
+17:	[0s / 0s],		train_loss: 4.6301,	val_loss: 6.6697
+18:	[0s / 0s],		train_loss: 4.4329,	val_loss: 6.7429
+19:	[0s / 0s],		train_loss: 4.4876,	val_loss: 6.6168
+20:	[0s / 0s],		train_loss: 4.5882,	val_loss: 6.9026
+21:	[0s / 0s],		train_loss: 4.4710,	val_loss: 6.5659
+22:	[0s / 0s],		train_loss: 4.4340,	val_loss: 6.5792
+23:	[0s / 0s],		train_loss: 4.4178,	val_loss: 6.6857
+24:	[0s / 0s],		train_loss: 4.3715,	val_loss: 6.5368
+25:	[0s / 0s],		train_loss: 4.3862,	val_loss: 6.5951
+26:	[0s / 0s],		train_loss: 4.5312,	val_loss: 6.8535
+27:	[0s / 1s],		train_loss: 4.6697,	val_loss: 7.0736
+28:	[0s / 1s],		train_loss: 4.4099,	val_loss: 6.9970
+C-index TRAIN: 0.8008
+C-index TEST:  0.7620
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold3/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5864,	val_loss: 6.3181
+1:	[0s / 0s],		train_loss: 4.3906,	val_loss: 6.3412
+2:	[0s / 0s],		train_loss: 4.3739,	val_loss: 6.3258
+3:	[0s / 0s],		train_loss: 4.3125,	val_loss: 6.3463
+4:	[0s / 0s],		train_loss: 4.3455,	val_loss: 6.3131
+5:	[0s / 0s],		train_loss: 4.3275,	val_loss: 6.3082
+6:	[0s / 0s],		train_loss: 4.2889,	val_loss: 6.3151
+7:	[0s / 0s],		train_loss: 4.2936,	val_loss: 6.3539
+8:	[0s / 0s],		train_loss: 4.3095,	val_loss: 6.3396
+9:	[0s / 0s],		train_loss: 4.3070,	val_loss: 6.3233
+10:	[0s / 0s],		train_loss: 4.2264,	val_loss: 6.3454
+11:	[0s / 0s],		train_loss: 4.2519,	val_loss: 6.4085
+12:	[0s / 0s],		train_loss: 4.2326,	val_loss: 6.4027
+13:	[0s / 0s],		train_loss: 4.2115,	val_loss: 6.3991
+14:	[0s / 0s],		train_loss: 4.2263,	val_loss: 6.4111
+15:	[0s / 0s],		train_loss: 4.2023,	val_loss: 6.4270
+16:	[0s / 0s],		train_loss: 4.1683,	val_loss: 6.4310
+17:	[0s / 0s],		train_loss: 4.1886,	val_loss: 6.4850
+18:	[0s / 1s],		train_loss: 4.2035,	val_loss: 6.4201
+19:	[0s / 1s],		train_loss: 4.1788,	val_loss: 6.5153
+20:	[0s / 1s],		train_loss: 4.1320,	val_loss: 6.5165
+21:	[0s / 1s],		train_loss: 4.1336,	val_loss: 6.5261
+22:	[0s / 1s],		train_loss: 4.1434,	val_loss: 6.5125
+23:	[0s / 1s],		train_loss: 4.1132,	val_loss: 6.5847
+24:	[0s / 1s],		train_loss: 4.1506,	val_loss: 6.4471
+25:	[0s / 1s],		train_loss: 4.0976,	val_loss: 6.4543
+C-index TRAIN: 0.8077
+C-index TEST:  0.7774
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold3/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/NaN/seed789/fold3/tabdpt_rsf.pkl
+C-index train: 0.9226
+C-index test:  0.7687
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold3/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8138
+C-index test:  0.7757
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold3/tabdpt_cox.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+0:	[0s / 0s],		train_loss: 5.4903,	val_loss: 6.5997
+1:	[0s / 0s],		train_loss: 4.5509,	val_loss: 6.5580
+2:	[0s / 0s],		train_loss: 4.4624,	val_loss: 6.8380
+3:	[0s / 0s],		train_loss: 4.4845,	val_loss: 6.6412
+4:	[0s / 0s],		train_loss: 4.4072,	val_loss: 6.6232
+5:	[0s / 0s],		train_loss: 4.3912,	val_loss: 6.6703
+6:	[0s / 0s],		train_loss: 4.6090,	val_loss: 6.7147
+7:	[0s / 0s],		train_loss: 4.6427,	val_loss: 7.2062
+8:	[0s / 0s],		train_loss: 4.6655,	val_loss: 6.6771ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+
+9:	[0s / 0s],		train_loss: 4.4808,	val_loss: 6.7429
+10:	[0s / 0s],		train_loss: 4.4019,	val_loss: 6.5623
+11:	[0s / 0s],		train_loss: 4.4499,	val_loss: 6.6616
+12:	[0s / 0s],		train_loss: 4.4338,	val_loss: 6.6071
+13:	[0s / 0s],		train_loss: 4.5047,	val_loss: 6.4797
+14:	[0s / 0s],		train_loss: 4.4827,	val_loss: 6.8948
+15:	[0s / 0s],		train_loss: 4.5217,	val_loss: 6.9210
+16:	[0s / 0s],		train_loss: 4.6717,	val_loss: 6.7706
+17:	[0s / 0s],		train_loss: 4.4737,	val_loss: 6.6995
+18:	[0s / 0s],		train_loss: 4.5794,	val_loss: 6.9000
+19:	[0s / 0s],		train_loss: 4.4585,	val_loss: 6.5998
+20:	[0s / 0s],		train_loss: 4.5207,	val_loss: 6.7668
+21:	[0s / 0s],		train_loss: 4.6788,	val_loss: 7.0598
+22:	[0s / 0s],		train_loss: 4.3520,	val_loss: 6.6055
+23:	[0s / 0s],		train_loss: 4.3779,	val_loss: 6.6692
+24:	[0s / 0s],		train_loss: 4.3902,	val_loss: 6.8735
+25:	[0s / 0s],		train_loss: 4.3605,	val_loss: 6.6686
+26:	[0s / 0s],		train_loss: 4.3646,	val_loss: 6.7052
+27:	[0s / 0s],		train_loss: 4.4600,	val_loss: 6.7123
+28:	[0s / 0s],		train_loss: 4.5186,	val_loss: 6.8163
+29:	[0s / 1s],		train_loss: 4.5823,	val_loss: 6.6523
+30:	[0s / 1s],		train_loss: 4.4202,	val_loss: 7.0953
+31:	[0s / 1s],		train_loss: 4.6840,	val_loss: 7.4757
+32:	[0s / 1s],		train_loss: 4.5809,	val_loss: 6.7075
+33:	[0s / 1s],		train_loss: 4.4033,	val_loss: 6.8671
+C-index TRAIN: 0.8088
+C-index TEST:  0.7728
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold4/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5543,	val_loss: 6.4003
+1:	[0s / 0s],		train_loss: 4.3840,	val_loss: 6.3908
+2:	[0s / 0s],		train_loss: 4.3823,	val_loss: 6.3439
+3:	[0s / 0s],		train_loss: 4.3773,	val_loss: 6.3905
+4:	[0s / 0s],		train_loss: 4.3365,	val_loss: 6.3538
+5:	[0s / 0s],		train_loss: 4.2912,	val_loss: 6.4010
+6:	[0s / 0s],		train_loss: 4.3175,	val_loss: 6.3702
+7:	[0s / 0s],		train_loss: 4.2922,	val_loss: 6.4264
+8:	[0s / 0s],		train_loss: 4.2901,	val_loss: 6.4124
+9:	[0s / 0s],		train_loss: 4.2693,	val_loss: 6.3769
+10:	[0s / 0s],		train_loss: 4.2520,	val_loss: 6.3497
+11:	[0s / 0s],		train_loss: 4.2565,	val_loss: 6.4303
+12:	[0s / 0s],		train_loss: 4.2650,	val_loss: 6.3985
+13:	[0s / 0s],		train_loss: 4.2404,	val_loss: 6.4253
+14:	[0s / 0s],		train_loss: 4.2203,	val_loss: 6.4565
+15:	[0s / 0s],		train_loss: 4.2163,	val_loss: 6.3812
+16:	[0s / 0s],		train_loss: 4.2169,	val_loss: 6.4162
+17:	[0s / 0s],		train_loss: 4.2135,	val_loss: 6.4943
+18:	[0s / 0s],		train_loss: 4.1761,	val_loss: 6.4938
+19:	[0s / 1s],		train_loss: 4.1689,	val_loss: 6.4853
+20:	[0s / 1s],		train_loss: 4.1900,	val_loss: 6.6038
+21:	[0s / 1s],		train_loss: 4.1395,	val_loss: 6.4056
+22:	[0s / 1s],		train_loss: 4.1212,	val_loss: 6.4395
+C-index TRAIN: 0.8052
+C-index TEST:  0.7877
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold4/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/NaN/seed789/fold4/tabdpt_rsf.pkl
+C-index train: 0.9250
+C-index test:  0.7752
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold4/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8142
+C-index test:  0.7836
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold4/tabdpt_cox.pkl
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+0:	[0s / 0s],		train_loss: 5.5512,	val_loss: 7.0805
+1:	[0s / 0s],		train_loss: 4.8628,	val_loss: 6.7891
+2:	[0s / 0s],		train_loss: 4.8122,	val_loss: 6.8513
+3:	[0s / 0s],		train_loss: 4.5519,	val_loss: 6.3902
+4:	[0s / 0s],		train_loss: 4.4016,	val_loss: 6.5648
+5:	[0s / 0s],		train_loss: 4.3954,	val_loss: 6.4644
+6:	[0s / 0s],		train_loss: 4.4360,	val_loss: 6.4637
+7:	[0s / 0s],		train_loss: 4.5047,	val_loss: 6.5411
+8:	[0s / 0s],		train_loss: 4.4381,	val_loss: 6.6988
+9:	[0s / 0s],		train_loss: 4.4458,	val_loss: 6.4223
+10:	[0s / 0s],		train_loss: 4.3871,	val_loss: 6.5950
+11:	[0s / 0s],		train_loss: 4.4051,	val_loss: 6.6982
+12:	[0s / 0s],		train_loss: 4.5838,	val_loss: 6.6425
+13:	[0s / 0s],		train_loss: 4.4367,	val_loss: 6.5674
+14:	[0s / 0s],		train_loss: 4.6159,	val_loss: 6.6421
+15:	[0s / 0s],		train_loss: 4.5830,	val_loss: 6.7386
+16:	[0s / 0s],		train_loss: 4.4545,	val_loss: 6.9035
+17:	[0s / 0s],		train_loss: 4.4850,	val_loss: 6.8909
+18:	[0s / 0s],		train_loss: 4.5559,	val_loss: 6.5242
+19:	[0s / 0s],		train_loss: 4.4118,	val_loss: 6.5375
+20:	[0s / 0s],		train_loss: 4.6168,	val_loss: 6.9111
+21:	[0s / 0s],		train_loss: 4.7170,	val_loss: 6.7597
+22:	[0s / 0s],		train_loss: 4.3976,	val_loss: 6.5421
+23:	[0s / 0s],		train_loss: 4.3752,	val_loss: 6.6537
+C-index TRAIN: 0.8031
+C-index TEST:  0.7636
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold5/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5497,	val_loss: 6.3362
+1:	[0s / 0s],		train_loss: 4.3880,	val_loss: 6.3585
+2:	[0s / 0s],		train_loss: 4.3527,	val_loss: 6.3661
+3:	[0s / 0s],		train_loss: 4.3790,	val_loss: 6.4032
+4:	[0s / 0s],		train_loss: 4.3354,	val_loss: 8.8859
+5:	[0s / 0s],		train_loss: 4.3301,	val_loss: 11.0792
+6:	[0s / 0s],		train_loss: 4.2776,	val_loss: 7.2838
+7:	[0s / 0s],		train_loss: 4.2909,	val_loss: 7.1674
+8:	[0s / 0s],		train_loss: 4.2707,	val_loss: 7.8384
+9:	[0s / 0s],		train_loss: 4.2789,	val_loss: 6.4332
+10:	[0s / 0s],		train_loss: 4.2558,	val_loss: 6.5500
+11:	[0s / 0s],		train_loss: 4.2513,	val_loss: 6.8211
+12:	[0s / 0s],		train_loss: 4.2450,	val_loss: 10.1546
+13:	[0s / 0s],		train_loss: 4.2355,	val_loss: 6.4297
+14:	[0s / 0s],		train_loss: 4.2344,	val_loss: 6.4194
+15:	[0s / 0s],		train_loss: 4.1976,	val_loss: 6.5088
+16:	[0s / 0s],		train_loss: 4.2201,	val_loss: 6.3730
+17:	[0s / 0s],		train_loss: 4.1907,	val_loss: 6.3878
+18:	[0s / 1s],		train_loss: 4.1615,	val_loss: 6.4287
+19:	[0s / 1s],		train_loss: 4.1642,	val_loss: 6.4329
+20:	[0s / 1s],		train_loss: 4.1546,	val_loss: 6.4132
+C-index TRAIN: 0.7893
+C-index TEST:  0.7739
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold5/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/OrmoniTirodei/NaN/seed789/fold5/tabdpt_rsf.pkl
+C-index train: 0.9232
+C-index test:  0.7686
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold5/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8154
+C-index test:  0.7679
+  [surv] Saved → survival_predictions/tabdpt/OrmoniTirodei/NaN/seed789/fold5/tabdpt_cox.pkl
+
+  Preprocess: -1 | Seed: 789
+  TABDPT Train Vanilla → mean: 0.808603 | std: 0.007136 | min: 0.794949 | max: 0.814542
+  TABDPT Test Vanilla → mean: 0.776815 | std: 0.006214 | min: 0.769254 | max: 0.787723
+  TABDPT Train Simple → mean: 0.793851 | std: 0.013188 | min: 0.770106 | max: 0.806809
+  TABDPT Test Simple → mean: 0.749400 | std: 0.011462 | min: 0.727921 | max: 0.760960
+  TABDPT Train RSF → mean: 0.920986 | std: 0.002016 | min: 0.917834 | max: 0.923971
+  TABDPT Test RSF → mean: 0.768557 | std: 0.005631 | min: 0.763686 | max: 0.779462
+  TABDPT Train Cox → mean: 0.812466 | std: 0.001222 | min: 0.810945 | max: 0.814404
+  TABDPT Test Cox → mean: 0.772576 | std: 0.007773 | min: 0.763961 | max: 0.786938
+  Train DeepSurv Vanilla → mean: 0.807083 | std: 0.001725 | min: 0.804623 | max: 0.809505
+  Test DeepSurv Vanilla → mean: 0.791307 | std: 0.007270 | min: 0.781636 | max: 0.801825
+  Train DeepSurv Simple → mean: 0.789388 | std: 0.003948 | min: 0.783906 | max: 0.795627
+  Test DeepSurv Simple → mean: 0.781372 | std: 0.007977 | min: 0.768639 | max: 0.791739
+  Train RSF  → mean: 0.908336 | std: 0.001237 | min: 0.906757 | max: 0.910304
+  Test RSF   → mean: 0.793778 | std: 0.007340 | min: 0.785953 | max: 0.807657
+  Train Cox  → mean: 0.800624 | std: 0.001737 | min: 0.798275 | max: 0.803311
+  Test Cox   → mean: 0.793181 | std: 0.006248 | min: 0.783771 | max: 0.802659
+
+  Preprocess: NaN | Seed: 789
+  TABDPT Train Vanilla → mean: 0.807800 | std: 0.010762 | min: 0.789323 | max: 0.820031
+  TABDPT Test Vanilla → mean: 0.778271 | std: 0.005098 | min: 0.773572 | max: 0.787652
+  TABDPT Train Simple → mean: 0.805751 | std: 0.003242 | min: 0.800751 | max: 0.808811
+  TABDPT Test Simple → mean: 0.763930 | std: 0.005397 | min: 0.756104 | max: 0.772835
+  TABDPT Train RSF → mean: 0.922131 | std: 0.001940 | min: 0.919826 | max: 0.924977
+  TABDPT Test RSF → mean: 0.768742 | std: 0.003828 | min: 0.763193 | max: 0.775212
+  TABDPT Train Cox → mean: 0.815300 | std: 0.001164 | min: 0.813834 | max: 0.816964
+  TABDPT Test Cox → mean: 0.773044 | std: 0.006543 | min: 0.764681 | max: 0.783589
+Result saved in 'results/OrmoniTirodei/tabdpt/results_cv_OrmoniTirodei_tabdpt_seed789.txt'
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/HURRAH_seed789.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+0:	[0s / 0s],		train_loss: 5.0787,	val_loss: 7.3784
+1:	[0s / 0s],		train_loss: 4.7402,	val_loss: 8.0056
+2:	[0s / 0s],		train_loss: 4.4669,	val_loss: 7.5068
+3:	[0s / 0s],		train_loss: 4.5695,	val_loss: 7.7810
+4:	[0s / 0s],		train_loss: 4.5261,	val_loss: 7.4905
+5:	[0s / 0s],		train_loss: 4.5715,	val_loss: 8.1249
+6:	[0s / 0s],		train_loss: 4.9537,	val_loss: 9.3871
+7:	[0s / 0s],		train_loss: 4.6277,	val_loss: 8.0281
+8:	[0s / 0s],		train_loss: 4.4873,	val_loss: 7.8456
+9:	[0s / 0s],		train_loss: 4.4733,	val_loss: 7.4021
+10:	[0s / 1s],		train_loss: 4.5149,	val_loss: 7.4279
+11:	[0s / 1s],		train_loss: 4.6167,	val_loss: 7.6657
+12:	[0s / 1s],		train_loss: 4.5527,	val_loss: 8.5697
+13:	[0s / 1s],		train_loss: 4.5449,	val_loss: 7.9976
+14:	[0s / 1s],		train_loss: 4.5075,	val_loss: 9.0623
+15:	[0s / 1s],		train_loss: 4.5172,	val_loss: 8.4165
+16:	[0s / 1s],		train_loss: 4.6634,	val_loss: 8.1309
+17:	[0s / 1s],		train_loss: 4.6747,	val_loss: 7.7545
+18:	[0s / 1s],		train_loss: 4.5292,	val_loss: 7.8041
+19:	[0s / 1s],		train_loss: 4.5084,	val_loss: 7.8175
+20:	[0s / 1s],		train_loss: 4.4829,	val_loss: 7.8293
+C-index TRAIN: 0.8187
+C-index TEST:  0.7919
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.4870,	val_loss: 7.1591
+1:	[0s / 0s],		train_loss: 4.3589,	val_loss: 7.3561
+2:	[0s / 0s],		train_loss: 4.3076,	val_loss: 7.3661
+3:	[0s / 0s],		train_loss: 4.2595,	val_loss: 7.3493
+4:	[0s / 0s],		train_loss: 4.2497,	val_loss: 7.6022
+5:	[0s / 0s],		train_loss: 4.2223,	val_loss: 7.3770
+6:	[0s / 0s],		train_loss: 4.2150,	val_loss: 7.4644
+7:	[0s / 0s],		train_loss: 4.1944,	val_loss: 7.2997
+8:	[0s / 1s],		train_loss: 4.2034,	val_loss: 7.3552
+9:	[0s / 1s],		train_loss: 4.1810,	val_loss: 7.3748
+10:	[0s / 1s],		train_loss: 4.1659,	val_loss: 7.5638
+11:	[0s / 1s],		train_loss: 4.1529,	val_loss: 7.4456
+12:	[0s / 1s],		train_loss: 4.1363,	val_loss: 7.5924
+13:	[0s / 1s],		train_loss: 4.1205,	val_loss: 7.5325
+14:	[0s / 1s],		train_loss: 4.1276,	val_loss: 7.4898
+15:	[0s / 1s],		train_loss: 4.1095,	val_loss: 7.5995
+16:	[0s / 2s],		train_loss: 4.1200,	val_loss: 7.5359
+17:	[0s / 2s],		train_loss: 4.0870,	val_loss: 7.4962
+18:	[0s / 2s],		train_loss: 4.0801,	val_loss: 7.6574
+19:	[0s / 2s],		train_loss: 4.0591,	val_loss: 7.5143
+20:	[0s / 2s],		train_loss: 4.0727,	val_loss: 7.6512
+C-index TRAIN: 0.8276
+C-index TEST:  0.7956
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold1/tabdpt_rsf.pkl
+C-index train: 0.9519
+C-index test:  0.8030
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8424
+C-index test:  0.7798
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.6593,	val_loss: 7.1868
+1:	[0s / 0s],		train_loss: 4.4223,	val_loss: 7.0900
+2:	[0s / 0s],		train_loss: 4.3549,	val_loss: 7.1169
+3:	[0s / 0s],		train_loss: 4.3378,	val_loss: 7.0567
+4:	[0s / 0s],		train_loss: 4.3378,	val_loss: 7.0686
+5:	[0s / 0s],		train_loss: 4.3140,	val_loss: 7.0678
+6:	[0s / 0s],		train_loss: 4.3157,	val_loss: 7.0928
+7:	[0s / 0s],		train_loss: 4.2960,	val_loss: 7.0445
+8:	[0s / 1s],		train_loss: 4.2949,	val_loss: 7.0240
+9:	[0s / 1s],		train_loss: 4.2840,	val_loss: 7.0535
+10:	[0s / 1s],		train_loss: 4.2710,	val_loss: 7.0439
+11:	[0s / 1s],		train_loss: 4.2646,	val_loss: 7.0385
+12:	[0s / 1s],		train_loss: 4.2703,	val_loss: 7.0220
+13:	[0s / 1s],		train_loss: 4.2524,	val_loss: 7.0886
+14:	[0s / 1s],		train_loss: 4.2665,	val_loss: 7.0259
+15:	[0s / 1s],		train_loss: 4.2663,	val_loss: 7.0203
+16:	[0s / 1s],		train_loss: 4.2632,	val_loss: 7.0884
+17:	[0s / 2s],		train_loss: 4.2419,	val_loss: 7.0155
+18:	[0s / 2s],		train_loss: 4.2472,	val_loss: 7.0659
+19:	[0s / 2s],		train_loss: 4.2450,	val_loss: 7.0101
+20:	[0s / 2s],		train_loss: 4.2290,	val_loss: 7.0104
+21:	[0s / 2s],		train_loss: 4.2382,	val_loss: 7.0180
+22:	[0s / 2s],		train_loss: 4.2371,	val_loss: 7.0328
+23:	[0s / 2s],		train_loss: 4.2498,	val_loss: 7.0059
+24:	[0s / 2s],		train_loss: 4.2207,	val_loss: 6.9983
+25:	[0s / 2s],		train_loss: 4.2292,	val_loss: 7.0373
+26:	[0s / 3s],		train_loss: 4.2185,	val_loss: 7.0275
+27:	[0s / 3s],		train_loss: 4.2145,	val_loss: 7.0249
+28:	[0s / 3s],		train_loss: 4.2245,	val_loss: 7.0388
+29:	[0s / 3s],		train_loss: 4.2066,	val_loss: 7.0265
+30:	[0s / 3s],		train_loss: 4.2216,	val_loss: 6.9769
+31:	[0s / 3s],		train_loss: 4.2229,	val_loss: 7.0064
+32:	[0s / 3s],		train_loss: 4.1956,	val_loss: 7.0411
+33:	[0s / 3s],		train_loss: 4.2323,	val_loss: 7.0124
+34:	[0s / 3s],		train_loss: 4.2282,	val_loss: 6.9955
+35:	[0s / 4s],		train_loss: 4.2274,	val_loss: 6.9964
+36:	[0s / 4s],		train_loss: 4.2147,	val_loss: 7.0200
+37:	[0s / 4s],		train_loss: 4.2204,	val_loss: 6.9986
+38:	[0s / 4s],		train_loss: 4.2159,	val_loss: 6.9854
+39:	[0s / 4s],		train_loss: 4.2014,	val_loss: 6.9990
+40:	[0s / 4s],		train_loss: 4.2029,	val_loss: 7.0021
+41:	[0s / 4s],		train_loss: 4.2123,	val_loss: 7.0196
+42:	[0s / 4s],		train_loss: 4.2114,	val_loss: 6.9873
+43:	[0s / 4s],		train_loss: 4.1969,	val_loss: 6.9818
+44:	[0s / 5s],		train_loss: 4.1990,	val_loss: 7.0031
+45:	[0s / 5s],		train_loss: 4.1963,	val_loss: 6.9848
+46:	[0s / 5s],		train_loss: 4.2045,	val_loss: 7.0323
+47:	[0s / 5s],		train_loss: 4.2136,	val_loss: 7.0172
+48:	[0s / 5s],		train_loss: 4.2010,	val_loss: 6.9944
+49:	[0s / 5s],		train_loss: 4.2054,	val_loss: 6.9935
+50:	[0s / 5s],		train_loss: 4.2031,	val_loss: 7.0303
+C-index TRAIN: 0.8593
+C-index TEST:  0.8378
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 8.5833,	val_loss: 7.2468
+1:	[0s / 0s],		train_loss: 4.4277,	val_loss: 7.1578
+2:	[0s / 0s],		train_loss: 4.3810,	val_loss: 7.1106
+3:	[0s / 0s],		train_loss: 4.4015,	val_loss: 7.0776
+4:	[0s / 0s],		train_loss: 4.3528,	val_loss: 7.1466
+5:	[0s / 0s],		train_loss: 4.3793,	val_loss: 7.0648
+6:	[0s / 0s],		train_loss: 4.3375,	val_loss: 7.1030
+7:	[0s / 0s],		train_loss: 4.3959,	val_loss: 7.1447
+8:	[0s / 0s],		train_loss: 4.3915,	val_loss: 7.0855
+9:	[0s / 0s],		train_loss: 4.3668,	val_loss: 7.0748
+10:	[0s / 0s],		train_loss: 4.3858,	val_loss: 7.2391
+11:	[0s / 0s],		train_loss: 4.4113,	val_loss: 7.1171
+12:	[0s / 1s],		train_loss: 4.5532,	val_loss: 7.2499
+13:	[0s / 1s],		train_loss: 4.4153,	val_loss: 7.2490
+14:	[0s / 1s],		train_loss: 4.4296,	val_loss: 7.1577
+15:	[0s / 1s],		train_loss: 4.4049,	val_loss: 7.3022
+16:	[0s / 1s],		train_loss: 4.4003,	val_loss: 7.0880
+17:	[0s / 1s],		train_loss: 4.4256,	val_loss: 7.2907
+18:	[0s / 1s],		train_loss: 4.4279,	val_loss: 7.1549
+19:	[0s / 1s],		train_loss: 4.4408,	val_loss: 7.1107
+20:	[0s / 1s],		train_loss: 4.4597,	val_loss: 7.3001
+21:	[0s / 1s],		train_loss: 4.4319,	val_loss: 7.1961
+22:	[0s / 1s],		train_loss: 4.4242,	val_loss: 7.0724
+23:	[0s / 1s],		train_loss: 4.3604,	val_loss: 7.1498
+24:	[0s / 2s],		train_loss: 4.4127,	val_loss: 7.4056
+25:	[0s / 2s],		train_loss: 4.5553,	val_loss: 7.1605
+C-index TRAIN: 0.8334
+C-index TEST:  0.8216
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold1/rsf_baseline.pkl
+C-index train: 0.9435
+C-index test:  0.8540
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8287
+C-index test:  0.8202
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold1/cox.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+0:	[0s / 0s],		train_loss: 5.0236,	val_loss: 7.9085
+1:	[0s / 0s],		train_loss: 4.6607,	val_loss: 7.4634
+2:	[0s / 0s],		train_loss: 4.6078,	val_loss: 7.7706
+3:	[0s / 0s],		train_loss: 4.5659,	val_loss: 7.6053
+4:	[0s / 0s],		train_loss: 4.6531,	val_loss: 7.6054
+5:	[0s / 0s],		train_loss: 4.4899,	val_loss: 7.6828
+6:	[0s / 0s],		train_loss: 4.7350,	val_loss: 7.9680
+7:	[0s / 0s],		train_loss: 4.6233,	val_loss: 8.2198
+8:	[0s / 0s],		train_loss: 4.4622,	val_loss: 8.8305
+9:	[0s / 0s],		train_loss: 4.4606,	val_loss: 7.5877
+10:	[0s / 1s],		train_loss: 4.5394,	val_loss: 7.5380
+11:	[0s / 1s],		train_loss: 4.7520,	val_loss: 8.4499
+12:	[0s / 1s],		train_loss: 4.5211,	val_loss: 7.7259
+13:	[0s / 1s],		train_loss: 4.4619,	val_loss: 7.4663
+14:	[0s / 1s],		train_loss: 4.4596,	val_loss: 7.6185
+15:	[0s / 1s],		train_loss: 4.5322,	val_loss: 7.6238
+16:	[0s / 1s],		train_loss: 4.5429,	val_loss: 7.6112
+17:	[0s / 1s],		train_loss: 4.3873,	val_loss: 7.9459
+18:	[0s / 1s],		train_loss: 4.6513,	val_loss: 7.8083
+19:	[0s / 1s],		train_loss: 4.6011,	val_loss: 7.7569
+20:	[0s / 2s],		train_loss: 4.3958,	val_loss: 7.6066
+21:	[0s / 2s],		train_loss: 4.4181,	val_loss: 7.7729
+C-index TRAIN: 0.8213
+C-index TEST:  0.8096
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5229,	val_loss: 7.1913
+1:	[0s / 0s],		train_loss: 4.3686,	val_loss: 7.2660
+2:	[0s / 0s],		train_loss: 4.3163,	val_loss: 7.1494
+3:	[0s / 0s],		train_loss: 4.3206,	val_loss: 7.1283
+4:	[0s / 0s],		train_loss: 4.2867,	val_loss: 7.2342
+5:	[0s / 0s],		train_loss: 4.2461,	val_loss: 7.2289
+6:	[0s / 1s],		train_loss: 4.2390,	val_loss: 7.2710
+7:	[0s / 1s],		train_loss: 4.2239,	val_loss: 7.2688
+8:	[0s / 1s],		train_loss: 4.2032,	val_loss: 7.4109
+9:	[0s / 1s],		train_loss: 4.1743,	val_loss: 7.2407
+10:	[0s / 1s],		train_loss: 4.1708,	val_loss: 7.1948
+11:	[0s / 1s],		train_loss: 4.1432,	val_loss: 7.2771
+12:	[0s / 1s],		train_loss: 4.1315,	val_loss: 7.4075
+13:	[0s / 2s],		train_loss: 4.1500,	val_loss: 7.2388
+14:	[0s / 2s],		train_loss: 4.1053,	val_loss: 7.3629
+15:	[0s / 2s],		train_loss: 4.1147,	val_loss: 7.5664
+16:	[0s / 2s],		train_loss: 4.1034,	val_loss: 7.5040
+17:	[0s / 2s],		train_loss: 4.1037,	val_loss: 7.5120
+18:	[0s / 2s],		train_loss: 4.0977,	val_loss: 7.4158
+19:	[0s / 2s],		train_loss: 4.0748,	val_loss: 7.5927
+20:	[0s / 2s],		train_loss: 4.0655,	val_loss: 7.5778
+21:	[0s / 3s],		train_loss: 4.0556,	val_loss: 7.4230
+22:	[0s / 3s],		train_loss: 4.0597,	val_loss: 7.7633
+23:	[0s / 3s],		train_loss: 4.0441,	val_loss: 7.5412
+C-index TRAIN: 0.8489
+C-index TEST:  0.8186
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold2/tabdpt_rsf.pkl
+C-index train: 0.9501
+C-index test:  0.8089
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8428
+C-index test:  0.8107
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.6179,	val_loss: 7.2242
+1:	[0s / 0s],		train_loss: 4.4125,	val_loss: 7.1228
+2:	[0s / 0s],		train_loss: 4.3709,	val_loss: 7.1309
+3:	[0s / 0s],		train_loss: 4.3799,	val_loss: 7.0572
+4:	[0s / 0s],		train_loss: 4.3372,	val_loss: 7.0912
+5:	[0s / 0s],		train_loss: 4.3299,	val_loss: 7.0636
+6:	[0s / 0s],		train_loss: 4.3129,	val_loss: 7.0491
+7:	[0s / 0s],		train_loss: 4.2888,	val_loss: 7.0535
+8:	[0s / 1s],		train_loss: 4.2850,	val_loss: 7.0282
+9:	[0s / 1s],		train_loss: 4.2926,	val_loss: 7.0556
+10:	[0s / 1s],		train_loss: 4.3014,	val_loss: 7.0258
+11:	[0s / 1s],		train_loss: 4.2843,	val_loss: 7.0238
+12:	[0s / 1s],		train_loss: 4.2763,	val_loss: 6.9953
+13:	[0s / 1s],		train_loss: 4.2692,	val_loss: 7.0018
+14:	[0s / 1s],		train_loss: 4.2762,	val_loss: 7.0215
+15:	[0s / 1s],		train_loss: 4.2653,	val_loss: 6.9860
+16:	[0s / 1s],		train_loss: 4.2398,	val_loss: 7.0335
+17:	[0s / 2s],		train_loss: 4.2522,	val_loss: 7.0171
+18:	[0s / 2s],		train_loss: 4.2555,	val_loss: 7.0013
+19:	[0s / 2s],		train_loss: 4.2635,	val_loss: 7.0293
+20:	[0s / 2s],		train_loss: 4.2555,	val_loss: 7.0403
+21:	[0s / 2s],		train_loss: 4.2509,	val_loss: 7.0008
+22:	[0s / 2s],		train_loss: 4.2453,	val_loss: 7.0031
+23:	[0s / 2s],		train_loss: 4.2393,	val_loss: 6.9852
+24:	[0s / 2s],		train_loss: 4.2430,	val_loss: 6.9846
+25:	[0s / 3s],		train_loss: 4.2509,	val_loss: 7.0037
+26:	[0s / 3s],		train_loss: 4.2286,	val_loss: 7.0181
+27:	[0s / 3s],		train_loss: 4.2330,	val_loss: 6.9951
+28:	[0s / 3s],		train_loss: 4.2351,	val_loss: 7.1036
+29:	[0s / 3s],		train_loss: 4.2369,	val_loss: 6.9802
+30:	[0s / 3s],		train_loss: 4.2363,	val_loss: 6.9819
+31:	[0s / 3s],		train_loss: 4.2376,	val_loss: 6.9870
+32:	[0s / 3s],		train_loss: 4.2291,	val_loss: 6.9993
+33:	[0s / 3s],		train_loss: 4.2225,	val_loss: 7.0301
+34:	[0s / 4s],		train_loss: 4.2325,	val_loss: 6.9924
+35:	[0s / 4s],		train_loss: 4.2214,	val_loss: 6.9845
+36:	[0s / 4s],		train_loss: 4.2262,	val_loss: 6.9852
+37:	[0s / 4s],		train_loss: 4.2109,	val_loss: 7.0254
+38:	[0s / 4s],		train_loss: 4.2064,	val_loss: 7.0054
+39:	[0s / 4s],		train_loss: 4.2233,	val_loss: 6.9948
+40:	[0s / 4s],		train_loss: 4.2265,	val_loss: 7.0086
+41:	[0s / 4s],		train_loss: 4.2123,	val_loss: 6.9858
+42:	[0s / 4s],		train_loss: 4.2154,	val_loss: 6.9678
+43:	[0s / 5s],		train_loss: 4.2030,	val_loss: 6.9817
+44:	[0s / 5s],		train_loss: 4.2093,	val_loss: 6.9891
+45:	[0s / 5s],		train_loss: 4.1990,	val_loss: 7.4502
+46:	[0s / 5s],		train_loss: 4.2057,	val_loss: 7.0007
+47:	[0s / 5s],		train_loss: 4.1997,	val_loss: 6.9628
+48:	[0s / 5s],		train_loss: 4.1984,	val_loss: 6.9938
+49:	[0s / 5s],		train_loss: 4.1899,	val_loss: 6.9994
+50:	[0s / 5s],		train_loss: 4.2145,	val_loss: 6.9999
+51:	[0s / 5s],		train_loss: 4.2066,	val_loss: 6.9901
+52:	[0s / 6s],		train_loss: 4.2004,	val_loss: 6.9745
+53:	[0s / 6s],		train_loss: 4.1975,	val_loss: 6.9919
+54:	[0s / 6s],		train_loss: 4.1907,	val_loss: 6.9820
+55:	[0s / 6s],		train_loss: 4.2005,	val_loss: 6.9849
+56:	[0s / 6s],		train_loss: 4.1945,	val_loss: 6.9729
+57:	[0s / 6s],		train_loss: 4.1978,	val_loss: 6.9735
+58:	[0s / 6s],		train_loss: 4.1972,	val_loss: 6.9887
+59:	[0s / 6s],		train_loss: 4.1901,	val_loss: 6.9918
+60:	[0s / 7s],		train_loss: 4.2042,	val_loss: 6.9706
+61:	[0s / 7s],		train_loss: 4.1894,	val_loss: 6.9803
+62:	[0s / 7s],		train_loss: 4.2024,	val_loss: 7.0138
+63:	[0s / 7s],		train_loss: 4.1848,	val_loss: 6.9722
+64:	[0s / 7s],		train_loss: 4.1868,	val_loss: 6.9948
+65:	[0s / 7s],		train_loss: 4.1850,	val_loss: 6.9972
+66:	[0s / 7s],		train_loss: 4.1859,	val_loss: 6.9833
+67:	[0s / 7s],		train_loss: 4.1786,	val_loss: 6.9717
+C-index TRAIN: 0.8590
+C-index TEST:  0.8444
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 7.2697,	val_loss: 7.2718
+1:	[0s / 0s],		train_loss: 4.4252,	val_loss: 7.1274
+2:	[0s / 0s],		train_loss: 4.4893,	val_loss: 7.3040
+3:	[0s / 0s],		train_loss: 4.4630,	val_loss: 7.2310
+4:	[0s / 0s],		train_loss: 4.4083,	val_loss: 7.1631
+5:	[0s / 0s],		train_loss: 4.3865,	val_loss: 7.1341
+6:	[0s / 0s],		train_loss: 4.4097,	val_loss: 7.1619
+7:	[0s / 0s],		train_loss: 4.4114,	val_loss: 7.1942
+8:	[0s / 0s],		train_loss: 4.4441,	val_loss: 7.4797
+9:	[0s / 0s],		train_loss: 4.5882,	val_loss: 7.2102
+10:	[0s / 0s],		train_loss: 4.5097,	val_loss: 7.1473
+11:	[0s / 0s],		train_loss: 4.4000,	val_loss: 7.1156
+12:	[0s / 1s],		train_loss: 4.6241,	val_loss: 7.5750
+13:	[0s / 1s],		train_loss: 4.5027,	val_loss: 7.1918
+14:	[0s / 1s],		train_loss: 4.3890,	val_loss: 7.2129
+15:	[0s / 1s],		train_loss: 4.4559,	val_loss: 7.1291
+16:	[0s / 1s],		train_loss: 4.3792,	val_loss: 7.0950
+17:	[0s / 1s],		train_loss: 4.3800,	val_loss: 7.1279
+18:	[0s / 1s],		train_loss: 4.4136,	val_loss: 7.1886
+19:	[0s / 1s],		train_loss: 4.4241,	val_loss: 7.1399
+20:	[0s / 1s],		train_loss: 4.4597,	val_loss: 7.1152
+21:	[0s / 1s],		train_loss: 4.5128,	val_loss: 7.5038
+22:	[0s / 1s],		train_loss: 4.5414,	val_loss: 7.3139
+23:	[0s / 1s],		train_loss: 4.4112,	val_loss: 7.1062
+24:	[0s / 1s],		train_loss: 4.4705,	val_loss: 7.1238
+25:	[0s / 2s],		train_loss: 4.3978,	val_loss: 7.1009
+26:	[0s / 2s],		train_loss: 4.4282,	val_loss: 7.1112
+27:	[0s / 2s],		train_loss: 4.4186,	val_loss: 7.3999
+28:	[0s / 2s],		train_loss: 4.5480,	val_loss: 7.2202
+29:	[0s / 2s],		train_loss: 4.5117,	val_loss: 7.1021
+30:	[0s / 2s],		train_loss: 4.6147,	val_loss: 7.1628
+31:	[0s / 2s],		train_loss: 4.4638,	val_loss: 7.1566
+32:	[0s / 2s],		train_loss: 4.3467,	val_loss: 7.1083
+33:	[0s / 2s],		train_loss: 4.3709,	val_loss: 7.0978
+34:	[0s / 2s],		train_loss: 4.3884,	val_loss: 7.2009
+35:	[0s / 2s],		train_loss: 4.4672,	val_loss: 7.1348
+36:	[0s / 2s],		train_loss: 4.5058,	val_loss: 7.1783
+C-index TRAIN: 0.8330
+C-index TEST:  0.8256
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold2/rsf_baseline.pkl
+C-index train: 0.9409
+C-index test:  0.8449
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8299
+C-index test:  0.8180
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold2/cox.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+0:	[0s / 0s],		train_loss: 5.3050,	val_loss: 7.6180
+1:	[0s / 0s],		train_loss: 4.5569,	val_loss: 7.4608
+2:	[0s / 0s],		train_loss: 4.6728,	val_loss: 7.8260
+3:	[0s / 0s],		train_loss: 4.6701,	val_loss: 7.8362
+4:	[0s / 0s],		train_loss: 5.1999,	val_loss: 8.4767
+5:	[0s / 0s],		train_loss: 4.9804,	val_loss: 7.5827
+6:	[0s / 0s],		train_loss: 4.6115,	val_loss: 7.8984
+7:	[0s / 0s],		train_loss: 4.6650,	val_loss: 7.7909
+8:	[0s / 0s],		train_loss: 4.6471,	val_loss: 7.8313
+9:	[0s / 0s],		train_loss: 4.5603,	val_loss: 7.7568
+10:	[0s / 0s],		train_loss: 4.5199,	val_loss: 7.7417
+11:	[0s / 1s],		train_loss: 4.4636,	val_loss: 7.5624
+12:	[0s / 1s],		train_loss: 4.5219,	val_loss: 7.5074
+13:	[0s / 1s],		train_loss: 4.5081,	val_loss: 7.4725
+14:	[0s / 1s],		train_loss: 4.4952,	val_loss: 7.6956
+15:	[0s / 1s],		train_loss: 4.7652,	val_loss: 8.3032
+16:	[0s / 1s],		train_loss: 4.7712,	val_loss: 7.9060
+17:	[0s / 1s],		train_loss: 4.5410,	val_loss: 7.7330
+18:	[0s / 1s],		train_loss: 4.4652,	val_loss: 7.6724
+19:	[0s / 1s],		train_loss: 4.4763,	val_loss: 7.7572
+20:	[0s / 1s],		train_loss: 4.9264,	val_loss: 8.5265
+21:	[0s / 1s],		train_loss: 4.7975,	val_loss: 7.6028
+C-index TRAIN: 0.8229
+C-index TEST:  0.7723
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5803,	val_loss: 7.4013
+1:	[0s / 0s],		train_loss: 4.3896,	val_loss: 7.3464
+2:	[0s / 0s],		train_loss: 4.3533,	val_loss: 7.2742
+3:	[0s / 0s],		train_loss: 4.3278,	val_loss: 7.4217
+4:	[0s / 0s],		train_loss: 4.3053,	val_loss: 7.1727
+5:	[0s / 0s],		train_loss: 4.2823,	val_loss: 7.2701
+6:	[0s / 0s],		train_loss: 4.2442,	val_loss: 7.3230
+7:	[0s / 0s],		train_loss: 4.2591,	val_loss: 7.3200
+8:	[0s / 1s],		train_loss: 4.2317,	val_loss: 7.2711
+9:	[0s / 1s],		train_loss: 4.2293,	val_loss: 7.2751
+10:	[0s / 1s],		train_loss: 4.2023,	val_loss: 7.3938
+11:	[0s / 1s],		train_loss: 4.1989,	val_loss: 7.3042
+12:	[0s / 1s],		train_loss: 4.1783,	val_loss: 563.1422
+13:	[0s / 1s],		train_loss: 4.1831,	val_loss: 7.4921
+14:	[0s / 1s],		train_loss: 4.1628,	val_loss: 7.3082
+15:	[0s / 1s],		train_loss: 4.1273,	val_loss: 75.8654
+16:	[0s / 2s],		train_loss: 4.1337,	val_loss: 165.7559
+17:	[0s / 2s],		train_loss: 4.1234,	val_loss: 7.5491
+18:	[0s / 2s],		train_loss: 4.1275,	val_loss: 7.4591
+19:	[0s / 2s],		train_loss: 4.0898,	val_loss: 7.4236
+20:	[0s / 2s],		train_loss: 4.0997,	val_loss: 7.4378
+21:	[0s / 2s],		train_loss: 4.0756,	val_loss: 7.4630
+22:	[0s / 2s],		train_loss: 4.0836,	val_loss: 7.4341
+23:	[0s / 2s],		train_loss: 4.0580,	val_loss: 7.4749
+24:	[0s / 3s],		train_loss: 4.0375,	val_loss: 7.6682
+C-index TRAIN: 0.8475
+C-index TEST:  0.8276
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold3/tabdpt_rsf.pkl
+C-index train: 0.9524
+C-index test:  0.8260
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8389
+C-index test:  0.8027
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.6642,	val_loss: 7.1901
+1:	[0s / 0s],		train_loss: 4.4488,	val_loss: 7.1319
+2:	[0s / 0s],		train_loss: 4.4136,	val_loss: 7.0872
+3:	[0s / 0s],		train_loss: 4.3813,	val_loss: 7.0714
+4:	[0s / 0s],		train_loss: 4.3581,	val_loss: 7.0439
+5:	[0s / 0s],		train_loss: 4.3326,	val_loss: 7.0734
+6:	[0s / 0s],		train_loss: 4.3465,	val_loss: 7.0671
+7:	[0s / 0s],		train_loss: 4.3523,	val_loss: 7.0772
+8:	[0s / 1s],		train_loss: 4.3194,	val_loss: 7.0799
+9:	[0s / 1s],		train_loss: 4.3174,	val_loss: 7.0812
+10:	[0s / 1s],		train_loss: 4.3034,	val_loss: 7.0655
+11:	[0s / 1s],		train_loss: 4.2948,	val_loss: 7.0446
+12:	[0s / 1s],		train_loss: 4.2947,	val_loss: 7.0075
+13:	[0s / 1s],		train_loss: 4.3048,	val_loss: 7.0455
+14:	[0s / 1s],		train_loss: 4.2854,	val_loss: 7.0347
+15:	[0s / 1s],		train_loss: 4.2844,	val_loss: 7.0399
+16:	[0s / 1s],		train_loss: 4.2916,	val_loss: 7.0680
+17:	[0s / 2s],		train_loss: 4.2818,	val_loss: 7.0108
+18:	[0s / 2s],		train_loss: 4.2772,	val_loss: 7.0393
+19:	[0s / 2s],		train_loss: 4.2758,	val_loss: 7.0334
+20:	[0s / 2s],		train_loss: 4.2781,	val_loss: 7.0116
+21:	[0s / 2s],		train_loss: 4.2595,	val_loss: 7.0375
+22:	[0s / 2s],		train_loss: 4.2537,	val_loss: 7.0247
+23:	[0s / 2s],		train_loss: 4.2652,	val_loss: 7.0981
+24:	[0s / 2s],		train_loss: 4.2571,	val_loss: 7.0109
+25:	[0s / 2s],		train_loss: 4.2603,	val_loss: 7.0053
+26:	[0s / 3s],		train_loss: 4.2600,	val_loss: 7.0380
+27:	[0s / 3s],		train_loss: 4.2508,	val_loss: 7.0171
+28:	[0s / 3s],		train_loss: 4.2723,	val_loss: 7.0192
+29:	[0s / 3s],		train_loss: 4.2625,	val_loss: 7.0109
+30:	[0s / 3s],		train_loss: 4.2483,	val_loss: 7.0306
+31:	[0s / 3s],		train_loss: 4.2558,	val_loss: 7.0060
+32:	[0s / 3s],		train_loss: 4.2458,	val_loss: 7.0319
+33:	[0s / 3s],		train_loss: 4.2605,	val_loss: 7.0258
+34:	[0s / 3s],		train_loss: 4.2378,	val_loss: 7.0740
+35:	[0s / 4s],		train_loss: 4.2418,	val_loss: 7.2157
+36:	[0s / 4s],		train_loss: 4.2535,	val_loss: 7.0557
+37:	[0s / 4s],		train_loss: 4.2438,	val_loss: 7.0068
+38:	[0s / 4s],		train_loss: 4.2564,	val_loss: 7.1106
+39:	[0s / 4s],		train_loss: 4.2371,	val_loss: 7.0457
+40:	[0s / 4s],		train_loss: 4.2487,	val_loss: 7.9315
+41:	[0s / 4s],		train_loss: 4.2452,	val_loss: 7.3536
+42:	[0s / 4s],		train_loss: 4.2267,	val_loss: 7.3745
+43:	[0s / 4s],		train_loss: 4.2233,	val_loss: 7.0841
+44:	[0s / 5s],		train_loss: 4.2342,	val_loss: 7.0192
+45:	[0s / 5s],		train_loss: 4.2310,	val_loss: 7.1757
+C-index TRAIN: 0.8482
+C-index TEST:  0.8559
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 6.8717,	val_loss: 7.2840
+1:	[0s / 0s],		train_loss: 4.4566,	val_loss: 7.1679
+2:	[0s / 0s],		train_loss: 4.4498,	val_loss: 7.1225
+3:	[0s / 0s],		train_loss: 4.4047,	val_loss: 7.1323
+4:	[0s / 0s],		train_loss: 4.4613,	val_loss: 7.1641
+5:	[0s / 0s],		train_loss: 4.4134,	val_loss: 7.1524
+6:	[0s / 0s],		train_loss: 4.4246,	val_loss: 7.1938
+7:	[0s / 0s],		train_loss: 4.4026,	val_loss: 7.1246
+8:	[0s / 0s],		train_loss: 4.4516,	val_loss: 7.3536
+9:	[0s / 0s],		train_loss: 4.4855,	val_loss: 7.3962
+10:	[0s / 0s],		train_loss: 4.4188,	val_loss: 7.0868
+11:	[0s / 0s],		train_loss: 4.5015,	val_loss: 7.5032
+12:	[0s / 1s],		train_loss: 4.5807,	val_loss: 7.1593
+13:	[0s / 1s],		train_loss: 4.4573,	val_loss: 7.1594
+14:	[0s / 1s],		train_loss: 4.4417,	val_loss: 7.6017
+15:	[0s / 1s],		train_loss: 4.4879,	val_loss: 7.1742
+16:	[0s / 1s],		train_loss: 4.5345,	val_loss: 7.2404
+17:	[0s / 1s],		train_loss: 4.5021,	val_loss: 7.0559
+18:	[0s / 1s],		train_loss: 4.4075,	val_loss: 7.2928
+19:	[0s / 1s],		train_loss: 4.4612,	val_loss: 7.1192
+20:	[0s / 1s],		train_loss: 4.4147,	val_loss: 7.1377
+21:	[0s / 1s],		train_loss: 4.5327,	val_loss: 7.5455
+22:	[0s / 1s],		train_loss: 4.5756,	val_loss: 7.1395
+23:	[0s / 1s],		train_loss: 4.5263,	val_loss: 7.2489
+24:	[0s / 1s],		train_loss: 4.4280,	val_loss: 7.2616
+25:	[0s / 2s],		train_loss: 4.4341,	val_loss: 7.2088
+26:	[0s / 2s],		train_loss: 4.4001,	val_loss: 7.1226
+27:	[0s / 2s],		train_loss: 4.3916,	val_loss: 7.1202
+28:	[0s / 2s],		train_loss: 4.4686,	val_loss: 7.3027
+29:	[0s / 2s],		train_loss: 4.3925,	val_loss: 7.3506
+30:	[0s / 2s],		train_loss: 4.4484,	val_loss: 7.0963
+31:	[0s / 2s],		train_loss: 4.3768,	val_loss: 7.1325
+32:	[0s / 2s],		train_loss: 4.4068,	val_loss: 7.0849
+33:	[0s / 2s],		train_loss: 4.4737,	val_loss: 7.1683
+34:	[0s / 2s],		train_loss: 4.4753,	val_loss: 7.2561
+35:	[0s / 2s],		train_loss: 4.4147,	val_loss: 7.0917
+36:	[0s / 2s],		train_loss: 4.4671,	val_loss: 7.1527
+37:	[0s / 3s],		train_loss: 4.4239,	val_loss: 7.1675
+C-index TRAIN: 0.8351
+C-index TEST:  0.8518
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold3/rsf_baseline.pkl
+C-index train: 0.9413
+C-index test:  0.8596
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8241
+C-index test:  0.8468
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold3/cox.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13567, 768)
+0:	[0s / 0s],		train_loss: 5.1456,	val_loss: 7.5355
+1:	[0s / 0s],		train_loss: 4.5805,	val_loss: 7.8643
+2:	[0s / 0s],		train_loss: 4.4231,	val_loss: 7.8627
+3:	[0s / 0s],		train_loss: 4.4785,	val_loss: 7.6297
+4:	[0s / 0s],		train_loss: 4.5241,	val_loss: 7.5269
+5:	[0s / 0s],		train_loss: 4.6197,	val_loss: 7.7426
+6:	[0s / 0s],		train_loss: 4.5318,	val_loss: 7.8524
+7:	[0s / 0s],		train_loss: 4.4751,	val_loss: 7.6188
+8:	[0s / 0s],		train_loss: 4.5912,	val_loss: 7.9871
+9:	[0s / 0s],		train_loss: 4.4222,	val_loss: 7.5692
+10:	[0s / 0s],		train_loss: 4.4613,	val_loss: 7.5346
+11:	[0s / 1s],		train_loss: 4.4008,	val_loss: 7.7877
+12:	[0s / 1s],		train_loss: 4.4700,	val_loss: 7.6583
+13:	[0s / 1s],		train_loss: 4.4060,	val_loss: 7.7890
+14:	[0s / 1s],		train_loss: 4.3630,	val_loss: 7.5210
+15:	[0s / 1s],		train_loss: 4.4486,	val_loss: 7.8711
+16:	[0s / 1s],		train_loss: 4.5332,	val_loss: 8.1153
+17:	[0s / 1s],		train_loss: 4.5361,	val_loss: 8.1322
+18:	[0s / 1s],		train_loss: 4.5245,	val_loss: 7.7229
+19:	[0s / 1s],		train_loss: 4.6584,	val_loss: 7.7063
+20:	[0s / 1s],		train_loss: 4.4394,	val_loss: 7.8639
+21:	[0s / 1s],		train_loss: 4.4022,	val_loss: 7.5301
+22:	[0s / 2s],		train_loss: 4.3962,	val_loss: 7.7135
+23:	[0s / 2s],		train_loss: 4.4235,	val_loss: 7.7266
+24:	[0s / 2s],		train_loss: 4.5280,	val_loss: 7.7567
+25:	[0s / 2s],		train_loss: 4.5740,	val_loss: 7.6652
+26:	[0s / 2s],		train_loss: 4.4794,	val_loss: 8.1821
+27:	[0s / 2s],		train_loss: 4.5153,	val_loss: 7.9810
+28:	[0s / 2s],		train_loss: 4.4557,	val_loss: 7.8492
+29:	[0s / 2s],		train_loss: 4.4948,	val_loss: 8.0104
+30:	[0s / 2s],		train_loss: 4.3763,	val_loss: 7.6494
+31:	[0s / 2s],		train_loss: 4.3990,	val_loss: 8.1302
+32:	[0s / 3s],		train_loss: 4.4491,	val_loss: 7.8812
+33:	[0s / 3s],		train_loss: 4.3522,	val_loss: 8.0246
+34:	[0s / 3s],		train_loss: 4.6580,	val_loss: 8.0222
+C-index TRAIN: 0.8386
+C-index TEST:  0.8111
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.4936,	val_loss: 7.1951
+1:	[0s / 0s],		train_loss: 4.3408,	val_loss: 7.3386
+2:	[0s / 0s],		train_loss: 4.3059,	val_loss: 7.4303
+3:	[0s / 0s],		train_loss: 4.2887,	val_loss: 7.1867
+4:	[0s / 0s],		train_loss: 4.2529,	val_loss: 7.2006
+5:	[0s / 0s],		train_loss: 4.2405,	val_loss: 7.2687
+6:	[0s / 0s],		train_loss: 4.1977,	val_loss: 7.4441
+7:	[0s / 1s],		train_loss: 4.1902,	val_loss: 7.2154
+8:	[0s / 1s],		train_loss: 4.1855,	val_loss: 7.3481
+9:	[0s / 1s],		train_loss: 4.1532,	val_loss: 7.2800
+10:	[0s / 1s],		train_loss: 4.1289,	val_loss: 7.4451
+11:	[0s / 1s],		train_loss: 4.1091,	val_loss: 7.3410
+12:	[0s / 1s],		train_loss: 4.1151,	val_loss: 7.2548
+13:	[0s / 1s],		train_loss: 4.1072,	val_loss: 7.2853
+14:	[0s / 1s],		train_loss: 4.0835,	val_loss: 7.2581
+15:	[0s / 2s],		train_loss: 4.0790,	val_loss: 7.4502
+16:	[0s / 2s],		train_loss: 4.0742,	val_loss: 7.3477
+17:	[0s / 2s],		train_loss: 4.0481,	val_loss: 7.3575
+18:	[0s / 2s],		train_loss: 4.0421,	val_loss: 7.4926
+19:	[0s / 2s],		train_loss: 4.0208,	val_loss: 7.4615
+20:	[0s / 2s],		train_loss: 4.0332,	val_loss: 7.4929
+21:	[0s / 2s],		train_loss: 4.0052,	val_loss: 7.3612
+22:	[0s / 3s],		train_loss: 3.9874,	val_loss: 7.5882
+23:	[0s / 3s],		train_loss: 3.9960,	val_loss: 7.3696
+C-index TRAIN: 0.8456
+C-index TEST:  0.8056
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold4/tabdpt_rsf.pkl
+C-index train: 0.9528
+C-index test:  0.8050
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8441
+C-index test:  0.7940
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.6169,	val_loss: 7.1864
+1:	[0s / 0s],		train_loss: 4.4412,	val_loss: 7.1403
+2:	[0s / 0s],		train_loss: 4.3726,	val_loss: 7.1034
+3:	[0s / 0s],		train_loss: 4.3399,	val_loss: 7.0952
+4:	[0s / 0s],		train_loss: 4.3550,	val_loss: 7.0536
+5:	[0s / 0s],		train_loss: 4.3219,	val_loss: 7.0332
+6:	[0s / 0s],		train_loss: 4.3012,	val_loss: 7.0825
+7:	[0s / 0s],		train_loss: 4.3154,	val_loss: 7.0795
+8:	[0s / 1s],		train_loss: 4.3288,	val_loss: 7.0706
+9:	[0s / 1s],		train_loss: 4.2965,	val_loss: 7.0716
+10:	[0s / 1s],		train_loss: 4.2624,	val_loss: 7.0346
+11:	[0s / 1s],		train_loss: 4.2656,	val_loss: 7.0253
+12:	[0s / 1s],		train_loss: 4.2864,	val_loss: 7.0309
+13:	[0s / 1s],		train_loss: 4.2678,	val_loss: 7.0079
+14:	[0s / 1s],		train_loss: 4.2721,	val_loss: 7.0223
+15:	[0s / 1s],		train_loss: 4.2811,	val_loss: 7.0849
+16:	[0s / 1s],		train_loss: 4.2763,	val_loss: 7.0640
+17:	[0s / 2s],		train_loss: 4.2747,	val_loss: 7.0299
+18:	[0s / 2s],		train_loss: 4.2473,	val_loss: 7.0479
+19:	[0s / 2s],		train_loss: 4.2513,	val_loss: 7.0033
+20:	[0s / 2s],		train_loss: 4.2273,	val_loss: 7.0300
+21:	[0s / 2s],		train_loss: 4.2454,	val_loss: 7.0560
+22:	[0s / 2s],		train_loss: 4.2440,	val_loss: 7.0250
+23:	[0s / 2s],		train_loss: 4.2465,	val_loss: 7.0123
+24:	[0s / 2s],		train_loss: 4.2431,	val_loss: 7.0056
+25:	[0s / 2s],		train_loss: 4.2364,	val_loss: 6.9937
+26:	[0s / 3s],		train_loss: 4.2264,	val_loss: 7.0263
+27:	[0s / 3s],		train_loss: 4.2382,	val_loss: 6.9786
+28:	[0s / 3s],		train_loss: 4.2259,	val_loss: 7.0131
+29:	[0s / 3s],		train_loss: 4.2325,	val_loss: 7.0006
+30:	[0s / 3s],		train_loss: 4.2276,	val_loss: 6.9910
+31:	[0s / 3s],		train_loss: 4.2342,	val_loss: 6.9887
+32:	[0s / 3s],		train_loss: 4.2258,	val_loss: 7.0029
+33:	[0s / 3s],		train_loss: 4.2156,	val_loss: 7.0202
+34:	[0s / 3s],		train_loss: 4.2254,	val_loss: 7.0026
+35:	[0s / 4s],		train_loss: 4.2123,	val_loss: 7.0059
+36:	[0s / 4s],		train_loss: 4.2184,	val_loss: 7.0246
+37:	[0s / 4s],		train_loss: 4.2150,	val_loss: 7.0208
+38:	[0s / 4s],		train_loss: 4.2167,	val_loss: 7.0217
+39:	[0s / 4s],		train_loss: 4.2098,	val_loss: 7.0089
+40:	[0s / 4s],		train_loss: 4.2089,	val_loss: 7.0120
+41:	[0s / 4s],		train_loss: 4.2045,	val_loss: 7.0010
+42:	[0s / 4s],		train_loss: 4.2055,	val_loss: 7.0247
+43:	[0s / 5s],		train_loss: 4.1957,	val_loss: 6.9768
+44:	[0s / 5s],		train_loss: 4.2071,	val_loss: 7.0111
+45:	[0s / 5s],		train_loss: 4.2191,	val_loss: 6.9825
+46:	[0s / 5s],		train_loss: 4.2049,	val_loss: 6.9877
+47:	[0s / 5s],		train_loss: 4.2116,	val_loss: 7.0211
+48:	[0s / 5s],		train_loss: 4.2100,	val_loss: 6.9877
+49:	[0s / 5s],		train_loss: 4.1960,	val_loss: 6.9744
+50:	[0s / 5s],		train_loss: 4.2031,	val_loss: 7.0235
+51:	[0s / 5s],		train_loss: 4.2105,	val_loss: 6.9884
+52:	[0s / 6s],		train_loss: 4.2034,	val_loss: 6.9602
+53:	[0s / 6s],		train_loss: 4.1842,	val_loss: 7.0027
+54:	[0s / 6s],		train_loss: 4.1849,	val_loss: 6.9835
+55:	[0s / 6s],		train_loss: 4.1864,	val_loss: 6.9953
+56:	[0s / 6s],		train_loss: 4.1968,	val_loss: 7.0307
+57:	[0s / 6s],		train_loss: 4.1919,	val_loss: 6.9927
+58:	[0s / 6s],		train_loss: 4.1711,	val_loss: 7.0488
+59:	[0s / 6s],		train_loss: 4.1909,	val_loss: 6.9983
+60:	[0s / 6s],		train_loss: 4.1964,	val_loss: 6.9697
+61:	[0s / 7s],		train_loss: 4.1713,	val_loss: 6.9875
+62:	[0s / 7s],		train_loss: 4.1846,	val_loss: 7.0177
+63:	[0s / 7s],		train_loss: 4.1865,	val_loss: 7.0209
+64:	[0s / 7s],		train_loss: 4.2094,	val_loss: 6.9981
+65:	[0s / 7s],		train_loss: 4.1765,	val_loss: 7.0113
+66:	[0s / 7s],		train_loss: 4.1908,	val_loss: 6.9768
+67:	[0s / 7s],		train_loss: 4.1761,	val_loss: 7.0214
+68:	[0s / 7s],		train_loss: 4.1592,	val_loss: 6.9711
+69:	[0s / 7s],		train_loss: 4.1673,	val_loss: 6.9860
+70:	[0s / 8s],		train_loss: 4.1646,	val_loss: 7.0146
+71:	[0s / 8s],		train_loss: 4.1853,	val_loss: 7.0117
+72:	[0s / 8s],		train_loss: 4.1832,	val_loss: 7.0059
+C-index TRAIN: 0.8572
+C-index TEST:  0.8469
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 13.9699,	val_loss: 7.8857
+1:	[0s / 0s],		train_loss: 4.5523,	val_loss: 7.0956
+2:	[0s / 0s],		train_loss: 4.3667,	val_loss: 7.0911
+3:	[0s / 0s],		train_loss: 4.3773,	val_loss: 7.1090
+4:	[0s / 0s],		train_loss: 4.3951,	val_loss: 7.1294
+5:	[0s / 0s],		train_loss: 4.3765,	val_loss: 7.0755
+6:	[0s / 0s],		train_loss: 4.4615,	val_loss: 7.2976
+7:	[0s / 0s],		train_loss: 4.4131,	val_loss: 7.0911
+8:	[0s / 0s],		train_loss: 4.3660,	val_loss: 7.0663
+9:	[0s / 0s],		train_loss: 4.3541,	val_loss: 7.0932
+10:	[0s / 0s],		train_loss: 4.3827,	val_loss: 7.2724
+11:	[0s / 1s],		train_loss: 4.4277,	val_loss: 7.2320
+12:	[0s / 1s],		train_loss: 4.3820,	val_loss: 7.3048
+13:	[0s / 1s],		train_loss: 4.3548,	val_loss: 7.1744
+14:	[0s / 1s],		train_loss: 4.3778,	val_loss: 7.3168
+15:	[0s / 1s],		train_loss: 4.3651,	val_loss: 7.1648
+16:	[0s / 1s],		train_loss: 4.3773,	val_loss: 7.1247
+17:	[0s / 1s],		train_loss: 4.3926,	val_loss: 7.1487
+18:	[0s / 1s],		train_loss: 4.3666,	val_loss: 7.0684
+19:	[0s / 1s],		train_loss: 4.3701,	val_loss: 7.0977
+20:	[0s / 1s],		train_loss: 4.3857,	val_loss: 7.1466
+21:	[0s / 1s],		train_loss: 4.5219,	val_loss: 7.3068
+22:	[0s / 1s],		train_loss: 4.4455,	val_loss: 7.1943
+23:	[0s / 1s],		train_loss: 4.4265,	val_loss: 7.1093
+24:	[0s / 2s],		train_loss: 4.4009,	val_loss: 7.1871
+25:	[0s / 2s],		train_loss: 4.5048,	val_loss: 7.6110
+26:	[0s / 2s],		train_loss: 4.6237,	val_loss: 7.1319
+27:	[0s / 2s],		train_loss: 4.3862,	val_loss: 7.0890
+28:	[0s / 2s],		train_loss: 4.5553,	val_loss: 7.4020
+C-index TRAIN: 0.8345
+C-index TEST:  0.8314
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold4/rsf_baseline.pkl
+C-index train: 0.9423
+C-index test:  0.8478
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8284
+C-index test:  0.8255
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold4/cox.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13567, 768)
+0:	[0s / 0s],		train_loss: 5.0289,	val_loss: 8.0810
+1:	[0s / 0s],		train_loss: 4.5299,	val_loss: 7.2170
+2:	[0s / 0s],		train_loss: 4.5622,	val_loss: 7.3792
+3:	[0s / 0s],		train_loss: 4.5689,	val_loss: 7.7941
+4:	[0s / 0s],		train_loss: 4.5657,	val_loss: 7.6341
+5:	[0s / 0s],		train_loss: 4.8037,	val_loss: 7.7212
+6:	[0s / 0s],		train_loss: 4.4350,	val_loss: 7.4189
+7:	[0s / 0s],		train_loss: 4.5087,	val_loss: 7.6198
+8:	[0s / 0s],		train_loss: 4.4748,	val_loss: 7.4869
+9:	[0s / 0s],		train_loss: 4.5063,	val_loss: 8.2857
+10:	[0s / 0s],		train_loss: 4.5090,	val_loss: 7.7238
+11:	[0s / 0s],		train_loss: 4.6775,	val_loss: 7.6977
+12:	[0s / 1s],		train_loss: 4.5887,	val_loss: 7.5551
+13:	[0s / 1s],		train_loss: 4.4505,	val_loss: 7.6612
+14:	[0s / 1s],		train_loss: 4.4719,	val_loss: 7.6490
+15:	[0s / 1s],		train_loss: 4.5475,	val_loss: 7.5568
+16:	[0s / 1s],		train_loss: 4.5745,	val_loss: 8.4865
+17:	[0s / 1s],		train_loss: 4.6748,	val_loss: 7.6510
+18:	[0s / 1s],		train_loss: 4.4834,	val_loss: 7.8860
+19:	[0s / 1s],		train_loss: 4.4725,	val_loss: 7.8361
+20:	[0s / 1s],		train_loss: 4.4174,	val_loss: 7.6504
+21:	[0s / 1s],		train_loss: 4.4231,	val_loss: 7.3965
+C-index TRAIN: 0.8308
+C-index TEST:  0.8141
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5323,	val_loss: 7.3282
+1:	[0s / 0s],		train_loss: 4.3535,	val_loss: 7.2906
+2:	[0s / 0s],		train_loss: 4.3352,	val_loss: 7.3937
+3:	[0s / 0s],		train_loss: 4.2907,	val_loss: 7.2165
+4:	[0s / 0s],		train_loss: 4.2668,	val_loss: 7.2946
+5:	[0s / 0s],		train_loss: 4.2614,	val_loss: 7.1791
+6:	[0s / 0s],		train_loss: 4.2084,	val_loss: 7.2506
+7:	[0s / 1s],		train_loss: 4.2016,	val_loss: 7.2326
+8:	[0s / 1s],		train_loss: 4.1835,	val_loss: 7.2132
+9:	[0s / 1s],		train_loss: 4.1539,	val_loss: 7.3407
+10:	[0s / 1s],		train_loss: 4.1580,	val_loss: 7.2943
+11:	[0s / 1s],		train_loss: 4.1309,	val_loss: 7.2124
+12:	[0s / 1s],		train_loss: 4.1030,	val_loss: 7.4020
+13:	[0s / 1s],		train_loss: 4.1151,	val_loss: 7.2891
+14:	[0s / 1s],		train_loss: 4.1094,	val_loss: 7.2782
+15:	[0s / 2s],		train_loss: 4.0970,	val_loss: 7.2479
+16:	[0s / 2s],		train_loss: 4.0695,	val_loss: 7.3078
+17:	[0s / 2s],		train_loss: 4.0642,	val_loss: 7.3189
+18:	[0s / 2s],		train_loss: 4.0678,	val_loss: 7.3555
+19:	[0s / 2s],		train_loss: 4.0668,	val_loss: 7.3682
+20:	[0s / 2s],		train_loss: 4.0643,	val_loss: 7.3361
+21:	[0s / 2s],		train_loss: 4.0447,	val_loss: 7.4854
+22:	[0s / 2s],		train_loss: 4.0247,	val_loss: 7.4082
+23:	[0s / 3s],		train_loss: 4.0071,	val_loss: 7.5457
+24:	[0s / 3s],		train_loss: 4.0027,	val_loss: 7.4451
+25:	[0s / 3s],		train_loss: 4.0063,	val_loss: 7.4293
+C-index TRAIN: 0.8595
+C-index TEST:  0.8172
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold5/tabdpt_rsf.pkl
+C-index train: 0.9504
+C-index test:  0.8128
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8437
+C-index test:  0.7948
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/tabdpt_cox.pkl
+0:	[0s / 0s],		train_loss: 4.6432,	val_loss: 10.9307
+1:	[0s / 0s],		train_loss: 4.4458,	val_loss: 142.5025
+2:	[0s / 0s],		train_loss: 4.3851,	val_loss: 196.9722
+3:	[0s / 0s],		train_loss: 4.3535,	val_loss: 116.4885
+4:	[0s / 0s],		train_loss: 4.3451,	val_loss: 52.2018
+5:	[0s / 0s],		train_loss: 4.3256,	val_loss: 94.1967
+6:	[0s / 0s],		train_loss: 4.3005,	val_loss: 64.3518
+7:	[0s / 0s],		train_loss: 4.3107,	val_loss: 111.7124
+8:	[0s / 1s],		train_loss: 4.2999,	val_loss: 69.1644
+9:	[0s / 1s],		train_loss: 4.3032,	val_loss: 91.1762
+10:	[0s / 1s],		train_loss: 4.2845,	val_loss: 137.2914
+11:	[0s / 1s],		train_loss: 4.2876,	val_loss: 113.4310
+12:	[0s / 1s],		train_loss: 4.2779,	val_loss: 117.4723
+13:	[0s / 1s],		train_loss: 4.2701,	val_loss: 206.2732
+14:	[0s / 1s],		train_loss: 4.2835,	val_loss: 253.2385
+15:	[0s / 1s],		train_loss: 4.2839,	val_loss: 226.8822
+16:	[0s / 1s],		train_loss: 4.2666,	val_loss: 268.5727
+17:	[0s / 2s],		train_loss: 4.2527,	val_loss: 226.8192
+18:	[0s / 2s],		train_loss: 4.2774,	val_loss: 21.5464
+19:	[0s / 2s],		train_loss: 4.2429,	val_loss: 78.2821
+20:	[0s / 2s],		train_loss: 4.2587,	val_loss: 7.0981
+21:	[0s / 2s],		train_loss: 4.2472,	val_loss: 7.2912
+22:	[0s / 2s],		train_loss: 4.2465,	val_loss: 7.3222
+23:	[0s / 2s],		train_loss: 4.2478,	val_loss: 7.1756
+24:	[0s / 2s],		train_loss: 4.2515,	val_loss: 7.0247
+25:	[0s / 3s],		train_loss: 4.2391,	val_loss: 7.0997
+26:	[0s / 3s],		train_loss: 4.2567,	val_loss: 7.1840
+27:	[0s / 3s],		train_loss: 4.2433,	val_loss: 7.0964
+28:	[0s / 3s],		train_loss: 4.2381,	val_loss: 7.0737
+29:	[0s / 3s],		train_loss: 4.2373,	val_loss: 11.3490
+30:	[0s / 3s],		train_loss: 4.2483,	val_loss: 7.1381
+31:	[0s / 3s],		train_loss: 4.2402,	val_loss: 7.1099
+32:	[0s / 3s],		train_loss: 4.2484,	val_loss: 7.2256
+33:	[0s / 3s],		train_loss: 4.2264,	val_loss: 7.2763
+34:	[0s / 4s],		train_loss: 4.2240,	val_loss: 11.1693
+35:	[0s / 4s],		train_loss: 4.2359,	val_loss: 7.1569
+36:	[0s / 4s],		train_loss: 4.2254,	val_loss: 7.0215
+37:	[0s / 4s],		train_loss: 4.2240,	val_loss: 7.0729
+38:	[0s / 4s],		train_loss: 4.2189,	val_loss: 7.1325
+39:	[0s / 4s],		train_loss: 4.2310,	val_loss: 43.6917
+40:	[0s / 4s],		train_loss: 4.2242,	val_loss: 7.0476
+41:	[0s / 4s],		train_loss: 4.2119,	val_loss: 28.9424
+42:	[0s / 4s],		train_loss: 4.2350,	val_loss: 42.2136
+43:	[0s / 5s],		train_loss: 4.2173,	val_loss: 60.3387
+44:	[0s / 5s],		train_loss: 4.2420,	val_loss: 11.8746
+45:	[0s / 5s],		train_loss: 4.2121,	val_loss: 28.7693
+46:	[0s / 5s],		train_loss: 4.2145,	val_loss: 45.0474
+47:	[0s / 5s],		train_loss: 4.1973,	val_loss: 68.3992
+48:	[0s / 5s],		train_loss: 4.2125,	val_loss: 81.7884
+49:	[0s / 5s],		train_loss: 4.2111,	val_loss: 36.4878
+50:	[0s / 5s],		train_loss: 4.2053,	val_loss: 32.7614
+51:	[0s / 5s],		train_loss: 4.1972,	val_loss: 75.0689
+52:	[0s / 6s],		train_loss: 4.2021,	val_loss: 30.3634
+53:	[0s / 6s],		train_loss: 4.2068,	val_loss: 12.4129
+54:	[0s / 6s],		train_loss: 4.2209,	val_loss: 52.3277
+55:	[0s / 6s],		train_loss: 4.2032,	val_loss: 11.3980
+56:	[0s / 6s],		train_loss: 4.1969,	val_loss: 71.5685
+C-index TRAIN: 0.8540
+C-index TEST:  0.8476
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/deepsurv_vanilla.pkl
+0:	[0s / 0s],		train_loss: 6.4046,	val_loss: 7.2711
+1:	[0s / 0s],		train_loss: 4.4582,	val_loss: 7.1175
+2:	[0s / 0s],		train_loss: 4.5308,	val_loss: 7.3662
+3:	[0s / 0s],		train_loss: 4.4193,	val_loss: 7.0874
+4:	[0s / 0s],		train_loss: 4.3802,	val_loss: 7.1366
+5:	[0s / 0s],		train_loss: 4.4471,	val_loss: 7.1245
+6:	[0s / 0s],		train_loss: 4.4398,	val_loss: 7.2933
+7:	[0s / 0s],		train_loss: 4.4212,	val_loss: 7.1235
+8:	[0s / 0s],		train_loss: 4.3599,	val_loss: 7.1567
+9:	[0s / 0s],		train_loss: 4.4679,	val_loss: 7.3071
+10:	[0s / 0s],		train_loss: 4.3843,	val_loss: 7.1081
+11:	[0s / 0s],		train_loss: 4.3789,	val_loss: 7.2190
+12:	[0s / 1s],		train_loss: 4.4310,	val_loss: 7.0882
+13:	[0s / 1s],		train_loss: 4.5980,	val_loss: 7.5476
+14:	[0s / 1s],		train_loss: 4.5210,	val_loss: 7.1268
+15:	[0s / 1s],		train_loss: 4.4375,	val_loss: 7.2507
+16:	[0s / 1s],		train_loss: 4.3950,	val_loss: 7.1108
+17:	[0s / 1s],		train_loss: 4.4183,	val_loss: 7.3371
+18:	[0s / 1s],		train_loss: 4.5223,	val_loss: 7.1074
+19:	[0s / 1s],		train_loss: 4.4151,	val_loss: 7.1331
+20:	[0s / 1s],		train_loss: 4.4313,	val_loss: 7.1199
+21:	[0s / 1s],		train_loss: 4.3974,	val_loss: 7.2350
+22:	[0s / 1s],		train_loss: 4.4190,	val_loss: 7.0988
+23:	[0s / 1s],		train_loss: 4.3844,	val_loss: 7.2018
+C-index TRAIN: 0.8329
+C-index TEST:  0.8267
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/deepsurv_simple.pkl
+  [ckpt] RSF baseline saved → checkpoints/tabdpt/HURRAH/-1/seed789/fold5/rsf_baseline.pkl
+C-index train: 0.9414
+C-index test:  0.8538
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/rsf.pkl
+  Fitting Cox baseline...
+C-index train: 0.8292
+C-index test:  0.8244
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/-1/seed789/fold5/cox.pkl
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/HURRAH_seed789.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+0:	[0s / 0s],		train_loss: 5.2739,	val_loss: 7.6044
+1:	[0s / 0s],		train_loss: 4.7310,	val_loss: 8.6898
+2:	[0s / 0s],		train_loss: 4.8637,	val_loss: 7.9991
+3:	[0s / 0s],		train_loss: 4.6575,	val_loss: 7.3436
+4:	[0s / 0s],		train_loss: 4.6210,	val_loss: 7.5719
+5:	[0s / 0s],		train_loss: 4.5431,	val_loss: 7.7250
+6:	[0s / 0s],		train_loss: 4.5927,	val_loss: 8.0198
+7:	[0s / 0s],		train_loss: 5.0638,	val_loss: 8.4979
+8:	[0s / 0s],		train_loss: 4.6273,	val_loss: 8.0395
+9:	[0s / 0s],		train_loss: 4.5725,	val_loss: 8.5122
+10:	[0s / 0s],		train_loss: 4.5895,	val_loss: 7.5148
+11:	[0s / 1s],		train_loss: 4.6611,	val_loss: 7.6500
+12:	[0s / 1s],		train_loss: 4.5871,	val_loss: 8.0795
+13:	[0s / 1s],		train_loss: 4.5985,	val_loss: 7.8995
+14:	[0s / 1s],		train_loss: 4.6462,	val_loss: 7.9503
+15:	[0s / 1s],		train_loss: 4.5925,	val_loss: 7.8820
+16:	[0s / 1s],		train_loss: 4.5176,	val_loss: 7.5413
+17:	[0s / 1s],		train_loss: 4.5457,	val_loss: 7.6695
+18:	[0s / 1s],		train_loss: 4.9509,	val_loss: 8.9170
+19:	[0s / 1s],		train_loss: 4.9700,	val_loss: 7.8925
+20:	[0s / 1s],		train_loss: 4.8217,	val_loss: 7.9522
+21:	[0s / 2s],		train_loss: 4.7589,	val_loss: 7.7459
+22:	[0s / 2s],		train_loss: 4.5879,	val_loss: 8.1295
+23:	[0s / 2s],		train_loss: 4.8176,	val_loss: 9.4054
+C-index TRAIN: 0.8221
+C-index TEST:  0.8030
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold1/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5069,	val_loss: 7.2004
+1:	[0s / 0s],		train_loss: 4.4019,	val_loss: 7.4916
+2:	[0s / 0s],		train_loss: 4.3749,	val_loss: 7.2933
+3:	[0s / 0s],		train_loss: 4.3516,	val_loss: 7.4575
+4:	[0s / 0s],		train_loss: 4.3310,	val_loss: 7.3770
+5:	[0s / 0s],		train_loss: 4.2879,	val_loss: 7.3655
+6:	[0s / 0s],		train_loss: 4.2932,	val_loss: 7.4640
+7:	[0s / 1s],		train_loss: 4.2589,	val_loss: 7.4215
+8:	[0s / 1s],		train_loss: 4.2696,	val_loss: 7.5187
+9:	[0s / 1s],		train_loss: 4.2551,	val_loss: 7.4834
+10:	[0s / 1s],		train_loss: 4.2204,	val_loss: 7.6032
+11:	[0s / 1s],		train_loss: 4.1976,	val_loss: 7.5067
+12:	[0s / 1s],		train_loss: 4.2013,	val_loss: 7.6359
+13:	[0s / 1s],		train_loss: 4.1929,	val_loss: 7.8147
+14:	[0s / 1s],		train_loss: 4.1749,	val_loss: 7.5248
+15:	[0s / 2s],		train_loss: 4.1901,	val_loss: 7.6765
+16:	[0s / 2s],		train_loss: 4.1522,	val_loss: 7.5930
+17:	[0s / 2s],		train_loss: 4.1380,	val_loss: 7.6842
+18:	[0s / 2s],		train_loss: 4.1431,	val_loss: 7.6143
+19:	[0s / 2s],		train_loss: 4.1483,	val_loss: 7.7453
+20:	[0s / 2s],		train_loss: 4.1223,	val_loss: 7.6371
+C-index TRAIN: 0.8233
+C-index TEST:  0.7920
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold1/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/NaN/seed789/fold1/tabdpt_rsf.pkl
+C-index train: 0.9498
+C-index test:  0.7967
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold1/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8315
+C-index test:  0.7719
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold1/tabdpt_cox.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+0:	[0s / 0s],		train_loss: 5.2556,	val_loss: 8.0431
+1:	[0s / 0s],		train_loss: 4.6309,	val_loss: 7.5149
+2:	[0s / 0s],		train_loss: 4.6581,	val_loss: 7.3147
+3:	[0s / 0s],		train_loss: 4.7241,	val_loss: 7.6058
+4:	[0s / 0s],		train_loss: 4.9005,	val_loss: 8.1933
+5:	[0s / 0s],		train_loss: 4.6886,	val_loss: 8.1483
+6:	[0s / 0s],		train_loss: 4.6548,	val_loss: 8.1789
+7:	[0s / 0s],		train_loss: 4.5093,	val_loss: 7.6152
+8:	[0s / 0s],		train_loss: 4.6029,	val_loss: 8.2099
+9:	[0s / 0s],		train_loss: 4.6328,	val_loss: 7.6077
+10:	[0s / 1s],		train_loss: 5.1912,	val_loss: 7.9653
+11:	[0s / 1s],		train_loss: 4.7025,	val_loss: 8.6993
+12:	[0s / 1s],		train_loss: 4.9714,	val_loss: 9.2999
+13:	[0s / 1s],		train_loss: 5.0761,	val_loss: 8.0429
+14:	[0s / 1s],		train_loss: 4.8808,	val_loss: 8.0777
+15:	[0s / 1s],		train_loss: 4.9053,	val_loss: 7.9389ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+
+16:	[0s / 1s],		train_loss: 4.7234,	val_loss: 7.8781
+17:	[0s / 1s],		train_loss: 4.8127,	val_loss: 8.9195
+18:	[0s / 1s],		train_loss: 5.0079,	val_loss: 8.4679
+19:	[0s / 2s],		train_loss: 4.6706,	val_loss: 7.7366
+20:	[0s / 2s],		train_loss: 4.6125,	val_loss: 7.6623
+21:	[0s / 2s],		train_loss: 4.5250,	val_loss: 7.7705
+22:	[0s / 2s],		train_loss: 4.5517,	val_loss: 7.7820
+C-index TRAIN: 0.8192
+C-index TEST:  0.8065
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold2/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5441,	val_loss: 7.2723
+1:	[0s / 0s],		train_loss: 4.4277,	val_loss: 7.2650
+2:	[0s / 0s],		train_loss: 4.3755,	val_loss: 7.1772
+3:	[0s / 0s],		train_loss: 4.3617,	val_loss: 7.1595
+4:	[0s / 0s],		train_loss: 4.3403,	val_loss: 7.1804
+5:	[0s / 0s],		train_loss: 4.3227,	val_loss: 7.2195
+6:	[0s / 0s],		train_loss: 4.3075,	val_loss: 7.1437
+7:	[0s / 1s],		train_loss: 4.2943,	val_loss: 7.2386
+8:	[0s / 1s],		train_loss: 4.2761,	val_loss: 7.2440
+9:	[0s / 1s],		train_loss: 4.2720,	val_loss: 7.2636
+10:	[0s / 1s],		train_loss: 4.2514,	val_loss: 7.2324
+11:	[0s / 1s],		train_loss: 4.2456,	val_loss: 7.1945
+12:	[0s / 1s],		train_loss: 4.2242,	val_loss: 7.2920
+13:	[0s / 1s],		train_loss: 4.2161,	val_loss: 7.2730
+14:	[0s / 1s],		train_loss: 4.1972,	val_loss: 7.2206
+15:	[0s / 2s],		train_loss: 4.1844,	val_loss: 7.3382
+16:	[0s / 2s],		train_loss: 4.1787,	val_loss: 7.3198
+17:	[0s / 2s],		train_loss: 4.1726,	val_loss: 7.4630
+18:	[0s / 2s],		train_loss: 4.1810,	val_loss: 7.3024
+19:	[0s / 2s],		train_loss: 4.1551,	val_loss: 7.2857
+20:	[0s / 2s],		train_loss: 4.1549,	val_loss: 7.3836
+21:	[0s / 2s],		train_loss: 4.1249,	val_loss: 7.3135
+22:	[0s / 3s],		train_loss: 4.1516,	val_loss: 7.4625
+23:	[0s / 3s],		train_loss: 4.1097,	val_loss: 7.3501
+24:	[0s / 3s],		train_loss: 4.1072,	val_loss: 7.4141
+25:	[0s / 3s],		train_loss: 4.1113,	val_loss: 7.4392
+26:	[0s / 3s],		train_loss: 4.0932,	val_loss: 7.4650
+C-index TRAIN: 0.8483
+C-index TEST:  0.8227
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold2/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/NaN/seed789/fold2/tabdpt_rsf.pkl
+C-index train: 0.9493
+C-index test:  0.7997
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold2/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8328
+C-index test:  0.8097
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold2/tabdpt_cox.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+0:	[0s / 0s],		train_loss: 5.2770,	val_loss: 7.9078
+1:	[0s / 0s],		train_loss: 4.7833,	val_loss: 7.6122
+2:	[0s / 0s],		train_loss: 4.8149,	val_loss: 8.5772
+3:	[0s / 0s],		train_loss: 4.6965,	val_loss: 7.7383
+4:	[0s / 0s],		train_loss: 4.6033,	val_loss: 8.2764
+5:	[0s / 0s],		train_loss: 4.7152,	val_loss: 8.2492
+6:	[0s / 0s],		train_loss: 4.7162,	val_loss: 7.8610
+7:	[0s / 0s],		train_loss: 4.6848,	val_loss: 7.8086
+8:	[0s / 0s],		train_loss: 4.6862,	val_loss: 8.2630
+9:	[0s / 0s],		train_loss: 4.6209,	val_loss: 7.9864
+10:	[0s / 1s],		train_loss: 4.5725,	val_loss: 7.9248
+11:	[0s / 1s],		train_loss: 4.5644,	val_loss: 7.6979
+12:	[0s / 1s],		train_loss: 4.5094,	val_loss: 7.8115
+13:	[0s / 1s],		train_loss: 4.5996,	val_loss: 7.8418
+14:	[0s / 1s],		train_loss: 4.7097,	val_loss: 7.8299
+15:	[0s / 1s],		train_loss: 4.8048,	val_loss: 8.0379
+16:	[0s / 1s],		train_loss: 4.6165,	val_loss: 7.9190
+17:	[0s / 1s],		train_loss: 4.6900,	val_loss: 8.4312
+18:	[0s / 1s],		train_loss: 4.4939,	val_loss: 7.8351
+19:	[0s / 1s],		train_loss: 4.4643,	val_loss: 7.6823
+20:	[0s / 2s],		train_loss: 4.9921,	val_loss: 8.6209
+21:	[0s / 2s],		train_loss: 5.1499,	val_loss: 7.9569
+C-index TRAIN: 0.8032
+C-index TEST:  0.8205
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold3/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.6102,	val_loss: 7.4561
+1:	[0s / 0s],		train_loss: 4.4723,	val_loss: 7.4536
+2:	[0s / 0s],		train_loss: 4.4243,	val_loss: 7.4409
+3:	[0s / 0s],		train_loss: 4.3914,	val_loss: 18.4636
+4:	[0s / 0s],		train_loss: 4.3753,	val_loss: 7.3757
+5:	[0s / 0s],		train_loss: 4.3648,	val_loss: 7.4517
+6:	[0s / 0s],		train_loss: 4.3422,	val_loss: 7.4202
+7:	[0s / 1s],		train_loss: 4.3469,	val_loss: 7.4256
+8:	[0s / 1s],		train_loss: 4.3230,	val_loss: 7.4824
+9:	[0s / 1s],		train_loss: 4.3167,	val_loss: 7.4941
+10:	[0s / 1s],		train_loss: 4.2764,	val_loss: 7.3098
+11:	[0s / 1s],		train_loss: 4.2645,	val_loss: 9.7895
+12:	[0s / 1s],		train_loss: 4.2478,	val_loss: 7.4690
+13:	[0s / 1s],		train_loss: 4.2408,	val_loss: 7.5900
+14:	[0s / 1s],		train_loss: 4.2229,	val_loss: 7.5585
+15:	[0s / 2s],		train_loss: 4.2023,	val_loss: 7.6326
+16:	[0s / 2s],		train_loss: 4.2036,	val_loss: 7.5591
+17:	[0s / 2s],		train_loss: 4.1943,	val_loss: 7.5085
+18:	[0s / 2s],		train_loss: 4.1877,	val_loss: 7.6282
+19:	[0s / 2s],		train_loss: 4.1759,	val_loss: 7.4745
+20:	[0s / 2s],		train_loss: 4.1680,	val_loss: 7.5690
+21:	[0s / 2s],		train_loss: 4.1466,	val_loss: 7.6169
+22:	[0s / 3s],		train_loss: 4.1546,	val_loss: 7.6882
+23:	[0s / 3s],		train_loss: 4.1496,	val_loss: 7.5293
+24:	[0s / 3s],		train_loss: 4.1325,	val_loss: 7.6355
+25:	[0s / 3s],		train_loss: 4.1409,	val_loss: 7.5514
+26:	[0s / 3s],		train_loss: 4.1236,	val_loss: 7.6081
+27:	[0s / 3s],		train_loss: 4.1053,	val_loss: 7.6811
+28:	[0s / 3s],		train_loss: 4.1053,	val_loss: 7.8098
+29:	[0s / 3s],		train_loss: 4.0941,	val_loss: 7.5545
+30:	[0s / 4s],		train_loss: 4.0973,	val_loss: 7.6822
+C-index TRAIN: 0.8527
+C-index TEST:  0.8209
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold3/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/NaN/seed789/fold3/tabdpt_rsf.pkl
+C-index train: 0.9497
+C-index test:  0.8249
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold3/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8280
+C-index test:  0.7982
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold3/tabdpt_cox.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13567, 768)
+0:	[0s / 0s],		train_loss: 5.3267,	val_loss: 7.8900
+1:	[0s / 0s],		train_loss: 4.6709,	val_loss: 8.3753
+2:	[0s / 0s],		train_loss: 4.7500,	val_loss: 7.9006
+3:	[0s / 0s],		train_loss: 4.6914,	val_loss: 7.7853
+4:	[0s / 0s],		train_loss: 4.6615,	val_loss: 7.7903
+5:	[0s / 0s],		train_loss: 4.9111,	val_loss: 7.7717
+6:	[0s / 0s],		train_loss: 4.7197,	val_loss: 8.9924
+7:	[0s / 0s],		train_loss: 4.6775,	val_loss: 7.5840
+8:	[0s / 0s],		train_loss: 4.5771,	val_loss: 8.2496
+9:	[0s / 0s],		train_loss: 4.4939,	val_loss: 7.9365
+10:	[0s / 1s],		train_loss: 4.6654,	val_loss: 8.3284
+11:	[0s / 1s],		train_loss: 4.8049,	val_loss: 7.9834
+12:	[0s / 1s],		train_loss: 4.6303,	val_loss: 7.7737
+13:	[0s / 1s],		train_loss: 4.5281,	val_loss: 8.3030
+14:	[0s / 1s],		train_loss: 4.4539,	val_loss: 7.7563
+15:	[0s / 1s],		train_loss: 4.5821,	val_loss: 7.9938
+16:	[0s / 1s],		train_loss: 4.6854,	val_loss: 8.6505
+17:	[0s / 1s],		train_loss: 4.7022,	val_loss: 8.6780
+18:	[0s / 1s],		train_loss: 4.6153,	val_loss: 8.1608
+19:	[0s / 1s],		train_loss: 4.5631,	val_loss: 7.7325
+20:	[0s / 1s],		train_loss: 4.5922,	val_loss: 9.7136
+21:	[0s / 2s],		train_loss: 5.1595,	val_loss: 7.6235
+22:	[0s / 2s],		train_loss: 4.4809,	val_loss: 7.9182
+23:	[0s / 2s],		train_loss: 4.5211,	val_loss: 8.0535
+24:	[0s / 2s],		train_loss: 4.5570,	val_loss: 8.0551
+25:	[0s / 2s],		train_loss: 4.5612,	val_loss: 8.2606
+26:	[0s / 2s],		train_loss: 4.6221,	val_loss: 9.0460
+27:	[0s / 2s],		train_loss: 4.4898,	val_loss: 8.7835
+C-index TRAIN: 0.8250
+C-index TEST:  0.7759
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold4/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5314,	val_loss: 7.5892
+1:	[0s / 0s],		train_loss: 4.4079,	val_loss: 7.4998
+2:	[0s / 0s],		train_loss: 4.3862,	val_loss: 7.3019
+3:	[0s / 0s],		train_loss: 4.3421,	val_loss: 7.3973
+4:	[0s / 0s],		train_loss: 4.3034,	val_loss: 7.4075
+5:	[0s / 0s],		train_loss: 4.3125,	val_loss: 7.3593
+6:	[0s / 0s],		train_loss: 4.2706,	val_loss: 7.3250
+7:	[0s / 1s],		train_loss: 4.2625,	val_loss: 7.2895
+8:	[0s / 1s],		train_loss: 4.2494,	val_loss: 7.4564
+9:	[0s / 1s],		train_loss: 4.2322,	val_loss: 7.3849
+10:	[0s / 1s],		train_loss: 4.1948,	val_loss: 7.3752
+11:	[0s / 1s],		train_loss: 4.1909,	val_loss: 7.4085
+12:	[0s / 1s],		train_loss: 4.1708,	val_loss: 7.3517
+13:	[0s / 1s],		train_loss: 4.1659,	val_loss: 7.5056
+14:	[0s / 1s],		train_loss: 4.1734,	val_loss: 7.3912
+15:	[0s / 2s],		train_loss: 4.1553,	val_loss: 7.4134
+16:	[0s / 2s],		train_loss: 4.1559,	val_loss: 7.4506
+17:	[0s / 2s],		train_loss: 4.1464,	val_loss: 7.4867
+18:	[0s / 2s],		train_loss: 4.1309,	val_loss: 7.4257
+19:	[0s / 2s],		train_loss: 4.1066,	val_loss: 7.4644
+20:	[0s / 2s],		train_loss: 4.1319,	val_loss: 7.5230
+21:	[0s / 2s],		train_loss: 4.0873,	val_loss: 7.4702
+22:	[0s / 3s],		train_loss: 4.1253,	val_loss: 7.4949
+23:	[0s / 3s],		train_loss: 4.1035,	val_loss: 7.4246
+24:	[0s / 3s],		train_loss: 4.0840,	val_loss: 7.4043
+25:	[0s / 3s],		train_loss: 4.0451,	val_loss: 7.5868
+26:	[0s / 3s],		train_loss: 4.0933,	val_loss: 7.4732
+27:	[0s / 3s],		train_loss: 4.0715,	val_loss: 7.4513
+C-index TRAIN: 0.8503
+C-index TEST:  0.7937
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold4/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/NaN/seed789/fold4/tabdpt_rsf.pkl
+C-index train: 0.9505
+C-index test:  0.8006
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold4/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8334
+C-index test:  0.7753
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold4/tabdpt_cox.pkl
+X_train shape: (13567, 61), X_test shape: (3391, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13567, 768)
+0:	[0s / 0s],		train_loss: 5.2230,	val_loss: 7.7641
+1:	[0s / 0s],		train_loss: 4.7152,	val_loss: 7.4105
+2:	[0s / 0s],		train_loss: 4.6302,	val_loss: 7.9006
+3:	[0s / 0s],		train_loss: 4.6505,	val_loss: 8.0167
+4:	[0s / 0s],		train_loss: 4.7592,	val_loss: 8.0189
+5:	[0s / 0s],		train_loss: 4.8152,	val_loss: 7.8080
+6:	[0s / 0s],		train_loss: 4.5853,	val_loss: 7.9221
+7:	[0s / 0s],		train_loss: 4.5447,	val_loss: 7.7626
+8:	[0s / 0s],		train_loss: 4.7015,	val_loss: 7.7250
+9:	[0s / 0s],		train_loss: 4.8160,	val_loss: 7.9662
+10:	[0s / 0s],		train_loss: 4.5508,	val_loss: 7.6110
+11:	[0s / 1s],		train_loss: 4.5761,	val_loss: 7.6873
+12:	[0s / 1s],		train_loss: 4.6641,	val_loss: 8.0352
+13:	[0s / 1s],		train_loss: 4.5782,	val_loss: 7.7069
+14:	[0s / 1s],		train_loss: 4.4920,	val_loss: 7.6623
+15:	[0s / 1s],		train_loss: 5.1096,	val_loss: 8.2106
+16:	[0s / 1s],		train_loss: 4.7661,	val_loss: 7.8892
+17:	[0s / 1s],		train_loss: 4.6325,	val_loss: 7.9815
+18:	[0s / 1s],		train_loss: 4.4818,	val_loss: 8.0109
+19:	[0s / 1s],		train_loss: 4.8794,	val_loss: 8.1742
+20:	[0s / 1s],		train_loss: 4.9001,	val_loss: 7.8849
+21:	[0s / 2s],		train_loss: 4.5799,	val_loss: 7.7848
+C-index TRAIN: 0.8169
+C-index TEST:  0.8007
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold5/tabdpt_deepsurv_simple.pkl
+0:	[0s / 0s],		train_loss: 4.5736,	val_loss: 7.4085
+1:	[0s / 0s],		train_loss: 4.4232,	val_loss: 7.2139
+2:	[0s / 0s],		train_loss: 4.3958,	val_loss: 7.3771
+3:	[0s / 0s],		train_loss: 4.3733,	val_loss: 7.3232
+4:	[0s / 0s],		train_loss: 4.3394,	val_loss: 7.4678
+5:	[0s / 0s],		train_loss: 4.3507,	val_loss: 7.3513
+6:	[0s / 0s],		train_loss: 4.3243,	val_loss: 7.4048
+7:	[0s / 1s],		train_loss: 4.3103,	val_loss: 7.2588
+8:	[0s / 1s],		train_loss: 4.3058,	val_loss: 7.3879
+9:	[0s / 1s],		train_loss: 4.2893,	val_loss: 7.4697
+10:	[0s / 1s],		train_loss: 4.2868,	val_loss: 7.4720
+11:	[0s / 1s],		train_loss: 4.2742,	val_loss: 7.4285
+12:	[0s / 1s],		train_loss: 4.2527,	val_loss: 7.4657
+13:	[0s / 1s],		train_loss: 4.2614,	val_loss: 7.3874
+14:	[0s / 1s],		train_loss: 4.2517,	val_loss: 7.4175
+15:	[0s / 2s],		train_loss: 4.2264,	val_loss: 7.4559
+16:	[0s / 2s],		train_loss: 4.2332,	val_loss: 7.5595
+17:	[0s / 2s],		train_loss: 4.2147,	val_loss: 7.6473
+18:	[0s / 2s],		train_loss: 4.2157,	val_loss: 7.4001
+19:	[0s / 2s],		train_loss: 4.1869,	val_loss: 7.4361
+20:	[0s / 2s],		train_loss: 4.2048,	val_loss: 7.3922
+21:	[0s / 2s],		train_loss: 4.1778,	val_loss: 7.5336
+C-index TRAIN: 0.8261
+C-index TEST:  0.8083
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold5/tabdpt_deepsurv_vanilla.pkl
+  [ckpt] TABDPT RSF saved → checkpoints/tabdpt/HURRAH/NaN/seed789/fold5/tabdpt_rsf.pkl
+C-index train: 0.9486
+C-index test:  0.8047
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold5/tabdpt_rsf.pkl
+  Fitting TABDPT Cox (embedding)...
+C-index train: 0.8305
+C-index test:  0.7848
+  [surv] Saved → survival_predictions/tabdpt/HURRAH/NaN/seed789/fold5/tabdpt_cox.pkl
+
+  Preprocess: -1 | Seed: 789
+  TABDPT Train Vanilla → mean: 0.845817 | std: 0.010295 | min: 0.827613 | max: 0.859461
+  TABDPT Test Vanilla → mean: 0.812910 | std: 0.011147 | min: 0.795554 | max: 0.827603
+  TABDPT Train Simple → mean: 0.826472 | std: 0.007296 | min: 0.818734 | max: 0.838642
+  TABDPT Test Simple → mean: 0.799797 | std: 0.015780 | min: 0.772346 | max: 0.814148
+  TABDPT Train RSF → mean: 0.951513 | std: 0.001111 | min: 0.950056 | max: 0.952832
+  TABDPT Test RSF → mean: 0.811146 | std: 0.008156 | min: 0.803020 | max: 0.825995
+  TABDPT Train Cox → mean: 0.842374 | std: 0.001870 | min: 0.838853 | max: 0.844133
+  TABDPT Test Cox → mean: 0.796399 | std: 0.010268 | min: 0.779825 | max: 0.810697
+  Train DeepSurv Vanilla → mean: 0.855556 | std: 0.004126 | min: 0.848215 | max: 0.859308
+  Test DeepSurv Vanilla → mean: 0.846509 | std: 0.005824 | min: 0.837778 | max: 0.855865
+  Train DeepSurv Simple → mean: 0.833785 | std: 0.000872 | min: 0.832938 | max: 0.835103
+  Test DeepSurv Simple → mean: 0.831386 | std: 0.010653 | min: 0.821567 | max: 0.851758
+  Train RSF  → mean: 0.941879 | std: 0.000923 | min: 0.940890 | max: 0.943483
+  Test RSF   → mean: 0.852016 | std: 0.005141 | min: 0.844914 | max: 0.859573
+  Train Cox  → mean: 0.828071 | std: 0.002022 | min: 0.824145 | max: 0.829873
+  Test Cox   → mean: 0.826989 | std: 0.010303 | min: 0.817964 | max: 0.846840
+
+  Preprocess: NaN | Seed: 789
+  TABDPT Train Vanilla → mean: 0.840136 | std: 0.012705 | min: 0.823275 | max: 0.852705
+  TABDPT Test Vanilla → mean: 0.807515 | std: 0.012980 | min: 0.791955 | max: 0.822720
+  TABDPT Train Simple → mean: 0.817296 | std: 0.007529 | min: 0.803245 | max: 0.824957
+  TABDPT Test Simple → mean: 0.801308 | std: 0.014450 | min: 0.775884 | max: 0.820484
+  TABDPT Train RSF → mean: 0.949587 | std: 0.000609 | min: 0.948645 | max: 0.950497
+  TABDPT Test RSF → mean: 0.805304 | std: 0.010101 | min: 0.796663 | max: 0.824851
+  TABDPT Train Cox → mean: 0.831241 | std: 0.001910 | min: 0.828015 | max: 0.833395
+  TABDPT Test Cox → mean: 0.787981 | std: 0.014171 | min: 0.771924 | max: 0.809661
+Result saved in 'results/HURRAH/tabdpt/results_cv_HURRAH_tabdpt_seed789.txt'
