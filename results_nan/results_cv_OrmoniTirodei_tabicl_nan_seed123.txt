@@ -1,0 +1,238 @@
+  WARNING: 1 NaN fold(s) excluded from train mean for RSF/knn
+  WARNING: 1 NaN fold(s) excluded from test mean for RSF/knn
+  WARNING: 1 NaN fold(s) excluded from train mean for RSF/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from test mean for RSF/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox Simple/knn
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox Simple/knn
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox Simple/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox Simple/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox Vanilla/knn
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox Vanilla/knn
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox Vanilla/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox Vanilla/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox/knn
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox/knn
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox/mean
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox/mean
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox/median
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox/median
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox/knn
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox/knn
+  WARNING: 1 NaN fold(s) excluded from train mean for Cox/imputer_bayesian
+  WARNING: 1 NaN fold(s) excluded from test mean for Cox/imputer_bayesian
+|                      | constant      | embeddings    | imputer_bayesian   | knn           | mean          | median        |
+|:---------------------|:--------------|:--------------|:-------------------|:--------------|:--------------|:--------------|
+| (0.1, 'Cox')         | 0.733 ± 0.016 | 0.717 ± 0.011 | 0.791 ± 0.008      | 0.788 ± 0.008 | 0.789 ± 0.009 | 0.787 ± 0.008 |
+| (0.1, 'Cox Simple')  | 0.689 ± 0.023 | 0.665 ± 0.058 | 0.746 ± 0.023      | 0.750 ± 0.015 | 0.733 ± 0.017 | 0.749 ± 0.020 |
+| (0.1, 'Cox Vanilla') | 0.758 ± 0.008 | 0.685 ± 0.016 | 0.785 ± 0.013      | 0.783 ± 0.011 | 0.782 ± 0.010 | 0.779 ± 0.011 |
+| (0.1, 'RSF')         | 0.790 ± 0.010 | 0.718 ± 0.006 | 0.795 ± 0.008      | 0.790 ± 0.009 | 0.789 ± 0.010 | 0.790 ± 0.010 |
+| (0.3, 'Cox')         | 0.668 ± 0.010 | 0.689 ± 0.011 | 0.773 ± 0.005      | 0.768 ± 0.005 | 0.772 ± 0.005 | 0.768 ± 0.005 |
+| (0.3, 'Cox Simple')  | 0.619 ± 0.020 | 0.598 ± 0.051 | 0.714 ± 0.028      | 0.709 ± 0.024 | 0.708 ± 0.031 | 0.733 ± 0.008 |
+| (0.3, 'Cox Vanilla') | 0.699 ± 0.010 | 0.618 ± 0.050 | 0.768 ± 0.005      | 0.758 ± 0.004 | 0.766 ± 0.006 | 0.763 ± 0.004 |
+| (0.3, 'RSF')         | 0.767 ± 0.008 | 0.704 ± 0.008 | 0.777 ± 0.005      | 0.770 ± 0.007 | 0.772 ± 0.007 | 0.771 ± 0.007 |
+| (0.5, 'Cox')         | 0.614 ± 0.013 | 0.653 ± 0.016 | 0.750 ± 0.007      | 0.738 ± 0.011 | 0.747 ± 0.008 | 0.742 ± 0.007 |
+| (0.5, 'Cox Simple')  | 0.583 ± 0.020 | 0.589 ± 0.056 | 0.637 ± 0.075      | 0.665 ± 0.010 | 0.687 ± 0.028 | 0.724 ± 0.008 |
+| (0.5, 'Cox Vanilla') | 0.649 ± 0.020 | 0.632 ± 0.026 | 0.741 ± 0.013      | 0.727 ± 0.011 | 0.744 ± 0.008 | 0.737 ± 0.007 |
+| (0.5, 'RSF')         | 0.736 ± 0.011 | 0.673 ± 0.013 | 0.756 ± 0.008      | 0.743 ± 0.015 | 0.747 ± 0.014 | 0.746 ± 0.012 |
+| (0.7, 'Cox')         | 0.578 ± 0.012 | 0.631 ± 0.014 | 0.705 ± 0.010      | 0.685 ± 0.008 | 0.710 ± 0.008 | 0.705 ± 0.009 |
+| (0.7, 'Cox Simple')  | 0.544 ± 0.014 | 0.553 ± 0.045 | 0.641 ± 0.015      | 0.608 ± 0.024 | 0.654 ± 0.040 | 0.663 ± 0.038 |
+| (0.7, 'Cox Vanilla') | 0.579 ± 0.010 | 0.598 ± 0.039 | 0.697 ± 0.008      | 0.664 ± 0.008 | 0.703 ± 0.005 | 0.698 ± 0.017 |
+| (0.7, 'RSF')         | 0.686 ± 0.006 | 0.635 ± 0.010 | 0.704 ± 0.011      | 0.685 ± 0.004 | 0.703 ± 0.011 | 0.701 ± 0.011 |
+| (0.9, 'Cox')         | 0.529 ± 0.014 | 0.546 ± 0.017 | 0.626 ± 0.008      | 0.591 ± 0.011 | 0.629 ± 0.004 | 0.621 ± 0.005 |
+| (0.9, 'Cox Simple')  | 0.514 ± 0.007 | 0.510 ± 0.025 | 0.572 ± 0.039      | 0.541 ± 0.024 | 0.605 ± 0.011 | 0.614 ± 0.006 |
+| (0.9, 'Cox Vanilla') | 0.540 ± 0.012 | 0.541 ± 0.010 | 0.606 ± 0.024      | 0.565 ± 0.005 | 0.617 ± 0.013 | 0.615 ± 0.010 |
+| (0.9, 'RSF')         | 0.612 ± 0.015 | 0.568 ± 0.008 | 0.616 ± 0.017      | 0.603 ± 0.014 | 0.624 ± 0.013 | 0.623 ± 0.008 |
+|                      | constant      | embeddings    | imputer_bayesian   | knn           | mean          | median        |
+|:---------------------|:--------------|:--------------|:-------------------|:--------------|:--------------|:--------------|
+| (0.1, 'Cox')         | 0.740 ± 0.003 | 0.925 ± 0.001 | 0.796 ± 0.002      | 0.793 ± 0.002 | 0.794 ± 0.002 | 0.793 ± 0.002 |
+| (0.1, 'Cox Simple')  | 0.695 ± 0.030 | 0.922 ± 0.005 | 0.749 ± 0.019      | 0.750 ± 0.016 | 0.736 ± 0.019 | 0.754 ± 0.019 |
+| (0.1, 'Cox Vanilla') | 0.791 ± 0.006 | 0.931 ± 0.005 | 0.801 ± 0.004      | 0.799 ± 0.007 | 0.799 ± 0.005 | 0.795 ± 0.006 |
+| (0.1, 'RSF')         | 0.908 ± 0.002 | 0.966 ± 0.001 | 0.904 ± 0.002      | 0.905 ± 0.002 | 0.902 ± 0.002 | 0.895 ± 0.003 |
+| (0.3, 'Cox')         | 0.684 ± 0.006 | 0.922 ± 0.001 | 0.780 ± 0.002      | 0.774 ± 0.003 | 0.777 ± 0.004 | 0.776 ± 0.004 |
+| (0.3, 'Cox Simple')  | 0.622 ± 0.026 | 0.923 ± 0.004 | 0.715 ± 0.032      | 0.715 ± 0.018 | 0.712 ± 0.036 | 0.740 ± 0.014 |
+| (0.3, 'Cox Vanilla') | 0.809 ± 0.028 | 0.930 ± 0.007 | 0.791 ± 0.004      | 0.781 ± 0.009 | 0.784 ± 0.006 | 0.785 ± 0.004 |
+| (0.3, 'RSF')         | 0.903 ± 0.003 | 0.969 ± 0.001 | 0.909 ± 0.002      | 0.900 ± 0.004 | 0.890 ± 0.004 | 0.875 ± 0.004 |
+| (0.5, 'Cox')         | 0.644 ± 0.007 | 0.919 ± 0.002 | 0.760 ± 0.005      | 0.749 ± 0.006 | 0.757 ± 0.006 | 0.753 ± 0.006 |
+| (0.5, 'Cox Simple')  | 0.611 ± 0.014 | 0.919 ± 0.003 | 0.632 ± 0.069      | 0.683 ± 0.005 | 0.685 ± 0.032 | 0.728 ± 0.010 |
+| (0.5, 'Cox Vanilla') | 0.802 ± 0.036 | 0.927 ± 0.006 | 0.769 ± 0.011      | 0.757 ± 0.012 | 0.767 ± 0.010 | 0.763 ± 0.008 |
+| (0.5, 'RSF')         | 0.882 ± 0.003 | 0.973 ± 0.001 | 0.908 ± 0.003      | 0.892 ± 0.005 | 0.869 ± 0.005 | 0.844 ± 0.005 |
+| (0.7, 'Cox')         | 0.614 ± 0.012 | 0.917 ± 0.001 | 0.725 ± 0.002      | 0.710 ± 0.008 | 0.727 ± 0.004 | 0.720 ± 0.004 |
+| (0.7, 'Cox Simple')  | 0.568 ± 0.012 | 0.918 ± 0.002 | 0.661 ± 0.017      | 0.623 ± 0.041 | 0.665 ± 0.036 | 0.675 ± 0.049 |
+| (0.7, 'Cox Vanilla') | 0.753 ± 0.041 | 0.918 ± 0.004 | 0.724 ± 0.007      | 0.701 ± 0.008 | 0.729 ± 0.007 | 0.717 ± 0.017 |
+| (0.7, 'RSF')         | 0.838 ± 0.004 | 0.975 ± 0.003 | 0.904 ± 0.005      | 0.879 ± 0.007 | 0.826 ± 0.006 | 0.799 ± 0.006 |
+| (0.9, 'Cox')         | 0.582 ± 0.005 | 0.912 ± 0.001 | 0.656 ± 0.004      | 0.623 ± 0.007 | 0.660 ± 0.005 | 0.653 ± 0.003 |
+| (0.9, 'Cox Simple')  | 0.556 ± 0.010 | 0.911 ± 0.005 | 0.595 ± 0.038      | 0.552 ± 0.030 | 0.627 ± 0.010 | 0.637 ± 0.006 |
+| (0.9, 'Cox Vanilla') | 0.643 ± 0.022 | 0.911 ± 0.003 | 0.638 ± 0.022      | 0.604 ± 0.013 | 0.637 ± 0.020 | 0.648 ± 0.006 |
+| (0.9, 'RSF')         | 0.767 ± 0.004 | 0.987 ± 0.002 | 0.885 ± 0.013      | 0.888 ± 0.011 | 0.742 ± 0.004 | 0.696 ± 0.005 |
+
+=== NaN Ratio: 0.1 ===
+
+-- Cox --
+            constant | Train: 0.740 ± 0.003 | Test: 0.733 ± 0.016
+          embeddings | Train: 0.925 ± 0.001 | Test: 0.717 ± 0.011
+    imputer_bayesian | Train: 0.796 ± 0.002 | Test: 0.791 ± 0.008
+                 knn | Train: 0.793 ± 0.002 | Test: 0.788 ± 0.008
+                mean | Train: 0.794 ± 0.002 | Test: 0.789 ± 0.009
+              median | Train: 0.793 ± 0.002 | Test: 0.787 ± 0.008
+
+-- Cox Simple --
+            constant | Train: 0.695 ± 0.030 | Test: 0.689 ± 0.023
+          embeddings | Train: 0.922 ± 0.005 | Test: 0.665 ± 0.058
+    imputer_bayesian | Train: 0.749 ± 0.019 | Test: 0.746 ± 0.023
+                 knn | Train: 0.750 ± 0.016 | Test: 0.750 ± 0.015
+                mean | Train: 0.736 ± 0.019 | Test: 0.733 ± 0.017
+              median | Train: 0.754 ± 0.019 | Test: 0.749 ± 0.020
+
+-- Cox Vanilla --
+            constant | Train: 0.791 ± 0.006 | Test: 0.758 ± 0.008
+          embeddings | Train: 0.931 ± 0.005 | Test: 0.685 ± 0.016
+    imputer_bayesian | Train: 0.801 ± 0.004 | Test: 0.785 ± 0.013
+                 knn | Train: 0.799 ± 0.007 | Test: 0.783 ± 0.011
+                mean | Train: 0.799 ± 0.005 | Test: 0.782 ± 0.010
+              median | Train: 0.795 ± 0.006 | Test: 0.779 ± 0.011
+
+-- RSF --
+            constant | Train: 0.908 ± 0.002 | Test: 0.790 ± 0.010
+          embeddings | Train: 0.966 ± 0.001 | Test: 0.718 ± 0.006
+    imputer_bayesian | Train: 0.904 ± 0.002 | Test: 0.795 ± 0.008
+                 knn | Train: 0.905 ± 0.002 | Test: 0.790 ± 0.009
+                mean | Train: 0.902 ± 0.002 | Test: 0.789 ± 0.010
+              median | Train: 0.895 ± 0.003 | Test: 0.790 ± 0.010
+
+=== NaN Ratio: 0.3 ===
+
+-- Cox --
+            constant | Train: 0.684 ± 0.006 | Test: 0.668 ± 0.010
+          embeddings | Train: 0.922 ± 0.001 | Test: 0.689 ± 0.011
+    imputer_bayesian | Train: 0.780 ± 0.002 | Test: 0.773 ± 0.005
+                 knn | Train: 0.774 ± 0.003 | Test: 0.768 ± 0.005
+                mean | Train: 0.777 ± 0.004 | Test: 0.772 ± 0.005
+              median | Train: 0.776 ± 0.004 | Test: 0.768 ± 0.005
+
+-- Cox Simple --
+            constant | Train: 0.622 ± 0.026 | Test: 0.619 ± 0.020
+          embeddings | Train: 0.923 ± 0.004 | Test: 0.598 ± 0.051
+    imputer_bayesian | Train: 0.715 ± 0.032 | Test: 0.714 ± 0.028
+                 knn | Train: 0.715 ± 0.018 | Test: 0.709 ± 0.024
+                mean | Train: 0.712 ± 0.036 | Test: 0.708 ± 0.031
+              median | Train: 0.740 ± 0.014 | Test: 0.733 ± 0.008
+
+-- Cox Vanilla --
+            constant | Train: 0.809 ± 0.028 | Test: 0.699 ± 0.010
+          embeddings | Train: 0.930 ± 0.007 | Test: 0.618 ± 0.050
+    imputer_bayesian | Train: 0.791 ± 0.004 | Test: 0.768 ± 0.005
+                 knn | Train: 0.781 ± 0.009 | Test: 0.758 ± 0.004
+                mean | Train: 0.784 ± 0.006 | Test: 0.766 ± 0.006
+              median | Train: 0.785 ± 0.004 | Test: 0.763 ± 0.004
+
+-- RSF --
+            constant | Train: 0.903 ± 0.003 | Test: 0.767 ± 0.008
+          embeddings | Train: 0.969 ± 0.001 | Test: 0.704 ± 0.008
+    imputer_bayesian | Train: 0.909 ± 0.002 | Test: 0.777 ± 0.005
+                 knn | Train: 0.900 ± 0.004 | Test: 0.770 ± 0.007
+                mean | Train: 0.890 ± 0.004 | Test: 0.772 ± 0.007
+              median | Train: 0.875 ± 0.004 | Test: 0.771 ± 0.007
+
+=== NaN Ratio: 0.5 ===
+
+-- Cox --
+            constant | Train: 0.644 ± 0.007 | Test: 0.614 ± 0.013
+          embeddings | Train: 0.919 ± 0.002 | Test: 0.653 ± 0.016
+    imputer_bayesian | Train: 0.760 ± 0.005 | Test: 0.750 ± 0.007
+                 knn | Train: 0.749 ± 0.006 | Test: 0.738 ± 0.011
+                mean | Train: 0.757 ± 0.006 | Test: 0.747 ± 0.008
+              median | Train: 0.753 ± 0.006 | Test: 0.742 ± 0.007
+
+-- Cox Simple --
+            constant | Train: 0.611 ± 0.014 | Test: 0.583 ± 0.020
+          embeddings | Train: 0.919 ± 0.003 | Test: 0.589 ± 0.056
+    imputer_bayesian | Train: 0.632 ± 0.069 | Test: 0.637 ± 0.075
+                 knn | Train: 0.683 ± 0.005 | Test: 0.665 ± 0.010
+                mean | Train: 0.685 ± 0.032 | Test: 0.687 ± 0.028
+              median | Train: 0.728 ± 0.010 | Test: 0.724 ± 0.008
+
+-- Cox Vanilla --
+            constant | Train: 0.802 ± 0.036 | Test: 0.649 ± 0.020
+          embeddings | Train: 0.927 ± 0.006 | Test: 0.632 ± 0.026
+    imputer_bayesian | Train: 0.769 ± 0.011 | Test: 0.741 ± 0.013
+                 knn | Train: 0.757 ± 0.012 | Test: 0.727 ± 0.011
+                mean | Train: 0.767 ± 0.010 | Test: 0.744 ± 0.008
+              median | Train: 0.763 ± 0.008 | Test: 0.737 ± 0.007
+
+-- RSF --
+            constant | Train: 0.882 ± 0.003 | Test: 0.736 ± 0.011
+          embeddings | Train: 0.973 ± 0.001 | Test: 0.673 ± 0.013
+    imputer_bayesian | Train: 0.908 ± 0.003 | Test: 0.756 ± 0.008
+                 knn | Train: 0.892 ± 0.005 | Test: 0.743 ± 0.015
+                mean | Train: 0.869 ± 0.005 | Test: 0.747 ± 0.014
+              median | Train: 0.844 ± 0.005 | Test: 0.746 ± 0.012
+
+=== NaN Ratio: 0.7 ===
+
+-- Cox --
+            constant | Train: 0.614 ± 0.012 | Test: 0.578 ± 0.012
+          embeddings | Train: 0.917 ± 0.001 | Test: 0.631 ± 0.014
+    imputer_bayesian | Train: 0.725 ± 0.002 | Test: 0.705 ± 0.010
+                 knn | Train: 0.710 ± 0.008 | Test: 0.685 ± 0.008
+                mean | Train: 0.727 ± 0.004 | Test: 0.710 ± 0.008
+              median | Train: 0.720 ± 0.004 | Test: 0.705 ± 0.009
+
+-- Cox Simple --
+            constant | Train: 0.568 ± 0.012 | Test: 0.544 ± 0.014
+          embeddings | Train: 0.918 ± 0.002 | Test: 0.553 ± 0.045
+    imputer_bayesian | Train: 0.661 ± 0.017 | Test: 0.641 ± 0.015
+                 knn | Train: 0.623 ± 0.041 | Test: 0.608 ± 0.024
+                mean | Train: 0.665 ± 0.036 | Test: 0.654 ± 0.040
+              median | Train: 0.675 ± 0.049 | Test: 0.663 ± 0.038
+
+-- Cox Vanilla --
+            constant | Train: 0.753 ± 0.041 | Test: 0.579 ± 0.010
+          embeddings | Train: 0.918 ± 0.004 | Test: 0.598 ± 0.039
+    imputer_bayesian | Train: 0.724 ± 0.007 | Test: 0.697 ± 0.008
+                 knn | Train: 0.701 ± 0.008 | Test: 0.664 ± 0.008
+                mean | Train: 0.729 ± 0.007 | Test: 0.703 ± 0.005
+              median | Train: 0.717 ± 0.017 | Test: 0.698 ± 0.017
+
+-- RSF --
+            constant | Train: 0.838 ± 0.004 | Test: 0.686 ± 0.006
+          embeddings | Train: 0.975 ± 0.003 | Test: 0.635 ± 0.010
+    imputer_bayesian | Train: 0.904 ± 0.005 | Test: 0.704 ± 0.011
+                 knn | Train: 0.879 ± 0.007 | Test: 0.685 ± 0.004
+                mean | Train: 0.826 ± 0.006 | Test: 0.703 ± 0.011
+              median | Train: 0.799 ± 0.006 | Test: 0.701 ± 0.011
+
+=== NaN Ratio: 0.9 ===
+
+-- Cox --
+            constant | Train: 0.582 ± 0.005 | Test: 0.529 ± 0.014
+          embeddings | Train: 0.912 ± 0.001 | Test: 0.546 ± 0.017
+    imputer_bayesian | Train: 0.656 ± 0.004 | Test: 0.626 ± 0.008
+                 knn | Train: 0.623 ± 0.007 | Test: 0.591 ± 0.011
+                mean | Train: 0.660 ± 0.005 | Test: 0.629 ± 0.004
+              median | Train: 0.653 ± 0.003 | Test: 0.621 ± 0.005
+
+-- Cox Simple --
+            constant | Train: 0.556 ± 0.010 | Test: 0.514 ± 0.007
+          embeddings | Train: 0.911 ± 0.005 | Test: 0.510 ± 0.025
+    imputer_bayesian | Train: 0.595 ± 0.038 | Test: 0.572 ± 0.039
+                 knn | Train: 0.552 ± 0.030 | Test: 0.541 ± 0.024
+                mean | Train: 0.627 ± 0.010 | Test: 0.605 ± 0.011
+              median | Train: 0.637 ± 0.006 | Test: 0.614 ± 0.006
+
+-- Cox Vanilla --
+            constant | Train: 0.643 ± 0.022 | Test: 0.540 ± 0.012
+          embeddings | Train: 0.911 ± 0.003 | Test: 0.541 ± 0.010
+    imputer_bayesian | Train: 0.638 ± 0.022 | Test: 0.606 ± 0.024
+                 knn | Train: 0.604 ± 0.013 | Test: 0.565 ± 0.005
+                mean | Train: 0.637 ± 0.020 | Test: 0.617 ± 0.013
+              median | Train: 0.648 ± 0.006 | Test: 0.615 ± 0.010
+
+-- RSF --
+            constant | Train: 0.767 ± 0.004 | Test: 0.612 ± 0.015
+          embeddings | Train: 0.987 ± 0.002 | Test: 0.568 ± 0.008
+    imputer_bayesian | Train: 0.885 ± 0.013 | Test: 0.616 ± 0.017
+                 knn | Train: 0.888 ± 0.011 | Test: 0.603 ± 0.014
+                mean | Train: 0.742 ± 0.004 | Test: 0.624 ± 0.013
+              median | Train: 0.696 ± 0.005 | Test: 0.623 ± 0.008
