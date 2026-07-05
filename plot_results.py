@@ -10,6 +10,11 @@ RESULTS_DIR = Path("results")
 # dataset may contain underscores; model is the last token before .txt
 FILE_RE = re.compile(r"^results_aggregated_(.+)_([^_]+)\.txt$")
 
+DATASET_DISPLAY_NAMES = {
+    "OrmoniTirodei": "IHD",
+    "HURRAH": "URRAH",
+}
+
 
 def parse_results_file(filepath):
     """Parse aggregated results file, returning dict keyed by section name (-1, NaN)."""
@@ -47,34 +52,35 @@ def is_test_entry(name):
 
 
 def model_color(name, model):
-    """Assign a consistent color based on whether the entry belongs to the file's model."""
+    """Assign a consistent (color, hatch) pair based on whether the entry belongs to the file's model."""
     name_lower = name.lower()
     if name_lower.startswith(model.lower()):
-        # Shades of blue for TABPFN variants
+        # Distinct hues per embeddings-model variant, hatched to mark the group
+        hatch = "///"
         if "tuned deepsurv" in name_lower:
-            return "#1f77b4"
+            return "#1f77b4", hatch
         if "tuned rsf" in name_lower:
-            return "#aec7e8"
+            return "#9467bd", hatch
         if "vanilla" in name_lower:
-            return "#6baed6"
+            return "#17becf", hatch
         if "simple" in name_lower:
-            return "#3182bd"
+            return "#e377c2", hatch
         if "rsf" in name_lower:
-            return "#08519c"
+            return "#8c564b", hatch
         if "cox" in name_lower:
-            return "#9ecae1"
-        return "#1f77b4"
+            return "#bcbd22", hatch
+        return "#7f7f7f", hatch
     else:
-        # Shades of orange/green for baseline models
+        # Shades of orange/green for baseline models, no hatch
         if "deepsurv vanilla" in name_lower:
-            return "#ff7f0e"
+            return "#ff7f0e", ""
         if "deepsurv simple" in name_lower:
-            return "#ffbb78"
+            return "#ffbb78", ""
         if "rsf" in name_lower:
-            return "#2ca02c"
+            return "#2ca02c", ""
         if "cox" in name_lower:
-            return "#98df8a"
-        return "#d62728"
+            return "#98df8a", ""
+        return "#d62728", ""
 
 
 def legend_label(name, model):
@@ -114,12 +120,16 @@ def plot_section(entries, section_label, ax, model):
     names = [e["name"] for e in test_entries]
     means = np.array([e["mean"] for e in test_entries])
     stds = np.array([e["std"] for e in test_entries])
-    colors = [model_color(n, model) for n in names]
+    colors_hatches = [model_color(n, model) for n in names]
+    colors = [c for c, _ in colors_hatches]
+    hatches = [h for _, h in colors_hatches]
     labels = [legend_label(n, model) for n in names]
 
     x = np.arange(len(names))
     bars = ax.bar(x, means, yerr=stds, color=colors, capsize=5, edgecolor="black",
                   linewidth=0.6, error_kw={"elinewidth": 1.5, "ecolor": "black"})
+    for bar, hatch in zip(bars, hatches):
+        bar.set_hatch(hatch)
 
     # Annotate values on bars
     for bar, mean, std in zip(bars, means, stds):
@@ -141,10 +151,13 @@ def plot_section(entries, section_label, ax, model):
 
     # Build legend from the actual entries present in the chart
     seen = {}
-    for n, lbl, clr in zip(names, labels, colors):
+    for n, lbl, clr, h in zip(names, labels, colors, hatches):
         if lbl not in seen:
-            seen[lbl] = clr
-    patches = [mpatches.Patch(color=clr, label=lbl) for lbl, clr in seen.items()]
+            seen[lbl] = (clr, h)
+    patches = [
+        mpatches.Patch(facecolor=clr, hatch=h, edgecolor="black", label=lbl)
+        for lbl, (clr, h) in seen.items()
+    ]
     ax.legend(handles=patches, fontsize=8, loc="lower right", framealpha=0.8)
 
 
@@ -161,8 +174,9 @@ def plot_file(filepath: Path, dataset: str, model: str):
     for ax, (section_key, entries) in zip(axes[0], sections.items()):
         plot_section(entries, section_key, ax, model)
 
+    display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
     fig.suptitle(
-        f"C-index Test Results — {dataset} / {model}",
+        f"C-index Test Results — {display_dataset} / {model}",
         fontsize=13, fontweight="bold", y=1.01,
     )
     plt.tight_layout()

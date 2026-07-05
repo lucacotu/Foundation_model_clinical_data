@@ -15,16 +15,21 @@ import sys
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 
 RESULTS_DIR = Path("results")
 TOP_N = 20
+
+DATASET_DISPLAY_NAMES = {
+    "OrmoniTirodei": "IHD",
+    "HURRAH": "URRAH",
+}
 
 MODEL_DISPLAY = {
     "deepsurv_simple": "DeepSurv Simple",
     "deepsurv_vanilla": "DeepSurv Vanilla",
     "deepsurv_tuned": "DeepSurv Tuned",
     "rsf": "RSF",
+    "rsf_tuned": "RSF tuned",
     "cox": "Cox",
     "deepsurv_simple_baseline": "DeepSurv Simple\n(Baseline)",
     "deepsurv_vanilla_baseline": "DeepSurv Vanilla\n(Baseline)",
@@ -32,13 +37,14 @@ MODEL_DISPLAY = {
     "cox_baseline": "Cox (Baseline)",
 }
 
-# Color: tabpfn models in blue family, baseline in orange family
+# Foundation model variant colors match plot_results.py's model_color() palette
 MODEL_COLOR = {
-    "deepsurv_simple": "#3182bd",
-    "deepsurv_vanilla": "#6baed6",
-    "deepsurv_tuned": "#08519c",
-    "rsf": "#08306b",
-    "cox": "#9ecae1",
+    "deepsurv_simple": "#e377c2",
+    "deepsurv_vanilla": "#17becf",
+    "deepsurv_tuned": "#1f77b4",
+    "rsf": "#8c564b",
+    "rsf_tuned": "#9467bd",
+    "cox": "#bcbd22",
     "deepsurv_simple_baseline": "#e6550d",
     "deepsurv_vanilla_baseline": "#fd8d3c",
     "rsf_baseline": "#31a354",
@@ -155,8 +161,9 @@ def plot_heatmap(model_data: dict, preprocess: str, dataset: str, model: str, ou
     ax.set_yticks(np.arange(-0.5, len(union_features), 1), minor=True)
     ax.grid(which="minor", color="white", linewidth=0.5)
 
+    display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
     ax.set_title(
-        f"SHAP Feature Importance — {dataset} | {model} | Preprocessing: {preprocess}\n"
+        f"SHAP Feature Importance — {display_dataset} | {model} | Preprocessing: {preprocess}\n"
         f"Top {TOP_N} features per model, normalized per model",
         fontsize=11, fontweight="bold", pad=10,
     )
@@ -188,10 +195,11 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
         stds = np.array([e[2] for e in entries])
 
         color = MODEL_COLOR.get(m, "#4393c3")
+        hatch = "" if m.endswith("_baseline") else "///"
         y = np.arange(len(features))
         ax.barh(
             y, means, xerr=stds, height=0.65,
-            color=color, alpha=0.85, edgecolor="none",
+            color=color, alpha=0.85, edgecolor="black", hatch=hatch,
             error_kw={"elinewidth": 0.9, "ecolor": "#555555", "capsize": 2.5},
         )
 
@@ -206,18 +214,11 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
     for idx in range(len(models), len(axes_flat)):
         axes_flat[idx].set_visible(False)
 
+    display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
     fig.suptitle(
-        f"SHAP Feature Importance (Top {TOP_N}) — {dataset} | {model} | Preprocessing: {preprocess}",
+        f"SHAP Feature Importance (Top {TOP_N}) — {display_dataset} | {model} | Preprocessing: {preprocess}",
         fontsize=13, fontweight="bold", y=1.01,
     )
-
-    # Legend: tabpfn vs baseline
-    patches = [
-        mpatches.Patch(color="#3182bd", label="Foundation model variants"),
-        mpatches.Patch(color="#e6550d", label="Baseline model variants"),
-    ]
-    fig.legend(handles=patches, loc="lower center", ncol=2, fontsize=9,
-               bbox_to_anchor=(0.5, -0.01), framealpha=0.8)
 
     plt.tight_layout()
     stem = f"shap_{dataset}_{model}_bars_preprocess{preprocess}"

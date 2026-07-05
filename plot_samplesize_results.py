@@ -53,6 +53,29 @@ def parse_samplesize_file(filepath):
     return data
 
 
+DATASET_DISPLAY_NAMES = {
+    "OrmoniTirodei": "IHD",
+    "HURRAH": "URRAH",
+}
+
+
+def display_dataset_name(dataset):
+    return DATASET_DISPLAY_NAMES.get(dataset, dataset)
+
+
+def model_marker(name, model):
+    name_lower = name.lower()
+    if "vanilla" in name_lower:
+        return "o"
+    if "simple" in name_lower:
+        return "s"
+    if "rsf" in name_lower:
+        return "^"
+    if "cox" in name_lower:
+        return "D"
+    return "*"
+
+
 def model_color(name, model):
     name_lower = name.lower()
     if name_lower.startswith(model.lower()):
@@ -129,12 +152,13 @@ def plot_section(prep_data, section_label, ax, model):
             continue
 
         color = model_color(name, model)
+        marker = model_marker(name, model)
         label = legend_label(name, model)
         x_arr = np.array(x_vals)
         y_arr = np.array(y_vals)
         s_arr = np.array(s_vals)
 
-        ax.plot(x_arr, y_arr, marker="o", linewidth=1.8, markersize=5,
+        ax.plot(x_arr, y_arr, marker=marker, linewidth=1.8, markersize=6,
                 color=color, label=label)
 
         if s_arr.any():
@@ -181,7 +205,7 @@ def plot_file(filepath: Path, dataset: str, model: str):
         plot_section(prep_data, prep_key, ax, model)
 
     fig.suptitle(
-        f"C-index Test — Sample Size Effect  |  {dataset} / {model.upper()}",
+        f"C-index Test — Sample Size Effect  |  {display_dataset_name(dataset)} / {model.upper()}",
         fontsize=13, fontweight="bold", y=1.01,
     )
     plt.tight_layout()
