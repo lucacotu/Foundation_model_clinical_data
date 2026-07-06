@@ -286,17 +286,27 @@ def main():
         return
 
     found = False
+    files_by_dataset = {}
     for txt_file in sorted(RESULTS_DIR.rglob("results_aggregated_*.txt")):
         m = FILE_RE.match(txt_file.name)
         if not m:
             continue
         found = True
         dataset, model = m.group(1), m.group(2)
+        files_by_dataset.setdefault(dataset, {})[model] = txt_file
         print(f"Processing: {txt_file.name}  (dataset={dataset}, model={model})")
         try:
             plot_file(txt_file, dataset, model)
         except Exception as e:
             print(f"  Error: {e}")
+
+    for dataset, models in sorted(files_by_dataset.items()):
+        if "tabpfn" in models and "tabicl" in models:
+            print(f"Processing combined plot: dataset={dataset} (tabpfn + tabicl)")
+            try:
+                plot_combined_file(dataset, models["tabpfn"], models["tabicl"])
+            except Exception as e:
+                print(f"  Error: {e}")
 
     if not found:
         print("Nessun file results_aggregated_{dataset}_{model}.txt trovato.")
