@@ -111,10 +111,13 @@ def legend_label(name, model):
     return name
 
 
-def render_bars(ax, entries_data, section_label):
+def render_bars(ax, entries_data, section_label, legend_kwargs=None):
     """Draw one axis of bars from pre-built per-bar data.
 
     entries_data: list of dicts with keys mean, std, color, hatch, label.
+    legend_kwargs: overrides merged into the default legend placement
+      (loc="lower right", framealpha=0.8), e.g. to move a crowded legend
+      outside the axes.
     """
     means = np.array([e["mean"] for e in entries_data])
     stds = np.array([e["std"] for e in entries_data])
@@ -156,7 +159,10 @@ def render_bars(ax, entries_data, section_label):
         mpatches.Patch(facecolor=clr, hatch=h, edgecolor="black", label=lbl)
         for lbl, (clr, h) in seen.items()
     ]
-    ax.legend(handles=patches, fontsize=8, loc="lower right", framealpha=0.8)
+    legend_options = {"fontsize": 8, "loc": "lower right", "framealpha": 0.8}
+    if legend_kwargs:
+        legend_options.update(legend_kwargs)
+    ax.legend(handles=patches, **legend_options)
 
 
 def plot_section(entries, section_label, ax, model):
@@ -198,7 +204,9 @@ def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax):
         label = legend_label(e["name"], "tabpfn")
         entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
 
-    render_bars(ax, entries_data, section_label)
+    render_bars(ax, entries_data, section_label, legend_kwargs={
+        "loc": "upper left", "bbox_to_anchor": (1.01, 1.0), "borderaxespad": 0,
+    })
 
 
 def plot_file(filepath: Path, dataset: str, model: str):
