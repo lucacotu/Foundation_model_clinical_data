@@ -217,9 +217,9 @@ def plot_file(filepath: Path, dataset: str, model: str):
         return
 
     n_sections = len(sections)
-    fig, axes = plt.subplots(1, n_sections, figsize=(10 * n_sections, 6), squeeze=False)
+    fig, axes = plt.subplots(n_sections, 1, figsize=(10, 6 * n_sections), squeeze=False)
 
-    for ax, (section_key, entries) in zip(axes[0], sections.items()):
+    for ax, (section_key, entries) in zip(axes[:, 0], sections.items()):
         plot_section(entries, section_key, ax, model)
 
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
@@ -261,9 +261,9 @@ def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path):
         return
 
     n_sections = len(common_sections)
-    fig, axes = plt.subplots(1, n_sections, figsize=(10 * n_sections, 6), squeeze=False)
+    fig, axes = plt.subplots(n_sections, 1, figsize=(10, 6 * n_sections), squeeze=False)
 
-    for ax, section_key in zip(axes[0], common_sections):
+    for ax, section_key in zip(axes[:, 0], common_sections):
         plot_combined_section(tabpfn_sections[section_key], tabicl_sections[section_key], section_key, ax)
 
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
