@@ -236,6 +236,50 @@ def plot_file(filepath: Path, dataset: str, model: str):
     plt.close(fig)
 
 
+def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path):
+    tabpfn_sections = parse_results_file(tabpfn_path)
+    tabicl_sections = parse_results_file(tabicl_path)
+
+    common_sections = [k for k in tabpfn_sections if k in tabicl_sections]
+    for key in tabpfn_sections:
+        if key not in tabicl_sections:
+            print(f"  Skipping section [{key}]: not present in both tabpfn and tabicl files")
+    for key in tabicl_sections:
+        if key not in tabpfn_sections:
+            print(f"  Skipping section [{key}]: not present in both tabpfn and tabicl files")
+
+    if not common_sections:
+        print(f"  No common sections between tabpfn and tabicl for dataset {dataset}, skipped combined plot")
+        return
+
+    n_sections = len(common_sections)
+    fig, axes = plt.subplots(1, n_sections, figsize=(10 * n_sections, 6), squeeze=False)
+
+    for ax, section_key in zip(axes[0], common_sections):
+        plot_combined_section(tabpfn_sections[section_key], tabicl_sections[section_key], section_key, ax)
+
+    display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
+    fig.suptitle(
+        f"C-index Test Results — {display_dataset} / TABPFN + TABICL",
+        fontsize=19, fontweight="bold", y=1.01,
+    )
+    plt.tight_layout()
+
+    out_dir = RESULTS_DIR / dataset / "aggregated"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    stem = f"results_aggregated_{dataset}_combined"
+
+    out_pdf = out_dir / f"{stem}.pdf"
+    plt.savefig(out_pdf, bbox_inches="tight")
+    print(f"  Saved: {out_pdf}")
+
+    out_png = out_dir / f"{stem}.png"
+    plt.savefig(out_png, bbox_inches="tight", dpi=150)
+    print(f"  Saved: {out_png}")
+
+    plt.close(fig)
+
+
 def main():
     if not RESULTS_DIR.exists():
         print(f"Directory '{RESULTS_DIR}' non trovata.")
