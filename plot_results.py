@@ -51,12 +51,11 @@ def is_test_entry(name):
     return "train" not in name_lower
 
 
-def model_color(name, model):
+def model_color(name, model, hatch="///"):
     """Assign a consistent (color, hatch) pair based on whether the entry belongs to the file's model."""
     name_lower = name.lower()
     if name_lower.startswith(model.lower()):
-        # Distinct hues per embeddings-model variant, hatched to mark the group
-        hatch = "///"
+        # Distinct hues per embeddings-model variant, hatch marks the group
         if "tuned deepsurv" in name_lower:
             return "#1f77b4", hatch
         if "tuned rsf" in name_lower:
