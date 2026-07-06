@@ -173,6 +173,34 @@ def plot_section(entries, section_label, ax, model):
     render_bars(ax, entries_data, section_label)
 
 
+def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax):
+    tabpfn_test = [e for e in tabpfn_entries if is_test_entry(e["name"])]
+    tabicl_test = [e for e in tabicl_entries if is_test_entry(e["name"])]
+
+    tabpfn_model_entries = [e for e in tabpfn_test if e["name"].lower().startswith("tabpfn")]
+    tabicl_model_entries = [e for e in tabicl_test if e["name"].lower().startswith("tabicl")]
+    baseline_entries = [e for e in tabpfn_test if not e["name"].lower().startswith("tabpfn")]
+
+    if not (tabpfn_model_entries or tabicl_model_entries or baseline_entries):
+        return
+
+    entries_data = []
+    for e in tabpfn_model_entries:
+        color, hatch = model_color(e["name"], "tabpfn", hatch="///")
+        label = legend_label(e["name"], "tabpfn")
+        entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
+    for e in tabicl_model_entries:
+        color, hatch = model_color(e["name"], "tabicl", hatch="xxx")
+        label = legend_label(e["name"], "tabicl")
+        entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
+    for e in baseline_entries:
+        color, hatch = model_color(e["name"], "tabpfn")
+        label = legend_label(e["name"], "tabpfn")
+        entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
+
+    render_bars(ax, entries_data, section_label)
+
+
 def plot_file(filepath: Path, dataset: str, model: str):
     sections = parse_results_file(filepath)
 
