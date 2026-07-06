@@ -112,20 +112,18 @@ def legend_label(name, model):
     return name
 
 
-def plot_section(entries, section_label, ax, model):
-    test_entries = [e for e in entries if is_test_entry(e["name"])]
-    if not test_entries:
-        return
+def render_bars(ax, entries_data, section_label):
+    """Draw one axis of bars from pre-built per-bar data.
 
-    names = [e["name"] for e in test_entries]
-    means = np.array([e["mean"] for e in test_entries])
-    stds = np.array([e["std"] for e in test_entries])
-    colors_hatches = [model_color(n, model) for n in names]
-    colors = [c for c, _ in colors_hatches]
-    hatches = [h for _, h in colors_hatches]
-    labels = [legend_label(n, model) for n in names]
+    entries_data: list of dicts with keys mean, std, color, hatch, label.
+    """
+    means = np.array([e["mean"] for e in entries_data])
+    stds = np.array([e["std"] for e in entries_data])
+    colors = [e["color"] for e in entries_data]
+    hatches = [e["hatch"] for e in entries_data]
+    labels = [e["label"] for e in entries_data]
 
-    x = np.arange(len(names))
+    x = np.arange(len(entries_data))
     bars = ax.bar(x, means, yerr=stds, color=colors, capsize=5, edgecolor="black",
                   linewidth=0.6, error_kw={"elinewidth": 1.5, "ecolor": "black"})
     for bar, hatch in zip(bars, hatches):
@@ -141,9 +139,10 @@ def plot_section(entries, section_label, ax, model):
         )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=8)
-    ax.set_ylabel("C-index (Test)", fontsize=10)
-    ax.set_title(f"Preprocessing: {section_label}", fontsize=11, fontweight="bold")
+    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=13)
+    ax.tick_params(axis="y", labelsize=12)
+    ax.set_ylabel("C-index (Test)", fontsize=15)
+    ax.set_title(f"Preprocessing: {section_label}", fontsize=17, fontweight="bold")
     ax.set_ylim(max(0, means.min() - stds.max() - 0.05), min(1.0, means.max() + stds.max() + 0.07))
     ax.grid(axis="y", linestyle="--", alpha=0.5)
     ax.spines["top"].set_visible(False)
@@ -151,14 +150,28 @@ def plot_section(entries, section_label, ax, model):
 
     # Build legend from the actual entries present in the chart
     seen = {}
-    for n, lbl, clr, h in zip(names, labels, colors, hatches):
-        if lbl not in seen:
-            seen[lbl] = (clr, h)
+    for e in entries_data:
+        if e["label"] not in seen:
+            seen[e["label"]] = (e["color"], e["hatch"])
     patches = [
         mpatches.Patch(facecolor=clr, hatch=h, edgecolor="black", label=lbl)
         for lbl, (clr, h) in seen.items()
     ]
     ax.legend(handles=patches, fontsize=8, loc="lower right", framealpha=0.8)
+
+
+def plot_section(entries, section_label, ax, model):
+    test_entries = [e for e in entries if is_test_entry(e["name"])]
+    if not test_entries:
+        return
+
+    entries_data = []
+    for e in test_entries:
+        color, hatch = model_color(e["name"], model)
+        label = legend_label(e["name"], model)
+        entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
+
+    render_bars(ax, entries_data, section_label)
 
 
 def plot_file(filepath: Path, dataset: str, model: str):
@@ -177,7 +190,7 @@ def plot_file(filepath: Path, dataset: str, model: str):
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
     fig.suptitle(
         f"C-index Test Results — {display_dataset} / {model}",
-        fontsize=13, fontweight="bold", y=1.01,
+        fontsize=19, fontweight="bold", y=1.01,
     )
     plt.tight_layout()
 
