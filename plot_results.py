@@ -141,7 +141,7 @@ def render_bars(ax, entries_data, section_label, legend_kwargs=None):
         )
 
     ax.set_xticks(x)
-    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=13)
+    ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=11)
     ax.tick_params(axis="y", labelsize=12)
     ax.set_ylabel("C-index (Test)", fontsize=15)
     ax.set_title(f"Preprocessing: {section_label}", fontsize=17, fontweight="bold")
