@@ -143,13 +143,14 @@ def plot_method_lines(ax, section_data, methods, color_of, label_of):
 
     tick_labels = [f"{nr:g}" for nr in nan_ratios]
     ax.set_xticks(x_positions)
-    ax.set_xticklabels(tick_labels, fontsize=9)
-    ax.set_xlabel("NaN ratio", fontsize=10)
-    ax.set_ylabel("C-index (Test)", fontsize=10)
+    ax.set_xticklabels(tick_labels, fontsize=16)
+    ax.tick_params(axis="y", labelsize=16)
+    ax.set_xlabel("NaN ratio", fontsize=18)
+    ax.set_ylabel("C-index (Test)", fontsize=18)
     ax.grid(axis="both", linestyle="--", alpha=0.4)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.legend(fontsize=8, loc="best", framealpha=0.8)
+    ax.legend(fontsize=10, loc="best", framealpha=0.8)
 
     if all_means:
         pad = 0.03
@@ -176,7 +177,7 @@ def plot_per_file(dataset, model, data):
             color_of=lambda m: METHOD_COLORS[m],
             label_of=lambda m: m,
         )
-        ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=11, fontweight="bold")
+        ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=22, fontweight="bold")
 
     for ax in flat_axes[len(survival_models):]:
         ax.set_visible(False)
@@ -184,7 +185,7 @@ def plot_per_file(dataset, model, data):
     display_name = DATASET_DISPLAY_NAME.get(dataset, dataset)
     fig.suptitle(
         f"C-index Test — Robustness to Missingness  |  {display_name} / {model.upper()}",
-        fontsize=13, fontweight="bold", y=1.02,
+        fontsize=25, fontweight="bold", y=1.02,
     )
     plt.tight_layout()
 
@@ -248,14 +249,14 @@ def plot_embeddings_comparison(all_data):
             color_of=lambda k: color_map[k],
             label_of=lambda k: label_map[k],
         )
-        ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=11, fontweight="bold")
+        ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=22, fontweight="bold")
 
     for ax in flat_axes[len(survival_models):]:
         ax.set_visible(False)
 
     fig.suptitle(
         "C-index Test — 'embeddings' Method Comparison Across Dataset/Model",
-        fontsize=13, fontweight="bold", y=1.02,
+        fontsize=25, fontweight="bold", y=1.02,
     )
     plt.tight_layout()
 

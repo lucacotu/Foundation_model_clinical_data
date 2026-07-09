@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Plot SHAP importance results from aggregated SHAP files.
 
@@ -24,15 +23,27 @@ DATASET_DISPLAY_NAMES = {
     "HURRAH": "URRAH",
 }
 
+BACKBONE_DISPLAY = {
+    "tabicl": "TabICL",
+    "tabpfn": "TabPFN",
+}
+
+FOUNDATION_MODEL_KEYS = [
+    "deepsurv_simple", "deepsurv_vanilla", "rsf", "cox", "deepsurv_tuned", "rsf_tuned",
+]
+BASELINE_MODEL_KEYS = [
+    "deepsurv_simple_baseline", "deepsurv_vanilla_baseline", "rsf_baseline", "cox_baseline",
+]
+
 MODEL_DISPLAY = {
-    "deepsurv_simple": "DeepSurv Simple",
-    "deepsurv_vanilla": "DeepSurv Vanilla",
+    "deepsurv_simple": "DeepSurv Linear",
+    "deepsurv_vanilla": "DeepSurv MLP",
     "deepsurv_tuned": "DeepSurv Tuned",
     "rsf": "RSF",
     "rsf_tuned": "RSF tuned",
     "cox": "Cox",
-    "deepsurv_simple_baseline": "DeepSurv Simple\n(Baseline)",
-    "deepsurv_vanilla_baseline": "DeepSurv Vanilla\n(Baseline)",
+    "deepsurv_simple_baseline": "DeepSurv Linear\n(Baseline)",
+    "deepsurv_vanilla_baseline": "DeepSurv MLP\n(Baseline)",
     "rsf_baseline": "RSF (Baseline)",
     "cox_baseline": "Cox (Baseline)",
 }
@@ -118,10 +129,10 @@ def _title(text: str, ax, fontsize: int = 10) -> None:
     ax.set_title(text, fontsize=fontsize, fontweight="bold")
 
 
-def plot_heatmap(model_data: dict, preprocess: str, dataset: str, model: str, out_dir: Path) -> None:
+def plot_heatmap(
+    model_data: dict, models: list, xtick_labels: list, title: str, stem: str, out_dir: Path
+) -> None:
     """Heatmap: union of top-N features (rows) × models (cols), normalized per model."""
-    models = list(model_data.keys())
-
     # Union of top-N features preserving order of first appearance
     seen: set = set()
     union_features: list = []
@@ -148,28 +159,21 @@ def plot_heatmap(model_data: dict, preprocess: str, dataset: str, model: str, ou
     im = ax.imshow(matrix, aspect="auto", cmap="YlOrRd", vmin=0, vmax=1)
 
     ax.set_xticks(range(len(models)))
-    ax.set_xticklabels(
-        [MODEL_DISPLAY.get(m, m) for m in models], rotation=45, ha="right", fontsize=9
-    )
+    ax.set_xticklabels(xtick_labels, rotation=45, ha="right", fontsize=17)
     ax.set_yticks(range(len(union_features)))
-    ax.set_yticklabels(union_features, fontsize=8)
+    ax.set_yticklabels(union_features, fontsize=11)
 
     cbar = plt.colorbar(im, ax=ax, fraction=0.025, pad=0.02)
-    cbar.set_label("Normalized Mean |SHAP|", fontsize=9)
+    cbar.set_label("Normalized Mean |SHAP|", fontsize=13)
+    cbar.ax.tick_params(labelsize=11)
 
     ax.set_xticks(np.arange(-0.5, len(models), 1), minor=True)
     ax.set_yticks(np.arange(-0.5, len(union_features), 1), minor=True)
     ax.grid(which="minor", color="white", linewidth=0.5)
 
-    display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
-    ax.set_title(
-        f"SHAP Feature Importance — {display_dataset} | {model} | Preprocessing: {preprocess}\n"
-        f"Top {TOP_N} features per model, normalized per model",
-        fontsize=11, fontweight="bold", pad=10,
-    )
+    ax.set_title(title, fontsize=16, fontweight="bold", pad=10)
 
     plt.tight_layout()
-    stem = f"shap_{dataset}_{model}_heatmap_preprocess{preprocess}"
     for ext in ("pdf", "png"):
         path = out_dir / f"{stem}.{ext}"
         plt.savefig(path, bbox_inches="tight", dpi=150 if ext == "png" else 72)
@@ -185,6 +189,8 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
 
     fig, axes = plt.subplots(nrows, ncols, figsize=(ncols * 6.5, nrows * 5.5))
     axes_flat = axes.flatten() if hasattr(axes, "flatten") else [axes]
+
+    backbone_display = BACKBONE_DISPLAY.get(model, model)
 
     for idx, m in enumerate(models):
         ax = axes_flat[idx]
@@ -204,9 +210,13 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
         )
 
         ax.set_yticks(y)
-        ax.set_yticklabels(features, fontsize=7.5)
-        ax.set_xlabel("Mean |SHAP|", fontsize=9)
-        ax.set_title(MODEL_DISPLAY.get(m, m), fontsize=10, fontweight="bold")
+        ax.set_yticklabels(features, fontsize=10)
+        ax.tick_params(axis="x", labelsize=11)
+        ax.set_xlabel("Mean |SHAP|", fontsize=13)
+        model_title = MODEL_DISPLAY.get(m, m)
+        if not m.endswith("_baseline"):
+            model_title = f"{backbone_display} - {model_title}"
+        ax.set_title(model_title, fontsize=15, fontweight="bold")
         ax.grid(axis="x", linestyle="--", alpha=0.4)
         ax.spines["top"].set_visible(False)
         ax.spines["right"].set_visible(False)
@@ -217,7 +227,7 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
     fig.suptitle(
         f"SHAP Feature Importance (Top {TOP_N}) — {display_dataset} | {model} | Preprocessing: {preprocess}",
-        fontsize=13, fontweight="bold", y=1.01,
+        fontsize=19, fontweight="bold", y=1.01,
     )
 
     plt.tight_layout()
@@ -229,6 +239,37 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
     plt.close(fig)
 
 
+def plot_combined_heatmap(
+    tabicl_data: dict, tabpfn_data: dict, preprocess: str, dataset: str, out_dir: Path
+) -> None:
+    """Heatmap merging TabICL and TabPFN foundation-model columns, sharing one baseline group."""
+    merged_model_data: dict = {}
+    xtick_labels: list = []
+
+    for src_prefix, src_data in (("TabICL", tabicl_data), ("TabPFN", tabpfn_data)):
+        for key in FOUNDATION_MODEL_KEYS:
+            if key not in src_data:
+                continue
+            merged_key = f"{src_prefix.lower()}::{key}"
+            merged_model_data[merged_key] = src_data[key]
+            xtick_labels.append(f"{src_prefix} - {MODEL_DISPLAY.get(key, key)}")
+
+    # Baselines don't depend on the embedding model, so TabPFN's copy is used for both.
+    for key in BASELINE_MODEL_KEYS:
+        if key not in tabpfn_data:
+            continue
+        merged_model_data[key] = tabpfn_data[key]
+        xtick_labels.append(MODEL_DISPLAY.get(key, key))
+
+    display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
+    title = (
+        f"SHAP Feature Importance — {display_dataset} | TabICL + TabPFN | Preprocessing: {preprocess}\n"
+        f"Top {TOP_N} features per model, normalized per model"
+    )
+    stem = f"shap_{dataset}_combined_heatmap_preprocess{preprocess}"
+    plot_heatmap(merged_model_data, list(merged_model_data.keys()), xtick_labels, title, stem, out_dir)
+
+
 def main() -> None:
     results_dir = Path(sys.argv[1]) if len(sys.argv) > 1 else RESULTS_DIR
 
@@ -236,6 +277,8 @@ def main() -> None:
     if not files:
         print(f"No shap_*_aggregated.txt files found in {results_dir}")
         return
+
+    dataset_data: dict = {}  # dataset -> {model: {preprocess: model_data}}
 
     for filepath in files:
         # filename: shap_{dataset}_{model}_aggregated.txt
@@ -249,13 +292,28 @@ def main() -> None:
         print(f"\nProcessing: {filepath.name}  (dataset={dataset_name}, model={model_name})")
 
         all_data = parse_aggregated(filepath)
+        dataset_data.setdefault(dataset_name, {})[model_name] = all_data
 
         out_dir = results_dir / dataset_name / model_name / "aggregated"
         out_dir.mkdir(parents=True, exist_ok=True)
         for preprocess, model_data in all_data.items():
             print(f"  Preprocessing: {preprocess}  ({len(model_data)} models)")
-            plot_heatmap(model_data, preprocess, dataset_name, model_name, out_dir)
             plot_bar_charts(model_data, preprocess, dataset_name, model_name, out_dir)
+
+    for dataset_name, per_model in dataset_data.items():
+        if "tabicl" not in per_model or "tabpfn" not in per_model:
+            print(f"\nSkipping combined heatmap for {dataset_name}: need both tabicl and tabpfn")
+            continue
+        print(f"\nBuilding combined heatmap: {dataset_name}")
+        out_dir = results_dir / dataset_name / "aggregated"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        preprocesses = sorted(set(per_model["tabicl"]) | set(per_model["tabpfn"]))
+        for preprocess in preprocesses:
+            plot_combined_heatmap(
+                per_model["tabicl"].get(preprocess, {}),
+                per_model["tabpfn"].get(preprocess, {}),
+                preprocess, dataset_name, out_dir,
+            )
 
 
 if __name__ == "__main__":

@@ -92,18 +92,18 @@ def legend_label(name, model):
         if "tuned rsf" in name_lower:
             return f"{m_up} - Tuned RSF"
         if "vanilla" in name_lower:
-            return f"{m_up} - Deepsurv Vanilla"
+            return f"{m_up} - DeepSurv MLP"
         if "simple" in name_lower:
-            return f"{m_up} - Deepsurv Simple"
+            return f"{m_up} - DeepSurv Linear"
         if "rsf" in name_lower:
             return f"{m_up} - RSF"
         if "cox" in name_lower:
             return f"{m_up} - Cox"
     else:
         if "deepsurv vanilla" in name_lower or "vanilla" in name_lower:
-            return "DeepSurv Vanilla"
+            return "DeepSurv MLP"
         if "deepsurv simple" in name_lower or "simple" in name_lower:
-            return "DeepSurv Simple"
+            return "DeepSurv Linear"
         if "rsf" in name_lower:
             return "RSF"
         if "cox" in name_lower:

@@ -181,15 +181,16 @@ def plot_section(prep_data, section_label, ax, model):
 
     tick_labels = [str(int(ss)) if ss == int(ss) else f"{ss:.0f}" for ss in sample_sizes]
     ax.set_xticks(x_positions)
-    ax.set_xticklabels(tick_labels, rotation=30, ha="right", fontsize=8)
-    ax.set_xlabel("Sample size (actual mean)", fontsize=10)
-    ax.set_ylabel("C-index (Test)", fontsize=10)
-    ax.set_title(f"Preprocessing: {section_label}", fontsize=11, fontweight="bold")
+    ax.set_xticklabels(tick_labels, rotation=30, ha="right", fontsize=12)
+    ax.tick_params(axis="y", labelsize=12)
+    ax.set_xlabel("Sample size (actual mean)", fontsize=14)
+    ax.set_ylabel("C-index (Test)", fontsize=14)
+    ax.set_title(f"Preprocessing: {section_label}", fontsize=16, fontweight="bold")
     ax.set_ylim(y_min, y_max)
     ax.grid(axis="both", linestyle="--", alpha=0.4)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
-    ax.legend(fontsize=8, loc="lower right", framealpha=0.8)
+    ax.legend(fontsize=10, loc="lower right", framealpha=0.8)
 
 
 def plot_file(filepath: Path, dataset: str, model: str):
@@ -206,7 +207,7 @@ def plot_file(filepath: Path, dataset: str, model: str):
 
     fig.suptitle(
         f"C-index Test — Sample Size Effect  |  {display_dataset_name(dataset)} / {model.upper()}",
-        fontsize=13, fontweight="bold", y=1.01,
+        fontsize=19, fontweight="bold", y=1.01,
     )
     plt.tight_layout()
 
