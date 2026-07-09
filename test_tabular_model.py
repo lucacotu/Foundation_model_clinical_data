@@ -425,6 +425,9 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     "rsf_baseline": [],
                     "cox_baseline": [],
                 })
+                if tuning:
+                    shap_fold_values["deepsurv_tuned_baseline"] = []
+                    shap_fold_values["rsf_tuned_baseline"] = []
 
         for fold, (train_idx, test_idx) in enumerate(folds["folds"]):
             fold_n = fold + 1
@@ -740,6 +743,125 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                 print(f"C-index test:  {c_test:.4f}")
                 save_survival_prediction(dataset_name, model, "cox_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, surv_test_base)
 
+                if tuning:
+                    set_seed(seed=seed+fold+12)
+                    # DeepSurv Tuned baseline
+                    deepsurv_tuned_base_params = load_params(ckpt_dir, "deepsurv_tuned_baseline")
+                    if deepsurv_tuned_base_params is not None and ckpt_exists(ckpt_dir, "deepsurv_tuned_baseline"):
+                        print(f"  [ckpt] Loading DeepSurv Tuned baseline from {ckpt_dir}")
+                        net = tt.practical.MLPVanilla(
+                            in_features=deepsurv_tuned_base_params["embedding_dim"],
+                            num_nodes=deepsurv_tuned_base_params["num_nodes"],
+                            out_features=1,
+                            batch_norm=deepsurv_tuned_base_params["batch_norm"],
+                            dropout=deepsurv_tuned_base_params["dropout"],
+                        )
+                        deepsurv_tuned_base = CoxPH(net, tt.optim.Adam)
+                        deepsurv_tuned_base.optimizer.set_lr(deepsurv_tuned_base_params["learning_rate"])
+                        load_net_state(deepsurv_tuned_base.net, ckpt_dir / "deepsurv_tuned_baseline.pt", device=deepsurv_tuned_base.device, model=deepsurv_tuned_base)
+                    else:
+                        study_base = optuna.create_study(
+                            study_name=f"deepsurv_tuning_baseline_{fold_n}_{preprocess_type}_seed{seed}",
+                            direction="maximize",
+                            sampler=TPESampler(seed=seed),
+                        )
+
+                        def objective_deepsurv_base(trial):
+                            num_nodes  = trial.suggest_categorical("num_nodes", [[32], [64], [128], [64, 32], [128, 64]])
+                            dropout    = trial.suggest_float("dropout", 0.0, 0.3)
+                            lr         = trial.suggest_float("learning_rate", 1e-4, 1e-2, log=True)
+                            batch_norm = trial.suggest_categorical("batch_norm", [True, False])
+                            _net = tt.practical.MLPVanilla(X_train_f32.shape[1], num_nodes, 1, batch_norm=batch_norm, dropout=dropout)
+                            _m   = CoxPH(_net, tt.optim.Adam)
+                            _m.optimizer.set_lr(lr)
+                            _m.fit(X_train_f32, (t_train, np.asarray(y_train)), epochs=100, batch_size=256)
+                            _m.compute_baseline_hazards()
+                            surv = _m.predict_surv_df(X_eval_f32)
+                            return EvalSurv(surv, t_eval, np.asarray(y_eval), censor_surv="km").concordance_td()
+
+                        study_base.optimize(objective_deepsurv_base, n_trials=100, n_jobs=-1)
+                        best_parameters_base = {"embedding_dim": X_train_f32.shape[1], **study_base.best_params}
+                        print(f"Best parameters (baseline): {study_base.best_params}")
+                        save_params(ckpt_dir, "deepsurv_tuned_baseline", best_parameters_base)
+
+                        net = tt.practical.MLPVanilla(
+                            best_parameters_base["embedding_dim"], best_parameters_base["num_nodes"], 1,
+                            batch_norm=best_parameters_base["batch_norm"], dropout=best_parameters_base["dropout"],
+                        )
+                        deepsurv_tuned_base = CoxPH(net, tt.optim.Adam)
+                        deepsurv_tuned_base.optimizer.set_lr(best_parameters_base["learning_rate"])
+                        tuned_base_ckpt = ckpt_dir / "deepsurv_tuned_baseline.pt"
+                        deepsurv_tuned_base.fit(
+                            X_train_f32, (t_train, np.asarray(y_train)),
+                            val_data=(X_eval_f32, (t_eval, np.asarray(y_eval))),
+                            epochs=200, callbacks=[make_early_stopping(tuned_base_ckpt)], batch_size=128,
+                        )
+                        deepsurv_tuned_base.compute_baseline_hazards()
+                        save_net_state(
+                            deepsurv_tuned_base.net, tuned_base_ckpt,
+                            baseline_hazards=deepsurv_tuned_base.baseline_hazards_,
+                            baseline_cumulative_hazards=deepsurv_tuned_base.baseline_cumulative_hazards_,
+                            params=best_parameters_base,
+                        )
+                        print(f"  [ckpt] DeepSurv Tuned baseline saved → {tuned_base_ckpt}")
+
+                    _surv_df_tuned_base_test = deepsurv_tuned_base.predict_surv_df(X_test_f32)
+                    c_train = concordance_td(deepsurv_tuned_base.predict_surv_df(X_train_f32), t_train, y_train)
+                    c_test  = concordance_td(_surv_df_tuned_base_test, t_test, y_test)
+                    scores["train_tuned_deepsurv"].append(c_train)
+                    scores["test_tuned_deepsurv"].append(c_test)
+                    print(f"C-index train: {c_train:.4f}")
+                    print(f"C-index test:  {c_test:.4f}")
+                    save_survival_prediction(dataset_name, model, "deepsurv_tuned_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_tuned_base_test)
+
+                    set_seed(seed=seed+fold+13)
+                    # RSF Tuned baseline
+                    rsf_tuned_base_path   = ckpt_dir / "rsf_tuned_baseline.pkl"
+                    rsf_tuned_base_params = load_params(ckpt_dir, "rsf_tuned_baseline")
+
+                    if rsf_tuned_base_params is not None and rsf_tuned_base_path.exists():
+                        print(f"  [ckpt] Loading RSF Tuned baseline from {ckpt_dir}")
+                        rsf_tuned_base = load(rsf_tuned_base_path)
+                    else:
+                        study_rsf_base = optuna.create_study(
+                            study_name=f"rsf_tuning_baseline_{fold_n}_{preprocess_type}_seed{seed}",
+                            direction="maximize",
+                            sampler=TPESampler(seed=seed),
+                        )
+
+                        def objective_rsf_base(trial):
+                            print(f"[Trial {trial.number}] START")
+                            params = dict(
+                                n_estimators      = trial.suggest_int("n_estimators", 50, 300, step=50),
+                                max_depth         = trial.suggest_int("max_depth", 3, 10),
+                                min_samples_split = trial.suggest_int("min_samples_split", 5, 20),
+                                min_samples_leaf  = trial.suggest_int("min_samples_leaf", 3, 15),
+                                max_features      = trial.suggest_categorical("max_features", ["sqrt", "log2"]),
+                            )
+                            _rsf = RandomSurvivalForest(**params, n_jobs=-1, random_state=seed)
+                            print(f"[Trial {trial.number}] fitting...")
+                            _rsf.fit(np.asarray(X_train), y_train_structured)
+                            print(f"[Trial {trial.number}] done")
+                            return _rsf.score(X_eval, y_eval_structured)
+
+                        study_rsf_base.optimize(objective_rsf_base, n_trials=100, n_jobs=-1)
+                        best_rsf_base_params = {"n_jobs": -1, "random_state": seed, **study_rsf_base.best_params}
+                        save_params(ckpt_dir, "rsf_tuned_baseline", best_rsf_base_params)
+                        rsf_tuned_base = load_or_fit_rsf(
+                            rsf_tuned_base_path, RandomSurvivalForest(**best_rsf_base_params),
+                            np.asarray(X_train), y_train_structured,
+                            label="RSF Tuned baseline",
+                        )
+
+                    _surv_df_rsf_tuned_base_test = rsf_surv_to_df(rsf_tuned_base.predict_survival_function(X_test))
+                    c_train = concordance_td(rsf_surv_to_df(rsf_tuned_base.predict_survival_function(X_train)), t_train, y_train)
+                    c_test  = concordance_td(_surv_df_rsf_tuned_base_test, t_test, y_test)
+                    scores["train_tuned_rsf"].append(c_train)
+                    scores["test_tuned_rsf"].append(c_test)
+                    print(f"C-index train: {c_train:.4f}")
+                    print(f"C-index test:  {c_test:.4f}")
+                    save_survival_prediction(dataset_name, model, "rsf_tuned_baseline", preprocess_type, seed, fold_n, t_test, np.asarray(y_test), X_test_features, _surv_df_rsf_tuned_base_test)
+
             set_seed(seed=seed+fold+11)
             # ── SHAP computation ──────────────────────────────────────────────
             if compute_shap:
@@ -851,6 +973,19 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         print("  [SHAP] cox_baseline...")
                         sv = shap.KernelExplainer(_cph_base_fn, background).shap_values(X_shap_test, nsamples=100)
                         shap_fold_values["cox_baseline"].append(np.abs(sv).mean(axis=0))
+
+                        if tuning:
+                            print("  [SHAP] deepsurv_tuned_baseline...")
+                            sv = shap.KernelExplainer(
+                                lambda X, _n=deepsurv_tuned_base.net: _raw_net_risk(_n, X), background
+                            ).shap_values(X_shap_test, nsamples=100)
+                            shap_fold_values["deepsurv_tuned_baseline"].append(np.abs(sv).mean(axis=0))
+
+                            print("  [SHAP] rsf_tuned_baseline...")
+                            sv = shap.KernelExplainer(
+                                lambda X, _r=rsf_tuned_base: _r.predict(np.atleast_2d(np.asarray(X))), background
+                            ).shap_values(X_shap_test, nsamples=100)
+                            shap_fold_values["rsf_tuned_baseline"].append(np.abs(sv).mean(axis=0))
 
                     fold_shap = {key: shap_fold_values[key][-1] for key in shap_fold_values if shap_fold_values[key]}
                     dump(fold_shap, shap_cache_path)
@@ -978,6 +1113,12 @@ if __name__ == "__main__":
                 print_stats(f"{m} Test RSF",                 sc["test_tab_rsf"])
                 print_stats(f"{m} Train Cox",                sc["train_tab_cox"])
                 print_stats(f"{m} Test Cox",                 sc["test_tab_cox"])
+                if sc.get("train_tuned_deepsurv"):
+                    print_stats("Train Tuned DeepSurv",      sc["train_tuned_deepsurv"])
+                    print_stats("Test Tuned DeepSurv",       sc["test_tuned_deepsurv"])
+                if sc.get("train_tuned_rsf"):
+                    print_stats("Train Tuned RSF",           sc["train_tuned_rsf"])
+                    print_stats("Test Tuned RSF",            sc["test_tuned_rsf"])
                 if sc.get("train_deepsurv_vanilla"):
                     print_stats("Train DeepSurv Vanilla",    sc["train_deepsurv_vanilla"])
                     print_stats("Test DeepSurv Vanilla",     sc["test_deepsurv_vanilla"])
