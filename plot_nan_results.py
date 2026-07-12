@@ -18,8 +18,8 @@ DATASET_DISPLAY_NAME = {
 
 SURVIVAL_MODEL_ORDER = ["Cox", "Cox Simple", "Cox Vanilla", "RSF"]
 SURVIVAL_MODEL_DISPLAY_NAME = {
-    "Cox Simple": "DeepSurv Simple",
-    "Cox Vanilla": "DeepSurv Vanilla",
+    "Cox Simple": "DeepSurv Linear",
+    "Cox Vanilla": "DeepSurv MLP",
 }
 
 METHOD_ORDER = ["constant", "mean", "median", "knn", "imputer_bayesian", "embeddings"]
@@ -37,6 +37,16 @@ COMBO_COLORS = {
     ("HURRAH", "tabpfn"): "#08519c",
     ("OrmoniTirodei", "tabicl"): "#fd8d3c",
     ("OrmoniTirodei", "tabpfn"): "#a63603",
+}
+
+SUPTITLE_TEMPLATES = {
+    "en": "C-index Test — Robustness to Missingness  |  {dataset} / {model}",
+    "it": "C-index Test — Robustezza ai Dati Mancanti  |  {dataset} / {model}",
+}
+
+SUPTITLE_EMBEDDINGS_TEMPLATES = {
+    "en": "C-index Test — 'embeddings' Method Comparison Across Dataset/Model",
+    "it": "C-index Test — Confronto del Metodo 'embeddings' tra Dataset e Modello",
 }
 
 
@@ -166,42 +176,43 @@ def plot_per_file(dataset, model, data):
         print(f"  No survival models found, skipped: {dataset}/{model}")
         return
 
-    n_cols = 2
-    n_rows = (len(survival_models) + n_cols - 1) // n_cols
-    fig, axes = plt.subplots(n_rows, n_cols, figsize=(9 * n_cols, 6 * n_rows), squeeze=False)
-    flat_axes = axes.flatten()
-
-    for ax, survival_model in zip(flat_axes, survival_models):
-        plot_method_lines(
-            ax, test_data[survival_model], METHOD_ORDER,
-            color_of=lambda m: METHOD_COLORS[m],
-            label_of=lambda m: m,
-        )
-        ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=22, fontweight="bold")
-
-    for ax in flat_axes[len(survival_models):]:
-        ax.set_visible(False)
-
     display_name = DATASET_DISPLAY_NAME.get(dataset, dataset)
-    fig.suptitle(
-        f"C-index Test — Robustness to Missingness  |  {display_name} / {model.upper()}",
-        fontsize=25, fontweight="bold", y=1.02,
-    )
-    plt.tight_layout()
-
     out_dir = RESULTS_DIR / dataset / model / "aggregated"
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = f"results_nan_{dataset}_{model}_aggregated"
 
-    out_pdf = out_dir / f"{stem}.pdf"
-    plt.savefig(out_pdf, bbox_inches="tight")
-    print(f"  Saved: {out_pdf}")
+    for lang, suffix in (("en", ""), ("it", "_ita")):
+        n_cols = 2
+        n_rows = (len(survival_models) + n_cols - 1) // n_cols
+        fig, axes = plt.subplots(n_rows, n_cols, figsize=(9 * n_cols, 6 * n_rows), squeeze=False)
+        flat_axes = axes.flatten()
 
-    out_png = out_dir / f"{stem}.png"
-    plt.savefig(out_png, bbox_inches="tight", dpi=150)
-    print(f"  Saved: {out_png}")
+        for ax, survival_model in zip(flat_axes, survival_models):
+            plot_method_lines(
+                ax, test_data[survival_model], METHOD_ORDER,
+                color_of=lambda m: METHOD_COLORS[m],
+                label_of=lambda m: m,
+            )
+            ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=22, fontweight="bold")
 
-    plt.close(fig)
+        for ax in flat_axes[len(survival_models):]:
+            ax.set_visible(False)
+
+        fig.suptitle(
+            SUPTITLE_TEMPLATES[lang].format(dataset=display_name, model=model.upper()),
+            fontsize=25, fontweight="bold", y=1.02,
+        )
+        plt.tight_layout()
+
+        out_pdf = out_dir / f"{stem}{suffix}.pdf"
+        plt.savefig(out_pdf, bbox_inches="tight")
+        print(f"  Saved: {out_pdf}")
+
+        out_png = out_dir / f"{stem}{suffix}.png"
+        plt.savefig(out_png, bbox_inches="tight", dpi=150)
+        print(f"  Saved: {out_png}")
+
+        plt.close(fig)
 
 
 def plot_embeddings_comparison(all_data):
@@ -220,55 +231,56 @@ def plot_embeddings_comparison(all_data):
         print("  No data available for embeddings comparison plot")
         return
 
-    n_cols = 2
-    n_rows = (len(survival_models) + n_cols - 1) // n_cols
-    fig, axes = plt.subplots(n_rows, n_cols, figsize=(9 * n_cols, 6 * n_rows), squeeze=False)
-    flat_axes = axes.flatten()
+    for lang, suffix in (("en", ""), ("it", "_ita")):
+        n_cols = 2
+        n_rows = (len(survival_models) + n_cols - 1) // n_cols
+        fig, axes = plt.subplots(n_rows, n_cols, figsize=(9 * n_cols, 6 * n_rows), squeeze=False)
+        flat_axes = axes.flatten()
 
-    for ax, survival_model in zip(flat_axes, survival_models):
-        section_data = {}
-        color_map = {}
-        label_map = {}
-        for dataset, model in combos:
-            sm_data = all_data[(dataset, model)]["test"].get(survival_model)
-            if sm_data is None:
-                continue
-            combo_key = f"{dataset}|{model}"
-            display_name = DATASET_DISPLAY_NAME.get(dataset, dataset)
-            color_map[combo_key] = COMBO_COLORS.get((dataset, model), "#333333")
-            label_map[combo_key] = f"{display_name} / {model.upper()}"
-
-            for nr, methods in sm_data.items():
-                entry = methods.get("embeddings")
-                if entry is None:
+        for ax, survival_model in zip(flat_axes, survival_models):
+            section_data = {}
+            color_map = {}
+            label_map = {}
+            for dataset, model in combos:
+                sm_data = all_data[(dataset, model)]["test"].get(survival_model)
+                if sm_data is None:
                     continue
-                section_data.setdefault(nr, {})[combo_key] = entry
+                combo_key = f"{dataset}|{model}"
+                display_name = DATASET_DISPLAY_NAME.get(dataset, dataset)
+                color_map[combo_key] = COMBO_COLORS.get((dataset, model), "#333333")
+                label_map[combo_key] = f"{display_name} / {model.upper()}"
 
-        plot_method_lines(
-            ax, section_data, list(label_map.keys()),
-            color_of=lambda k: color_map[k],
-            label_of=lambda k: label_map[k],
+                for nr, methods in sm_data.items():
+                    entry = methods.get("embeddings")
+                    if entry is None:
+                        continue
+                    section_data.setdefault(nr, {})[combo_key] = entry
+
+            plot_method_lines(
+                ax, section_data, list(label_map.keys()),
+                color_of=lambda k: color_map[k],
+                label_of=lambda k: label_map[k],
+            )
+            ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=22, fontweight="bold")
+
+        for ax in flat_axes[len(survival_models):]:
+            ax.set_visible(False)
+
+        fig.suptitle(
+            SUPTITLE_EMBEDDINGS_TEMPLATES[lang],
+            fontsize=25, fontweight="bold", y=1.02,
         )
-        ax.set_title(SURVIVAL_MODEL_DISPLAY_NAME.get(survival_model, survival_model), fontsize=22, fontweight="bold")
+        plt.tight_layout()
 
-    for ax in flat_axes[len(survival_models):]:
-        ax.set_visible(False)
+        out_pdf = RESULTS_DIR / f"nan_embeddings_comparison{suffix}.pdf"
+        plt.savefig(out_pdf, bbox_inches="tight")
+        print(f"  Saved: {out_pdf}")
 
-    fig.suptitle(
-        "C-index Test — 'embeddings' Method Comparison Across Dataset/Model",
-        fontsize=25, fontweight="bold", y=1.02,
-    )
-    plt.tight_layout()
+        out_png = RESULTS_DIR / f"nan_embeddings_comparison{suffix}.png"
+        plt.savefig(out_png, bbox_inches="tight", dpi=150)
+        print(f"  Saved: {out_png}")
 
-    out_pdf = RESULTS_DIR / "nan_embeddings_comparison.pdf"
-    plt.savefig(out_pdf, bbox_inches="tight")
-    print(f"  Saved: {out_pdf}")
-
-    out_png = RESULTS_DIR / "nan_embeddings_comparison.png"
-    plt.savefig(out_png, bbox_inches="tight", dpi=150)
-    print(f"  Saved: {out_png}")
-
-    plt.close(fig)
+        plt.close(fig)
 
 
 def main():

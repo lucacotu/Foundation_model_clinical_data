@@ -15,6 +15,21 @@ DATASET_DISPLAY_NAMES = {
     "HURRAH": "URRAH",
 }
 
+SECTION_TITLE_TEMPLATES = {
+    "en": "Preprocessing: {section_label}",
+    "it": "Preprocessing: {section_label}",
+}
+
+SUPTITLE_TEMPLATES = {
+    "en": "C-index Test Results — {dataset} / {model}",
+    "it": "Risultati C-index Test — {dataset} / {model}",
+}
+
+SUPTITLE_COMBINED_TEMPLATES = {
+    "en": "C-index Test Results — {dataset} / TABPFN + TABICL",
+    "it": "Risultati C-index Test — {dataset} / TABPFN + TABICL",
+}
+
 
 def parse_results_file(filepath):
     """Parse aggregated results file, returning dict keyed by section name (-1, NaN)."""
@@ -111,13 +126,14 @@ def legend_label(name, model):
     return name
 
 
-def render_bars(ax, entries_data, section_label, legend_kwargs=None):
+def render_bars(ax, entries_data, section_label, legend_kwargs=None, lang="en"):
     """Draw one axis of bars from pre-built per-bar data.
 
     entries_data: list of dicts with keys mean, std, color, hatch, label.
     legend_kwargs: overrides merged into the default legend placement
       (loc="lower right", framealpha=0.8), e.g. to move a crowded legend
       outside the axes.
+    lang: "en" or "it", selects the axis title language.
     """
     means = np.array([e["mean"] for e in entries_data])
     stds = np.array([e["std"] for e in entries_data])
@@ -144,7 +160,7 @@ def render_bars(ax, entries_data, section_label, legend_kwargs=None):
     ax.set_xticklabels(labels, rotation=35, ha="right", fontsize=11)
     ax.tick_params(axis="y", labelsize=12)
     ax.set_ylabel("C-index (Test)", fontsize=15)
-    ax.set_title(f"Preprocessing: {section_label}", fontsize=17, fontweight="bold")
+    ax.set_title(SECTION_TITLE_TEMPLATES[lang].format(section_label=section_label), fontsize=17, fontweight="bold")
     ax.set_ylim(max(0, means.min() - stds.max() - 0.05), min(1.0, means.max() + stds.max() + 0.07))
     ax.grid(axis="y", linestyle="--", alpha=0.5)
     ax.spines["top"].set_visible(False)
@@ -165,7 +181,7 @@ def render_bars(ax, entries_data, section_label, legend_kwargs=None):
     ax.legend(handles=patches, **legend_options)
 
 
-def plot_section(entries, section_label, ax, model):
+def plot_section(entries, section_label, ax, model, lang="en"):
     test_entries = [e for e in entries if is_test_entry(e["name"])]
     if not test_entries:
         return
@@ -176,10 +192,10 @@ def plot_section(entries, section_label, ax, model):
         label = legend_label(e["name"], model)
         entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
 
-    render_bars(ax, entries_data, section_label)
+    render_bars(ax, entries_data, section_label, lang=lang)
 
 
-def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax):
+def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax, lang="en"):
     tabpfn_test = [e for e in tabpfn_entries if is_test_entry(e["name"])]
     tabicl_test = [e for e in tabicl_entries if is_test_entry(e["name"])]
 
@@ -206,7 +222,37 @@ def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax):
 
     render_bars(ax, entries_data, section_label, legend_kwargs={
         "loc": "upper left", "bbox_to_anchor": (1.01, 1.0), "borderaxespad": 0,
-    })
+    }, lang=lang)
+
+
+def render_and_save(sections_items, section_plot_fn, suptitle_templates, suptitle_kwargs, out_dir, stem):
+    """Build a figure with one subplot per item in sections_items and save pdf/png for en/it.
+
+    sections_items: list of tuples; each is unpacked and passed to
+      section_plot_fn(*item, ax, lang) to render one subplot.
+    """
+    for lang, suffix in (("en", ""), ("it", "_ita")):
+        n_sections = len(sections_items)
+        fig, axes = plt.subplots(n_sections, 1, figsize=(10, 6 * n_sections), squeeze=False)
+
+        for ax, item in zip(axes[:, 0], sections_items):
+            section_plot_fn(*item, ax, lang)
+
+        fig.suptitle(
+            suptitle_templates[lang].format(**suptitle_kwargs),
+            fontsize=19, fontweight="bold", y=1.01,
+        )
+        plt.tight_layout()
+
+        out_pdf = out_dir / f"{stem}{suffix}.pdf"
+        plt.savefig(out_pdf, bbox_inches="tight")
+        print(f"  Saved: {out_pdf}")
+
+        out_png = out_dir / f"{stem}{suffix}.png"
+        plt.savefig(out_png, bbox_inches="tight", dpi=150)
+        print(f"  Saved: {out_png}")
+
+        plt.close(fig)
 
 
 def plot_file(filepath: Path, dataset: str, model: str):
@@ -216,32 +262,25 @@ def plot_file(filepath: Path, dataset: str, model: str):
         print(f"  No sections found, skipped: {filepath.name}")
         return
 
-    n_sections = len(sections)
-    fig, axes = plt.subplots(n_sections, 1, figsize=(10, 6 * n_sections), squeeze=False)
-
-    for ax, (section_key, entries) in zip(axes[:, 0], sections.items()):
-        plot_section(entries, section_key, ax, model)
-
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
-    fig.suptitle(
-        f"C-index Test Results — {display_dataset} / {model}",
-        fontsize=19, fontweight="bold", y=1.01,
-    )
-    plt.tight_layout()
-
     out_dir = RESULTS_DIR / dataset / model / "aggregated"
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = filepath.stem  # e.g. results_aggregated_{dataset}_{model}
 
-    out_pdf = out_dir / f"{stem}.pdf"
-    plt.savefig(out_pdf, bbox_inches="tight")
-    print(f"  Saved: {out_pdf}")
+    def section_plot_fn(section_key, entries, ax, lang):
+        plot_section(entries, section_key, ax, model, lang=lang)
 
-    out_png = out_dir / f"{stem}.png"
-    plt.savefig(out_png, bbox_inches="tight", dpi=150)
-    print(f"  Saved: {out_png}")
+    suptitle_kwargs = {"dataset": display_dataset, "model": model}
 
-    plt.close(fig)
+    # Combined figure: all sections stacked (unchanged behavior)
+    render_and_save(list(sections.items()), section_plot_fn, SUPTITLE_TEMPLATES, suptitle_kwargs, out_dir, stem)
+
+    # Individual figure per section (-1, NaN, ...)
+    for section_key, entries in sections.items():
+        render_and_save(
+            [(section_key, entries)], section_plot_fn, SUPTITLE_TEMPLATES, suptitle_kwargs,
+            out_dir, f"{stem}_preprocess{section_key}",
+        )
 
 
 def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path):
@@ -260,32 +299,28 @@ def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path):
         print(f"  No common sections between tabpfn and tabicl for dataset {dataset}, skipped combined plot")
         return
 
-    n_sections = len(common_sections)
-    fig, axes = plt.subplots(n_sections, 1, figsize=(10, 6 * n_sections), squeeze=False)
-
-    for ax, section_key in zip(axes[:, 0], common_sections):
-        plot_combined_section(tabpfn_sections[section_key], tabicl_sections[section_key], section_key, ax)
-
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
-    fig.suptitle(
-        f"C-index Test Results — {display_dataset} / TABPFN + TABICL",
-        fontsize=19, fontweight="bold", y=1.01,
-    )
-    plt.tight_layout()
-
     out_dir = RESULTS_DIR / dataset / "aggregated"
     out_dir.mkdir(parents=True, exist_ok=True)
     stem = f"results_aggregated_{dataset}_combined"
 
-    out_pdf = out_dir / f"{stem}.pdf"
-    plt.savefig(out_pdf, bbox_inches="tight")
-    print(f"  Saved: {out_pdf}")
+    def section_plot_fn(section_key, ax, lang):
+        plot_combined_section(tabpfn_sections[section_key], tabicl_sections[section_key], section_key, ax, lang=lang)
 
-    out_png = out_dir / f"{stem}.png"
-    plt.savefig(out_png, bbox_inches="tight", dpi=150)
-    print(f"  Saved: {out_png}")
+    suptitle_kwargs = {"dataset": display_dataset}
 
-    plt.close(fig)
+    # Combined figure: all common sections stacked (unchanged behavior)
+    render_and_save(
+        [(key,) for key in common_sections], section_plot_fn, SUPTITLE_COMBINED_TEMPLATES, suptitle_kwargs,
+        out_dir, stem,
+    )
+
+    # Individual figure per section (-1, NaN, ...)
+    for section_key in common_sections:
+        render_and_save(
+            [(section_key,)], section_plot_fn, SUPTITLE_COMBINED_TEMPLATES, suptitle_kwargs,
+            out_dir, f"{stem}_preprocess{section_key}",
+        )
 
 
 def main():

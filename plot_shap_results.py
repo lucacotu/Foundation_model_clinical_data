@@ -62,6 +62,23 @@ MODEL_COLOR = {
     "cox_baseline": "#74c476",
 }
 
+# "Preprocessing" is kept untranslated in both languages.
+BAR_SUPTITLE_TEMPLATES = {
+    "en": "SHAP Feature Importance (Top {top_n}) — {dataset} | {model} | Preprocessing: {preprocess}",
+    "it": "Importanza delle Feature SHAP (Prime {top_n}) — {dataset} | {model} | Preprocessing: {preprocess}",
+}
+
+HEATMAP_TITLE_TEMPLATES = {
+    "en": (
+        "SHAP Feature Importance — {dataset} | TabICL + TabPFN | Preprocessing: {preprocess}\n"
+        "Top {top_n} features per model, normalized per model"
+    ),
+    "it": (
+        "Importanza delle Feature SHAP — {dataset} | TabICL + TabPFN | Preprocessing: {preprocess}\n"
+        "Prime {top_n} feature per modello, normalizzate per modello"
+    ),
+}
+
 
 def clean_name(name: str) -> str:
     return name.replace("\n", " ")
@@ -181,7 +198,7 @@ def plot_heatmap(
     plt.close(fig)
 
 
-def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str, out_dir: Path) -> None:
+def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str, out_dir: Path, lang: str = "en") -> None:
     """Faceted horizontal bar charts: one panel per model, top-N features."""
     models = list(model_data.keys())
     ncols = 3
@@ -226,12 +243,13 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
 
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
     fig.suptitle(
-        f"SHAP Feature Importance (Top {TOP_N}) — {display_dataset} | {model} | Preprocessing: {preprocess}",
+        BAR_SUPTITLE_TEMPLATES[lang].format(top_n=TOP_N, dataset=display_dataset, model=model, preprocess=preprocess),
         fontsize=19, fontweight="bold", y=1.01,
     )
 
     plt.tight_layout()
-    stem = f"shap_{dataset}_{model}_bars_preprocess{preprocess}"
+    suffix = "" if lang == "en" else "_ita"
+    stem = f"shap_{dataset}_{model}_bars_preprocess{preprocess}{suffix}"
     for ext in ("pdf", "png"):
         path = out_dir / f"{stem}.{ext}"
         plt.savefig(path, bbox_inches="tight", dpi=150 if ext == "png" else 72)
@@ -240,7 +258,7 @@ def plot_bar_charts(model_data: dict, preprocess: str, dataset: str, model: str,
 
 
 def plot_combined_heatmap(
-    tabicl_data: dict, tabpfn_data: dict, preprocess: str, dataset: str, out_dir: Path
+    tabicl_data: dict, tabpfn_data: dict, preprocess: str, dataset: str, out_dir: Path, lang: str = "en"
 ) -> None:
     """Heatmap merging TabICL and TabPFN foundation-model columns, sharing one baseline group."""
     merged_model_data: dict = {}
@@ -262,11 +280,9 @@ def plot_combined_heatmap(
         xtick_labels.append(MODEL_DISPLAY.get(key, key))
 
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
-    title = (
-        f"SHAP Feature Importance — {display_dataset} | TabICL + TabPFN | Preprocessing: {preprocess}\n"
-        f"Top {TOP_N} features per model, normalized per model"
-    )
-    stem = f"shap_{dataset}_combined_heatmap_preprocess{preprocess}"
+    title = HEATMAP_TITLE_TEMPLATES[lang].format(dataset=display_dataset, preprocess=preprocess, top_n=TOP_N)
+    suffix = "" if lang == "en" else "_ita"
+    stem = f"shap_{dataset}_combined_heatmap_preprocess{preprocess}{suffix}"
     plot_heatmap(merged_model_data, list(merged_model_data.keys()), xtick_labels, title, stem, out_dir)
 
 
@@ -298,7 +314,8 @@ def main() -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
         for preprocess, model_data in all_data.items():
             print(f"  Preprocessing: {preprocess}  ({len(model_data)} models)")
-            plot_bar_charts(model_data, preprocess, dataset_name, model_name, out_dir)
+            for lang in ("en", "it"):
+                plot_bar_charts(model_data, preprocess, dataset_name, model_name, out_dir, lang=lang)
 
     for dataset_name, per_model in dataset_data.items():
         if "tabicl" not in per_model or "tabpfn" not in per_model:
@@ -309,11 +326,12 @@ def main() -> None:
         out_dir.mkdir(parents=True, exist_ok=True)
         preprocesses = sorted(set(per_model["tabicl"]) | set(per_model["tabpfn"]))
         for preprocess in preprocesses:
-            plot_combined_heatmap(
-                per_model["tabicl"].get(preprocess, {}),
-                per_model["tabpfn"].get(preprocess, {}),
-                preprocess, dataset_name, out_dir,
-            )
+            for lang in ("en", "it"):
+                plot_combined_heatmap(
+                    per_model["tabicl"].get(preprocess, {}),
+                    per_model["tabpfn"].get(preprocess, {}),
+                    preprocess, dataset_name, out_dir, lang=lang,
+                )
 
 
 if __name__ == "__main__":

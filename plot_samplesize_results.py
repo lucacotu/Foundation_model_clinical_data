@@ -58,6 +58,17 @@ DATASET_DISPLAY_NAMES = {
     "HURRAH": "URRAH",
 }
 
+# "Preprocessing" is kept untranslated in both languages.
+SECTION_TITLE_TEMPLATES = {
+    "en": "Preprocessing: {section_label}",
+    "it": "Preprocessing: {section_label}",
+}
+
+SUPTITLE_TEMPLATES = {
+    "en": "C-index Test — Sample Size Effect  |  {dataset} / {model}",
+    "it": "C-index Test — Effetto della Dimensione del Training Set  |  {dataset} / {model}",
+}
+
 
 def display_dataset_name(dataset):
     return DATASET_DISPLAY_NAMES.get(dataset, dataset)
@@ -125,7 +136,7 @@ def legend_label(name, model):
         return name
 
 
-def plot_section(prep_data, section_label, ax, model):
+def plot_section(prep_data, section_label, ax, model, lang="en"):
     sample_sizes = sorted(prep_data.keys())
     # Use evenly-spaced indices so that close values (e.g. 5000 vs 5161) don't overlap
     x_positions = np.arange(len(sample_sizes))
@@ -185,7 +196,7 @@ def plot_section(prep_data, section_label, ax, model):
     ax.tick_params(axis="y", labelsize=12)
     ax.set_xlabel("Sample size (actual mean)", fontsize=14)
     ax.set_ylabel("C-index (Test)", fontsize=14)
-    ax.set_title(f"Preprocessing: {section_label}", fontsize=16, fontweight="bold")
+    ax.set_title(SECTION_TITLE_TEMPLATES[lang].format(section_label=section_label), fontsize=16, fontweight="bold")
     ax.set_ylim(y_min, y_max)
     ax.grid(axis="both", linestyle="--", alpha=0.4)
     ax.spines["top"].set_visible(False)
@@ -199,24 +210,26 @@ def plot_file(filepath: Path, dataset: str, model: str):
         print(f"  No data found, skipped: {filepath.name}")
         return
 
-    n_sections = len(data)
-    fig, axes = plt.subplots(1, n_sections, figsize=(9 * n_sections, 6), squeeze=False)
-
-    for ax, (prep_key, prep_data) in zip(axes[0], data.items()):
-        plot_section(prep_data, prep_key, ax, model)
-
-    fig.suptitle(
-        f"C-index Test — Sample Size Effect  |  {display_dataset_name(dataset)} / {model.upper()}",
-        fontsize=19, fontweight="bold", y=1.01,
-    )
-    plt.tight_layout()
-
     out_dir = RESULTS_DIR / dataset / model / "aggregated"
     out_dir.mkdir(parents=True, exist_ok=True)
-    out_pdf = out_dir / f"results_samplesize_{dataset}_{model}_aggregated.pdf"
-    plt.savefig(out_pdf, bbox_inches="tight")
-    print(f"  Saved: {out_pdf}")
-    plt.close(fig)
+
+    for lang, suffix in (("en", ""), ("it", "_ita")):
+        n_sections = len(data)
+        fig, axes = plt.subplots(1, n_sections, figsize=(9 * n_sections, 6), squeeze=False)
+
+        for ax, (prep_key, prep_data) in zip(axes[0], data.items()):
+            plot_section(prep_data, prep_key, ax, model, lang=lang)
+
+        fig.suptitle(
+            SUPTITLE_TEMPLATES[lang].format(dataset=display_dataset_name(dataset), model=model.upper()),
+            fontsize=19, fontweight="bold", y=1.01,
+        )
+        plt.tight_layout()
+
+        out_pdf = out_dir / f"results_samplesize_{dataset}_{model}_aggregated{suffix}.pdf"
+        plt.savefig(out_pdf, bbox_inches="tight")
+        print(f"  Saved: {out_pdf}")
+        plt.close(fig)
 
 
 def main():
