@@ -116,9 +116,9 @@ def legend_label(name, model):
     name_lower = name.lower()
     if name_lower.startswith(model.lower()):
         if "vanilla" in name_lower:
-            return f"{m_up} + DS-Vanilla"
+            return f"{m_up} + DS-MLP"
         if "simple" in name_lower:
-            return f"{m_up} + DS-Simple"
+            return f"{m_up} + DS-linear"
         if "rsf" in name_lower:
             return f"{m_up} + RSF"
         if "cox" in name_lower:
@@ -126,9 +126,9 @@ def legend_label(name, model):
         return name
     else:
         if "vanilla" in name_lower:
-            return "DS-Vanilla (base)"
+            return "DS-MLP (base)"
         if "simple" in name_lower:
-            return "DS-Simple (base)"
+            return "DS-linear  (base)"
         if "rsf" in name_lower:
             return "RSF (base)"
         if "cox" in name_lower:
