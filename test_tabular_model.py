@@ -558,7 +558,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         print(f"[Trial {trial.number}] done")
                         return _rsf.score(eval_emb, y_eval_structured)
 
-                    study_rsf.optimize(objective_rsf, n_trials=100, n_jobs=-1)
+                    study_rsf.optimize(objective_rsf, n_trials=100, n_jobs=1)
                     best_rsf_params = {"n_jobs": -1, "random_state": seed, **study_rsf.best_params}
                     save_params(ckpt_dir, f"{model}_rsf_tuned", best_rsf_params)
                     rsf_tuned = load_or_fit_rsf(
@@ -844,7 +844,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                             print(f"[Trial {trial.number}] done")
                             return _rsf.score(X_eval, y_eval_structured)
 
-                        study_rsf_base.optimize(objective_rsf_base, n_trials=100, n_jobs=-1)
+                        study_rsf_base.optimize(objective_rsf_base, n_trials=100, n_jobs=1)
                         best_rsf_base_params = {"n_jobs": -1, "random_state": seed, **study_rsf_base.best_params}
                         save_params(ckpt_dir, "rsf_tuned_baseline", best_rsf_base_params)
                         rsf_tuned_base = load_or_fit_rsf(
