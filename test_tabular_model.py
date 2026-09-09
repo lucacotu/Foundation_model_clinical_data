@@ -239,7 +239,8 @@ def get_or_create_folds(X, dataset_name="dataset", seed=42, n_splits=5, base_pat
 
 def print_stats(label, values):
     arr = np.array(values)
-    print(f"  {label:10s} → mean: {arr.mean():.6f} | std: {arr.std():.6f} | min: {arr.min():.6f} | max: {arr.max():.6f}")
+    folds_str = ", ".join(f"{v:.6f}" for v in arr)
+    print(f"  {label:10s} → mean: {arr.mean():.6f} | std: {arr.std():.6f} | min: {arr.min():.6f} | max: {arr.max():.6f} | folds: [{folds_str}]")
 
 
 class Tee:
