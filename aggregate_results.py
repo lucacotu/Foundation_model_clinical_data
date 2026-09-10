@@ -1,8 +1,13 @@
+import math
 import re
+import statistics
 from collections import defaultdict
 from pathlib import Path
 
+from scipy import stats
+
 RESULTS_DIR = Path("results")
+CONFIDENCE_LEVEL = 0.95
 
 # matches: results_cv_{dataset}_{model}_seed{seed}.txt
 # dataset may contain underscores; model is the last token before _seed
@@ -45,6 +50,18 @@ def parse_file(path: Path) -> dict:
     return results
 
 
+def confidence_interval(values: list[float], confidence: float = CONFIDENCE_LEVEL):
+    """CI (t-Student) sulla media di `values`. Ritorna (ci_low, ci_high, margin)."""
+    n = len(values)
+    mean = sum(values) / n
+    if n < 2:
+        return mean, mean, 0.0
+    sem = statistics.stdev(values) / math.sqrt(n)
+    t_crit = stats.t.ppf((1 + confidence) / 2, df=n - 1)
+    margin = t_crit * sem
+    return mean - margin, mean + margin, margin
+
+
 def aggregate(all_parsed: list[dict]) -> dict:
     """Media su tutti i file per ogni (key, metric)."""
     agg = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
@@ -58,18 +75,24 @@ def aggregate(all_parsed: list[dict]) -> dict:
     final = {}
     for key, metrics in agg.items():
         final[key] = {}
-        for name, stats in metrics.items():
+        for name, stat_lists in metrics.items():
+            means = stat_lists["mean"]
+            ci_low, ci_high, ci_margin = confidence_interval(means)
             final[key][name] = {
-                "mean": sum(stats["mean"]) / len(stats["mean"]),
-                "std":  sum(stats["std"])  / len(stats["std"]),
-                "min":  min(stats["min"]),
-                "max":  max(stats["max"]),
-                "n":    len(stats["mean"]),
+                "mean":     sum(means) / len(means),
+                "std":      sum(stat_lists["std"]) / len(stat_lists["std"]),
+                "min":      min(stat_lists["min"]),
+                "max":      max(stat_lists["max"]),
+                "n":        len(means),
+                "ci_low":   ci_low,
+                "ci_high":  ci_high,
+                "ci_margin": ci_margin,
             }
     return final
 
 
 def format_results(final: dict, n_files: int, dataset: str, model: str) -> str:
+    ci_pct = int(round(CONFIDENCE_LEVEL * 100))
     lines = []
     lines.append("═" * 52)
     lines.append(f"AGGREGATED RESULTS — {dataset} / {model} — {n_files} files")
@@ -84,7 +107,8 @@ def format_results(final: dict, n_files: int, dataset: str, model: str) -> str:
                 f"mean: {v['mean']:.6f} | "
                 f"std: {v['std']:.6f} | "
                 f"min: {v['min']:.6f} | "
-                f"max: {v['max']:.6f}  "
+                f"max: {v['max']:.6f} | "
+                f"CI{ci_pct}%: [{v['ci_low']:.6f}, {v['ci_high']:.6f}] (±{v['ci_margin']:.6f})  "
                 f"(n={v['n']})"
             )
 

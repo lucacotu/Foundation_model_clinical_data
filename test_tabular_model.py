@@ -867,6 +867,7 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
             # ── SHAP computation ──────────────────────────────────────────────
             if compute_shap:
                 shap_cache_path = ckpt_dir / "shap_values.pkl"
+                shap_tmp_path = ckpt_dir / "shap_values.tmp.pkl"
                 if shap_cache_path.exists():
                     print(f"  [SHAP] Fold {fold_n}: loading cached values from {shap_cache_path}")
                     cached = load(shap_cache_path)
@@ -875,6 +876,19 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                             shap_fold_values[key].append(val)
                 else:
                     print(f"\n[SHAP] Fold {fold_n}: computing SHAP values...")
+                    partial_shap = load(shap_tmp_path) if shap_tmp_path.exists() else {}
+                    if partial_shap:
+                        print(f"  [SHAP] Fold {fold_n}: resuming from {shap_tmp_path} ({len(partial_shap)} model(s) already computed)")
+
+                    def _shap_step(key, compute_fn):
+                        if key in partial_shap:
+                            print(f"  [SHAP] {key}... (resumed from checkpoint)")
+                            return partial_shap[key]
+                        print(f"  [SHAP] {key}...")
+                        val = np.abs(compute_fn()).mean(axis=0)
+                        partial_shap[key] = val
+                        dump(partial_shap, shap_tmp_path)
+                        return val
                     if model == "tabdpt":
                         X_train_shap = pd.DataFrame(X_train, columns=feature_names_shap)
                         X_test_shap  = pd.DataFrame(X_test,  columns=feature_names_shap)
@@ -920,50 +934,50 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                     for key, net_ref in [("deepsurv_simple", _shap_simple_emb.net), ("deepsurv_vanilla", _shap_vanilla_emb.net)]:
                         def _fn(X_np, _n=net_ref):
                             return _emb_net_risk(_n, X_np)
-                        print(f"  [SHAP] {key}...")
-                        sv = shap.KernelExplainer(_fn, background).shap_values(X_shap_test, nsamples=100)
-                        shap_fold_values[key].append(np.abs(sv).mean(axis=0))
+                        shap_fold_values[key].append(_shap_step(
+                            key, lambda: shap.KernelExplainer(_fn, background).shap_values(X_shap_test, nsamples=100)
+                        ))
 
                     if tuning:
                         def _fn_tuned(X_np, _n=_shap_tuned_emb.net):
                             return _emb_net_risk(_n, X_np)
-                        print("  [SHAP] deepsurv_tuned...")
-                        sv = shap.KernelExplainer(_fn_tuned, background).shap_values(X_shap_test, nsamples=100)
-                        shap_fold_values["deepsurv_tuned"].append(np.abs(sv).mean(axis=0))
+                        shap_fold_values["deepsurv_tuned"].append(_shap_step(
+                            "deepsurv_tuned", lambda: shap.KernelExplainer(_fn_tuned, background).shap_values(X_shap_test, nsamples=100)
+                        ))
 
-                        print("  [SHAP] rsf_tuned...")
-                        sv = shap.KernelExplainer(
-                            lambda X, _r=_shap_rsf_tuned_emb: _r.predict(_embed_fn(X)), background
+                        shap_fold_values["rsf_tuned"].append(_shap_step(
+                            "rsf_tuned", lambda: shap.KernelExplainer(
+                                lambda X, _r=_shap_rsf_tuned_emb: _r.predict(_embed_fn(X)), background
+                            ).shap_values(X_shap_test, nsamples=100)
+                        ))
+
+                    shap_fold_values["rsf"].append(_shap_step(
+                        "rsf", lambda: shap.KernelExplainer(
+                            lambda X, _r=_shap_rsf_emb: _r.predict(_embed_fn(X)), background
                         ).shap_values(X_shap_test, nsamples=100)
-                        shap_fold_values["rsf_tuned"].append(np.abs(sv).mean(axis=0))
+                    ))
 
-                    print("  [SHAP] rsf (embedding)...")
-                    sv = shap.KernelExplainer(
-                        lambda X, _r=_shap_rsf_emb: _r.predict(_embed_fn(X)), background
-                    ).shap_values(X_shap_test, nsamples=100)
-                    shap_fold_values["rsf"].append(np.abs(sv).mean(axis=0))
-
-                    print("  [SHAP] cox (embedding)...")
-                    sv = shap.KernelExplainer(
-                        lambda X, _c=_shap_cph_emb: _c.predict_partial_hazard(pd.DataFrame(_embed_fn(X))).values,
-                        background,
-                    ).shap_values(X_shap_test, nsamples=100)
-                    shap_fold_values["cox"].append(np.abs(sv).mean(axis=0))
+                    shap_fold_values["cox"].append(_shap_step(
+                        "cox", lambda: shap.KernelExplainer(
+                            lambda X, _c=_shap_cph_emb: _c.predict_partial_hazard(pd.DataFrame(_embed_fn(X))).values,
+                            background,
+                        ).shap_values(X_shap_test, nsamples=100)
+                    ))
 
                     if preprocess_type != "NaN":
                         for key, net_ref in [("deepsurv_vanilla_baseline", deepsurv_vanilla_base.net),
                                              ("deepsurv_simple_baseline",  deepsurv_simple_base.net)]:
                             def _fn_base(X_np, _n=net_ref):
                                 return _raw_net_risk(_n, X_np)
-                            print(f"  [SHAP] {key}...")
-                            sv = shap.KernelExplainer(_fn_base, background).shap_values(X_shap_test, nsamples=100)
-                            shap_fold_values[key].append(np.abs(sv).mean(axis=0))
+                            shap_fold_values[key].append(_shap_step(
+                                key, lambda: shap.KernelExplainer(_fn_base, background).shap_values(X_shap_test, nsamples=100)
+                            ))
 
-                        print("  [SHAP] rsf_baseline...")
-                        sv = shap.KernelExplainer(
-                            lambda X, _r=rsf_base: _r.predict(np.atleast_2d(np.asarray(X))), background
-                        ).shap_values(X_shap_test, nsamples=100)
-                        shap_fold_values["rsf_baseline"].append(np.abs(sv).mean(axis=0))
+                        shap_fold_values["rsf_baseline"].append(_shap_step(
+                            "rsf_baseline", lambda: shap.KernelExplainer(
+                                lambda X, _r=rsf_base: _r.predict(np.atleast_2d(np.asarray(X))), background
+                            ).shap_values(X_shap_test, nsamples=100)
+                        ))
 
                         if model == "tabdpt":
                             def _cph_base_fn(X_np, _c=cph_base):
@@ -971,25 +985,26 @@ def main(dataset_name, feature_event, feature_time, seed, model, tuning=False, c
                         else:
                             def _cph_base_fn(X_np, _c=cph_base):
                                 return _c.predict_partial_hazard(pd.DataFrame(np.atleast_2d(np.asarray(X_np, dtype=float)), columns=feature_names_shap)).values
-                        print("  [SHAP] cox_baseline...")
-                        sv = shap.KernelExplainer(_cph_base_fn, background).shap_values(X_shap_test, nsamples=100)
-                        shap_fold_values["cox_baseline"].append(np.abs(sv).mean(axis=0))
+                        shap_fold_values["cox_baseline"].append(_shap_step(
+                            "cox_baseline", lambda: shap.KernelExplainer(_cph_base_fn, background).shap_values(X_shap_test, nsamples=100)
+                        ))
 
                         if tuning:
-                            print("  [SHAP] deepsurv_tuned_baseline...")
-                            sv = shap.KernelExplainer(
-                                lambda X, _n=deepsurv_tuned_base.net: _raw_net_risk(_n, X), background
-                            ).shap_values(X_shap_test, nsamples=100)
-                            shap_fold_values["deepsurv_tuned_baseline"].append(np.abs(sv).mean(axis=0))
+                            shap_fold_values["deepsurv_tuned_baseline"].append(_shap_step(
+                                "deepsurv_tuned_baseline", lambda: shap.KernelExplainer(
+                                    lambda X, _n=deepsurv_tuned_base.net: _raw_net_risk(_n, X), background
+                                ).shap_values(X_shap_test, nsamples=100)
+                            ))
 
-                            print("  [SHAP] rsf_tuned_baseline...")
-                            sv = shap.KernelExplainer(
-                                lambda X, _r=rsf_tuned_base: _r.predict(np.atleast_2d(np.asarray(X))), background
-                            ).shap_values(X_shap_test, nsamples=100)
-                            shap_fold_values["rsf_tuned_baseline"].append(np.abs(sv).mean(axis=0))
+                            shap_fold_values["rsf_tuned_baseline"].append(_shap_step(
+                                "rsf_tuned_baseline", lambda: shap.KernelExplainer(
+                                    lambda X, _r=rsf_tuned_base: _r.predict(np.atleast_2d(np.asarray(X))), background
+                                ).shap_values(X_shap_test, nsamples=100)
+                            ))
 
                     fold_shap = {key: shap_fold_values[key][-1] for key in shap_fold_values if shap_fold_values[key]}
                     dump(fold_shap, shap_cache_path)
+                    shap_tmp_path.unlink(missing_ok=True)
                     print(f"  [SHAP] Fold {fold_n}: values cached → {shap_cache_path}")
 
 
