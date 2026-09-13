@@ -1,28 +1,40 @@
 
   Preprocess: -1 | Seed: 789
-  TABDPT Train Vanilla → mean: 0.845817 | std: 0.010295 | min: 0.827613 | max: 0.859461
-  TABDPT Test Vanilla → mean: 0.812910 | std: 0.011147 | min: 0.795554 | max: 0.827603
-  TABDPT Train Simple → mean: 0.826472 | std: 0.007296 | min: 0.818734 | max: 0.838642
-  TABDPT Test Simple → mean: 0.799797 | std: 0.015780 | min: 0.772346 | max: 0.814148
-  TABDPT Train RSF → mean: 0.951513 | std: 0.001111 | min: 0.950056 | max: 0.952832
-  TABDPT Test RSF → mean: 0.811146 | std: 0.008156 | min: 0.803020 | max: 0.825995
-  TABDPT Train Cox → mean: 0.842374 | std: 0.001870 | min: 0.838853 | max: 0.844133
-  TABDPT Test Cox → mean: 0.796399 | std: 0.010268 | min: 0.779825 | max: 0.810697
-  Train DeepSurv Vanilla → mean: 0.855556 | std: 0.004126 | min: 0.848215 | max: 0.859308
-  Test DeepSurv Vanilla → mean: 0.846509 | std: 0.005824 | min: 0.837778 | max: 0.855865
-  Train DeepSurv Simple → mean: 0.833785 | std: 0.000872 | min: 0.832938 | max: 0.835103
-  Test DeepSurv Simple → mean: 0.831386 | std: 0.010653 | min: 0.821567 | max: 0.851758
-  Train RSF  → mean: 0.941879 | std: 0.000923 | min: 0.940890 | max: 0.943483
-  Test RSF   → mean: 0.852016 | std: 0.005141 | min: 0.844914 | max: 0.859573
-  Train Cox  → mean: 0.828071 | std: 0.002022 | min: 0.824145 | max: 0.829873
-  Test Cox   → mean: 0.826989 | std: 0.010303 | min: 0.817964 | max: 0.846840
+  TABDPT Train Tuned DeepSurv → mean: 0.845429 | std: 0.004362 | min: 0.839159 | max: 0.851636 | folds: [0.839159, 0.842113, 0.851636, 0.846575, 0.847662]
+  TABDPT Test Tuned DeepSurv → mean: 0.816572 | std: 0.008950 | min: 0.805112 | max: 0.831009 | folds: [0.805112, 0.820912, 0.831009, 0.810158, 0.815669]
+  TABDPT Train Tuned RSF → mean: 0.842716 | std: 0.018277 | min: 0.811210 | max: 0.857281 | folds: [0.857281, 0.811210, 0.855906, 0.832666, 0.856518]
+  TABDPT Test Tuned RSF → mean: 0.823106 | std: 0.008982 | min: 0.810154 | max: 0.837381 | folds: [0.810154, 0.825004, 0.837381, 0.818099, 0.824890]
+  TABDPT Train Vanilla → mean: 0.845817 | std: 0.010295 | min: 0.827613 | max: 0.859461 | folds: [0.827613, 0.848919, 0.847475, 0.845619, 0.859461]
+  TABDPT Test Vanilla → mean: 0.812910 | std: 0.011147 | min: 0.795554 | max: 0.827603 | folds: [0.795554, 0.818577, 0.827603, 0.805597, 0.817218]
+  TABDPT Train Simple → mean: 0.826472 | std: 0.007296 | min: 0.818734 | max: 0.838642 | folds: [0.818734, 0.821327, 0.822861, 0.838642, 0.830795]
+  TABDPT Test Simple → mean: 0.799797 | std: 0.015780 | min: 0.772346 | max: 0.814148 | folds: [0.791854, 0.809578, 0.772346, 0.811058, 0.814148]
+  TABDPT Train RSF → mean: 0.951513 | std: 0.001111 | min: 0.950056 | max: 0.952832 | folds: [0.951923, 0.950056, 0.952404, 0.952832, 0.950351]
+  TABDPT Test RSF → mean: 0.811146 | std: 0.008156 | min: 0.803020 | max: 0.825995 | folds: [0.803020, 0.808924, 0.825995, 0.804957, 0.812834]
+  TABDPT Train Cox → mean: 0.842374 | std: 0.001870 | min: 0.838853 | max: 0.844133 | folds: [0.842364, 0.842799, 0.838853, 0.844133, 0.843721]
+  TABDPT Test Cox → mean: 0.796399 | std: 0.010268 | min: 0.779825 | max: 0.810697 | folds: [0.779825, 0.810697, 0.802695, 0.794000, 0.794778]
+  Train Tuned DeepSurv → mean: 0.768674 | std: 0.133244 | min: 0.502965 | max: 0.852754 | folds: [0.828869, 0.852754, 0.502965, 0.836547, 0.822234]
+  Test Tuned DeepSurv → mean: 0.763071 | std: 0.130264 | min: 0.502854 | max: 0.838363 | folds: [0.821397, 0.838363, 0.502854, 0.831174, 0.821568]
+  Train Tuned RSF → mean: 0.931283 | std: 0.004494 | min: 0.924342 | max: 0.936592 | folds: [0.933426, 0.934182, 0.927875, 0.924342, 0.936592]
+  Test Tuned RSF → mean: 0.853983 | std: 0.005295 | min: 0.847017 | max: 0.860435 | folds: [0.857256, 0.847017, 0.860435, 0.848391, 0.856817]
+  Train DeepSurv Vanilla → mean: 0.855556 | std: 0.004126 | min: 0.848215 | max: 0.859308 | folds: [0.859308, 0.859011, 0.848215, 0.857233, 0.854013]
+  Test DeepSurv Vanilla → mean: 0.846509 | std: 0.005824 | min: 0.837778 | max: 0.855865 | folds: [0.837778, 0.844392, 0.855865, 0.846925, 0.847586]
+  Train DeepSurv Simple → mean: 0.833785 | std: 0.000872 | min: 0.832938 | max: 0.835103 | folds: [0.833351, 0.833007, 0.835103, 0.834528, 0.832938]
+  Test DeepSurv Simple → mean: 0.831386 | std: 0.010653 | min: 0.821567 | max: 0.851758 | folds: [0.821567, 0.825556, 0.851758, 0.831352, 0.826698]
+  Train RSF  → mean: 0.920023 | std: 0.000938 | min: 0.919182 | max: 0.921756 | folds: [0.921756, 0.919519, 0.919403, 0.920253, 0.919182]
+  Test RSF   → mean: 0.851219 | std: 0.005810 | min: 0.843496 | max: 0.858273 | folds: [0.854663, 0.843496, 0.858273, 0.845157, 0.854504]
+  Train Cox  → mean: 0.828071 | std: 0.002022 | min: 0.824145 | max: 0.829873 | folds: [0.828707, 0.829873, 0.824145, 0.828449, 0.829179]
+  Test Cox   → mean: 0.826989 | std: 0.010303 | min: 0.817964 | max: 0.846840 | folds: [0.820153, 0.817964, 0.846840, 0.825541, 0.824445]
 
   Preprocess: NaN | Seed: 789
-  TABDPT Train Vanilla → mean: 0.840136 | std: 0.012705 | min: 0.823275 | max: 0.852705
-  TABDPT Test Vanilla → mean: 0.807515 | std: 0.012980 | min: 0.791955 | max: 0.822720
-  TABDPT Train Simple → mean: 0.817296 | std: 0.007529 | min: 0.803245 | max: 0.824957
-  TABDPT Test Simple → mean: 0.801308 | std: 0.014450 | min: 0.775884 | max: 0.820484
-  TABDPT Train RSF → mean: 0.949587 | std: 0.000609 | min: 0.948645 | max: 0.950497
-  TABDPT Test RSF → mean: 0.805304 | std: 0.010101 | min: 0.796663 | max: 0.824851
-  TABDPT Train Cox → mean: 0.831241 | std: 0.001910 | min: 0.828015 | max: 0.833395
-  TABDPT Test Cox → mean: 0.787981 | std: 0.014171 | min: 0.771924 | max: 0.809661
+  TABDPT Train Tuned DeepSurv → mean: 0.820517 | std: 0.016309 | min: 0.807399 | max: 0.850312 | folds: [0.850312, 0.825746, 0.807399, 0.810750, 0.808380]
+  TABDPT Test Tuned DeepSurv → mean: 0.801391 | std: 0.019783 | min: 0.766471 | max: 0.819814 | folds: [0.766471, 0.819814, 0.816886, 0.793016, 0.810765]
+  TABDPT Train Tuned RSF → mean: 0.849020 | std: 0.033158 | min: 0.819844 | max: 0.912131 | folds: [0.846271, 0.912131, 0.819844, 0.824227, 0.842626]
+  TABDPT Test Tuned RSF → mean: 0.813573 | std: 0.009268 | min: 0.804281 | max: 0.828900 | folds: [0.804281, 0.805175, 0.828900, 0.810577, 0.818932]
+  TABDPT Train Vanilla → mean: 0.840136 | std: 0.012705 | min: 0.823275 | max: 0.852705 | folds: [0.823275, 0.848284, 0.852705, 0.850270, 0.826144]
+  TABDPT Test Vanilla → mean: 0.807515 | std: 0.012980 | min: 0.791955 | max: 0.822720 | folds: [0.791955, 0.822720, 0.820852, 0.793712, 0.808338]
+  TABDPT Train Simple → mean: 0.817296 | std: 0.007529 | min: 0.803245 | max: 0.824957 | folds: [0.822128, 0.819244, 0.803245, 0.824957, 0.816907]
+  TABDPT Test Simple → mean: 0.801308 | std: 0.014450 | min: 0.775884 | max: 0.820484 | folds: [0.803044, 0.806452, 0.820484, 0.775884, 0.800676]
+  TABDPT Train RSF → mean: 0.949587 | std: 0.000609 | min: 0.948645 | max: 0.950497 | folds: [0.949792, 0.949293, 0.949707, 0.950497, 0.948645]
+  TABDPT Test RSF → mean: 0.805304 | std: 0.010101 | min: 0.796663 | max: 0.824851 | folds: [0.796663, 0.799728, 0.824851, 0.800622, 0.804655]
+  TABDPT Train Cox → mean: 0.831241 | std: 0.001910 | min: 0.828015 | max: 0.833395 | folds: [0.831493, 0.832832, 0.828015, 0.833395, 0.830468]
+  TABDPT Test Cox → mean: 0.787981 | std: 0.014171 | min: 0.771924 | max: 0.809661 | folds: [0.771924, 0.809661, 0.798214, 0.775265, 0.784842]

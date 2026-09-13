@@ -1,0 +1,32 @@
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pycox/models/loss.py:411: SyntaxWarning: invalid escape sequence '\s'
+  We calculate the negative log of $(\frac{h_i}{\sum_{j \in R_i} h_j})^d$,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pycox/models/loss.py:428: SyntaxWarning: invalid escape sequence '\s'
+  We calculate the negative log of $(\frac{h_i}{\sum_{j \in R_i} h_j})^d$,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pycox/models/loss.py:675: SyntaxWarning: invalid escape sequence '\s'
+  We calculate the negative log of $(\frac{h_i}{\sum_{j \in R_i} h_j})^d$,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pycox/models/loss.py:691: SyntaxWarning: invalid escape sequence '\s'
+  We calculate the negative log of $(\frac{h_i}{\sum_{j \in R_i} h_j})^d$,
+STARTED  model=tabdpt  seed=42  tuning=False  shap=False
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/test_tabular_model.py", line 1090, in <module>
+    results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/test_tabular_model.py", line 350, in main
+    data = load_data(dataset_name, "Dataset Sirbu")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/src/data_loader.py", line 9, in load_data
+    df_date = pd.read_excel(data_dir / "DataPrelievo.xlsx")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 481, in read_excel
+    io = ExcelFile(
+         ^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1604, in __init__
+    ext = inspect_excel_format(
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1452, in inspect_excel_format
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data_fresh/.venv/lib/python3.12/site-packages/pandas/io/common.py", line 935, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'Dataset Sirbu/DataPrelievo.xlsx'

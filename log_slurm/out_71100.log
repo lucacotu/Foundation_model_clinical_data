@@ -1,0 +1,469 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+STARTED  model=tabdpt  seed=456  tuning=True  shap=False
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/OrmoniTirodei_seed456.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1
+C-index train: 0.8007
+C-index test:  0.7775
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1
+C-index train: 0.9102
+C-index test:  0.7546
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.7539
+C-index TEST:  0.7531
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.7940
+C-index TEST:  0.7737
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/tabdpt_rsf.pkl
+C-index train: 0.9203
+C-index test:  0.7616
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/tabdpt_tab_cox.pkl
+C-index train: 0.8150
+C-index test:  0.7735
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8038
+C-index TEST:  0.7881
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7961
+C-index TEST:  0.7809
+  [ckpt] Loading RSF baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/rsf_baseline.pkl
+C-index train: 0.9014
+C-index test:  0.7914
+  [ckpt] Loading Cox baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1/tabdpt_cox.pkl
+C-index train: 0.8023
+C-index test:  0.7859
+  [ckpt] Loading DeepSurv Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1
+C-index train: 0.8034
+C-index test:  0.7903
+  [ckpt] Loading RSF Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold1
+C-index train: 0.8975
+C-index test:  0.7926
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2
+C-index train: 0.8075
+C-index test:  0.7806
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2
+C-index train: 0.8985
+C-index test:  0.7592
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.8026
+C-index TEST:  0.7507
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8219
+C-index TEST:  0.7613
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/tabdpt_rsf.pkl
+C-index train: 0.9179
+C-index test:  0.7549
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/tabdpt_tab_cox.pkl
+C-index train: 0.8128
+C-index test:  0.7666
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8139
+C-index TEST:  0.7792
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7876
+C-index TEST:  0.7669
+  [ckpt] Loading RSF baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/rsf_baseline.pkl
+C-index train: 0.9012
+C-index test:  0.7832
+  [ckpt] Loading Cox baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2/tabdpt_cox.pkl
+C-index train: 0.8021
+C-index test:  0.7868
+  [ckpt] Loading DeepSurv Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2
+C-index train: 0.8079
+C-index test:  0.7786
+  [ckpt] Loading RSF Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold2
+C-index train: 0.9033
+C-index test:  0.7839
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3
+C-index train: 0.8120
+C-index test:  0.7631
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3
+C-index train: 0.9080
+C-index test:  0.7560
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.8118
+C-index TEST:  0.7185
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8289
+C-index TEST:  0.7603
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/tabdpt_rsf.pkl
+C-index train: 0.9186
+C-index test:  0.7530
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/tabdpt_tab_cox.pkl
+C-index train: 0.8169
+C-index test:  0.7564
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8079
+C-index TEST:  0.7699
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7856
+C-index TEST:  0.7632
+  [ckpt] Loading RSF baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/rsf_baseline.pkl
+C-index train: 0.9024
+C-index test:  0.7854
+  [ckpt] Loading Cox baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3/tabdpt_cox.pkl
+C-index train: 0.8041
+C-index test:  0.7757
+  [ckpt] Loading DeepSurv Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3
+C-index train: 0.8016
+C-index test:  0.7674
+  [ckpt] Loading RSF Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold3
+C-index train: 0.8921
+C-index test:  0.7862
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4
+C-index train: 0.8023
+C-index test:  0.7819
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4
+C-index train: 0.8845
+C-index test:  0.7813
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.7963
+C-index TEST:  0.7745
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8019
+C-index TEST:  0.7767
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/tabdpt_rsf.pkl
+C-index train: 0.9179
+C-index test:  0.7803
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/tabdpt_tab_cox.pkl
+C-index train: 0.8128
+C-index test:  0.7826
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8000
+C-index TEST:  0.8087
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7773
+C-index TEST:  0.7865
+  [ckpt] Loading RSF baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/rsf_baseline.pkl
+C-index train: 0.9004
+C-index test:  0.8153
+  [ckpt] Loading Cox baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4/tabdpt_cox.pkl
+C-index train: 0.7969
+C-index test:  0.8108
+  [ckpt] Loading DeepSurv Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4
+C-index train: 0.7842
+C-index test:  0.8025
+  [ckpt] Loading RSF Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold4
+C-index train: 0.9006
+C-index test:  0.8142
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5
+C-index train: 0.8133
+C-index test:  0.7975
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5
+C-index train: 0.9198
+C-index test:  0.7842
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.7943
+C-index TEST:  0.7834
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8098
+C-index TEST:  0.7984
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/tabdpt_rsf.pkl
+C-index train: 0.9208
+C-index test:  0.7835
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/tabdpt_tab_cox.pkl
+C-index train: 0.8103
+C-index test:  0.7949
+  [ckpt] Loading DeepSurv Vanilla baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/deepsurv_vanilla_baseline.pt
+C-index TRAIN: 0.8069
+C-index TEST:  0.8066
+  [ckpt] Loading DeepSurv Simple baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/deepsurv_simple_baseline.pt
+C-index TRAIN: 0.7921
+C-index TEST:  0.8048
+  [ckpt] Loading RSF baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/rsf_baseline.pkl
+C-index train: 0.9010
+C-index test:  0.8037
+  [ckpt] Loading Cox baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5/tabdpt_cox.pkl
+C-index train: 0.7976
+C-index test:  0.8083
+  [ckpt] Loading DeepSurv Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5
+C-index train: 0.8000
+C-index test:  0.8041
+  [ckpt] Loading RSF Tuned baseline from checkpoints/tabdpt/OrmoniTirodei/-1/seed456/fold5
+C-index train: 0.9049
+C-index test:  0.8026
+
+
+Preprocess: Keep NaN
+Loading existing folds from tmp/splits/OrmoniTirodei_seed456.pkl
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold1
+C-index train: 0.8143
+C-index test:  0.7790
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold1
+C-index train: 0.9054
+C-index test:  0.7652
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold1/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.8079
+C-index TEST:  0.7562
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold1/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8100
+C-index TEST:  0.7732
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold1/tabdpt_rsf.pkl
+C-index train: 0.9225
+C-index test:  0.7631
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold1/tabdpt_tab_cox.pkl
+C-index train: 0.8161
+C-index test:  0.7744
+X_train shape: (5161, 76), X_test shape: (1291, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5161, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold2
+C-index train: 0.8043
+C-index test:  0.7664
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold2
+C-index train: 0.9039
+C-index test:  0.7542
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold2/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.7813
+C-index TEST:  0.7589
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold2/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8061
+C-index TEST:  0.7589
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold2/tabdpt_rsf.pkl
+C-index train: 0.9211
+C-index test:  0.7528
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold2/tabdpt_tab_cox.pkl
+C-index train: 0.8172
+C-index test:  0.7632
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold3
+C-index train: 0.8193
+C-index test:  0.7564
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold3
+C-index train: 0.9089
+C-index test:  0.7511
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold3/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.7940
+C-index TEST:  0.7318
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold3/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8094
+C-index TEST:  0.7628
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold3/tabdpt_rsf.pkl
+C-index train: 0.9206
+C-index test:  0.7513
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold3/tabdpt_tab_cox.pkl
+C-index train: 0.8187
+C-index test:  0.7526
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold4
+C-index train: 0.8151
+C-index test:  0.7852
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold4
+C-index train: 0.8913
+C-index test:  0.7872
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold4/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.8185
+C-index TEST:  0.7633
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold4/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8152
+C-index TEST:  0.7930
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold4/tabdpt_rsf.pkl
+C-index train: 0.9190
+C-index test:  0.7866
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold4/tabdpt_tab_cox.pkl
+C-index train: 0.8141
+C-index test:  0.7854
+X_train shape: (5162, 76), X_test shape: (1290, 76)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (5162, 768)
+  [ckpt] Loading TABDPT DeepSurv Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold5
+C-index train: 0.8238
+C-index test:  0.7872
+  [ckpt] Loading TABDPT RSF Tuned from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold5
+C-index train: 0.9138
+C-index test:  0.7855
+  [ckpt] Loading DeepSurv Simple from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold5/tabdpt_deepsurv_simple.pt
+C-index TRAIN: 0.8006
+C-index TEST:  0.7661
+  [ckpt] Loading DeepSurv Vanilla from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold5/tabdpt_deepsurv_vanilla.pt
+C-index TRAIN: 0.8242
+C-index TEST:  0.7910
+  [ckpt] Loading TABDPT RSF from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold5/tabdpt_rsf.pkl
+C-index train: 0.9199
+C-index test:  0.7862
+  [ckpt] Loading TABDPT Cox (embedding) from checkpoints/tabdpt/OrmoniTirodei/NaN/seed456/fold5/tabdpt_tab_cox.pkl
+C-index train: 0.8130
+C-index test:  0.7902
+
+  Preprocess: -1 | Seed: 456
+  TABDPT Train Tuned DeepSurv → mean: 0.807177 | std: 0.005016 | min: 0.800731 | max: 0.813257 | folds: [0.800731, 0.807537, 0.812035, 0.802324, 0.813257]
+  TABDPT Test Tuned DeepSurv → mean: 0.780126 | std: 0.010962 | min: 0.763149 | max: 0.797516 | folds: [0.777488, 0.780608, 0.763149, 0.781870, 0.797516]
+  TABDPT Train Tuned RSF → mean: 0.904212 | std: 0.011945 | min: 0.884539 | max: 0.919797 | folds: [0.910248, 0.898482, 0.907993, 0.884539, 0.919797]
+  TABDPT Test Tuned RSF → mean: 0.767042 | std: 0.012937 | min: 0.754575 | max: 0.784217 | folds: [0.754575, 0.759207, 0.755954, 0.781257, 0.784217]
+  TABDPT Train Vanilla → mean: 0.811301 | std: 0.012755 | min: 0.793954 | max: 0.828895 | folds: [0.793954, 0.821928, 0.828895, 0.801935, 0.809792]
+  TABDPT Test Vanilla → mean: 0.774099 | std: 0.013811 | min: 0.760299 | max: 0.798446 | folds: [0.773735, 0.761309, 0.760299, 0.776706, 0.798446]
+  TABDPT Train Simple → mean: 0.791783 | std: 0.019914 | min: 0.753866 | max: 0.811789 | folds: [0.753866, 0.802643, 0.811789, 0.796344, 0.794275]
+  TABDPT Test Simple → mean: 0.756037 | std: 0.022522 | min: 0.718501 | max: 0.783427 | folds: [0.753089, 0.750699, 0.718501, 0.774472, 0.783427]
+  TABDPT Train RSF → mean: 0.919097 | std: 0.001233 | min: 0.917857 | max: 0.920847 | folds: [0.920271, 0.917857, 0.918581, 0.917930, 0.920847]
+  TABDPT Test RSF → mean: 0.766645 | std: 0.012798 | min: 0.753043 | max: 0.783483 | folds: [0.761567, 0.754859, 0.753043, 0.780273, 0.783483]
+  TABDPT Train Cox → mean: 0.813567 | std: 0.002229 | min: 0.810336 | max: 0.816904 | folds: [0.815008, 0.812801, 0.816904, 0.812788, 0.810336]
+  TABDPT Test Cox → mean: 0.774809 | std: 0.013201 | min: 0.756419 | max: 0.794896 | folds: [0.773544, 0.766595, 0.756419, 0.782591, 0.794896]
+  Train Tuned DeepSurv → mean: 0.799428 | std: 0.008052 | min: 0.784220 | max: 0.807913 | folds: [0.803398, 0.807913, 0.801625, 0.784220, 0.799985]
+  Test Tuned DeepSurv → mean: 0.788592 | std: 0.014033 | min: 0.767432 | max: 0.804146 | folds: [0.790272, 0.778631, 0.767432, 0.802480, 0.804146]
+  Train Tuned RSF → mean: 0.899689 | std: 0.004570 | min: 0.892070 | max: 0.904942 | folds: [0.897522, 0.903331, 0.892070, 0.900581, 0.904942]
+  Test Tuned RSF → mean: 0.795881 | std: 0.011213 | min: 0.783851 | max: 0.814178 | folds: [0.792646, 0.783851, 0.786175, 0.814178, 0.802554]
+  Train DeepSurv Vanilla → mean: 0.806502 | std: 0.004630 | min: 0.799952 | max: 0.813912 | folds: [0.803830, 0.813912, 0.807946, 0.799952, 0.806868]
+  Test DeepSurv Vanilla → mean: 0.790482 | std: 0.015147 | min: 0.769872 | max: 0.808685 | folds: [0.788070, 0.779222, 0.769872, 0.808685, 0.806558]
+  Train DeepSurv Simple → mean: 0.787735 | std: 0.006381 | min: 0.777283 | max: 0.796105 | folds: [0.796105, 0.787580, 0.785555, 0.777283, 0.792149]
+  Test DeepSurv Simple → mean: 0.780462 | std: 0.014894 | min: 0.763220 | max: 0.804776 | folds: [0.780927, 0.766892, 0.763220, 0.786495, 0.804776]
+  Train RSF  → mean: 0.901273 | std: 0.000678 | min: 0.900361 | max: 0.902436 | folds: [0.901401, 0.901210, 0.902436, 0.900361, 0.900960]
+  Test RSF   → mean: 0.795795 | std: 0.012058 | min: 0.783213 | max: 0.815288 | folds: [0.791388, 0.783213, 0.785428, 0.815288, 0.803656]
+  Train Cox  → mean: 0.800583 | std: 0.002834 | min: 0.796865 | max: 0.804097 | folds: [0.802290, 0.802061, 0.804097, 0.796865, 0.797601]
+  Test Cox   → mean: 0.793462 | std: 0.013693 | min: 0.775675 | max: 0.810762 | folds: [0.785851, 0.786763, 0.775675, 0.810762, 0.808260]
+
+  Preprocess: NaN | Seed: 456
+  TABDPT Train Tuned DeepSurv → mean: 0.815380 | std: 0.006467 | min: 0.804348 | max: 0.823786 | folds: [0.814327, 0.804348, 0.819328, 0.815111, 0.823786]
+  TABDPT Test Tuned DeepSurv → mean: 0.774853 | std: 0.011741 | min: 0.756399 | max: 0.787226 | folds: [0.779029, 0.766414, 0.756399, 0.785196, 0.787226]
+  TABDPT Train Tuned RSF → mean: 0.904680 | std: 0.007485 | min: 0.891347 | max: 0.913813 | folds: [0.905404, 0.903927, 0.908910, 0.891347, 0.913813]
+  TABDPT Test Tuned RSF → mean: 0.768628 | std: 0.015206 | min: 0.751070 | max: 0.787212 | folds: [0.765172, 0.754230, 0.751070, 0.787212, 0.785456]
+  TABDPT Train Vanilla → mean: 0.812967 | std: 0.006309 | min: 0.806071 | max: 0.824166 | folds: [0.809997, 0.806071, 0.809440, 0.815159, 0.824166]
+  TABDPT Test Vanilla → mean: 0.775778 | std: 0.014060 | min: 0.758929 | max: 0.792993 | folds: [0.773177, 0.758929, 0.762773, 0.792993, 0.791019]
+  TABDPT Train Simple → mean: 0.800473 | std: 0.012537 | min: 0.781340 | max: 0.818453 | folds: [0.807896, 0.781340, 0.794041, 0.818453, 0.800633]
+  TABDPT Test Simple → mean: 0.755275 | std: 0.012220 | min: 0.731811 | max: 0.766103 | folds: [0.756227, 0.758910, 0.731811, 0.763323, 0.766103]
+  TABDPT Train RSF → mean: 0.920616 | std: 0.001152 | min: 0.919031 | max: 0.922476 | folds: [0.922476, 0.921062, 0.920581, 0.919031, 0.919933]
+  TABDPT Test RSF → mean: 0.767984 | std: 0.015588 | min: 0.751265 | max: 0.786591 | folds: [0.763059, 0.752763, 0.751265, 0.786591, 0.786240]
+  TABDPT Train Cox → mean: 0.815830 | std: 0.002068 | min: 0.812994 | max: 0.818734 | folds: [0.816148, 0.817175, 0.818734, 0.814098, 0.812994]
+  TABDPT Test Cox → mean: 0.773154 | std: 0.013894 | min: 0.752554 | max: 0.790206 | folds: [0.774408, 0.763214, 0.752554, 0.785388, 0.790206]
+Result saved in 'results/OrmoniTirodei/tabdpt/results_cv_OrmoniTirodei_tabdpt_seed456.txt'
+
+
+Preprocess: Replace NaN with -1
+Loading existing folds from tmp/splits/HURRAH_seed456.pkl
+X_train shape: (13566, 61), X_test shape: (3392, 61)
+Generating TABDPT Embeddings...
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Successfully generated embeddings with shape: (13566, 768)
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 1106, in <module>
+    results = main(dataset_name, feature_event, feature_time, args.seed, args.model, args.tuning, args.shap)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 464, in main
+    deepsurv_params = load_params(ckpt_dir, f"{model}_deepsurv_tuned")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_tabular_model.py", line 74, in load_params
+    return json.load(f)
+           ^^^^^^^^^^^^
+  File "/home/students/luca.cotugno/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "/home/students/luca.cotugno/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/students/luca.cotugno/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/students/luca.cotugno/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)

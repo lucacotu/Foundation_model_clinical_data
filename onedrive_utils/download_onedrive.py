@@ -17,10 +17,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Cartella REMOTA su OneDrive da scaricare
 # Esempio: "Tesi" oppure "Documenti/Tesi/Capitoli"
-CARTELLA_REMOTA = "Tesi/Foundation_model_clinical_data/"
+CARTELLA_REMOTA = "Tesi/Foundation_model_clinical_data/checkpoints/tabdpt/HURRAH"
 
 # Cartella LOCALE dove salvare i file scaricati (verrà creata se non esiste)
-CARTELLA_LOCALE = "../../Foundation_model_clinical_data/"
+CARTELLA_LOCALE = "../../Foundation_model_clinical_data/checkpoints/tabdpt/HURRAH"
 
 # Worker paralleli per la SCANSIONE della struttura remota.
 # La scansione è I/O bound (molte richieste API leggere): puoi alzare fino a 16-32.
