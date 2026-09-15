@@ -1,9 +1,14 @@
+import math
 import re
+import statistics
 import sys
 from collections import defaultdict
 from pathlib import Path
 
+from scipy import stats
+
 RESULTS_DIR = Path("results")
+CONFIDENCE_LEVEL = 0.95
 
 # matches: results_samplesize_{dataset}_{model}_seed{seed}.txt  (no _data suffix)
 FILE_RE = re.compile(r"^results_samplesize_(.+)_([^_]+)_seed(\d+)\.txt$")
@@ -75,6 +80,18 @@ def parse_file(path: Path) -> dict:
     return data
 
 
+def confidence_interval(values: list[float], confidence: float = CONFIDENCE_LEVEL):
+    """CI (t-Student) sulla media di `values`. Ritorna (ci_low, ci_high, margin)."""
+    n = len(values)
+    mean = sum(values) / n
+    if n < 2:
+        return mean, mean, 0.0
+    sem = statistics.stdev(values) / math.sqrt(n)
+    t_crit = stats.t.ppf((1 + confidence) / 2, df=n - 1)
+    margin = t_crit * sem
+    return mean - margin, mean + margin, margin
+
+
 def _ordered_unique(items):
     seen = set()
     out = []
@@ -129,6 +146,7 @@ def aggregate(all_parsed: list[dict]) -> dict:
                 n = len(means)
                 avg = sum(means) / n
                 seed_std = (sum((x - avg) ** 2 for x in means) / n) ** 0.5
+                ci_low, ci_high, ci_margin = confidence_interval(means)
 
                 agg_metrics.append(
                     (
@@ -140,6 +158,9 @@ def aggregate(all_parsed: list[dict]) -> dict:
                             "min": min(v["min"] for v in valid),
                             "max": max(v["max"] for v in valid),
                             "n": n,
+                            "ci_low": ci_low,
+                            "ci_high": ci_high,
+                            "ci_margin": ci_margin,
                         },
                     )
                 )
@@ -162,6 +183,7 @@ def write_output(
 ) -> None:
     n_seeds = len(seeds)
     seeds_str = ", ".join(str(s) for s in sorted(seeds))
+    ci_pct = int(round(CONFIDENCE_LEVEL * 100))
 
     lines = [
         "",
@@ -187,7 +209,8 @@ def write_output(
                     note = f"  (n={vals['n']})" if vals["n"] < n_seeds else ""
                     lines.append(
                         f"{pad}→ mean: {vals['mean']:.4f} | std: {vals['std']:.4f} | "
-                        f"min: {vals['min']:.4f} | max: {vals['max']:.4f}{note}"
+                        f"min: {vals['min']:.4f} | max: {vals['max']:.4f} | "
+                        f"CI{ci_pct}%: [{vals['ci_low']:.4f}, {vals['ci_high']:.4f}] (±{vals['ci_margin']:.4f}){note}"
                     )
 
     lines.append("")

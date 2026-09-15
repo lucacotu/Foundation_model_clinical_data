@@ -58,6 +58,12 @@ DATASET_DISPLAY_NAMES = {
     "HURRAH": "URRAH",
 }
 
+MODEL_DISPLAY_NAMES = {
+    "tabpfn": "TabPFN",
+    "tabicl": "TabICL",
+    "tabdpt": "TabDPT",
+}
+
 # "Preprocessing" is kept untranslated in both languages.
 SECTION_TITLE_TEMPLATES = {
     "en": "Preprocessing: {section_label}",
@@ -65,8 +71,8 @@ SECTION_TITLE_TEMPLATES = {
 }
 
 SUPTITLE_TEMPLATES = {
-    "en": "C-index Test — Sample Size Effect  |  {dataset} / {model}",
-    "it": "C-index Test — Effetto della Dimensione del Training Set  |  {dataset} / {model}",
+    "en": "C-index — Sample Size Effect  |  {dataset} / {model}",
+    "it": "C-index — Effetto della Dimensione del Training Set  |  {dataset} / {model}",
 }
 
 
@@ -112,7 +118,7 @@ def model_color(name, model):
 
 
 def legend_label(name, model):
-    m_up = model.upper()
+    m_up = MODEL_DISPLAY_NAMES.get(model.lower(), model.upper())
     name_lower = name.lower()
     if name_lower.startswith(model.lower()):
         if "vanilla" in name_lower:
@@ -126,13 +132,13 @@ def legend_label(name, model):
         return name
     else:
         if "vanilla" in name_lower:
-            return "DS-MLP (base)"
+            return "DS-MLP"
         if "simple" in name_lower:
-            return "DS-linear  (base)"
+            return "DS-linear"
         if "rsf" in name_lower:
-            return "RSF (base)"
+            return "RSF"
         if "cox" in name_lower:
-            return "Cox (base)"
+            return "Cox PH"
         return name
 
 
@@ -221,7 +227,10 @@ def plot_file(filepath: Path, dataset: str, model: str):
             plot_section(prep_data, prep_key, ax, model, lang=lang)
 
         fig.suptitle(
-            SUPTITLE_TEMPLATES[lang].format(dataset=display_dataset_name(dataset), model=model.upper()),
+            SUPTITLE_TEMPLATES[lang].format(
+                dataset=display_dataset_name(dataset),
+                model=MODEL_DISPLAY_NAMES.get(model.lower(), model.upper()),
+            ),
             fontsize=19, fontweight="bold", y=1.01,
         )
         plt.tight_layout()

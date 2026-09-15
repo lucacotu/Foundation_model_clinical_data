@@ -15,19 +15,25 @@ DATASET_DISPLAY_NAMES = {
     "HURRAH": "URRAH",
 }
 
+MODEL_DISPLAY_NAMES = {
+    "tabpfn": "TabPFN",
+    "tabicl": "TabICL",
+    "tabdpt": "TabDPT",
+}
+
 SECTION_TITLE_TEMPLATES = {
     "en": "Preprocessing: {section_label}",
     "it": "Preprocessing: {section_label}",
 }
 
 SUPTITLE_TEMPLATES = {
-    "en": "C-index Test Results — {dataset} / {model}",
-    "it": "Risultati C-index Test — {dataset} / {model}",
+    "en": "C-index — {dataset} / {model}",
+    "it": "C-index — {dataset} / {model}",
 }
 
 SUPTITLE_COMBINED_TEMPLATES = {
-    "en": "C-index Test Results — {dataset} / TABPFN + TABICL + TABDPT",
-    "it": "Risultati C-index Test — {dataset} / TABPFN + TABICL + TABDPT",
+    "en": "C-index — {dataset} / TabPFN + TabICL + TabDPT",
+    "it": "C-index — {dataset} / TabPFN + TabICL + TabDPT",
 }
 
 
@@ -104,7 +110,7 @@ def model_color(name, model, hatch="///"):
 
 def legend_label(name, model):
     """Return the same label used in the legend for a given raw entry name."""
-    m_up = model.upper()
+    m_up = MODEL_DISPLAY_NAMES.get(model.lower(), model.upper())
     name_lower = name.lower()
     if name_lower.startswith(model.lower()):
         if "tuned deepsurv" in name_lower:
@@ -131,7 +137,7 @@ def legend_label(name, model):
         if "rsf" in name_lower:
             return "RSF"
         if "cox" in name_lower:
-            return "Cox"
+            return "Cox PH"
     return name
 
 
@@ -285,7 +291,7 @@ def plot_file(filepath: Path, dataset: str, model: str):
     def section_plot_fn(section_key, entries, ax, lang):
         plot_section(entries, section_key, ax, model, lang=lang)
 
-    suptitle_kwargs = {"dataset": display_dataset, "model": model}
+    suptitle_kwargs = {"dataset": display_dataset, "model": MODEL_DISPLAY_NAMES.get(model.lower(), model)}
 
     # Combined figure: all sections stacked (unchanged behavior)
     render_and_save(list(sections.items()), section_plot_fn, SUPTITLE_TEMPLATES, suptitle_kwargs, out_dir, stem)

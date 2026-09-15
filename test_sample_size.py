@@ -506,7 +506,8 @@ def print_stats(label, values):
     if len(arr) == 0:
         print(f"  {label:35s} → no valid scores")
     else:
-        print(f"  {label:35s} → mean: {arr.mean():.4f} | std: {arr.std():.4f} | min: {arr.min():.4f} | max: {arr.max():.4f}")
+        folds_str = ", ".join(f"{v:.4f}" for v in arr)
+        print(f"  {label:35s} → mean: {arr.mean():.4f} | std: {arr.std():.4f} | min: {arr.min():.4f} | max: {arr.max():.4f} | folds: [{folds_str}]")
 
 
 class Tee:
