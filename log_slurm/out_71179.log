@@ -1,0 +1,53 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+Model:        tabdpt
+Seed:         123
+Sample sizes: [100, 500, 1000, 2500, 5000, 10000, 15000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed123.pkl
+
+--- Sample size: 100 ---
+  Fold 1: train=100, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+Traceback (most recent call last):
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py", line 558, in <module>
+    res = main(dataset_name, event_col, time_col, seed, model, sample_sizes)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py", line 174, in main
+    train_emb, test_emb = get_tabdpt_embeddings(X_train, y_train, X_test, device=device)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/__init__.py", line 66, in get_tabdpt_embeddings
+    train_emb, test_emb = extractor._embed_all(X_test)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/embedding.py", line 141, in _embed_all
+    test_emb = self._clf.predict_embeddings(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/tabdpt.py", line 454, in predict_embeddings
+    X_nni, y_nni, X_eval = self.batch_retrieval_data(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/tabdpt.py", line 182, in batch_retrieval_data
+    indices_knn = self.faiss_knn.get_knn_indices(self.X_test[start:end], k=context_size)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/tabdpt/tabdpt/retrieval.py", line 31, in get_knn_indices
+    _, indices = self.index.kneighbors(np.nan_to_num(queries, nan=0.0), n_neighbors=k)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/sklearn/neighbors/_base.py", line 847, in kneighbors
+    raise ValueError(
+ValueError: Expected n_neighbors <= n_samples_fit, but n_neighbors = 128, n_samples_fit = 100, n_samples = 512
