@@ -26,8 +26,8 @@ SUPTITLE_TEMPLATES = {
 }
 
 SUPTITLE_COMBINED_TEMPLATES = {
-    "en": "C-index Test Results — {dataset} / TABPFN + TABICL",
-    "it": "Risultati C-index Test — {dataset} / TABPFN + TABICL",
+    "en": "C-index Test Results — {dataset} / TABPFN + TABICL + TABDPT",
+    "it": "Risultati C-index Test — {dataset} / TABPFN + TABICL + TABDPT",
 }
 
 
@@ -38,7 +38,7 @@ def parse_results_file(filepath):
 
     section_re = re.compile(r"TOTAL \[(.+?)\]:")
     entry_re = re.compile(
-        r"^\s+(.+?)\s+→\s+mean:\s+([\d.]+)\s+\|\s+std:\s+([\d.]+)"
+        r"^\s+(.+?)\s+→\s+mean:\s+([\d.]+)\s+\|\s+std:\s+([\d.]+).*?CI95%:.*?\(±([\d.]+)\)"
     )
 
     with open(filepath) as f:
@@ -54,8 +54,9 @@ def parse_results_file(filepath):
 
             m = entry_re.match(line)
             if m:
-                name, mean, std = m.group(1).strip(), float(m.group(2)), float(m.group(3))
-                sections[current_section].append({"name": name, "mean": mean, "std": std})
+                name = m.group(1).strip()
+                mean, std, ci = float(m.group(2)), float(m.group(3)), float(m.group(4))
+                sections[current_section].append({"name": name, "mean": mean, "std": std, "ci": ci})
 
     return sections
 
@@ -86,6 +87,10 @@ def model_color(name, model, hatch="///"):
         return "#7f7f7f", hatch
     else:
         # Shades of orange/green for baseline models, no hatch
+        if "tuned deepsurv" in name_lower:
+            return "#ff9896", ""
+        if "tuned rsf" in name_lower:
+            return "#74c476", ""
         if "deepsurv vanilla" in name_lower:
             return "#ff7f0e", ""
         if "deepsurv simple" in name_lower:
@@ -115,6 +120,10 @@ def legend_label(name, model):
         if "cox" in name_lower:
             return f"{m_up} - Cox"
     else:
+        if "tuned deepsurv" in name_lower:
+            return "Tuned DeepSurv"
+        if "tuned rsf" in name_lower:
+            return "Tuned RSF"
         if "deepsurv vanilla" in name_lower or "vanilla" in name_lower:
             return "DeepSurv MLP"
         if "deepsurv simple" in name_lower or "simple" in name_lower:
@@ -129,29 +138,29 @@ def legend_label(name, model):
 def render_bars(ax, entries_data, section_label, legend_kwargs=None, lang="en"):
     """Draw one axis of bars from pre-built per-bar data.
 
-    entries_data: list of dicts with keys mean, std, color, hatch, label.
+    entries_data: list of dicts with keys mean, ci, color, hatch, label.
     legend_kwargs: overrides merged into the default legend placement
       (loc="lower right", framealpha=0.8), e.g. to move a crowded legend
       outside the axes.
     lang: "en" or "it", selects the axis title language.
     """
     means = np.array([e["mean"] for e in entries_data])
-    stds = np.array([e["std"] for e in entries_data])
+    cis = np.array([e["ci"] for e in entries_data])
     colors = [e["color"] for e in entries_data]
     hatches = [e["hatch"] for e in entries_data]
     labels = [e["label"] for e in entries_data]
 
     x = np.arange(len(entries_data))
-    bars = ax.bar(x, means, yerr=stds, color=colors, capsize=5, edgecolor="black",
+    bars = ax.bar(x, means, yerr=cis, color=colors, capsize=5, edgecolor="black",
                   linewidth=0.6, error_kw={"elinewidth": 1.5, "ecolor": "black"})
     for bar, hatch in zip(bars, hatches):
         bar.set_hatch(hatch)
 
     # Annotate values on bars
-    for bar, mean, std in zip(bars, means, stds):
+    for bar, mean, ci in zip(bars, means, cis):
         ax.text(
             bar.get_x() + bar.get_width() / 2,
-            mean + std + 0.005,
+            mean + ci + 0.005,
             f"{mean:.3f}",
             ha="center", va="bottom", fontsize=7, rotation=0,
         )
@@ -161,7 +170,7 @@ def render_bars(ax, entries_data, section_label, legend_kwargs=None, lang="en"):
     ax.tick_params(axis="y", labelsize=12)
     ax.set_ylabel("C-index (Test)", fontsize=15)
     ax.set_title(SECTION_TITLE_TEMPLATES[lang].format(section_label=section_label), fontsize=17, fontweight="bold")
-    ax.set_ylim(max(0, means.min() - stds.max() - 0.05), min(1.0, means.max() + stds.max() + 0.07))
+    ax.set_ylim(max(0, means.min() - cis.max() - 0.05), min(1.0, means.max() + cis.max() + 0.07))
     ax.grid(axis="y", linestyle="--", alpha=0.5)
     ax.spines["top"].set_visible(False)
     ax.spines["right"].set_visible(False)
@@ -195,15 +204,17 @@ def plot_section(entries, section_label, ax, model, lang="en"):
     render_bars(ax, entries_data, section_label, lang=lang)
 
 
-def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax, lang="en"):
+def plot_combined_section(tabpfn_entries, tabicl_entries, tabdpt_entries, section_label, ax, lang="en"):
     tabpfn_test = [e for e in tabpfn_entries if is_test_entry(e["name"])]
     tabicl_test = [e for e in tabicl_entries if is_test_entry(e["name"])]
+    tabdpt_test = [e for e in tabdpt_entries if is_test_entry(e["name"])]
 
     tabpfn_model_entries = [e for e in tabpfn_test if e["name"].lower().startswith("tabpfn")]
     tabicl_model_entries = [e for e in tabicl_test if e["name"].lower().startswith("tabicl")]
-    baseline_entries = [e for e in tabpfn_test if not e["name"].lower().startswith("tabpfn")]
+    tabdpt_model_entries = [e for e in tabdpt_test if e["name"].lower().startswith("tabdpt")]
+    baseline_entries = [e for e in tabdpt_test if not e["name"].lower().startswith("tabdpt")]
 
-    if not (tabpfn_model_entries or tabicl_model_entries or baseline_entries):
+    if not (tabpfn_model_entries or tabicl_model_entries or tabdpt_model_entries or baseline_entries):
         return
 
     entries_data = []
@@ -215,9 +226,13 @@ def plot_combined_section(tabpfn_entries, tabicl_entries, section_label, ax, lan
         color, hatch = model_color(e["name"], "tabicl", hatch="xxx")
         label = legend_label(e["name"], "tabicl")
         entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
+    for e in tabdpt_model_entries:
+        color, hatch = model_color(e["name"], "tabdpt", hatch="...")
+        label = legend_label(e["name"], "tabdpt")
+        entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
     for e in baseline_entries:
-        color, hatch = model_color(e["name"], "tabpfn")
-        label = legend_label(e["name"], "tabpfn")
+        color, hatch = model_color(e["name"], "tabdpt")
+        label = legend_label(e["name"], "tabdpt")
         entries_data.append({**e, "color": color, "hatch": hatch, "label": label})
 
     render_bars(ax, entries_data, section_label, legend_kwargs={
@@ -233,7 +248,7 @@ def render_and_save(sections_items, section_plot_fn, suptitle_templates, suptitl
     """
     for lang, suffix in (("en", ""), ("it", "_ita")):
         n_sections = len(sections_items)
-        fig, axes = plt.subplots(n_sections, 1, figsize=(10, 6 * n_sections), squeeze=False)
+        fig, axes = plt.subplots(n_sections, 1, figsize=(15, 6 * n_sections), squeeze=False)
 
         for ax, item in zip(axes[:, 0], sections_items):
             section_plot_fn(*item, ax, lang)
@@ -283,20 +298,24 @@ def plot_file(filepath: Path, dataset: str, model: str):
         )
 
 
-def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path):
+def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path, tabdpt_path: Path):
     tabpfn_sections = parse_results_file(tabpfn_path)
     tabicl_sections = parse_results_file(tabicl_path)
+    tabdpt_sections = parse_results_file(tabdpt_path)
 
-    common_sections = [k for k in tabpfn_sections if k in tabicl_sections]
-    for key in tabpfn_sections:
-        if key not in tabicl_sections:
-            print(f"  Skipping section [{key}]: not present in both tabpfn and tabicl files")
-    for key in tabicl_sections:
-        if key not in tabpfn_sections:
-            print(f"  Skipping section [{key}]: not present in both tabpfn and tabicl files")
+    all_sections = list(dict.fromkeys(
+        k for sections in (tabpfn_sections, tabicl_sections, tabdpt_sections) for k in sections
+    ))
+    common_sections = [
+        k for k in all_sections
+        if k in tabpfn_sections and k in tabicl_sections and k in tabdpt_sections
+    ]
+    for key in all_sections:
+        if key not in common_sections:
+            print(f"  Skipping section [{key}]: not present in all of tabpfn, tabicl and tabdpt files")
 
     if not common_sections:
-        print(f"  No common sections between tabpfn and tabicl for dataset {dataset}, skipped combined plot")
+        print(f"  No common sections between tabpfn, tabicl and tabdpt for dataset {dataset}, skipped combined plot")
         return
 
     display_dataset = DATASET_DISPLAY_NAMES.get(dataset, dataset)
@@ -305,7 +324,10 @@ def plot_combined_file(dataset: str, tabpfn_path: Path, tabicl_path: Path):
     stem = f"results_aggregated_{dataset}_combined"
 
     def section_plot_fn(section_key, ax, lang):
-        plot_combined_section(tabpfn_sections[section_key], tabicl_sections[section_key], section_key, ax, lang=lang)
+        plot_combined_section(
+            tabpfn_sections[section_key], tabicl_sections[section_key], tabdpt_sections[section_key],
+            section_key, ax, lang=lang,
+        )
 
     suptitle_kwargs = {"dataset": display_dataset}
 
@@ -344,10 +366,10 @@ def main():
             print(f"  Error: {e}")
 
     for dataset, models in sorted(files_by_dataset.items()):
-        if "tabpfn" in models and "tabicl" in models:
-            print(f"Processing combined plot: dataset={dataset} (tabpfn + tabicl)")
+        if "tabpfn" in models and "tabicl" in models and "tabdpt" in models:
+            print(f"Processing combined plot: dataset={dataset} (tabpfn + tabicl + tabdpt)")
             try:
-                plot_combined_file(dataset, models["tabpfn"], models["tabicl"])
+                plot_combined_file(dataset, models["tabpfn"], models["tabicl"], models["tabdpt"])
             except Exception as e:
                 print(f"  Error: {e}")
 
