@@ -1,0 +1,2234 @@
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) [40] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column 28 have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, '28'].var())
+>>> print(df.loc[~events, '28'].var())
+
+A very low variance means that the column 28 completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) [34] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column 28 have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, '28'].var())
+>>> print(df.loc[~events, '28'].var())
+
+A very low variance means that the column 28 completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1100: ConvergenceWarning: Column(s) [33] have very low variance. This may harm convergence. 1) Are you using formula's? Did you mean to add '-1' to the end. 2) Try dropping this redundant column before fitting if convergence fails.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:797: RuntimeWarning: invalid value encountered in divide
+  return (X - mean) / std
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/lifelines/utils/__init__.py:1120: ConvergenceWarning: Column 27 have very low variance when conditioned on death event present or not. This may harm convergence. This could be a form of 'complete separation'. For example, try the following code:
+
+>>> events = df['__e__'].astype(bool)
+>>> print(df.loc[events, '27'].var())
+>>> print(df.loc[~events, '27'].var())
+
+A very low variance means that the column 27 completely determines whether a subject dies or not. See https://stats.stackexchange.com/questions/11109/how-to-deal-with-perfect-separation-in-logistic-regression.
+
+  warnings.warn(dedent(warning_text), ConvergenceWarning)
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:252: RuntimeWarning: invalid value encountered in dot
+  return pd.DataFrame(bch.values.reshape(-1, 1).dot(expg),
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/pycox/models/cox.py:251: RuntimeWarning: overflow encountered in exp
+  expg = np.exp(self.predict(input, batch_size, True, eval_, num_workers=num_workers)).reshape(1, -1)
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:496: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:498: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+Model:        tabdpt
+Seed:         123
+Sample sizes: [500, 1000, 2500, 5000, 10000, 15000]
+
+######################################################################
+Dataset: OrmoniTirodei
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed123.pkl
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6689  test=0.7198
+  [tabdpt+DS-vanilla] train=0.8810  test=0.7602
+  [tabdpt+RSF]        train=0.9371  test=0.7609
+  [tabdpt+Cox]        train=0.9231  test=0.7489
+  [DS-simple]         train=0.8412  test=0.7622
+  [DS-vanilla]        train=0.8469  test=0.7395
+  [RSF]               train=0.9478  test=0.7799
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 2: train=500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6582  test=0.7320
+  [tabdpt+DS-vanilla] train=0.8491  test=0.7642
+  [tabdpt+RSF]        train=0.9472  test=0.7397
+  [tabdpt+Cox]        train=0.9067  test=0.7351
+  [DS-simple]         train=0.8066  test=0.7644
+  [DS-vanilla]        train=0.8040  test=0.7736
+  [RSF]               train=0.9458  test=0.7616
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 3: train=500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.8445  test=0.7208
+  [tabdpt+DS-vanilla] train=0.8393  test=0.7379
+  [tabdpt+RSF]        train=0.9394  test=0.7410
+  [tabdpt+Cox]        train=0.8974  test=0.7120
+  [DS-simple]         train=0.8223  test=0.7561
+  [DS-vanilla]        train=0.8195  test=0.7183
+  [RSF]               train=0.9271  test=0.7594
+    Cox fit failed: Convergence halted due to matrix inversion problems. Suspicion is high collinearity. Please see the following tips in the lifelines documentation: https://lifelines.readthedocs.io/en/latest/Examples.html#problems-with-convergence-in-the-cox-proportional-hazard-modelMatrix is singular.
+  [Cox]               train=nan  test=nan
+  Fold 4: train=500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.7023  test=0.7206
+  [tabdpt+DS-vanilla] train=0.8561  test=0.7617
+  [tabdpt+RSF]        train=0.9402  test=0.7537
+  [tabdpt+Cox]        train=0.9237  test=0.7489
+  [DS-simple]         train=0.8288  test=0.7892
+  [DS-vanilla]        train=0.7536  test=0.7376
+  [RSF]               train=0.9463  test=0.7783
+  [Cox]               train=0.8458  test=0.7794
+  Fold 5: train=500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.5958  test=0.7133
+  [tabdpt+DS-vanilla] train=0.8830  test=0.7681
+  [tabdpt+RSF]        train=0.9478  test=0.7556
+  [tabdpt+Cox]        train=0.9185  test=0.7366
+  [DS-simple]         train=0.7996  test=0.7506
+  [DS-vanilla]        train=0.7827  test=0.7314
+  [RSF]               train=0.9502  test=0.7713
+  [Cox]               train=0.8103  test=0.7665
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8514  test=0.7513
+  [tabdpt+DS-vanilla] train=0.8194  test=0.7682
+  [tabdpt+RSF]        train=0.9396  test=0.7603
+  [tabdpt+Cox]        train=0.8736  test=0.7512
+  [DS-simple]         train=0.8251  test=0.7754
+  [DS-vanilla]        train=0.8213  test=0.7468
+  [RSF]               train=0.9416  test=0.7850
+  [Cox]               train=0.8261  test=0.7722
+  Fold 2: train=1000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8163  test=0.7552
+  [tabdpt+DS-vanilla] train=0.7843  test=0.7766
+  [tabdpt+RSF]        train=0.9456  test=0.7715
+  [tabdpt+Cox]        train=0.8591  test=0.7548
+  [DS-simple]         train=0.7975  test=0.7803
+  [DS-vanilla]        train=0.8005  test=0.7772
+  [RSF]               train=0.9418  test=0.7872
+  [Cox]               train=0.8036  test=0.7843
+  Fold 3: train=1000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8264  test=0.6934
+  [tabdpt+DS-vanilla] train=0.8153  test=0.7492
+  [tabdpt+RSF]        train=0.9355  test=0.7497
+  [tabdpt+Cox]        train=0.8544  test=0.7372
+  [DS-simple]         train=0.7787  test=0.7481
+  [DS-vanilla]        train=0.8229  test=0.7515
+  [RSF]               train=0.9251  test=0.7679
+  [Cox]               train=0.8090  test=0.7727
+  Fold 4: train=1000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8545  test=0.7530
+  [tabdpt+DS-vanilla] train=0.8301  test=0.7758
+  [tabdpt+RSF]        train=0.9428  test=0.7679
+  [tabdpt+Cox]        train=0.8698  test=0.7747
+  [DS-simple]         train=0.8100  test=0.7858
+  [DS-vanilla]        train=0.8083  test=0.7754
+  [RSF]               train=0.9353  test=0.7877
+  [Cox]               train=0.8130  test=0.7851
+  Fold 5: train=1000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8295  test=0.7559
+  [tabdpt+DS-vanilla] train=0.8330  test=0.7548
+  [tabdpt+RSF]        train=0.9459  test=0.7544
+  [tabdpt+Cox]        train=0.8674  test=0.7632
+  [DS-simple]         train=0.7935  test=0.7636
+  [DS-vanilla]        train=0.8367  test=0.7549
+  [RSF]               train=0.9347  test=0.7771
+  [Cox]               train=0.7908  test=0.7791
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8258  test=0.7532
+  [tabdpt+DS-vanilla] train=0.8331  test=0.7676
+  [tabdpt+RSF]        train=0.9316  test=0.7624
+  [tabdpt+Cox]        train=0.8326  test=0.7725
+  [DS-simple]         train=0.7775  test=0.7659
+  [DS-vanilla]        train=0.8187  test=0.7817
+  [RSF]               train=0.9191  test=0.7907
+  [Cox]               train=0.8067  test=0.7856
+  Fold 2: train=2500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.7818  test=0.7661
+  [tabdpt+DS-vanilla] train=0.7969  test=0.7808
+  [tabdpt+RSF]        train=0.9331  test=0.7679
+  [tabdpt+Cox]        train=0.8312  test=0.7737
+  [DS-simple]         train=0.7969  test=0.7902
+  [DS-vanilla]        train=0.8228  test=0.7938
+  [RSF]               train=0.9148  test=0.7909
+  [Cox]               train=0.8062  test=0.7939
+  Fold 3: train=2500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.7991  test=0.7620
+  [tabdpt+DS-vanilla] train=0.8043  test=0.7639
+  [tabdpt+RSF]        train=0.9330  test=0.7560
+  [tabdpt+Cox]        train=0.8219  test=0.7728
+  [DS-simple]         train=0.7925  test=0.7668
+  [DS-vanilla]        train=0.8059  test=0.7724
+  [RSF]               train=0.9162  test=0.7793
+  [Cox]               train=0.7991  test=0.7838
+  Fold 4: train=2500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8024  test=0.7717
+  [tabdpt+DS-vanilla] train=0.7827  test=0.7772
+  [tabdpt+RSF]        train=0.9305  test=0.7751
+  [tabdpt+Cox]        train=0.8242  test=0.7900
+  [DS-simple]         train=0.7878  test=0.7880
+  [DS-vanilla]        train=0.8107  test=0.7960
+  [RSF]               train=0.9175  test=0.8050
+  [Cox]               train=0.8014  test=0.7965
+  Fold 5: train=2500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.7950  test=0.7711
+  [tabdpt+DS-vanilla] train=0.7871  test=0.7854
+  [tabdpt+RSF]        train=0.9357  test=0.7654
+  [tabdpt+Cox]        train=0.8126  test=0.7822
+  [DS-simple]         train=0.7716  test=0.7754
+  [DS-vanilla]        train=0.7974  test=0.7892
+  [RSF]               train=0.9162  test=0.7961
+  [Cox]               train=0.7849  test=0.8003
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.7937  test=0.7457
+  [tabdpt+DS-vanilla] train=0.8144  test=0.7837
+  [tabdpt+RSF]        train=0.9206  test=0.7729
+  [tabdpt+Cox]        train=0.8139  test=0.7803
+  [DS-simple]         train=0.7945  test=0.7886
+  [DS-vanilla]        train=0.8052  test=0.7870
+  [RSF]               train=0.9029  test=0.7955
+  [Cox]               train=0.8013  test=0.7875
+  Fold 2: train=5000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8071  test=0.7625
+  [tabdpt+DS-vanilla] train=0.8119  test=0.7797
+  [tabdpt+RSF]        train=0.9193  test=0.7694
+  [tabdpt+Cox]        train=0.8123  test=0.7721
+  [DS-simple]         train=0.7884  test=0.7875
+  [DS-vanilla]        train=0.8078  test=0.7961
+  [RSF]               train=0.8996  test=0.7958
+  [Cox]               train=0.7996  test=0.7984
+  Fold 3: train=5000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.7970  test=0.7454
+  [tabdpt+DS-vanilla] train=0.8088  test=0.7732
+  [tabdpt+RSF]        train=0.9254  test=0.7735
+  [tabdpt+Cox]        train=0.8138  test=0.7618
+  [DS-simple]         train=0.7737  test=0.7581
+  [DS-vanilla]        train=0.8133  test=0.7796
+  [RSF]               train=0.9060  test=0.7806
+  [Cox]               train=0.8008  test=0.7841
+  Fold 4: train=5000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.7950  test=0.7642
+  [tabdpt+DS-vanilla] train=0.7804  test=0.7831
+  [tabdpt+RSF]        train=0.9221  test=0.7833
+  [tabdpt+Cox]        train=0.8106  test=0.7761
+  [DS-simple]         train=0.7920  test=0.8033
+  [DS-vanilla]        train=0.8092  test=0.8048
+  [RSF]               train=0.9028  test=0.8070
+  [Cox]               train=0.7993  test=0.8021
+  Fold 5: train=5000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.7969  test=0.7727
+  [tabdpt+DS-vanilla] train=0.8142  test=0.7800
+  [tabdpt+RSF]        train=0.9224  test=0.7669
+  [tabdpt+Cox]        train=0.8123  test=0.7762
+  [DS-simple]         train=0.7799  test=0.7788
+  [DS-vanilla]        train=0.8092  test=0.7986
+  [RSF]               train=0.9024  test=0.8011
+  [Cox]               train=0.8001  test=0.8025
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5161, 768)
+  [tabdpt+DS-simple]  train=0.7872  test=0.7571
+  [tabdpt+DS-vanilla] train=0.8139  test=0.7731
+  [tabdpt+RSF]        train=0.9198  test=0.7730
+  [tabdpt+Cox]        train=0.8098  test=0.7713
+  [DS-simple]         train=0.7742  test=0.7638
+  [DS-vanilla]        train=0.8042  test=0.7847
+  [RSF]               train=0.9008  test=0.7935
+  [Cox]               train=0.8011  test=0.7873
+  Fold 2: train=5161, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5161, 768)
+  [tabdpt+DS-simple]  train=0.7940  test=0.7561
+  [tabdpt+DS-vanilla] train=0.8158  test=0.7854
+  [tabdpt+RSF]        train=0.9197  test=0.7632
+  [tabdpt+Cox]        train=0.8133  test=0.7755
+  [DS-simple]         train=0.7790  test=0.7819
+  [DS-vanilla]        train=0.8121  test=0.7977
+  [RSF]               train=0.9005  test=0.7951
+  [Cox]               train=0.8003  test=0.7982
+  Fold 3: train=5162, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5162, 768)
+  [tabdpt+DS-simple]  train=0.7968  test=0.7582
+  [tabdpt+DS-vanilla] train=0.8070  test=0.7683
+  [tabdpt+RSF]        train=0.9243  test=0.7691
+  [tabdpt+Cox]        train=0.8168  test=0.7651
+  [DS-simple]         train=0.7774  test=0.7621
+  [DS-vanilla]        train=0.8023  test=0.7789
+  [RSF]               train=0.9064  test=0.7809
+  [Cox]               train=0.8032  test=0.7835
+  Fold 4: train=5162, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5162, 768)
+  [tabdpt+DS-simple]  train=0.7946  test=0.7526
+  [tabdpt+DS-vanilla] train=0.7830  test=0.7811
+  [tabdpt+RSF]        train=0.9187  test=0.7865
+  [tabdpt+Cox]        train=0.8083  test=0.7803
+  [DS-simple]         train=0.7877  test=0.7939
+  [DS-vanilla]        train=0.8096  test=0.8035
+  [RSF]               train=0.9020  test=0.8094
+  [Cox]               train=0.7981  test=0.8023
+  Fold 5: train=5162, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5162, 768)
+  [tabdpt+DS-simple]  train=0.7501  test=0.7494
+  [tabdpt+DS-vanilla] train=0.8012  test=0.7779
+  [tabdpt+RSF]        train=0.9202  test=0.7709
+  [tabdpt+Cox]        train=0.8135  test=0.7748
+  [DS-simple]         train=0.7877  test=0.7926
+  [DS-vanilla]        train=0.8070  test=0.7975
+  [RSF]               train=0.9015  test=0.8042
+  [Cox]               train=0.7999  test=0.8029
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/OrmoniTirodei_seed123.pkl
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.8087  test=0.7345
+  [tabdpt+DS-vanilla] train=0.8708  test=0.7721
+  [tabdpt+RSF]        train=0.9382  test=0.7581
+  [tabdpt+Cox]        train=0.4937  test=0.3365
+  Fold 2: train=500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6644  test=0.7289
+  [tabdpt+DS-vanilla] train=0.8589  test=0.7476
+  [tabdpt+RSF]        train=0.9522  test=0.7429
+  [tabdpt+Cox]        train=0.9055  test=0.7138
+  Fold 3: train=500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.7993  test=0.6525
+  [tabdpt+DS-vanilla] train=0.8319  test=0.7402
+  [tabdpt+RSF]        train=0.9413  test=0.7366
+  [tabdpt+Cox]        train=0.9105  test=0.7062
+  Fold 4: train=500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6936  test=0.7382
+  [tabdpt+DS-vanilla] train=0.8622  test=0.7593
+  [tabdpt+RSF]        train=0.9376  test=0.7580
+  [tabdpt+Cox]        train=0.9261  test=0.7510
+  Fold 5: train=500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6827  test=0.7386
+  [tabdpt+DS-vanilla] train=0.8297  test=0.7773
+  [tabdpt+RSF]        train=0.9449  test=0.7676
+  [tabdpt+Cox]        train=0.9232  test=0.7390
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8458  test=0.7366
+  [tabdpt+DS-vanilla] train=0.8522  test=0.7521
+  [tabdpt+RSF]        train=0.9406  test=0.7565
+  [tabdpt+Cox]        train=0.8776  test=0.7419
+  Fold 2: train=1000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8196  test=0.7575
+  [tabdpt+DS-vanilla] train=0.7891  test=0.7816
+  [tabdpt+RSF]        train=0.9475  test=0.7693
+  [tabdpt+Cox]        train=0.8631  test=0.7726
+  Fold 3: train=1000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8493  test=0.7279
+  [tabdpt+DS-vanilla] train=0.8075  test=0.7605
+  [tabdpt+RSF]        train=0.9369  test=0.7566
+  [tabdpt+Cox]        train=0.8610  test=0.7348
+  Fold 4: train=1000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8405  test=0.7649
+  [tabdpt+DS-vanilla] train=0.8396  test=0.7787
+  [tabdpt+RSF]        train=0.9427  test=0.7743
+  [tabdpt+Cox]        train=0.8746  test=0.7794
+  Fold 5: train=1000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8119  test=0.7267
+  [tabdpt+DS-vanilla] train=0.8576  test=0.7672
+  [tabdpt+RSF]        train=0.9477  test=0.7612
+  [tabdpt+Cox]        train=0.8715  test=0.7630
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8041  test=0.7703
+  [tabdpt+DS-vanilla] train=0.8253  test=0.7726
+  [tabdpt+RSF]        train=0.9340  test=0.7690
+  [tabdpt+Cox]        train=0.8370  test=0.7654
+  Fold 2: train=2500, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8269  test=0.7741
+  [tabdpt+DS-vanilla] train=0.7971  test=0.7799
+  [tabdpt+RSF]        train=0.9324  test=0.7687
+  [tabdpt+Cox]        train=0.8335  test=0.7774
+  Fold 3: train=2500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8209  test=0.7599
+  [tabdpt+DS-vanilla] train=0.8089  test=0.7671
+  [tabdpt+RSF]        train=0.9325  test=0.7642
+  [tabdpt+Cox]        train=0.8265  test=0.7707
+  Fold 4: train=2500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8163  test=0.7846
+  [tabdpt+DS-vanilla] train=0.7941  test=0.7817
+  [tabdpt+RSF]        train=0.9342  test=0.7807
+  [tabdpt+Cox]        train=0.8294  test=0.7856
+  Fold 5: train=2500, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.7971  test=0.7643
+  [tabdpt+DS-vanilla] train=0.8023  test=0.7855
+  [tabdpt+RSF]        train=0.9336  test=0.7686
+  [tabdpt+Cox]        train=0.8185  test=0.7805
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.7893  test=0.7564
+  [tabdpt+DS-vanilla] train=0.8233  test=0.7754
+  [tabdpt+RSF]        train=0.9227  test=0.7707
+  [tabdpt+Cox]        train=0.8172  test=0.7785
+  Fold 2: train=5000, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.7965  test=0.7561
+  [tabdpt+DS-vanilla] train=0.8103  test=0.7799
+  [tabdpt+RSF]        train=0.9228  test=0.7659
+  [tabdpt+Cox]        train=0.8126  test=0.7778
+  Fold 3: train=5000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8081  test=0.7514
+  [tabdpt+DS-vanilla] train=0.8030  test=0.7750
+  [tabdpt+RSF]        train=0.9268  test=0.7723
+  [tabdpt+Cox]        train=0.8177  test=0.7672
+  Fold 4: train=5000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8094  test=0.7640
+  [tabdpt+DS-vanilla] train=0.8152  test=0.7815
+  [tabdpt+RSF]        train=0.9235  test=0.7862
+  [tabdpt+Cox]        train=0.8138  test=0.7755
+  Fold 5: train=5000, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8049  test=0.7622
+  [tabdpt+DS-vanilla] train=0.8160  test=0.7781
+  [tabdpt+RSF]        train=0.9236  test=0.7641
+  [tabdpt+Cox]        train=0.8139  test=0.7777
+
+--- Sample size: 10000 ---
+  Fold 1: train=5161, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5161, 768)
+  [tabdpt+DS-simple]  train=0.7991  test=0.7581
+  [tabdpt+DS-vanilla] train=0.8186  test=0.7715
+  [tabdpt+RSF]        train=0.9222  test=0.7682
+  [tabdpt+Cox]        train=0.8129  test=0.7647
+  Fold 2: train=5161, test=1291
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5161, 768)
+  [tabdpt+DS-simple]  train=0.7896  test=0.7558
+  [tabdpt+DS-vanilla] train=0.8155  test=0.7793
+  [tabdpt+RSF]        train=0.9199  test=0.7644
+  [tabdpt+Cox]        train=0.8141  test=0.7807
+  Fold 3: train=5162, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5162, 768)
+  [tabdpt+DS-simple]  train=0.8049  test=0.7516
+  [tabdpt+DS-vanilla] train=0.8105  test=0.7730
+  [tabdpt+RSF]        train=0.9256  test=0.7718
+  [tabdpt+Cox]        train=0.8182  test=0.7672
+  Fold 4: train=5162, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5162, 768)
+  [tabdpt+DS-simple]  train=0.7535  test=0.7529
+  [tabdpt+DS-vanilla] train=0.8079  test=0.7910
+  [tabdpt+RSF]        train=0.9213  test=0.7890
+  [tabdpt+Cox]        train=0.8115  test=0.7843
+  Fold 5: train=5162, test=1290
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5162, 768)
+  [tabdpt+DS-simple]  train=0.8130  test=0.7579
+  [tabdpt+DS-vanilla] train=0.8208  test=0.7786
+  [tabdpt+RSF]        train=0.9218  test=0.7697
+  [tabdpt+Cox]        train=0.8177  test=0.7711
+
+--- Sample size: 15000 skipped (actual train size 5161 already processed) ---
+
+Data saved → results/OrmoniTirodei/tabdpt/results_samplesize_OrmoniTirodei_tabdpt_seed123_data.txt
+
+Dataset: OrmoniTirodei | Model: tabdpt | Seed: 123
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabdpt+DS-simple            → mean: 0.6939 | std: 0.0828 | min: 0.5958 | max: 0.8445 | folds: [0.6689, 0.6582, 0.8445, 0.7023, 0.5958]
+    TEST  tabdpt+DS-simple            → mean: 0.7213 | std: 0.0060 | min: 0.7133 | max: 0.7320 | folds: [0.7198, 0.7320, 0.7208, 0.7206, 0.7133]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8617 | std: 0.0174 | min: 0.8393 | max: 0.8830 | folds: [0.8810, 0.8491, 0.8393, 0.8561, 0.8830]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7584 | std: 0.0106 | min: 0.7379 | max: 0.7681 | folds: [0.7602, 0.7642, 0.7379, 0.7617, 0.7681]
+    TRAIN tabdpt+RSF                  → mean: 0.9423 | std: 0.0043 | min: 0.9371 | max: 0.9478 | folds: [0.9371, 0.9472, 0.9394, 0.9402, 0.9478]
+    TEST  tabdpt+RSF                  → mean: 0.7502 | std: 0.0084 | min: 0.7397 | max: 0.7609 | folds: [0.7609, 0.7397, 0.7410, 0.7537, 0.7556]
+    TRAIN tabdpt+Cox                  → mean: 0.9139 | std: 0.0102 | min: 0.8974 | max: 0.9237 | folds: [0.9231, 0.9067, 0.8974, 0.9237, 0.9185]
+    TEST  tabdpt+Cox                  → mean: 0.7363 | std: 0.0135 | min: 0.7120 | max: 0.7489 | folds: [0.7489, 0.7351, 0.7120, 0.7489, 0.7366]
+    TRAIN DS-simple (base)            → mean: 0.8197 | std: 0.0150 | min: 0.7996 | max: 0.8412 | folds: [0.8412, 0.8066, 0.8223, 0.8288, 0.7996]
+    TEST  DS-simple (base)            → mean: 0.7645 | std: 0.0133 | min: 0.7506 | max: 0.7892 | folds: [0.7622, 0.7644, 0.7561, 0.7892, 0.7506]
+    TRAIN DS-vanilla (base)           → mean: 0.8013 | std: 0.0317 | min: 0.7536 | max: 0.8469 | folds: [0.8469, 0.8040, 0.8195, 0.7536, 0.7827]
+    TEST  DS-vanilla (base)           → mean: 0.7401 | std: 0.0183 | min: 0.7183 | max: 0.7736 | folds: [0.7395, 0.7736, 0.7183, 0.7376, 0.7314]
+    TRAIN RSF (base)                  → mean: 0.9434 | std: 0.0083 | min: 0.9271 | max: 0.9502 | folds: [0.9478, 0.9458, 0.9271, 0.9463, 0.9502]
+    TEST  RSF (base)                  → mean: 0.7701 | std: 0.0084 | min: 0.7594 | max: 0.7799 | folds: [0.7799, 0.7616, 0.7594, 0.7783, 0.7713]
+    TRAIN Cox (base)                  → mean: 0.8281 | std: 0.0177 | min: 0.8103 | max: 0.8458 | folds: [0.8458, 0.8103]
+    TEST  Cox (base)                  → mean: 0.7730 | std: 0.0064 | min: 0.7665 | max: 0.7794 | folds: [0.7794, 0.7665]
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabdpt+DS-simple            → mean: 0.8356 | std: 0.0148 | min: 0.8163 | max: 0.8545 | folds: [0.8514, 0.8163, 0.8264, 0.8545, 0.8295]
+    TEST  tabdpt+DS-simple            → mean: 0.7418 | std: 0.0242 | min: 0.6934 | max: 0.7559 | folds: [0.7513, 0.7552, 0.6934, 0.7530, 0.7559]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8164 | std: 0.0174 | min: 0.7843 | max: 0.8330 | folds: [0.8194, 0.7843, 0.8153, 0.8301, 0.8330]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7649 | std: 0.0111 | min: 0.7492 | max: 0.7766 | folds: [0.7682, 0.7766, 0.7492, 0.7758, 0.7548]
+    TRAIN tabdpt+RSF                  → mean: 0.9419 | std: 0.0039 | min: 0.9355 | max: 0.9459 | folds: [0.9396, 0.9456, 0.9355, 0.9428, 0.9459]
+    TEST  tabdpt+RSF                  → mean: 0.7607 | std: 0.0081 | min: 0.7497 | max: 0.7715 | folds: [0.7603, 0.7715, 0.7497, 0.7679, 0.7544]
+    TRAIN tabdpt+Cox                  → mean: 0.8648 | std: 0.0071 | min: 0.8544 | max: 0.8736 | folds: [0.8736, 0.8591, 0.8544, 0.8698, 0.8674]
+    TEST  tabdpt+Cox                  → mean: 0.7562 | std: 0.0125 | min: 0.7372 | max: 0.7747 | folds: [0.7512, 0.7548, 0.7372, 0.7747, 0.7632]
+    TRAIN DS-simple (base)            → mean: 0.8010 | std: 0.0157 | min: 0.7787 | max: 0.8251 | folds: [0.8251, 0.7975, 0.7787, 0.8100, 0.7935]
+    TEST  DS-simple (base)            → mean: 0.7706 | std: 0.0134 | min: 0.7481 | max: 0.7858 | folds: [0.7754, 0.7803, 0.7481, 0.7858, 0.7636]
+    TRAIN DS-vanilla (base)           → mean: 0.8179 | std: 0.0125 | min: 0.8005 | max: 0.8367 | folds: [0.8213, 0.8005, 0.8229, 0.8083, 0.8367]
+    TEST  DS-vanilla (base)           → mean: 0.7612 | std: 0.0126 | min: 0.7468 | max: 0.7772 | folds: [0.7468, 0.7772, 0.7515, 0.7754, 0.7549]
+    TRAIN RSF (base)                  → mean: 0.9357 | std: 0.0061 | min: 0.9251 | max: 0.9418 | folds: [0.9416, 0.9418, 0.9251, 0.9353, 0.9347]
+    TEST  RSF (base)                  → mean: 0.7810 | std: 0.0076 | min: 0.7679 | max: 0.7877 | folds: [0.7850, 0.7872, 0.7679, 0.7877, 0.7771]
+    TRAIN Cox (base)                  → mean: 0.8085 | std: 0.0115 | min: 0.7908 | max: 0.8261 | folds: [0.8261, 0.8036, 0.8090, 0.8130, 0.7908]
+    TEST  Cox (base)                  → mean: 0.7787 | std: 0.0055 | min: 0.7722 | max: 0.7851 | folds: [0.7722, 0.7843, 0.7727, 0.7851, 0.7791]
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabdpt+DS-simple            → mean: 0.8008 | std: 0.0143 | min: 0.7818 | max: 0.8258 | folds: [0.8258, 0.7818, 0.7991, 0.8024, 0.7950]
+    TEST  tabdpt+DS-simple            → mean: 0.7648 | std: 0.0068 | min: 0.7532 | max: 0.7717 | folds: [0.7532, 0.7661, 0.7620, 0.7717, 0.7711]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8008 | std: 0.0178 | min: 0.7827 | max: 0.8331 | folds: [0.8331, 0.7969, 0.8043, 0.7827, 0.7871]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7750 | std: 0.0080 | min: 0.7639 | max: 0.7854 | folds: [0.7676, 0.7808, 0.7639, 0.7772, 0.7854]
+    TRAIN tabdpt+RSF                  → mean: 0.9328 | std: 0.0017 | min: 0.9305 | max: 0.9357 | folds: [0.9316, 0.9331, 0.9330, 0.9305, 0.9357]
+    TEST  tabdpt+RSF                  → mean: 0.7654 | std: 0.0063 | min: 0.7560 | max: 0.7751 | folds: [0.7624, 0.7679, 0.7560, 0.7751, 0.7654]
+    TRAIN tabdpt+Cox                  → mean: 0.8245 | std: 0.0072 | min: 0.8126 | max: 0.8326 | folds: [0.8326, 0.8312, 0.8219, 0.8242, 0.8126]
+    TEST  tabdpt+Cox                  → mean: 0.7783 | std: 0.0069 | min: 0.7725 | max: 0.7900 | folds: [0.7725, 0.7737, 0.7728, 0.7900, 0.7822]
+    TRAIN DS-simple (base)            → mean: 0.7853 | std: 0.0094 | min: 0.7716 | max: 0.7969 | folds: [0.7775, 0.7969, 0.7925, 0.7878, 0.7716]
+    TEST  DS-simple (base)            → mean: 0.7773 | std: 0.0102 | min: 0.7659 | max: 0.7902 | folds: [0.7659, 0.7902, 0.7668, 0.7880, 0.7754]
+    TRAIN DS-vanilla (base)           → mean: 0.8111 | std: 0.0090 | min: 0.7974 | max: 0.8228 | folds: [0.8187, 0.8228, 0.8059, 0.8107, 0.7974]
+    TEST  DS-vanilla (base)           → mean: 0.7866 | std: 0.0086 | min: 0.7724 | max: 0.7960 | folds: [0.7817, 0.7938, 0.7724, 0.7960, 0.7892]
+    TRAIN RSF (base)                  → mean: 0.9167 | std: 0.0014 | min: 0.9148 | max: 0.9191 | folds: [0.9191, 0.9148, 0.9162, 0.9175, 0.9162]
+    TEST  RSF (base)                  → mean: 0.7924 | std: 0.0083 | min: 0.7793 | max: 0.8050 | folds: [0.7907, 0.7909, 0.7793, 0.8050, 0.7961]
+    TRAIN Cox (base)                  → mean: 0.7997 | std: 0.0079 | min: 0.7849 | max: 0.8067 | folds: [0.8067, 0.8062, 0.7991, 0.8014, 0.7849]
+    TEST  Cox (base)                  → mean: 0.7920 | std: 0.0063 | min: 0.7838 | max: 0.8003 | folds: [0.7856, 0.7939, 0.7838, 0.7965, 0.8003]
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabdpt+DS-simple            → mean: 0.7980 | std: 0.0047 | min: 0.7937 | max: 0.8071 | folds: [0.7937, 0.8071, 0.7970, 0.7950, 0.7969]
+    TEST  tabdpt+DS-simple            → mean: 0.7581 | std: 0.0108 | min: 0.7454 | max: 0.7727 | folds: [0.7457, 0.7625, 0.7454, 0.7642, 0.7727]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8059 | std: 0.0129 | min: 0.7804 | max: 0.8144 | folds: [0.8144, 0.8119, 0.8088, 0.7804, 0.8142]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7800 | std: 0.0037 | min: 0.7732 | max: 0.7837 | folds: [0.7837, 0.7797, 0.7732, 0.7831, 0.7800]
+    TRAIN tabdpt+RSF                  → mean: 0.9220 | std: 0.0020 | min: 0.9193 | max: 0.9254 | folds: [0.9206, 0.9193, 0.9254, 0.9221, 0.9224]
+    TEST  tabdpt+RSF                  → mean: 0.7732 | std: 0.0056 | min: 0.7669 | max: 0.7833 | folds: [0.7729, 0.7694, 0.7735, 0.7833, 0.7669]
+    TRAIN tabdpt+Cox                  → mean: 0.8126 | std: 0.0012 | min: 0.8106 | max: 0.8139 | folds: [0.8139, 0.8123, 0.8138, 0.8106, 0.8123]
+    TEST  tabdpt+Cox                  → mean: 0.7733 | std: 0.0063 | min: 0.7618 | max: 0.7803 | folds: [0.7803, 0.7721, 0.7618, 0.7761, 0.7762]
+    TRAIN DS-simple (base)            → mean: 0.7857 | std: 0.0078 | min: 0.7737 | max: 0.7945 | folds: [0.7945, 0.7884, 0.7737, 0.7920, 0.7799]
+    TEST  DS-simple (base)            → mean: 0.7833 | std: 0.0149 | min: 0.7581 | max: 0.8033 | folds: [0.7886, 0.7875, 0.7581, 0.8033, 0.7788]
+    TRAIN DS-vanilla (base)           → mean: 0.8089 | std: 0.0026 | min: 0.8052 | max: 0.8133 | folds: [0.8052, 0.8078, 0.8133, 0.8092, 0.8092]
+    TEST  DS-vanilla (base)           → mean: 0.7932 | std: 0.0089 | min: 0.7796 | max: 0.8048 | folds: [0.7870, 0.7961, 0.7796, 0.8048, 0.7986]
+    TRAIN RSF (base)                  → mean: 0.9028 | std: 0.0020 | min: 0.8996 | max: 0.9060 | folds: [0.9029, 0.8996, 0.9060, 0.9028, 0.9024]
+    TEST  RSF (base)                  → mean: 0.7960 | std: 0.0088 | min: 0.7806 | max: 0.8070 | folds: [0.7955, 0.7958, 0.7806, 0.8070, 0.8011]
+    TRAIN Cox (base)                  → mean: 0.8002 | std: 0.0007 | min: 0.7993 | max: 0.8013 | folds: [0.8013, 0.7996, 0.8008, 0.7993, 0.8001]
+    TEST  Cox (base)                  → mean: 0.7949 | std: 0.0077 | min: 0.7841 | max: 0.8025 | folds: [0.7875, 0.7984, 0.7841, 0.8021, 0.8025]
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabdpt+DS-simple            → mean: 0.7846 | std: 0.0175 | min: 0.7501 | max: 0.7968 | folds: [0.7872, 0.7940, 0.7968, 0.7946, 0.7501]
+    TEST  tabdpt+DS-simple            → mean: 0.7547 | std: 0.0032 | min: 0.7494 | max: 0.7582 | folds: [0.7571, 0.7561, 0.7582, 0.7526, 0.7494]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8042 | std: 0.0118 | min: 0.7830 | max: 0.8158 | folds: [0.8139, 0.8158, 0.8070, 0.7830, 0.8012]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7772 | std: 0.0060 | min: 0.7683 | max: 0.7854 | folds: [0.7731, 0.7854, 0.7683, 0.7811, 0.7779]
+    TRAIN tabdpt+RSF                  → mean: 0.9205 | std: 0.0020 | min: 0.9187 | max: 0.9243 | folds: [0.9198, 0.9197, 0.9243, 0.9187, 0.9202]
+    TEST  tabdpt+RSF                  → mean: 0.7725 | std: 0.0077 | min: 0.7632 | max: 0.7865 | folds: [0.7730, 0.7632, 0.7691, 0.7865, 0.7709]
+    TRAIN tabdpt+Cox                  → mean: 0.8123 | std: 0.0030 | min: 0.8083 | max: 0.8168 | folds: [0.8098, 0.8133, 0.8168, 0.8083, 0.8135]
+    TEST  tabdpt+Cox                  → mean: 0.7734 | std: 0.0051 | min: 0.7651 | max: 0.7803 | folds: [0.7713, 0.7755, 0.7651, 0.7803, 0.7748]
+    TRAIN DS-simple (base)            → mean: 0.7812 | std: 0.0055 | min: 0.7742 | max: 0.7877 | folds: [0.7742, 0.7790, 0.7774, 0.7877, 0.7877]
+    TEST  DS-simple (base)            → mean: 0.7788 | std: 0.0136 | min: 0.7621 | max: 0.7939 | folds: [0.7638, 0.7819, 0.7621, 0.7939, 0.7926]
+    TRAIN DS-vanilla (base)           → mean: 0.8070 | std: 0.0035 | min: 0.8023 | max: 0.8121 | folds: [0.8042, 0.8121, 0.8023, 0.8096, 0.8070]
+    TEST  DS-vanilla (base)           → mean: 0.7924 | std: 0.0092 | min: 0.7789 | max: 0.8035 | folds: [0.7847, 0.7977, 0.7789, 0.8035, 0.7975]
+    TRAIN RSF (base)                  → mean: 0.9022 | std: 0.0021 | min: 0.9005 | max: 0.9064 | folds: [0.9008, 0.9005, 0.9064, 0.9020, 0.9015]
+    TEST  RSF (base)                  → mean: 0.7966 | std: 0.0098 | min: 0.7809 | max: 0.8094 | folds: [0.7935, 0.7951, 0.7809, 0.8094, 0.8042]
+    TRAIN Cox (base)                  → mean: 0.8005 | std: 0.0017 | min: 0.7981 | max: 0.8032 | folds: [0.8011, 0.8003, 0.8032, 0.7981, 0.7999]
+    TEST  Cox (base)                  → mean: 0.7949 | std: 0.0080 | min: 0.7835 | max: 0.8029 | folds: [0.7873, 0.7982, 0.7835, 0.8023, 0.8029]
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabdpt+DS-simple            → mean: 0.7297 | std: 0.0614 | min: 0.6644 | max: 0.8087 | folds: [0.8087, 0.6644, 0.7993, 0.6936, 0.6827]
+    TEST  tabdpt+DS-simple            → mean: 0.7185 | std: 0.0332 | min: 0.6525 | max: 0.7386 | folds: [0.7345, 0.7289, 0.6525, 0.7382, 0.7386]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8507 | std: 0.0167 | min: 0.8297 | max: 0.8708 | folds: [0.8708, 0.8589, 0.8319, 0.8622, 0.8297]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7593 | std: 0.0141 | min: 0.7402 | max: 0.7773 | folds: [0.7721, 0.7476, 0.7402, 0.7593, 0.7773]
+    TRAIN tabdpt+RSF                  → mean: 0.9428 | std: 0.0054 | min: 0.9376 | max: 0.9522 | folds: [0.9382, 0.9522, 0.9413, 0.9376, 0.9449]
+    TEST  tabdpt+RSF                  → mean: 0.7526 | std: 0.0113 | min: 0.7366 | max: 0.7676 | folds: [0.7581, 0.7429, 0.7366, 0.7580, 0.7676]
+    TRAIN tabdpt+Cox                  → mean: 0.8318 | std: 0.1692 | min: 0.4937 | max: 0.9261 | folds: [0.4937, 0.9055, 0.9105, 0.9261, 0.9232]
+    TEST  tabdpt+Cox                  → mean: 0.6493 | std: 0.1573 | min: 0.3365 | max: 0.7510 | folds: [0.3365, 0.7138, 0.7062, 0.7510, 0.7390]
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabdpt+DS-simple            → mean: 0.8334 | std: 0.0149 | min: 0.8119 | max: 0.8493 | folds: [0.8458, 0.8196, 0.8493, 0.8405, 0.8119]
+    TEST  tabdpt+DS-simple            → mean: 0.7427 | std: 0.0156 | min: 0.7267 | max: 0.7649 | folds: [0.7366, 0.7575, 0.7279, 0.7649, 0.7267]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8292 | std: 0.0266 | min: 0.7891 | max: 0.8576 | folds: [0.8522, 0.7891, 0.8075, 0.8396, 0.8576]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7680 | std: 0.0110 | min: 0.7521 | max: 0.7816 | folds: [0.7521, 0.7816, 0.7605, 0.7787, 0.7672]
+    TRAIN tabdpt+RSF                  → mean: 0.9431 | std: 0.0041 | min: 0.9369 | max: 0.9477 | folds: [0.9406, 0.9475, 0.9369, 0.9427, 0.9477]
+    TEST  tabdpt+RSF                  → mean: 0.7636 | std: 0.0071 | min: 0.7565 | max: 0.7743 | folds: [0.7565, 0.7693, 0.7566, 0.7743, 0.7612]
+    TRAIN tabdpt+Cox                  → mean: 0.8696 | std: 0.0065 | min: 0.8610 | max: 0.8776 | folds: [0.8776, 0.8631, 0.8610, 0.8746, 0.8715]
+    TEST  tabdpt+Cox                  → mean: 0.7584 | std: 0.0173 | min: 0.7348 | max: 0.7794 | folds: [0.7419, 0.7726, 0.7348, 0.7794, 0.7630]
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabdpt+DS-simple            → mean: 0.8130 | std: 0.0110 | min: 0.7971 | max: 0.8269 | folds: [0.8041, 0.8269, 0.8209, 0.8163, 0.7971]
+    TEST  tabdpt+DS-simple            → mean: 0.7706 | std: 0.0085 | min: 0.7599 | max: 0.7846 | folds: [0.7703, 0.7741, 0.7599, 0.7846, 0.7643]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8056 | std: 0.0111 | min: 0.7941 | max: 0.8253 | folds: [0.8253, 0.7971, 0.8089, 0.7941, 0.8023]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7774 | std: 0.0066 | min: 0.7671 | max: 0.7855 | folds: [0.7726, 0.7799, 0.7671, 0.7817, 0.7855]
+    TRAIN tabdpt+RSF                  → mean: 0.9334 | std: 0.0008 | min: 0.9324 | max: 0.9342 | folds: [0.9340, 0.9324, 0.9325, 0.9342, 0.9336]
+    TEST  tabdpt+RSF                  → mean: 0.7702 | std: 0.0055 | min: 0.7642 | max: 0.7807 | folds: [0.7690, 0.7687, 0.7642, 0.7807, 0.7686]
+    TRAIN tabdpt+Cox                  → mean: 0.8290 | std: 0.0063 | min: 0.8185 | max: 0.8370 | folds: [0.8370, 0.8335, 0.8265, 0.8294, 0.8185]
+    TEST  tabdpt+Cox                  → mean: 0.7759 | std: 0.0071 | min: 0.7654 | max: 0.7856 | folds: [0.7654, 0.7774, 0.7707, 0.7856, 0.7805]
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabdpt+DS-simple            → mean: 0.8017 | std: 0.0076 | min: 0.7893 | max: 0.8094 | folds: [0.7893, 0.7965, 0.8081, 0.8094, 0.8049]
+    TEST  tabdpt+DS-simple            → mean: 0.7580 | std: 0.0046 | min: 0.7514 | max: 0.7640 | folds: [0.7564, 0.7561, 0.7514, 0.7640, 0.7622]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8136 | std: 0.0067 | min: 0.8030 | max: 0.8233 | folds: [0.8233, 0.8103, 0.8030, 0.8152, 0.8160]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7780 | std: 0.0025 | min: 0.7750 | max: 0.7815 | folds: [0.7754, 0.7799, 0.7750, 0.7815, 0.7781]
+    TRAIN tabdpt+RSF                  → mean: 0.9239 | std: 0.0015 | min: 0.9227 | max: 0.9268 | folds: [0.9227, 0.9228, 0.9268, 0.9235, 0.9236]
+    TEST  tabdpt+RSF                  → mean: 0.7719 | std: 0.0078 | min: 0.7641 | max: 0.7862 | folds: [0.7707, 0.7659, 0.7723, 0.7862, 0.7641]
+    TRAIN tabdpt+Cox                  → mean: 0.8151 | std: 0.0020 | min: 0.8126 | max: 0.8177 | folds: [0.8172, 0.8126, 0.8177, 0.8138, 0.8139]
+    TEST  tabdpt+Cox                  → mean: 0.7753 | std: 0.0042 | min: 0.7672 | max: 0.7785 | folds: [0.7785, 0.7778, 0.7672, 0.7755, 0.7777]
+
+  Sample size (requested):  10000  |  actual mean: 5161
+    TRAIN tabdpt+DS-simple            → mean: 0.7920 | std: 0.0207 | min: 0.7535 | max: 0.8130 | folds: [0.7991, 0.7896, 0.8049, 0.7535, 0.8130]
+    TEST  tabdpt+DS-simple            → mean: 0.7553 | std: 0.0026 | min: 0.7516 | max: 0.7581 | folds: [0.7581, 0.7558, 0.7516, 0.7529, 0.7579]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8147 | std: 0.0048 | min: 0.8079 | max: 0.8208 | folds: [0.8186, 0.8155, 0.8105, 0.8079, 0.8208]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7787 | std: 0.0069 | min: 0.7715 | max: 0.7910 | folds: [0.7715, 0.7793, 0.7730, 0.7910, 0.7786]
+    TRAIN tabdpt+RSF                  → mean: 0.9222 | std: 0.0019 | min: 0.9199 | max: 0.9256 | folds: [0.9222, 0.9199, 0.9256, 0.9213, 0.9218]
+    TEST  tabdpt+RSF                  → mean: 0.7726 | std: 0.0085 | min: 0.7644 | max: 0.7890 | folds: [0.7682, 0.7644, 0.7718, 0.7890, 0.7697]
+    TRAIN tabdpt+Cox                  → mean: 0.8149 | std: 0.0026 | min: 0.8115 | max: 0.8182 | folds: [0.8129, 0.8141, 0.8182, 0.8115, 0.8177]
+    TEST  tabdpt+Cox                  → mean: 0.7736 | std: 0.0077 | min: 0.7647 | max: 0.7843 | folds: [0.7647, 0.7807, 0.7672, 0.7843, 0.7711]
+Text summary saved → results/OrmoniTirodei/tabdpt/results_samplesize_OrmoniTirodei_tabdpt_seed123.txt
+
+######################################################################
+Dataset: HURRAH
+######################################################################
+
+============================================================
+Preprocess: -1
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed123.pkl
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6105  test=0.7474
+  [tabdpt+DS-vanilla] train=0.9115  test=0.7935
+  [tabdpt+RSF]        train=0.9705  test=0.7615
+  [tabdpt+Cox]        train=0.8700  test=0.7524
+  [DS-simple]         train=0.8542  test=0.8135
+  [DS-vanilla]        train=0.8492  test=0.7554
+  [RSF]               train=0.9759  test=0.7998
+  [Cox]               train=0.8485  test=0.8070
+  Fold 2: train=500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.7918  test=0.7526
+  [tabdpt+DS-vanilla] train=0.8794  test=0.7742
+  [tabdpt+RSF]        train=0.9746  test=0.7751
+  [tabdpt+Cox]        train=0.4657  test=0.3755
+  [DS-simple]         train=0.8360  test=0.8098
+  [DS-vanilla]        train=0.8805  test=0.7770
+  [RSF]               train=0.9628  test=0.8067
+  [Cox]               train=0.8433  test=0.8124
+  Fold 3: train=500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.7558  test=0.7293
+  [tabdpt+DS-vanilla] train=0.9463  test=0.8007
+  [tabdpt+RSF]        train=0.9735  test=0.7845
+  [tabdpt+Cox]        train=0.8610  test=0.7819
+  [DS-simple]         train=0.8348  test=0.7934
+  [DS-vanilla]        train=0.7191  test=0.6795
+  [RSF]               train=0.9557  test=0.8143
+  [Cox]               train=0.8870  test=0.8060
+  Fold 4: train=500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.8431  test=0.7197
+  [tabdpt+DS-vanilla] train=0.9147  test=0.7691
+  [tabdpt+RSF]        train=0.9621  test=0.7467
+  [tabdpt+Cox]        train=0.7956  test=0.5808
+  [DS-simple]         train=0.8747  test=0.7855
+  [DS-vanilla]        train=0.8777  test=0.7468
+  [RSF]               train=0.9468  test=0.7519
+  [Cox]               train=0.8789  test=0.7846
+  Fold 5: train=500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.9206  test=0.7922
+  [tabdpt+DS-vanilla] train=0.9327  test=0.8074
+  [tabdpt+RSF]        train=0.9711  test=0.7943
+  [tabdpt+Cox]        train=0.7746  test=0.6098
+  [DS-simple]         train=0.8711  test=0.8123
+  [DS-vanilla]        train=0.8752  test=0.7776
+  [RSF]               train=0.9653  test=0.7891
+  [Cox]               train=0.8693  test=0.8008
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8819  test=0.7989
+  [tabdpt+DS-vanilla] train=0.8660  test=0.8074
+  [tabdpt+RSF]        train=0.9644  test=0.7975
+  [tabdpt+Cox]        train=0.9134  test=0.7960
+  [DS-simple]         train=0.8580  test=0.8286
+  [DS-vanilla]        train=0.8537  test=0.8062
+  [RSF]               train=0.9535  test=0.7914
+  [Cox]               train=0.8440  test=0.8152
+  Fold 2: train=1000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8148  test=0.7515
+  [tabdpt+DS-vanilla] train=0.8629  test=0.7750
+  [tabdpt+RSF]        train=0.9698  test=0.7804
+  [tabdpt+Cox]        train=0.3543  test=0.2895
+  [DS-simple]         train=0.8303  test=0.8269
+  [DS-vanilla]        train=0.8601  test=0.8183
+  [RSF]               train=0.9693  test=0.8209
+  [Cox]               train=0.8255  test=0.8188
+  Fold 3: train=1000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.9113  test=0.7866
+  [tabdpt+DS-vanilla] train=0.8958  test=0.8009
+  [tabdpt+RSF]        train=0.9705  test=0.7846
+  [tabdpt+Cox]        train=0.9213  test=0.7795
+  [DS-simple]         train=0.8587  test=0.8096
+  [DS-vanilla]        train=0.8717  test=0.8042
+  [RSF]               train=0.9548  test=0.8133
+  [Cox]               train=0.8586  test=0.8171
+  Fold 4: train=1000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.9206  test=0.7635
+  [tabdpt+DS-vanilla] train=0.8818  test=0.7816
+  [tabdpt+RSF]        train=0.9701  test=0.7802
+  [tabdpt+Cox]        train=0.8093  test=0.5761
+  [DS-simple]         train=0.8642  test=0.8076
+  [DS-vanilla]        train=0.8459  test=0.7751
+  [RSF]               train=0.9636  test=0.7949
+  [Cox]               train=0.8519  test=0.8064
+  Fold 5: train=1000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.9021  test=0.7858
+  [tabdpt+DS-vanilla] train=0.8507  test=0.8114
+  [tabdpt+RSF]        train=0.9763  test=0.8117
+  [tabdpt+Cox]        train=0.8484  test=0.7980
+  [DS-simple]         train=0.8579  test=0.8321
+  [DS-vanilla]        train=0.8763  test=0.8146
+  [RSF]               train=0.9658  test=0.8219
+  [Cox]               train=0.8491  test=0.8216
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8790  test=0.7972
+  [tabdpt+DS-vanilla] train=0.8956  test=0.8022
+  [tabdpt+RSF]        train=0.9730  test=0.8061
+  [tabdpt+Cox]        train=0.8756  test=0.7984
+  [DS-simple]         train=0.8471  test=0.8357
+  [DS-vanilla]        train=0.8745  test=0.8249
+  [RSF]               train=0.9459  test=0.8165
+  [Cox]               train=0.8385  test=0.8223
+  Fold 2: train=2500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8398  test=0.8137
+  [tabdpt+DS-vanilla] train=0.8297  test=0.8131
+  [tabdpt+RSF]        train=0.9729  test=0.8193
+  [tabdpt+Cox]        train=0.3849  test=0.3387
+  [DS-simple]         train=0.8378  test=0.8311
+  [DS-vanilla]        train=0.8331  test=0.8295
+  [RSF]               train=0.9546  test=0.8413
+  [Cox]               train=0.8298  test=0.8271
+  Fold 3: train=2500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8800  test=0.7766
+  [tabdpt+DS-vanilla] train=0.8231  test=0.8168
+  [tabdpt+RSF]        train=0.9666  test=0.7976
+  [tabdpt+Cox]        train=0.3461  test=0.2345
+  [DS-simple]         train=0.8474  test=0.8269
+  [DS-vanilla]        train=0.8427  test=0.8189
+  [RSF]               train=0.9495  test=0.8432
+  [Cox]               train=0.8375  test=0.8254
+  Fold 4: train=2500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8857  test=0.7806
+  [tabdpt+DS-vanilla] train=0.8811  test=0.7824
+  [tabdpt+RSF]        train=0.9723  test=0.7895
+  [tabdpt+Cox]        train=0.8826  test=0.7890
+  [DS-simple]         train=0.8539  test=0.8174
+  [DS-vanilla]        train=0.8723  test=0.8111
+  [RSF]               train=0.9522  test=0.8200
+  [Cox]               train=0.8421  test=0.8094
+  Fold 5: train=2500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8751  test=0.7791
+  [tabdpt+DS-vanilla] train=0.8429  test=0.8183
+  [tabdpt+RSF]        train=0.9748  test=0.8248
+  [tabdpt+Cox]        train=0.3176  test=0.2305
+  [DS-simple]         train=0.8511  test=0.8307
+  [DS-vanilla]        train=0.8740  test=0.8268
+  [RSF]               train=0.9537  test=0.8395
+  [Cox]               train=0.8456  test=0.8207
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8453  test=0.7993
+  [tabdpt+DS-vanilla] train=0.8554  test=0.8191
+  [tabdpt+RSF]        train=0.9632  test=0.8007
+  [tabdpt+Cox]        train=0.3241  test=0.2736
+  [DS-simple]         train=0.8366  test=0.8323
+  [DS-vanilla]        train=0.8687  test=0.8285
+  [RSF]               train=0.9349  test=0.8248
+  [Cox]               train=0.8290  test=0.8224
+  Fold 2: train=5000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8302  test=0.8149
+  [tabdpt+DS-vanilla] train=0.8496  test=0.8220
+  [tabdpt+RSF]        train=0.9630  test=0.8189
+  [tabdpt+Cox]        train=0.8485  test=0.8284
+  [DS-simple]         train=0.8400  test=0.8365
+  [DS-vanilla]        train=0.8565  test=0.8385
+  [RSF]               train=0.9393  test=0.8502
+  [Cox]               train=0.8274  test=0.8312
+  Fold 3: train=5000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8498  test=0.7886
+  [tabdpt+DS-vanilla] train=0.8204  test=0.8039
+  [tabdpt+RSF]        train=0.9695  test=0.8123
+  [tabdpt+Cox]        train=0.8560  test=0.7902
+  [DS-simple]         train=0.8415  test=0.8292
+  [DS-vanilla]        train=0.8544  test=0.8344
+  [RSF]               train=0.9424  test=0.8513
+  [Cox]               train=0.8298  test=0.8278
+  Fold 4: train=5000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8426  test=0.7978
+  [tabdpt+DS-vanilla] train=0.8438  test=0.8009
+  [tabdpt+RSF]        train=0.9644  test=0.7902
+  [tabdpt+Cox]        train=0.8626  test=0.7950
+  [DS-simple]         train=0.8476  test=0.8224
+  [DS-vanilla]        train=0.8561  test=0.8163
+  [RSF]               train=0.9408  test=0.8320
+  [Cox]               train=0.8392  test=0.8120
+  Fold 5: train=5000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8239  test=0.8157
+  [tabdpt+DS-vanilla] train=0.8181  test=0.8254
+  [tabdpt+RSF]        train=0.9676  test=0.8279
+  [tabdpt+Cox]        train=0.8493  test=0.8125
+  [DS-simple]         train=0.8341  test=0.8342
+  [DS-vanilla]        train=0.8581  test=0.8436
+  [RSF]               train=0.9412  test=0.8550
+  [Cox]               train=0.8253  test=0.8265
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8305  test=0.8035
+  [tabdpt+DS-vanilla] train=0.8444  test=0.8006
+  [tabdpt+RSF]        train=0.9569  test=0.8057
+  [tabdpt+Cox]        train=0.8465  test=0.8000
+  [DS-simple]         train=0.8336  test=0.8307
+  [DS-vanilla]        train=0.8465  test=0.8296
+  [RSF]               train=0.9272  test=0.8332
+  [Cox]               train=0.8319  test=0.8232
+  Fold 2: train=10000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8282  test=0.8017
+  [tabdpt+DS-vanilla] train=0.8500  test=0.8053
+  [tabdpt+RSF]        train=0.9562  test=0.8175
+  [tabdpt+Cox]        train=0.8434  test=0.7987
+  [DS-simple]         train=0.8345  test=0.8354
+  [DS-vanilla]        train=0.8474  test=0.8433
+  [RSF]               train=0.9277  test=0.8568
+  [Cox]               train=0.8274  test=0.8341
+  Fold 3: train=10000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8366  test=0.7465
+  [tabdpt+DS-vanilla] train=0.8517  test=0.7893
+  [tabdpt+RSF]        train=0.9584  test=0.8101
+  [tabdpt+Cox]        train=0.8464  test=0.7696
+  [DS-simple]         train=0.8290  test=0.8308
+  [DS-vanilla]        train=0.8163  test=0.8120
+  [RSF]               train=0.9269  test=0.8524
+  [Cox]               train=0.8299  test=0.8282
+  Fold 4: train=10000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8330  test=0.7912
+  [tabdpt+DS-vanilla] train=0.8602  test=0.7893
+  [tabdpt+RSF]        train=0.9583  test=0.8018
+  [tabdpt+Cox]        train=0.8490  test=0.7721
+  [DS-simple]         train=0.8302  test=0.8189
+  [DS-vanilla]        train=0.8478  test=0.8302
+  [RSF]               train=0.9273  test=0.8417
+  [Cox]               train=0.8321  test=0.8154
+  Fold 5: train=10000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8097  test=0.8191
+  [tabdpt+DS-vanilla] train=0.8491  test=0.8268
+  [tabdpt+RSF]        train=0.9590  test=0.8287
+  [tabdpt+Cox]        train=0.8466  test=0.8195
+  [DS-simple]         train=0.8188  test=0.8207
+  [DS-vanilla]        train=0.8401  test=0.8289
+  [RSF]               train=0.9280  test=0.8576
+  [Cox]               train=0.8301  test=0.8286
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13566, 768)
+  [tabdpt+DS-simple]  train=0.8309  test=0.8018
+  [tabdpt+DS-vanilla] train=0.8574  test=0.8212ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+ENV CHECKPOINT PATH: 
+DEFAULT PATH: /scratch.hpc/luca.cotugno/Foundation_model_clinical_data/src/models_diff/tabdpt1_1.pth
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:496: RuntimeWarning: Mean of empty slice
+  "train_mean":    np.nanmean(tr_vals),
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/.venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:1997: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+/scratch.hpc/luca.cotugno/Foundation_model_clinical_data/test_sample_size.py:498: RuntimeWarning: Mean of empty slice
+  "test_mean":     np.nanmean(te_vals),
+
+  [tabdpt+RSF]        train=0.9529  test=0.8120
+  [tabdpt+Cox]        train=0.8420  test=0.8119
+  [DS-simple]         train=0.8378  test=0.8338
+  [DS-vanilla]        train=0.8549  test=0.8416
+  [RSF]               train=0.9210  test=0.8332
+  [Cox]               train=0.8294  test=0.8222
+  Fold 2: train=13566, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13566, 768)
+  [tabdpt+DS-simple]  train=0.8266  test=0.7701
+  [tabdpt+DS-vanilla] train=0.8210  test=0.8176
+  [tabdpt+RSF]        train=0.9517  test=0.8149
+  [tabdpt+Cox]        train=0.8408  test=0.7977
+  [DS-simple]         train=0.8372  test=0.8370
+  [DS-vanilla]        train=0.8512  test=0.8524
+  [RSF]               train=0.9198  test=0.8614
+  [Cox]               train=0.8262  test=0.8348
+  Fold 3: train=13566, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13566, 768)
+  [tabdpt+DS-simple]  train=0.8262  test=0.7926
+  [tabdpt+DS-vanilla] train=0.8543  test=0.8007
+  [tabdpt+RSF]        train=0.9515  test=0.7969
+  [tabdpt+Cox]        train=0.8431  test=0.7869
+  [DS-simple]         train=0.8382  test=0.8366
+  [DS-vanilla]        train=0.8616  test=0.8479
+  [RSF]               train=0.9196  test=0.8510
+  [Cox]               train=0.8279  test=0.8287
+  Fold 4: train=13567, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13567, 768)
+  [tabdpt+DS-simple]  train=0.8121  test=0.7972
+  [tabdpt+DS-vanilla] train=0.8521  test=0.7975
+  [tabdpt+RSF]        train=0.9506  test=0.7976
+  [tabdpt+Cox]        train=0.8447  test=0.7863
+  [DS-simple]         train=0.8376  test=0.8282
+  [DS-vanilla]        train=0.8656  test=0.8390
+  [RSF]               train=0.9206  test=0.8434
+  [Cox]               train=0.8299  test=0.8156
+  Fold 5: train=13567, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13567, 768)
+  [tabdpt+DS-simple]  train=0.8143  test=0.8125
+  [tabdpt+DS-vanilla] train=0.8462  test=0.8135
+  [tabdpt+RSF]        train=0.9530  test=0.8285
+  [tabdpt+Cox]        train=0.8396  test=0.8045
+  [DS-simple]         train=0.8290  test=0.8332
+  [DS-vanilla]        train=0.8559  test=0.8500
+  [RSF]               train=0.9202  test=0.8598
+  [Cox]               train=0.8272  test=0.8304
+
+============================================================
+Preprocess: NaN
+============================================================
+Loading existing folds from tmp/splits/HURRAH_seed123.pkl
+
+--- Sample size: 500 ---
+  Fold 1: train=500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6342  test=0.7570
+  [tabdpt+DS-vanilla] train=0.8930  test=0.7817
+  [tabdpt+RSF]        train=0.9722  test=0.7549
+  [tabdpt+Cox]        train=0.8782  test=0.7058
+  Fold 2: train=500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.7019  test=0.7413
+  [tabdpt+DS-vanilla] train=0.8810  test=0.7904
+  [tabdpt+RSF]        train=0.9705  test=0.7652
+  [tabdpt+Cox]        train=0.5703  test=0.3542
+  Fold 3: train=500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.8761  test=0.7365
+  [tabdpt+DS-vanilla] train=0.9063  test=0.7873
+  [tabdpt+RSF]        train=0.9727  test=0.7871
+  [tabdpt+Cox]        train=0.6099  test=0.5894
+  Fold 4: train=500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.6954  test=0.6924
+  [tabdpt+DS-vanilla] train=0.8989  test=0.7492
+  [tabdpt+RSF]        train=0.9651  test=0.7499
+  [tabdpt+Cox]        train=0.9116  test=0.7410
+  Fold 5: train=500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (500, 768)
+  [tabdpt+DS-simple]  train=0.9220  test=0.7650
+  [tabdpt+DS-vanilla] train=0.9053  test=0.7758
+  [tabdpt+RSF]        train=0.9698  test=0.7645
+  [tabdpt+Cox]        train=0.8837  test=0.7242
+
+--- Sample size: 1000 ---
+  Fold 1: train=1000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8792  test=0.7798
+  [tabdpt+DS-vanilla] train=0.8745  test=0.7944
+  [tabdpt+RSF]        train=0.9662  test=0.7854
+  [tabdpt+Cox]        train=0.5796  test=0.3822
+  Fold 2: train=1000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8856  test=0.7743
+  [tabdpt+DS-vanilla] train=0.8537  test=0.7952
+  [tabdpt+RSF]        train=0.9691  test=0.7921
+  [tabdpt+Cox]        train=0.5291  test=0.3326
+  Fold 3: train=1000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.9098  test=0.7645
+  [tabdpt+DS-vanilla] train=0.8747  test=0.7719
+  [tabdpt+RSF]        train=0.9710  test=0.7670
+  [tabdpt+Cox]        train=0.6744  test=0.6338
+  Fold 4: train=1000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.9119  test=0.7709
+  [tabdpt+DS-vanilla] train=0.8651  test=0.7746
+  [tabdpt+RSF]        train=0.9703  test=0.7688
+  [tabdpt+Cox]        train=0.8673  test=0.7682
+  Fold 5: train=1000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (1000, 768)
+  [tabdpt+DS-simple]  train=0.8844  test=0.7836
+  [tabdpt+DS-vanilla] train=0.8558  test=0.7977
+  [tabdpt+RSF]        train=0.9750  test=0.7915
+  [tabdpt+Cox]        train=0.8544  test=0.7617
+
+--- Sample size: 2500 ---
+  Fold 1: train=2500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8554  test=0.7976
+  [tabdpt+DS-vanilla] train=0.8270  test=0.8110
+  [tabdpt+RSF]        train=0.9725  test=0.7935
+  [tabdpt+Cox]        train=0.8583  test=0.7907
+  Fold 2: train=2500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8539  test=0.7947
+  [tabdpt+DS-vanilla] train=0.8184  test=0.8140
+  [tabdpt+RSF]        train=0.9697  test=0.8021
+  [tabdpt+Cox]        train=0.3215  test=0.2264
+  Fold 3: train=2500, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8728  test=0.7954
+  [tabdpt+DS-vanilla] train=0.8716  test=0.8031
+  [tabdpt+RSF]        train=0.9691  test=0.7974
+  [tabdpt+Cox]        train=0.4706  test=0.2764
+  Fold 4: train=2500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8724  test=0.7736
+  [tabdpt+DS-vanilla] train=0.8405  test=0.7751
+  [tabdpt+RSF]        train=0.9704  test=0.7754
+  [tabdpt+Cox]        train=0.3274  test=0.3216
+  Fold 5: train=2500, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (2500, 768)
+  [tabdpt+DS-simple]  train=0.8438  test=0.7803
+  [tabdpt+DS-vanilla] train=0.8471  test=0.8101
+  [tabdpt+RSF]        train=0.9739  test=0.8048
+  [tabdpt+Cox]        train=0.3128  test=0.2555
+
+--- Sample size: 5000 ---
+  Fold 1: train=5000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8318  test=0.7987
+  [tabdpt+DS-vanilla] train=0.8089  test=0.8042
+  [tabdpt+RSF]        train=0.9634  test=0.7976
+  [tabdpt+Cox]        train=0.8361  test=0.8123
+  Fold 2: train=5000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8074  test=0.7934
+  [tabdpt+DS-vanilla] train=0.8505  test=0.8163
+  [tabdpt+RSF]        train=0.9631  test=0.8160
+  [tabdpt+Cox]        train=0.3973  test=0.3110
+  Fold 3: train=5000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8069  test=0.7707
+  [tabdpt+DS-vanilla] train=0.8105  test=0.7895
+  [tabdpt+RSF]        train=0.9678  test=0.7957
+  [tabdpt+Cox]        train=0.8438  test=0.7967
+  Fold 4: train=5000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8502  test=0.7643
+  [tabdpt+DS-vanilla] train=0.8451  test=0.7951
+  [tabdpt+RSF]        train=0.9633  test=0.7809
+  [tabdpt+Cox]        train=0.2869  test=0.2779
+  Fold 5: train=5000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (5000, 768)
+  [tabdpt+DS-simple]  train=0.8332  test=0.7860
+  [tabdpt+DS-vanilla] train=0.8280  test=0.8105
+  [tabdpt+RSF]        train=0.9638  test=0.8070
+  [tabdpt+Cox]        train=0.2938  test=0.2314
+
+--- Sample size: 10000 ---
+  Fold 1: train=10000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8364  test=0.7815
+  [tabdpt+DS-vanilla] train=0.8138  test=0.7885
+  [tabdpt+RSF]        train=0.9566  test=0.7902
+  [tabdpt+Cox]        train=0.8366  test=0.7881
+  Fold 2: train=10000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.7832  test=0.7310
+  [tabdpt+DS-vanilla] train=0.8295  test=0.8212
+  [tabdpt+RSF]        train=0.9565  test=0.8116
+  [tabdpt+Cox]        train=0.8333  test=0.7959
+  Fold 3: train=10000, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8043  test=0.7527
+  [tabdpt+DS-vanilla] train=0.8351  test=0.8034
+  [tabdpt+RSF]        train=0.9555  test=0.8088
+  [tabdpt+Cox]        train=0.8371  test=0.7818
+  Fold 4: train=10000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8017  test=0.7604
+  [tabdpt+DS-vanilla] train=0.8366  test=0.7857
+  [tabdpt+RSF]        train=0.9544  test=0.7871
+  [tabdpt+Cox]        train=0.8364  test=0.7704
+  Fold 5: train=10000, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (10000, 768)
+  [tabdpt+DS-simple]  train=0.8216  test=0.8251
+  [tabdpt+DS-vanilla] train=0.8197  test=0.8121
+  [tabdpt+RSF]        train=0.9535  test=0.8153
+  [tabdpt+Cox]        train=0.8354  test=0.8078
+
+--- Sample size: 15000 ---
+  Fold 1: train=13566, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13566, 768)
+  [tabdpt+DS-simple]  train=0.8259  test=0.8128
+  [tabdpt+DS-vanilla] train=0.8261  test=0.8163
+  [tabdpt+RSF]        train=0.9524  test=0.7950
+  [tabdpt+Cox]        train=0.8326  test=0.8018
+  Fold 2: train=13566, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13566, 768)
+  [tabdpt+DS-simple]  train=0.8056  test=0.7841
+  [tabdpt+DS-vanilla] train=0.8223  test=0.8051
+  [tabdpt+RSF]        train=0.9497  test=0.8189
+  [tabdpt+Cox]        train=0.8300  test=0.7912
+  Fold 3: train=13566, test=3392
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13566, 768)
+  [tabdpt+DS-simple]  train=0.8155  test=0.8092
+  [tabdpt+DS-vanilla] train=0.8154  test=0.8022
+  [tabdpt+RSF]        train=0.9500  test=0.8006
+  [tabdpt+Cox]        train=0.8292  test=0.7889
+  Fold 4: train=13567, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13567, 768)
+  [tabdpt+DS-simple]  train=0.8266  test=0.7840
+  [tabdpt+DS-vanilla] train=0.8301  test=0.8005
+  [tabdpt+RSF]        train=0.9511  test=0.7882
+  [tabdpt+Cox]        train=0.8350  test=0.7781
+  Fold 5: train=13567, test=3391
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+<class 'dict'>
+Loaded TabDPTModel from checkpoint.
+  Embedding shape: (13567, 768)
+  [tabdpt+DS-simple]  train=0.8171  test=0.8074
+  [tabdpt+DS-vanilla] train=0.8179  test=0.8007
+  [tabdpt+RSF]        train=0.9506  test=0.8105
+  [tabdpt+Cox]        train=0.8304  test=0.7930
+
+Data saved → results/HURRAH/tabdpt/results_samplesize_HURRAH_tabdpt_seed123_data.txt
+
+Dataset: HURRAH | Model: tabdpt | Seed: 123
+======================================================================
+
+Preprocess: -1
+------------------------------------------------------------
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabdpt+DS-simple            → mean: 0.7844 | std: 0.1030 | min: 0.6105 | max: 0.9206 | folds: [0.6105, 0.7918, 0.7558, 0.8431, 0.9206]
+    TEST  tabdpt+DS-simple            → mean: 0.7483 | std: 0.0250 | min: 0.7197 | max: 0.7922 | folds: [0.7474, 0.7526, 0.7293, 0.7197, 0.7922]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.9169 | std: 0.0226 | min: 0.8794 | max: 0.9463 | folds: [0.9115, 0.8794, 0.9463, 0.9147, 0.9327]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7890 | std: 0.0149 | min: 0.7691 | max: 0.8074 | folds: [0.7935, 0.7742, 0.8007, 0.7691, 0.8074]
+    TRAIN tabdpt+RSF                  → mean: 0.9704 | std: 0.0044 | min: 0.9621 | max: 0.9746 | folds: [0.9705, 0.9746, 0.9735, 0.9621, 0.9711]
+    TEST  tabdpt+RSF                  → mean: 0.7724 | std: 0.0168 | min: 0.7467 | max: 0.7943 | folds: [0.7615, 0.7751, 0.7845, 0.7467, 0.7943]
+    TRAIN tabdpt+Cox                  → mean: 0.7534 | std: 0.1484 | min: 0.4657 | max: 0.8700 | folds: [0.8700, 0.4657, 0.8610, 0.7956, 0.7746]
+    TEST  tabdpt+Cox                  → mean: 0.6201 | std: 0.1450 | min: 0.3755 | max: 0.7819 | folds: [0.7524, 0.3755, 0.7819, 0.5808, 0.6098]
+    TRAIN DS-simple (base)            → mean: 0.8542 | std: 0.0168 | min: 0.8348 | max: 0.8747 | folds: [0.8542, 0.8360, 0.8348, 0.8747, 0.8711]
+    TEST  DS-simple (base)            → mean: 0.8029 | std: 0.0113 | min: 0.7855 | max: 0.8135 | folds: [0.8135, 0.8098, 0.7934, 0.7855, 0.8123]
+    TRAIN DS-vanilla (base)           → mean: 0.8404 | std: 0.0617 | min: 0.7191 | max: 0.8805 | folds: [0.8492, 0.8805, 0.7191, 0.8777, 0.8752]
+    TEST  DS-vanilla (base)           → mean: 0.7473 | std: 0.0359 | min: 0.6795 | max: 0.7776 | folds: [0.7554, 0.7770, 0.6795, 0.7468, 0.7776]
+    TRAIN RSF (base)                  → mean: 0.9613 | std: 0.0097 | min: 0.9468 | max: 0.9759 | folds: [0.9759, 0.9628, 0.9557, 0.9468, 0.9653]
+    TEST  RSF (base)                  → mean: 0.7924 | std: 0.0218 | min: 0.7519 | max: 0.8143 | folds: [0.7998, 0.8067, 0.8143, 0.7519, 0.7891]
+    TRAIN Cox (base)                  → mean: 0.8654 | std: 0.0169 | min: 0.8433 | max: 0.8870 | folds: [0.8485, 0.8433, 0.8870, 0.8789, 0.8693]
+    TEST  Cox (base)                  → mean: 0.8022 | std: 0.0095 | min: 0.7846 | max: 0.8124 | folds: [0.8070, 0.8124, 0.8060, 0.7846, 0.8008]
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabdpt+DS-simple            → mean: 0.8862 | std: 0.0379 | min: 0.8148 | max: 0.9206 | folds: [0.8819, 0.8148, 0.9113, 0.9206, 0.9021]
+    TEST  tabdpt+DS-simple            → mean: 0.7773 | std: 0.0172 | min: 0.7515 | max: 0.7989 | folds: [0.7989, 0.7515, 0.7866, 0.7635, 0.7858]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8715 | std: 0.0157 | min: 0.8507 | max: 0.8958 | folds: [0.8660, 0.8629, 0.8958, 0.8818, 0.8507]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7953 | std: 0.0144 | min: 0.7750 | max: 0.8114 | folds: [0.8074, 0.7750, 0.8009, 0.7816, 0.8114]
+    TRAIN tabdpt+RSF                  → mean: 0.9702 | std: 0.0038 | min: 0.9644 | max: 0.9763 | folds: [0.9644, 0.9698, 0.9705, 0.9701, 0.9763]
+    TEST  tabdpt+RSF                  → mean: 0.7909 | std: 0.0122 | min: 0.7802 | max: 0.8117 | folds: [0.7975, 0.7804, 0.7846, 0.7802, 0.8117]
+    TRAIN tabdpt+Cox                  → mean: 0.7693 | std: 0.2117 | min: 0.3543 | max: 0.9213 | folds: [0.9134, 0.3543, 0.9213, 0.8093, 0.8484]
+    TEST  tabdpt+Cox                  → mean: 0.6478 | std: 0.1977 | min: 0.2895 | max: 0.7980 | folds: [0.7960, 0.2895, 0.7795, 0.5761, 0.7980]
+    TRAIN DS-simple (base)            → mean: 0.8538 | std: 0.0120 | min: 0.8303 | max: 0.8642 | folds: [0.8580, 0.8303, 0.8587, 0.8642, 0.8579]
+    TEST  DS-simple (base)            → mean: 0.8209 | std: 0.0103 | min: 0.8076 | max: 0.8321 | folds: [0.8286, 0.8269, 0.8096, 0.8076, 0.8321]
+    TRAIN DS-vanilla (base)           → mean: 0.8615 | std: 0.0112 | min: 0.8459 | max: 0.8763 | folds: [0.8537, 0.8601, 0.8717, 0.8459, 0.8763]
+    TEST  DS-vanilla (base)           → mean: 0.8037 | std: 0.0152 | min: 0.7751 | max: 0.8183 | folds: [0.8062, 0.8183, 0.8042, 0.7751, 0.8146]
+    TRAIN RSF (base)                  → mean: 0.9614 | std: 0.0062 | min: 0.9535 | max: 0.9693 | folds: [0.9535, 0.9693, 0.9548, 0.9636, 0.9658]
+    TEST  RSF (base)                  → mean: 0.8085 | std: 0.0129 | min: 0.7914 | max: 0.8219 | folds: [0.7914, 0.8209, 0.8133, 0.7949, 0.8219]
+    TRAIN Cox (base)                  → mean: 0.8458 | std: 0.0112 | min: 0.8255 | max: 0.8586 | folds: [0.8440, 0.8255, 0.8586, 0.8519, 0.8491]
+    TEST  Cox (base)                  → mean: 0.8158 | std: 0.0052 | min: 0.8064 | max: 0.8216 | folds: [0.8152, 0.8188, 0.8171, 0.8064, 0.8216]
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabdpt+DS-simple            → mean: 0.8719 | std: 0.0164 | min: 0.8398 | max: 0.8857 | folds: [0.8790, 0.8398, 0.8800, 0.8857, 0.8751]
+    TEST  tabdpt+DS-simple            → mean: 0.7895 | std: 0.0141 | min: 0.7766 | max: 0.8137 | folds: [0.7972, 0.8137, 0.7766, 0.7806, 0.7791]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8545 | std: 0.0288 | min: 0.8231 | max: 0.8956 | folds: [0.8956, 0.8297, 0.8231, 0.8811, 0.8429]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8066 | std: 0.0133 | min: 0.7824 | max: 0.8183 | folds: [0.8022, 0.8131, 0.8168, 0.7824, 0.8183]
+    TRAIN tabdpt+RSF                  → mean: 0.9719 | std: 0.0028 | min: 0.9666 | max: 0.9748 | folds: [0.9730, 0.9729, 0.9666, 0.9723, 0.9748]
+    TEST  tabdpt+RSF                  → mean: 0.8074 | std: 0.0131 | min: 0.7895 | max: 0.8248 | folds: [0.8061, 0.8193, 0.7976, 0.7895, 0.8248]
+    TRAIN tabdpt+Cox                  → mean: 0.5614 | std: 0.2603 | min: 0.3176 | max: 0.8826 | folds: [0.8756, 0.3849, 0.3461, 0.8826, 0.3176]
+    TEST  tabdpt+Cox                  → mean: 0.4782 | std: 0.2605 | min: 0.2305 | max: 0.7984 | folds: [0.7984, 0.3387, 0.2345, 0.7890, 0.2305]
+    TRAIN DS-simple (base)            → mean: 0.8475 | std: 0.0055 | min: 0.8378 | max: 0.8539 | folds: [0.8471, 0.8378, 0.8474, 0.8539, 0.8511]
+    TEST  DS-simple (base)            → mean: 0.8284 | std: 0.0061 | min: 0.8174 | max: 0.8357 | folds: [0.8357, 0.8311, 0.8269, 0.8174, 0.8307]
+    TRAIN DS-vanilla (base)           → mean: 0.8593 | std: 0.0178 | min: 0.8331 | max: 0.8745 | folds: [0.8745, 0.8331, 0.8427, 0.8723, 0.8740]
+    TEST  DS-vanilla (base)           → mean: 0.8222 | std: 0.0066 | min: 0.8111 | max: 0.8295 | folds: [0.8249, 0.8295, 0.8189, 0.8111, 0.8268]
+    TRAIN RSF (base)                  → mean: 0.9512 | std: 0.0032 | min: 0.9459 | max: 0.9546 | folds: [0.9459, 0.9546, 0.9495, 0.9522, 0.9537]
+    TEST  RSF (base)                  → mean: 0.8321 | std: 0.0114 | min: 0.8165 | max: 0.8432 | folds: [0.8165, 0.8413, 0.8432, 0.8200, 0.8395]
+    TRAIN Cox (base)                  → mean: 0.8387 | std: 0.0053 | min: 0.8298 | max: 0.8456 | folds: [0.8385, 0.8298, 0.8375, 0.8421, 0.8456]
+    TEST  Cox (base)                  → mean: 0.8210 | std: 0.0062 | min: 0.8094 | max: 0.8271 | folds: [0.8223, 0.8271, 0.8254, 0.8094, 0.8207]
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabdpt+DS-simple            → mean: 0.8384 | std: 0.0097 | min: 0.8239 | max: 0.8498 | folds: [0.8453, 0.8302, 0.8498, 0.8426, 0.8239]
+    TEST  tabdpt+DS-simple            → mean: 0.8033 | std: 0.0105 | min: 0.7886 | max: 0.8157 | folds: [0.7993, 0.8149, 0.7886, 0.7978, 0.8157]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8374 | std: 0.0153 | min: 0.8181 | max: 0.8554 | folds: [0.8554, 0.8496, 0.8204, 0.8438, 0.8181]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8143 | std: 0.0099 | min: 0.8009 | max: 0.8254 | folds: [0.8191, 0.8220, 0.8039, 0.8009, 0.8254]
+    TRAIN tabdpt+RSF                  → mean: 0.9655 | std: 0.0026 | min: 0.9630 | max: 0.9695 | folds: [0.9632, 0.9630, 0.9695, 0.9644, 0.9676]
+    TEST  tabdpt+RSF                  → mean: 0.8100 | std: 0.0133 | min: 0.7902 | max: 0.8279 | folds: [0.8007, 0.8189, 0.8123, 0.7902, 0.8279]
+    TRAIN tabdpt+Cox                  → mean: 0.7481 | std: 0.2120 | min: 0.3241 | max: 0.8626 | folds: [0.3241, 0.8485, 0.8560, 0.8626, 0.8493]
+    TEST  tabdpt+Cox                  → mean: 0.6999 | std: 0.2136 | min: 0.2736 | max: 0.8284 | folds: [0.2736, 0.8284, 0.7902, 0.7950, 0.8125]
+    TRAIN DS-simple (base)            → mean: 0.8400 | std: 0.0046 | min: 0.8341 | max: 0.8476 | folds: [0.8366, 0.8400, 0.8415, 0.8476, 0.8341]
+    TEST  DS-simple (base)            → mean: 0.8309 | std: 0.0049 | min: 0.8224 | max: 0.8365 | folds: [0.8323, 0.8365, 0.8292, 0.8224, 0.8342]
+    TRAIN DS-vanilla (base)           → mean: 0.8587 | std: 0.0051 | min: 0.8544 | max: 0.8687 | folds: [0.8687, 0.8565, 0.8544, 0.8561, 0.8581]
+    TEST  DS-vanilla (base)           → mean: 0.8323 | std: 0.0094 | min: 0.8163 | max: 0.8436 | folds: [0.8285, 0.8385, 0.8344, 0.8163, 0.8436]
+    TRAIN RSF (base)                  → mean: 0.9397 | std: 0.0026 | min: 0.9349 | max: 0.9424 | folds: [0.9349, 0.9393, 0.9424, 0.9408, 0.9412]
+    TEST  RSF (base)                  → mean: 0.8426 | std: 0.0120 | min: 0.8248 | max: 0.8550 | folds: [0.8248, 0.8502, 0.8513, 0.8320, 0.8550]
+    TRAIN Cox (base)                  → mean: 0.8301 | std: 0.0048 | min: 0.8253 | max: 0.8392 | folds: [0.8290, 0.8274, 0.8298, 0.8392, 0.8253]
+    TEST  Cox (base)                  → mean: 0.8240 | std: 0.0066 | min: 0.8120 | max: 0.8312 | folds: [0.8224, 0.8312, 0.8278, 0.8120, 0.8265]
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabdpt+DS-simple            → mean: 0.8276 | std: 0.0094 | min: 0.8097 | max: 0.8366 | folds: [0.8305, 0.8282, 0.8366, 0.8330, 0.8097]
+    TEST  tabdpt+DS-simple            → mean: 0.7924 | std: 0.0246 | min: 0.7465 | max: 0.8191 | folds: [0.8035, 0.8017, 0.7465, 0.7912, 0.8191]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8511 | std: 0.0052 | min: 0.8444 | max: 0.8602 | folds: [0.8444, 0.8500, 0.8517, 0.8602, 0.8491]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8022 | std: 0.0138 | min: 0.7893 | max: 0.8268 | folds: [0.8006, 0.8053, 0.7893, 0.7893, 0.8268]
+    TRAIN tabdpt+RSF                  → mean: 0.9578 | std: 0.0011 | min: 0.9562 | max: 0.9590 | folds: [0.9569, 0.9562, 0.9584, 0.9583, 0.9590]
+    TEST  tabdpt+RSF                  → mean: 0.8127 | std: 0.0095 | min: 0.8018 | max: 0.8287 | folds: [0.8057, 0.8175, 0.8101, 0.8018, 0.8287]
+    TRAIN tabdpt+Cox                  → mean: 0.8464 | std: 0.0018 | min: 0.8434 | max: 0.8490 | folds: [0.8465, 0.8434, 0.8464, 0.8490, 0.8466]
+    TEST  tabdpt+Cox                  → mean: 0.7920 | std: 0.0188 | min: 0.7696 | max: 0.8195 | folds: [0.8000, 0.7987, 0.7696, 0.7721, 0.8195]
+    TRAIN DS-simple (base)            → mean: 0.8292 | std: 0.0056 | min: 0.8188 | max: 0.8345 | folds: [0.8336, 0.8345, 0.8290, 0.8302, 0.8188]
+    TEST  DS-simple (base)            → mean: 0.8273 | std: 0.0064 | min: 0.8189 | max: 0.8354 | folds: [0.8307, 0.8354, 0.8308, 0.8189, 0.8207]
+    TRAIN DS-vanilla (base)           → mean: 0.8396 | std: 0.0120 | min: 0.8163 | max: 0.8478 | folds: [0.8465, 0.8474, 0.8163, 0.8478, 0.8401]
+    TEST  DS-vanilla (base)           → mean: 0.8288 | std: 0.0099 | min: 0.8120 | max: 0.8433 | folds: [0.8296, 0.8433, 0.8120, 0.8302, 0.8289]
+    TRAIN RSF (base)                  → mean: 0.9274 | std: 0.0004 | min: 0.9269 | max: 0.9280 | folds: [0.9272, 0.9277, 0.9269, 0.9273, 0.9280]
+    TEST  RSF (base)                  → mean: 0.8483 | std: 0.0095 | min: 0.8332 | max: 0.8576 | folds: [0.8332, 0.8568, 0.8524, 0.8417, 0.8576]
+    TRAIN Cox (base)                  → mean: 0.8303 | std: 0.0017 | min: 0.8274 | max: 0.8321 | folds: [0.8319, 0.8274, 0.8299, 0.8321, 0.8301]
+    TEST  Cox (base)                  → mean: 0.8259 | std: 0.0063 | min: 0.8154 | max: 0.8341 | folds: [0.8232, 0.8341, 0.8282, 0.8154, 0.8286]
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabdpt+DS-simple            → mean: 0.8220 | std: 0.0074 | min: 0.8121 | max: 0.8309 | folds: [0.8309, 0.8266, 0.8262, 0.8121, 0.8143]
+    TEST  tabdpt+DS-simple            → mean: 0.7948 | std: 0.0140 | min: 0.7701 | max: 0.8125 | folds: [0.8018, 0.7701, 0.7926, 0.7972, 0.8125]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8462 | std: 0.0131 | min: 0.8210 | max: 0.8574 | folds: [0.8574, 0.8210, 0.8543, 0.8521, 0.8462]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8101 | std: 0.0094 | min: 0.7975 | max: 0.8212 | folds: [0.8212, 0.8176, 0.8007, 0.7975, 0.8135]
+    TRAIN tabdpt+RSF                  → mean: 0.9519 | std: 0.0009 | min: 0.9506 | max: 0.9530 | folds: [0.9529, 0.9517, 0.9515, 0.9506, 0.9530]
+    TEST  tabdpt+RSF                  → mean: 0.8100 | std: 0.0118 | min: 0.7969 | max: 0.8285 | folds: [0.8120, 0.8149, 0.7969, 0.7976, 0.8285]
+    TRAIN tabdpt+Cox                  → mean: 0.8420 | std: 0.0018 | min: 0.8396 | max: 0.8447 | folds: [0.8420, 0.8408, 0.8431, 0.8447, 0.8396]
+    TEST  tabdpt+Cox                  → mean: 0.7974 | std: 0.0100 | min: 0.7863 | max: 0.8119 | folds: [0.8119, 0.7977, 0.7869, 0.7863, 0.8045]
+    TRAIN DS-simple (base)            → mean: 0.8360 | std: 0.0035 | min: 0.8290 | max: 0.8382 | folds: [0.8378, 0.8372, 0.8382, 0.8376, 0.8290]
+    TEST  DS-simple (base)            → mean: 0.8338 | std: 0.0031 | min: 0.8282 | max: 0.8370 | folds: [0.8338, 0.8370, 0.8366, 0.8282, 0.8332]
+    TRAIN DS-vanilla (base)           → mean: 0.8578 | std: 0.0051 | min: 0.8512 | max: 0.8656 | folds: [0.8549, 0.8512, 0.8616, 0.8656, 0.8559]
+    TEST  DS-vanilla (base)           → mean: 0.8462 | std: 0.0051 | min: 0.8390 | max: 0.8524 | folds: [0.8416, 0.8524, 0.8479, 0.8390, 0.8500]
+    TRAIN RSF (base)                  → mean: 0.9202 | std: 0.0005 | min: 0.9196 | max: 0.9210 | folds: [0.9210, 0.9198, 0.9196, 0.9206, 0.9202]
+    TEST  RSF (base)                  → mean: 0.8498 | std: 0.0105 | min: 0.8332 | max: 0.8614 | folds: [0.8332, 0.8614, 0.8510, 0.8434, 0.8598]
+    TRAIN Cox (base)                  → mean: 0.8281 | std: 0.0014 | min: 0.8262 | max: 0.8299 | folds: [0.8294, 0.8262, 0.8279, 0.8299, 0.8272]
+    TEST  Cox (base)                  → mean: 0.8264 | std: 0.0067 | min: 0.8156 | max: 0.8348 | folds: [0.8222, 0.8348, 0.8287, 0.8156, 0.8304]
+
+Preprocess: NaN
+------------------------------------------------------------
+
+  Sample size (requested):    500  |  actual mean: 500
+    TRAIN tabdpt+DS-simple            → mean: 0.7659 | std: 0.1122 | min: 0.6342 | max: 0.9220 | folds: [0.6342, 0.7019, 0.8761, 0.6954, 0.9220]
+    TEST  tabdpt+DS-simple            → mean: 0.7384 | std: 0.0252 | min: 0.6924 | max: 0.7650 | folds: [0.7570, 0.7413, 0.7365, 0.6924, 0.7650]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8969 | std: 0.0093 | min: 0.8810 | max: 0.9063 | folds: [0.8930, 0.8810, 0.9063, 0.8989, 0.9053]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7769 | std: 0.0147 | min: 0.7492 | max: 0.7904 | folds: [0.7817, 0.7904, 0.7873, 0.7492, 0.7758]
+    TRAIN tabdpt+RSF                  → mean: 0.9700 | std: 0.0027 | min: 0.9651 | max: 0.9727 | folds: [0.9722, 0.9705, 0.9727, 0.9651, 0.9698]
+    TEST  tabdpt+RSF                  → mean: 0.7644 | std: 0.0128 | min: 0.7499 | max: 0.7871 | folds: [0.7549, 0.7652, 0.7871, 0.7499, 0.7645]
+    TRAIN tabdpt+Cox                  → mean: 0.7708 | std: 0.1485 | min: 0.5703 | max: 0.9116 | folds: [0.8782, 0.5703, 0.6099, 0.9116, 0.8837]
+    TEST  tabdpt+Cox                  → mean: 0.6229 | std: 0.1445 | min: 0.3542 | max: 0.7410 | folds: [0.7058, 0.3542, 0.5894, 0.7410, 0.7242]
+
+  Sample size (requested):   1000  |  actual mean: 1000
+    TRAIN tabdpt+DS-simple            → mean: 0.8942 | std: 0.0138 | min: 0.8792 | max: 0.9119 | folds: [0.8792, 0.8856, 0.9098, 0.9119, 0.8844]
+    TEST  tabdpt+DS-simple            → mean: 0.7746 | std: 0.0067 | min: 0.7645 | max: 0.7836 | folds: [0.7798, 0.7743, 0.7645, 0.7709, 0.7836]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8648 | std: 0.0089 | min: 0.8537 | max: 0.8747 | folds: [0.8745, 0.8537, 0.8747, 0.8651, 0.8558]
+    TEST  tabdpt+DS-vanilla           → mean: 0.7868 | std: 0.0111 | min: 0.7719 | max: 0.7977 | folds: [0.7944, 0.7952, 0.7719, 0.7746, 0.7977]
+    TRAIN tabdpt+RSF                  → mean: 0.9703 | std: 0.0029 | min: 0.9662 | max: 0.9750 | folds: [0.9662, 0.9691, 0.9710, 0.9703, 0.9750]
+    TEST  tabdpt+RSF                  → mean: 0.7809 | std: 0.0109 | min: 0.7670 | max: 0.7921 | folds: [0.7854, 0.7921, 0.7670, 0.7688, 0.7915]
+    TRAIN tabdpt+Cox                  → mean: 0.7010 | std: 0.1387 | min: 0.5291 | max: 0.8673 | folds: [0.5796, 0.5291, 0.6744, 0.8673, 0.8544]
+    TEST  tabdpt+Cox                  → mean: 0.5757 | std: 0.1852 | min: 0.3326 | max: 0.7682 | folds: [0.3822, 0.3326, 0.6338, 0.7682, 0.7617]
+
+  Sample size (requested):   2500  |  actual mean: 2500
+    TRAIN tabdpt+DS-simple            → mean: 0.8597 | std: 0.0113 | min: 0.8438 | max: 0.8728 | folds: [0.8554, 0.8539, 0.8728, 0.8724, 0.8438]
+    TEST  tabdpt+DS-simple            → mean: 0.7883 | std: 0.0096 | min: 0.7736 | max: 0.7976 | folds: [0.7976, 0.7947, 0.7954, 0.7736, 0.7803]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8409 | std: 0.0183 | min: 0.8184 | max: 0.8716 | folds: [0.8270, 0.8184, 0.8716, 0.8405, 0.8471]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8027 | std: 0.0142 | min: 0.7751 | max: 0.8140 | folds: [0.8110, 0.8140, 0.8031, 0.7751, 0.8101]
+    TRAIN tabdpt+RSF                  → mean: 0.9711 | std: 0.0018 | min: 0.9691 | max: 0.9739 | folds: [0.9725, 0.9697, 0.9691, 0.9704, 0.9739]
+    TEST  tabdpt+RSF                  → mean: 0.7946 | std: 0.0104 | min: 0.7754 | max: 0.8048 | folds: [0.7935, 0.8021, 0.7974, 0.7754, 0.8048]
+    TRAIN tabdpt+Cox                  → mean: 0.4581 | std: 0.2084 | min: 0.3128 | max: 0.8583 | folds: [0.8583, 0.3215, 0.4706, 0.3274, 0.3128]
+    TEST  tabdpt+Cox                  → mean: 0.3741 | std: 0.2106 | min: 0.2264 | max: 0.7907 | folds: [0.7907, 0.2264, 0.2764, 0.3216, 0.2555]
+
+  Sample size (requested):   5000  |  actual mean: 5000
+    TRAIN tabdpt+DS-simple            → mean: 0.8259 | std: 0.0166 | min: 0.8069 | max: 0.8502 | folds: [0.8318, 0.8074, 0.8069, 0.8502, 0.8332]
+    TEST  tabdpt+DS-simple            → mean: 0.7826 | std: 0.0132 | min: 0.7643 | max: 0.7987 | folds: [0.7987, 0.7934, 0.7707, 0.7643, 0.7860]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8286 | std: 0.0171 | min: 0.8089 | max: 0.8505 | folds: [0.8089, 0.8505, 0.8105, 0.8451, 0.8280]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8031 | std: 0.0098 | min: 0.7895 | max: 0.8163 | folds: [0.8042, 0.8163, 0.7895, 0.7951, 0.8105]
+    TRAIN tabdpt+RSF                  → mean: 0.9643 | std: 0.0018 | min: 0.9631 | max: 0.9678 | folds: [0.9634, 0.9631, 0.9678, 0.9633, 0.9638]
+    TEST  tabdpt+RSF                  → mean: 0.7994 | std: 0.0117 | min: 0.7809 | max: 0.8160 | folds: [0.7976, 0.8160, 0.7957, 0.7809, 0.8070]
+    TRAIN tabdpt+Cox                  → mean: 0.5316 | std: 0.2548 | min: 0.2869 | max: 0.8438 | folds: [0.8361, 0.3973, 0.8438, 0.2869, 0.2938]
+    TEST  tabdpt+Cox                  → mean: 0.4859 | std: 0.2614 | min: 0.2314 | max: 0.8123 | folds: [0.8123, 0.3110, 0.7967, 0.2779, 0.2314]
+
+  Sample size (requested):  10000  |  actual mean: 10000
+    TRAIN tabdpt+DS-simple            → mean: 0.8094 | std: 0.0182 | min: 0.7832 | max: 0.8364 | folds: [0.8364, 0.7832, 0.8043, 0.8017, 0.8216]
+    TEST  tabdpt+DS-simple            → mean: 0.7701 | std: 0.0319 | min: 0.7310 | max: 0.8251 | folds: [0.7815, 0.7310, 0.7527, 0.7604, 0.8251]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8270 | std: 0.0089 | min: 0.8138 | max: 0.8366 | folds: [0.8138, 0.8295, 0.8351, 0.8366, 0.8197]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8022 | std: 0.0136 | min: 0.7857 | max: 0.8212 | folds: [0.7885, 0.8212, 0.8034, 0.7857, 0.8121]
+    TRAIN tabdpt+RSF                  → mean: 0.9553 | std: 0.0012 | min: 0.9535 | max: 0.9566 | folds: [0.9566, 0.9565, 0.9555, 0.9544, 0.9535]
+    TEST  tabdpt+RSF                  → mean: 0.8026 | std: 0.0116 | min: 0.7871 | max: 0.8153 | folds: [0.7902, 0.8116, 0.8088, 0.7871, 0.8153]
+    TRAIN tabdpt+Cox                  → mean: 0.8358 | std: 0.0014 | min: 0.8333 | max: 0.8371 | folds: [0.8366, 0.8333, 0.8371, 0.8364, 0.8354]
+    TEST  tabdpt+Cox                  → mean: 0.7888 | std: 0.0126 | min: 0.7704 | max: 0.8078 | folds: [0.7881, 0.7959, 0.7818, 0.7704, 0.8078]
+
+  Sample size (requested):  15000  |  actual mean: 13566
+    TRAIN tabdpt+DS-simple            → mean: 0.8181 | std: 0.0077 | min: 0.8056 | max: 0.8266 | folds: [0.8259, 0.8056, 0.8155, 0.8266, 0.8171]
+    TEST  tabdpt+DS-simple            → mean: 0.7995 | std: 0.0127 | min: 0.7840 | max: 0.8128 | folds: [0.8128, 0.7841, 0.8092, 0.7840, 0.8074]
+    TRAIN tabdpt+DS-vanilla           → mean: 0.8224 | std: 0.0053 | min: 0.8154 | max: 0.8301 | folds: [0.8261, 0.8223, 0.8154, 0.8301, 0.8179]
+    TEST  tabdpt+DS-vanilla           → mean: 0.8050 | std: 0.0059 | min: 0.8005 | max: 0.8163 | folds: [0.8163, 0.8051, 0.8022, 0.8005, 0.8007]
+    TRAIN tabdpt+RSF                  → mean: 0.9508 | std: 0.0009 | min: 0.9497 | max: 0.9524 | folds: [0.9524, 0.9497, 0.9500, 0.9511, 0.9506]
+    TEST  tabdpt+RSF                  → mean: 0.8026 | std: 0.0109 | min: 0.7882 | max: 0.8189 | folds: [0.7950, 0.8189, 0.8006, 0.7882, 0.8105]
+    TRAIN tabdpt+Cox                  → mean: 0.8314 | std: 0.0021 | min: 0.8292 | max: 0.8350 | folds: [0.8326, 0.8300, 0.8292, 0.8350, 0.8304]
+    TEST  tabdpt+Cox                  → mean: 0.7906 | std: 0.0076 | min: 0.7781 | max: 0.8018 | folds: [0.8018, 0.7912, 0.7889, 0.7781, 0.7930]
+Text summary saved → results/HURRAH/tabdpt/results_samplesize_HURRAH_tabdpt_seed123.txt
