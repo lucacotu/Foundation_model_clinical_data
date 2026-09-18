@@ -23,7 +23,6 @@ For each dataset, frozen embeddings extracted from a tabular foundation model ar
   - [4. Aggregating results across seeds](#4-aggregating-results-across-seeds)
   - [5. Plotting](#5-plotting)
   - [6. Classical survival analysis (exploratory)](#6-classical-survival-analysis-exploratory)
-  - [7. Dataset exploration](#7-dataset-exploration)
 - [Generated artifacts](#generated-artifacts)
 - [Running on a Slurm cluster](#running-on-a-slurm-cluster)
 
@@ -37,9 +36,6 @@ For each dataset, frozen embeddings extracted from a tabular foundation model ar
 ├── test_tabular_model.py       # Main benchmark: foundation-model embeddings vs raw-feature baselines
 ├── test_nan.py                 # Robustness to missing data, embeddings vs classical imputers
 ├── test_sample_size.py         # Performance vs training-set size
-├── dataset.py                  # Ad-hoc script version of the dataset-merging notebook
-├── dataset_analysis.py         # Descriptive analysis of the clinical cohorts
-├── Dataset_analysis.ipynb      # Exploratory data analysis / dataset-merging notebook
 │
 ├── aggregate_results.py        # Aggregate CV results across seeds (main benchmark)
 ├── aggregate_nan_results.py    # Aggregate results across seeds (NaN experiment)
@@ -51,8 +47,6 @@ For each dataset, frozen embeddings extracted from a tabular foundation model ar
 ├── plot_samplesize_results.py  # Plots for the sample-size experiment
 ├── plot_shap_results.py        # SHAP heatmaps / bar charts
 ├── plot_survival_curves.py     # Kaplan-Meier vs predicted survival curves
-│
-├── report_shap_tree_vs_kernel.md  # Design note: TreeExplainer vs KernelExplainer for RSF
 │
 ├── src/
 │   ├── data_loader.py           # Reads and merges the raw Excel files per dataset
@@ -67,12 +61,12 @@ For each dataset, frozen embeddings extracted from a tabular foundation model ar
 │   ├── tabicl/                  # TabICL embedding extraction
 │   └── tabdpt/                  # TabDPT embedding extraction
 │
-├── onedrive_utils/              # Helpers to sync the private dataset from OneDrive/iCloud
-├── job.sbatch                   # Slurm job wrapper (`sbatch job.sbatch <script.py> [args]`)
-└── HOW_TO_USE.md                # Cluster/Slurm/tmux/uv cheat-sheet
+└── onedrive_utils/              # Helpers to sync the private dataset from OneDrive/iCloud
 ```
 
-`results/`, `results_nan/`, and `results_dataset.txt` hold committed, human-readable output; `checkpoints/`, `checkpoints_samplesize/`, `nan/`, `tmp/`, and `survival_predictions/` are local caches (git-ignored, see [Generated artifacts](#generated-artifacts)).
+`results/` and `results_nan/` hold committed, human-readable output; `checkpoints/`, `checkpoints_samplesize/`, `nan/`, `tmp/`, and `survival_predictions/` are local caches (git-ignored, see [Generated artifacts](#generated-artifacts)).
+
+`job.sbatch` (the Slurm job wrapper) and `HOW_TO_USE.md` (a cluster/Slurm/tmux/uv cheat-sheet) are machine-local, git-ignored files kept alongside the code but not part of the versioned repository.
 
 ## Setup
 
@@ -160,10 +154,6 @@ python plot_survival_curves.py --dataset OrmoniTirodei [--model tabpfn] [--split
 python main.py
 ```
 
-### 7. Dataset exploration
-
-`Dataset_analysis.ipynb` (and its script counterpart `dataset_analysis.py` / `dataset.py`) documents how the raw Excel exports are merged and cleaned into the working dataset, and reports descriptive statistics (e.g. age distribution per split).
-
 ## Generated artifacts
 
 The following directories are git-ignored and are (re)created locally as scripts run:
@@ -178,4 +168,4 @@ The following directories are git-ignored and are (re)created locally as scripts
 
 ## Running on a Slurm cluster
 
-Experiments are typically launched on a GPU cluster via `job.sbatch` (e.g. `sbatch job.sbatch test_tabular_model.py --model tabpfn --seed 42 --shap`). See [`HOW_TO_USE.md`](HOW_TO_USE.md) for Slurm, tmux, and `uv` commands specific to that workflow.
+Experiments are typically launched on a GPU cluster via a local `job.sbatch` wrapper (e.g. `sbatch job.sbatch test_tabular_model.py --model tabpfn --seed 42 --shap`); see `HOW_TO_USE.md` (kept locally, not versioned) for the Slurm/tmux/`uv` commands used on that setup.
