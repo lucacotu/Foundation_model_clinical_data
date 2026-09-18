@@ -22,7 +22,6 @@ For each dataset, frozen embeddings extracted from a tabular foundation model ar
   - [3. Sample-size ablation](#3-sample-size-ablation)
   - [4. Aggregating results across seeds](#4-aggregating-results-across-seeds)
   - [5. Plotting](#5-plotting)
-  - [6. Classical survival analysis (exploratory)](#6-classical-survival-analysis-exploratory)
 - [Generated artifacts](#generated-artifacts)
 - [Running on a Slurm cluster](#running-on-a-slurm-cluster)
 
@@ -32,7 +31,6 @@ For each dataset, frozen embeddings extracted from a tabular foundation model ar
 
 ```
 .
-├── main.py                     # Classical Cox/DeepSurv/DeepHit analysis (mortality, CV, MI, stroke)
 ├── test_tabular_model.py       # Main benchmark: foundation-model embeddings vs raw-feature baselines
 ├── test_nan.py                 # Robustness to missing data, embeddings vs classical imputers
 ├── test_sample_size.py         # Performance vs training-set size
@@ -145,14 +143,6 @@ python plot_survival_curves.py --dataset OrmoniTirodei [--model tabpfn] [--split
 ```
 
 `plot_survival_curves.py` overlays observed Kaplan-Meier curves with mean predicted survival curves from `survival_predictions/`, with optional stratification by a feature.
-
-### 6. Classical survival analysis (exploratory)
-
-`main.py` runs the earlier, non-embedding analysis used to characterize the datasets: univariate/multivariate Cox, DeepSurv on general mortality, and competing-risks Cox/DeepHit for cardiovascular death, myocardial infarction, and stroke.
-
-```bash
-python main.py
-```
 
 ## Generated artifacts
 
