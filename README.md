@@ -83,6 +83,8 @@ source .venv/bin/activate
 
 Place the private dataset in a `Dataset Sirbu/` folder at the repository root before running any script (see `onedrive_utils/` for scripts that pull it down from OneDrive/iCloud).
 
+TabPFN and TabICL download their pretrained weights automatically from HuggingFace on first use. TabDPT does not: `--model tabdpt` needs a local checkpoint, resolved via (in order) the `checkpoint_path` argument, the `TABDPT_CHECKPOINT` environment variable, or a file at `src/models_diff/tabdpt1_1.pth`.
+
 ## Usage
 
 All scripts assume the dataset is already in place and are meant to be run from the repository root, e.g. `python test_tabular_model.py ...` (or `uv run test_tabular_model.py ...`).
