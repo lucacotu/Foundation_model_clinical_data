@@ -9,13 +9,13 @@ FILE_RE = re.compile(r"^results_samplesize_(.+)_([^_]+)_aggregated\.txt$")
 
 PREPROCESS_RE = re.compile(r"^Preprocess:\s*(.+)$")
 SAMPLE_RE = re.compile(r"Sample size \(requested\):\s+\d+\s+\|\s+actual mean:\s+([\d.]+)")
-TEST_RE = re.compile(r"TEST\s+(.+?)\s+→ mean:\s+([\d.]+)\s+\|\s+std:\s+([\d.]+)")
+TEST_RE = re.compile(r"TEST\s+(.+?)\s+→ mean:\s+([\d.]+)\s+\|.+?CI95%:\s+\[[\d.]+,\s*[\d.]+\]\s+\(±([\d.]+)\)")
 
 
 def parse_samplesize_file(filepath):
     """
     Returns nested dict:
-      { preprocess_key: { actual_mean: { model_name: {"mean": float, "std": float} } } }
+      { preprocess_key: { actual_mean: { model_name: {"mean": float, "ci": float} } } }
     """
     data = {}
     current_prep = None
@@ -47,7 +47,7 @@ def parse_samplesize_file(filepath):
                 model_name = m.group(1).strip()
                 data[current_prep][current_sample][model_name] = {
                     "mean": float(m.group(2)),
-                    "std": float(m.group(3)),
+                    "ci": float(m.group(3)),
                 }
 
     return data
@@ -157,13 +157,13 @@ def plot_section(prep_data, section_label, ax, model, lang="en"):
                 seen.add(name)
 
     for name in all_models:
-        x_vals, y_vals, s_vals = [], [], []
+        x_vals, y_vals, ci_vals = [], [], []
         for ss in sample_sizes:
             entry = prep_data[ss].get(name)
             if entry is not None:
                 x_vals.append(ss_to_idx[ss])
                 y_vals.append(entry["mean"])
-                s_vals.append(entry["std"])
+                ci_vals.append(entry["ci"])
 
         if not x_vals:
             continue
@@ -173,13 +173,13 @@ def plot_section(prep_data, section_label, ax, model, lang="en"):
         label = legend_label(name, model)
         x_arr = np.array(x_vals)
         y_arr = np.array(y_vals)
-        s_arr = np.array(s_vals)
+        ci_arr = np.array(ci_vals)
 
         ax.plot(x_arr, y_arr, marker=marker, linewidth=1.8, markersize=6,
                 color=color, label=label)
 
-        if s_arr.any():
-            ax.fill_between(x_arr, y_arr - s_arr, y_arr + s_arr,
+        if ci_arr.any():
+            ax.fill_between(x_arr, y_arr - ci_arr, y_arr + ci_arr,
                             alpha=0.15, color=color)
 
     all_means = [
@@ -187,14 +187,14 @@ def plot_section(prep_data, section_label, ax, model, lang="en"):
         for ss in sample_sizes
         for entry in prep_data[ss].values()
     ]
-    all_stds = [
-        entry["std"]
+    all_cis = [
+        entry["ci"]
         for ss in sample_sizes
         for entry in prep_data[ss].values()
     ]
     pad = 0.03
-    y_min = max(0.0, min(m - s for m, s in zip(all_means, all_stds)) - pad)
-    y_max = min(1.0, max(m + s for m, s in zip(all_means, all_stds)) + pad)
+    y_min = max(0.0, min(m - c for m, c in zip(all_means, all_cis)) - pad)
+    y_max = min(1.0, max(m + c for m, c in zip(all_means, all_cis)) + pad)
 
     tick_labels = [str(int(ss)) if ss == int(ss) else f"{ss:.0f}" for ss in sample_sizes]
     ax.set_xticks(x_positions)
